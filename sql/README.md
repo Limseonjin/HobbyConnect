@@ -3,4 +3,4 @@
 Create Database hobby;
 use hobby;  
 후 
-board -> room -> board -> reply -> roomMember 
+person -> room -> board -> reply -> roomMember 
