@@ -11,7 +11,7 @@ public class indexTest {
     public String Test() {
         return "index";
     }
-    @RequestMapping("/head")
+    @RequestMapping("/header")
     public String headTest(){
         return "/common/head";
     }

@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="/static/assets/css/head.css">
     <%@ include file="static-head.jsp"%>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/head.css">
+
 
 </head>
 <body>
@@ -20,6 +22,7 @@
             <button>로그아웃</button>
         </div>
     </header>
+    <h1>나는 뭬롱 </h1>
     <button type="button" class="btn btn-primary">Primary</button>
     <button type="button" class="btn btn-secondary">Secondary</button>
     <button type="button" class="btn btn-success">Success</button>
