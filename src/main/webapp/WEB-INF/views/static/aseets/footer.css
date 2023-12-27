@@ -1,0 +1,9 @@
+footer{
+    background-color: #848484;
+}
+footer img{
+    width: 90px;
+    height: 90px;
+    border-radius : 50%;
+    margin-top: 7px;
+}
