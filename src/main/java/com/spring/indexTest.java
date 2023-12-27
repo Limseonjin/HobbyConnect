@@ -7,7 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class indexTest {
 
-    public String Test(){
+    @RequestMapping("/index")
+    public String Test() {
         return "index";
     }
+    @RequestMapping("/head")
+    public String headTest(){
+        return "/common/head";
+    }
+
 }
