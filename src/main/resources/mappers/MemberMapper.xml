@@ -13,10 +13,10 @@ INSERT INTO tbl_person
 </insert>
 
     <select id="findMember" resultType="Person">
-SELECT
-        person_id, email, password, nickname,location,introducation, auth, reg_date
+        SELECT
+        person_id, email, password, nickname,location,introduction, reg_date
         FROM tbl_person
-        WHERE personId = #{person_id}
+        WHERE person_id = #{personId}
     </select>
 
     <select id="isDuplicate" resultType="boolean">
@@ -24,13 +24,13 @@ SELECT
         SELECT COUNT(*)
         FROM tbl_person
 
-        <if test="type == 'personId">
-        WHERE personId = #{keyword}
+        <if test="type == 'personId'">
+        WHERE person_id = #{keyword}
         </if>
-        <if test="type == 'email">
+        <if test="type == 'email'">
             WHERE email = #{keyword}
         </if>
-        <if test="type == 'nickname">
+        <if test="type == 'nickname'">
             WHERE nickname = #{keyword}
         </if>
 

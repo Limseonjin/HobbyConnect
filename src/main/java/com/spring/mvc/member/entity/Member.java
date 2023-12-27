@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 
 //CREATE TABLE tbl_person
 //회원 테이블
@@ -32,6 +33,5 @@ public class Member {
     private String nickname;
     private String location;
     private String introduction;
-    private Auth auth;
     private LocalDateTime regDate;
 }
