@@ -3,7 +3,7 @@ CREATE TABLE tbl_roomMember
     room_members INTEGER AUTO_INCREMENT,
     room_id INTEGER,
     person_id VARCHAR(16),
-    authority VARCHAR(10),
+    authority VARCHAR(10) DEFAULT 'COMMON',
     CONSTRAINT pk_roomMember PRIMARY KEY (room_members),
     CONSTRAINT fk_roomMember_person
         FOREIGN KEY (person_id)
