@@ -4,6 +4,7 @@ import com.spring.mvc.dto.LoginRequestDTO;
 import com.spring.mvc.dto.SignUpRequestDTO;
 import com.spring.mvc.member.entity.LoginResult;
 import com.spring.mvc.member.service.MemberService;
+import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,6 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 @RequestMapping("/login")
 public class MemberController {
-
-
 
     private final MemberService memberService;
 
@@ -73,8 +72,6 @@ public class MemberController {
     // 왜냐하면 리다이렉트는 요청이 2번 들어가서 첫번째 요청시 보관한 데이터가 손실 됨.
     public String signIn(LoginRequestDTO dto, RedirectAttributes ra, HttpServletResponse response, HttpSession session){
 
-
-
         log.info("/login/sign-in POST !!!");
         log.debug("parameter : {}", dto);
 
@@ -87,7 +84,7 @@ public class MemberController {
 
             //세션으로 로그인을 유지한다.
             memberService.maintainLoginState(session,dto.getPersonId());
-            return "/";
+            return "login/sign-in";
         }
         return "redirect:/login/sign-in"; //로그인 실패 시
     }
@@ -101,9 +98,9 @@ public class MemberController {
         System.out.println("request = " + request);
         System.out.println("authentication = " + authentication);
         HttpSession session = request.getSession();
-        session.setAttribute("login","2");
-        session.setMaxInactiveInterval(0);
-        return "redirect:/hobby";
+        // 세션을 무효화하여 세션에 저장된 속성을 제거
+        session.invalidate();
+        return "/login/sign-in";
     }
 }
 
