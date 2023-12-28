@@ -25,18 +25,20 @@
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="card-body">
-                        <div class="mypage-board card border-secondary mb-3" >
-                            <div class="card-body board-wrapper">
-                                <div class="title">
-                                    <p>boardTitle</p>
-                                    <p>boardContent</p>
-                                </div>
-                                <div class="other">
-                                    <p>작성자 : nickname</p>
-                                    <p>조회수 : viewCount</p>
-                                </div>
-                            </div>
-                        </div>
+<%--                       게시글 생성 jstl --%>
+<%--                        <c:forEach var="b" items="${bList}">--%>
+<%--                            <div class="mypage-board card border-secondary mb-3" >--%>
+<%--                                <div class="card-body board-wrapper">--%>
+<%--                                    <div class="title">--%>
+<%--                                        <p>boardTitle</p>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="other">--%>
+<%--                                        <p>작성자 : nickname</p>--%>
+<%--                                        <p>조회수 : viewCount</p>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </c:forEach>--%>
                     </div>
                 </div>
             </div>

@@ -31,12 +31,13 @@
 }
 /*조회창 전체 */
 .page-wrapper .activies .active-list-wrapper .card-body{
-    height: 500px;
+    height: 700px;
+    overflow: auto;
 }
 .page-wrapper .activies .active-list-wrapper .card-body .mypage-board{
     padding: 10px;
     padding-left: 50px;
-    height: 100px;
+    height: 200px;
 }
 .page-wrapper .activies .active-list-wrapper .card-body .mypage-board .board-wrapper{
     display: flex;

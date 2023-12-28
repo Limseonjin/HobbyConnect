@@ -9,7 +9,7 @@ public class indexTest {
 
     @RequestMapping("/mp")
     public String Test() {
-        return "myPage/main";
+        return "myPage/myboard";
     }
 
 }
