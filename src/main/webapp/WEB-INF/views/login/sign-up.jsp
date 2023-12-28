@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입 페이지</title>
-
     <%@include file="../common/static-head.jsp"%>
     <link rel="stylesheet" href="/assets/css/common.css">
     <link rel="stylesheet" href="/assets/css/head.css">
@@ -52,10 +51,21 @@
                 <label for="sign_intro" class="form-label">한 줄 소개</label>
                 <input type="text" class="form-control" id="sign_intro" name="introduction">
             </div>
+           <div class="container">
+               <div> *은 필수 입력값 입니다.</div>
 
-            <div> *은 필수 입력값 입니다.</div>
+               <br>
+               <button id="sign_ok" type="button" class="btn btn-primary">가입하기</button>
+           </div>
+            <br>
+<%--            <div class="p">--%>
+<%--                <p>로그인이 있으신가요?</p>--%>
 
-            <button id="sign_ok" type="button" class="btn btn-primary">가입하기</button>
+<%--            </div>--%>
+<%--            <br>--%>
+<%--            <div class="container">--%>
+<%--                <button id="sign_ok1" type="button" class="btn btn-primary1">로그인</button>--%>
+<%--            </div>--%>
         </form>
     </div>
 
