@@ -13,15 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MypageController {
     private final MypageService mypageService;
 
-    // 1. 내가 쓴 글 조회
+    // 1. 마이페이지 조회 요청
 
-    // 2. 내가 쓴 댓글 조회
+    // 2. 프사 (추후 제작)
 
-    // 3. 프사 (추후 제작)
 
-    // 4. 한줄 소개 조회
+    // 3. 닉네임 수정 요청
 
-    // 5. 닉네임 수정
-
-    // 6. 지역 수정
+    // 4. 지역 수정 요청
 }
