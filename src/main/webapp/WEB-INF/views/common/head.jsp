@@ -4,7 +4,7 @@
         <div class="logo">
             <img src="${pageContext.request.contextPath}/assets/img/0.png " width="300" , height="150">
         </div>
-
+    </div>
         <div class="btn btn-wrap">
             <button type="button" class="btn btn-light">MAIN</button>
             <button type="button" class="btn btn-light">MY PAGE</button>

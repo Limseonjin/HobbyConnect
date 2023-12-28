@@ -4,13 +4,6 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@ToString
 
 //CREATE TABLE tbl_person
 //회원 테이블
@@ -24,7 +17,13 @@ import java.time.LocalDateTime;
 //        reg_date TIME DEFAULT current_timestamp,
 //        CONSTRAINT pk_person PRIMARY KEY (person_id)
 //        );
-
+@Setter
+@Getter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 public class Member {
 
     private String personId;
