@@ -14,6 +14,7 @@
 </head>
 <body>
     <%@include file="../common/head.jsp"%>
+
     <div id="form-wrapper">
         <h2> 회원가입 폼 </h2>
         <form action="sign-up" name="signup" id="signUpForm" class="sign-up-form" method="post">
