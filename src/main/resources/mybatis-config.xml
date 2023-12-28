@@ -11,9 +11,11 @@
 
     <!-- entity클래스 별칭 설정하기 -->
     <typeAliases>
+        <typeAlias type="com.spring.mvc.member.entity.Member" alias="Person"/>
     </typeAliases>
 
     <!--  SQL을 적어둔 XML파일의 위치를 설정  -->
     <mappers>
+        <mapper resource="mappers/MemberMapper.xml"/>
     </mappers>
 </configuration>

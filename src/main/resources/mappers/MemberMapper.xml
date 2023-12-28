@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.MemberMapper">
+
+<insert id="save">
+INSERT INTO tbl_person
+    (person_id,email, password,nickname,location,introduction)
+
+    VALUES
+    (#{personId},#{email},#{password},#{nickname},#{location},#{introduction})
+</insert>
+
+    <select id="findMember" resultType="Person">
+        SELECT
+        person_id, email, password, nickname,location,introduction, reg_date
+        FROM tbl_person
+        WHERE person_id = #{personId}
+    </select>
+
+    <select id="isDuplicate" resultType="boolean">
+
+        SELECT COUNT(*)
+        FROM tbl_person
+
+        <if test="type == 'personId'">
+        WHERE person_id = #{keyword}
+        </if>
+        <if test="type == 'email'">
+            WHERE email = #{keyword}
+        </if>
+        <if test="type == 'nickname'">
+            WHERE nickname = #{keyword}
+        </if>
+
+    </select>
+
+
+</mapper>
