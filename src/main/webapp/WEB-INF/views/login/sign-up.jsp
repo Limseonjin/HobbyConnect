@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <title>회원가입 페이지</title>
     <%@include file="../common/static-head.jsp"%>
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/head.css">
+
     <link rel="stylesheet" href="/assets/css/login/sign-up.css">
     <script src="/assets/js/login/sign-up.js" defer></script>
 </head>
@@ -57,17 +56,10 @@
                <br>
                <button id="sign_ok" type="button" class="btn btn-primary">가입하기</button>
            </div>
-            <br>
-<%--            <div class="p">--%>
-<%--                <p>로그인이 있으신가요?</p>--%>
-
-<%--            </div>--%>
-<%--            <br>--%>
-<%--            <div class="container">--%>
-<%--                <button id="sign_ok1" type="button" class="btn btn-primary1">로그인</button>--%>
-<%--            </div>--%>
         </form>
     </div>
+
+    <%@include file="../common/footer.jsp"%>
 
 </body>
 </html>

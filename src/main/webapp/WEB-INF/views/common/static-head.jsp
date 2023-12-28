@@ -6,3 +6,7 @@
 
 <!-- https://linearicons.com/free#cdn -->
 <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+<link rel="stylesheet" href="/assets/css/common.css">
+<link rel="stylesheet" href="/assets/css/head.css">
+<link rel="stylesheet" href="/assets/css/footer.css">

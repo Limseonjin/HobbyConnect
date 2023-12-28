@@ -7,8 +7,6 @@
     <title>로그인 페이지</title>
 
     <%@include file="../common/static-head.jsp" %>
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/head.css">
     <link rel="stylesheet" href="/assets/css/login/sign-in.css">
     <script src="/assets/js/login/sign-in.js" defer></script>
 </head>
@@ -51,13 +49,13 @@
                             </tr>
                             <tr>
                                 <td id="iconBox">
-                                    <a id="custom-login-btn" href="#">
+                                    <a class="custom-login-btn" href="#">
                                         <img src="/assets/img/kakaoTalkIcon.png"/>
                                     </a>
-                                    <a id="custom-login-btn" href="#">
+                                    <a class="custom-login-btn" href="#">
                                         <img src="/assets/img/NaverIcon.png"/>
                                     </a>
-                                    <a id="custom-login-btn" href="#">
+                                    <a class="custom-login-btn" href="#">
                                         <img src="/assets/img/googleIcon.png"/>
                                     </a>
                                 </td>
@@ -69,5 +67,6 @@
         </div>
     </div>
 </div>
+<%@include file="../common/footer.jsp"%>
 </body>
 </html>

@@ -7,9 +7,6 @@
     <title>마이페이지</title>
 
     <%@ include file="../common/static-head.jsp"%>
-    <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/head.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
     <link rel="stylesheet" href="/assets/css/myPage/mainpage.css">
 
 </head>

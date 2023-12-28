@@ -62,11 +62,11 @@
     border-top: 1px solid #ececec;
 }
 
-#iconBox #custom-login-btn {
+#iconBox .custom-login-btn {
     margin-left: 10px;
 }
 
-#iconBox #custom-login-btn img {
+#iconBox .custom-login-btn img {
     width: 100px;
     height: 100px;
 }
