@@ -26,6 +26,11 @@ public class MemberController {
         log.info("/login/sign-up GET : forwarding to sign-up.jsp");
     return"login/sign-up";
     }
+    @GetMapping("/sign-in")
+    public String signIn(){
+        log.info("/login/sign-up GET : forwarding to sign-up.jsp");
+    return"login/sign-in";
+    }
 
     //아이디, 이메일 중복체크 비동기 요청 처리
     @GetMapping("/check")

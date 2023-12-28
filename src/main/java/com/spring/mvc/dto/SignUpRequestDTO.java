@@ -31,7 +31,7 @@ public class SignUpRequestDTO {
     @Email
     private String email;
 
-    private location locationEnum;
+    private String location;
 
     private String introduction;
 
@@ -42,7 +42,7 @@ public class SignUpRequestDTO {
                 .password(encoder.encode(password))
                 .email(email)
                 .nickname(nickname)
-                .locationEnum(locationEnum)
+                .location(location)
                 .introduction(introduction)
                 .build();
     }
