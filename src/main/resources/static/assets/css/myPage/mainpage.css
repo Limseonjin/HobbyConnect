@@ -1,0 +1,11 @@
+.page-wrapper{
+    height: 1500px;
+    padding-top: 150px;
+}
+.page-wrapper #userInfo,
+.page-wrapper #mypage-side-menu{
+    margin: 30px 10%;
+}
+.page-wrapper #userInfo .card-body{
+    position: relative;
+}
