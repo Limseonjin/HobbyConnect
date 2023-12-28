@@ -1,6 +1,7 @@
 package com.spring.mvc.member.repository;
 
 import com.spring.mvc.member.entity.Member;
+import com.spring.mvc.member.entity.location;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ class MemberMapperTest {
                 .password(encoder.encode("hello123"))
               .nickname("태용이다")
                 .email("Taeyong@naver.com")
-                .location("충남 청양군 청양읍 송애길 7-11")
+                .locationEnum(location.Daegu)
                 .introduction("여여 난 태용이다")
                 .build();
         //when
@@ -42,12 +43,12 @@ class MemberMapperTest {
     @DisplayName("hhhhgong3 계정을 조회 하면 그 회원의 닉네임이 태드레곤 이어야 한다.")
     void findMemberTest(){
         //given
-        String acc = "hhhhgong3";
+        String acc = "Taeyong";
         //when
         Member foundMember = memberMapper.findMember(acc);
         //then
         System.out.println("foundMember = " + foundMember);
-        assertEquals("태드레곤",foundMember.getNickname());
+        assertEquals("태용이다",foundMember.getNickname());
     }
 
     @Test
