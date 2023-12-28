@@ -2,14 +2,16 @@ package com.spring.mvc.service;
 
 import com.spring.mvc.dto.LoginRequestDTO;
 import com.spring.mvc.dto.SignUpRequestDTO;
+import com.spring.mvc.member.entity.LoginResult;
 import com.spring.mvc.member.entity.location;
+import com.spring.mvc.member.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
-import static com.spring.mvc.service.LoginResult.*;
+import static com.spring.mvc.member.entity.LoginResult.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -45,7 +47,7 @@ class MemberServiceTest {
                 .password("kitty1234")
                 .build();
         //when
-        LoginResult result = memberService.authenticate(dto);
+        LoginResult result = memberService.authenticate(dto, null,null);
         //then
 
         assertEquals(SUCCESS, result);
@@ -60,7 +62,7 @@ class MemberServiceTest {
                 .password("kitty1234")
                 .build();
         //when
-        LoginResult result = memberService.authenticate(dto);
+        LoginResult result = memberService.authenticate(dto,null,null);
         //then
 
         assertEquals(NO_ACC, result);
@@ -75,7 +77,7 @@ class MemberServiceTest {
                 .password("kitty12345")
                 .build();
         //when
-        LoginResult result = memberService.authenticate(dto);
+        LoginResult result = memberService.authenticate(dto,null,null);
         //then
 
         assertEquals(NO_PW, result);

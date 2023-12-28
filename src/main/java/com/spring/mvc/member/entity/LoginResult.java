@@ -1,4 +1,4 @@
-package com.spring.mvc.service;
+package com.spring.mvc.member.entity;
 
 public enum LoginResult {
 

@@ -1,13 +1,20 @@
-package com.spring.mvc.service;
+package com.spring.mvc.member.service;
 
 import com.spring.mvc.dto.LoginRequestDTO;
+import com.spring.mvc.dto.LoginUserResponseDTO;
 import com.spring.mvc.dto.SignUpRequestDTO;
+import com.spring.mvc.member.entity.LoginResult;
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.repository.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import static com.spring.mvc.util.LoginUtil.LOGIN_KEY;
 
 @Service
 @Slf4j
@@ -26,7 +33,7 @@ public class MemberService {
     }
 
     //로그인 검증 처리
-    public LoginResult authenticate(LoginRequestDTO dto){
+    public LoginResult authenticate(LoginRequestDTO dto, HttpSession session, HttpServletResponse response){
 
         Member foundMember = memberMapper.findMember(dto.getPersonId());
 
@@ -46,8 +53,38 @@ public class MemberService {
         return LoginResult.SUCCESS;
     }
 
+    private Member getMember(String account) {
+        return memberMapper.findMember(account);
+    }
+
     //아이디 이메일 중복검사 서비스
     public boolean checkDuplicateValue(String type, String keyword){
         return memberMapper.isDuplicate(type, keyword);
+    }
+
+    // 세션을 사용해서 일반 로그인 유지하기
+    public void maintainLoginState(HttpSession session, String account) {
+
+        // 세션은 서버에서만 유일하게 보관되는 데이터로서
+        // 로그인 유지 등 상태유지가 필요할 때 사용되는 개념입니다.
+        // 세션은 쿠키와 달리 모든 데이터를 저장할 수 있습니다.
+        // 세션의 수명은 설정한 수명시간에 영향을 받고 브라우저의 수명과 함께한다.
+
+        // 현재 로그인한 사람의 모든 정보 조회
+        Member member = getMember(account);
+
+        //DB 데이터를 보여줄 것만 정제
+        LoginUserResponseDTO dto = LoginUserResponseDTO.builder()
+                .persinId(member.getPersonId())
+                .email(member.getEmail())
+                .nickname(member.getNickname())
+
+                .build();
+
+        //세션에 로그인한 회원의 정보를 저장
+        session.setAttribute(LOGIN_KEY,dto);
+
+        //세션도 수명을 설정해야 함
+        session.setMaxInactiveInterval(60 * 60); //1시간
     }
 }
