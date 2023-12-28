@@ -31,7 +31,9 @@ public class Member {
     private String email;
     private String password;
     private String nickname;
-    private String location;
+    private location locationEnum;
     private String introduction;
     private LocalDateTime regDate;
-}
+
+    }
+
