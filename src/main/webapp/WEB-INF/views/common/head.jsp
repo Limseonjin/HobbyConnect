@@ -7,8 +7,9 @@
     <title>Title</title>
 
     <%@ include file="static-head.jsp"%>
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/head.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/head.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
 
 
 </head>
