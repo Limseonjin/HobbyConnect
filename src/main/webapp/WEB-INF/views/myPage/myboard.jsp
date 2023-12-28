@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>마이페이지</title>
 
     <%@ include file="../common/static-head.jsp"%>
     <link rel="stylesheet" href="/assets/css/common.css">
@@ -30,13 +30,13 @@
             <div id="mypage-side-menu">
                 <div class="card border-secondary mb-3" style="width: 18rem;">
                     <div class="card-body">
-                        <ul>나의 활동
+                        <ul class="category">나의 활동
                             <li>참여중인 방</li>
                             <li>내가 쓴 글</li>
                             <li>내가 쓴 댓글</li>
                         </ul>
                         <div class="line"></div>
-                        <ul>회원정보
+                        <ul class="category">회원정보
                             <li>회원정보 수정</li>
                             <li>회원정보 삭제</li>
                         </ul>
@@ -52,11 +52,20 @@
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="card-body">
-                        <div class="card border-secondary mb-3" >
-                            <div class="card-body">
-                                아나녕
-                            </div>
-                        </div>
+<%--                       게시글 생성 jstl --%>
+<%--                        <c:forEach var="b" items="${bList}">--%>
+<%--                            <div class="mypage-board card border-secondary mb-3" >--%>
+<%--                                <div class="card-body board-wrapper">--%>
+<%--                                    <div class="title">--%>
+<%--                                        <p>boardTitle</p>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="other">--%>
+<%--                                        <p>작성자 : nickname</p>--%>
+<%--                                        <p>조회수 : viewCount</p>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </c:forEach>--%>
                     </div>
                 </div>
             </div>
