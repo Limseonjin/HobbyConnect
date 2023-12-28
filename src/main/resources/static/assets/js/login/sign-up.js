@@ -28,25 +28,21 @@ $idInput.onkeyup = e => {
             = '<b style="color: red;">[아이디는 4~14글자의 영문,숫자로 입력하세요.]</b>';
         checkResultList[0] = false;
     } else {
-        $idInput.style.borderColor = 'skyblue';
-        document.getElementById('idHelp').innerHTML
-            = '<b style="color: skyblue;">[사용가능한 아이디입니다.]</b>';
-        checkResultList[0] = true;
-        // fetch('/members/check?type=account&keyword=' + idValue)
-        //     .then(res => res.json())
-        //     .then(flag => {
-        //         if (flag) { // 중복
-        //             $idInput.style.borderColor = 'red';
-        //             document.getElementById('idHelp').innerHTML
-        //                 = '<b style="color: red;">[아이디가 중복되었습니다.]</b>';
-        //             checkResultList[0] = false;
-        //         } else {
-        //             $idInput.style.borderColor = 'skyblue';
-        //             document.getElementById('idHelp').innerHTML
-        //                 = '<b style="color: skyblue;">[사용가능한 아이디입니다.]</b>';
-        //             checkResultList[0] = true;
-        //         }
-        //     });
+        fetch('/login/check?type=personId&keyword=' + idValue)
+            .then(res => res.json())
+            .then(flag => {
+                if (flag) { // 중복
+                    $idInput.style.borderColor = 'red';
+                    document.getElementById('idHelp').innerHTML
+                        = '<b style="color: red;">[아이디가 중복되었습니다.]</b>';
+                    checkResultList[0] = false;
+                } else {
+                    $idInput.style.borderColor = 'skyblue';
+                    document.getElementById('idHelp').innerHTML
+                        = '<b style="color: skyblue;">[사용가능한 아이디입니다.]</b>';
+                    checkResultList[0] = true;
+                }
+            });
 
 
     }
@@ -150,21 +146,21 @@ $emailInput.onkeyup = e => {
         document.getElementById('emailHelp').innerHTML
             = '<b style="color: skyblue;">[사용가능한 이메일입니다.]</b>';
         checkResultList[4] = true;
-        // fetch('/members/check?type=email&keyword=' + emailValue)
-        //     .then(res => res.json())
-        //     .then(flag => {
-        //         if (flag) { // 중복
-        //             $emailInput.style.borderColor = 'red';
-        //             document.getElementById('emailHelp').innerHTML
-        //                 = '<b style="color: red;">[이메일이 중복되었습니다.]</b>';
-        //             checkResultList[4] = false;
-        //         } else {
-        //             $emailInput.style.borderColor = 'skyblue';
-        //             document.getElementById('emailHelp').innerHTML
-        //                 = '<b style="color: skyblue;">[사용가능한 이메일입니다.]</b>';
-        //             checkResultList[4] = true;
-        //         }
-        //     });
+        fetch('/login/check?type=email&keyword=' + emailValue)
+            .then(res => res.json())
+            .then(flag => {
+                if (flag) { // 중복
+                    $emailInput.style.borderColor = 'red';
+                    document.getElementById('emailHelp').innerHTML
+                        = '<b style="color: red;">[이메일이 중복되었습니다.]</b>';
+                    checkResultList[4] = false;
+                } else {
+                    $emailInput.style.borderColor = 'skyblue';
+                    document.getElementById('emailHelp').innerHTML
+                        = '<b style="color: skyblue;">[사용가능한 이메일입니다.]</b>';
+                    checkResultList[4] = true;
+                }
+            });
 
 
     }

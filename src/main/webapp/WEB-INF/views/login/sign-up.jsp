@@ -7,16 +7,16 @@
     <title>회원가입 페이지</title>
 
     <%@include file="../common/static-head.jsp"%>
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/head.css">
-    <link rel="stylesheet" href="assets/css/login/sign-up.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/head.css">
+    <link rel="stylesheet" href="/assets/css/login/sign-up.css">
     <script src="/assets/js/login/sign-up.js" defer></script>
 </head>
 <body>
     <%@include file="../common/head.jsp"%>
     <div id="form-wrapper">
         <h2> 회원가입 폼 </h2>
-        <form action="/signup" name="signup" id="signUpForm" class="sign-up-form" method="post">
+        <form action="sign-up" name="signup" id="signUpForm" class="sign-up-form" method="post">
 
             <div class="mb-3">
                 <label for="user_id" class="form-label">아이디*</label>
