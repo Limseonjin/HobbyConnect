@@ -1,10 +1,23 @@
+/* my page 전체 */
 .page-wrapper{
     height: 1500px;
     padding-top: 150px;
+    display: flex;
+
 }
+/*my page 간단정보 박스랑 메뉴박스 wrapper */
+.page-wrapper #mypage-side-bar{
+    width: 30%;
+}
+
 .page-wrapper #userInfo,
 .page-wrapper #mypage-side-menu{
     margin: 30px 10%;
+}
+
+.page-wrapper .activies{
+    width: 60%;
+    margin-top: 30px;
 }
 .page-wrapper #userInfo .card-body{
     position: relative;

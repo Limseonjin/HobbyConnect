@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/mypage")
+@RequestMapping("/myPage")
 @Slf4j
 @RequiredArgsConstructor
 public class MypageController {
