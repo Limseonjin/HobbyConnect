@@ -4,10 +4,15 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Web Study</title>
+    <title>회원가입 페이지</title>
+
+    <%@include file="common/static-head.jsp"%>
+    <%-- 필요한 css나 js 선언   --%>
 </head>
 <body>
-<h1>초기 테스트</h1>
-<div>얍!!! </div>
+<%@include file="common/head.jsp"%>
+<%-- 여기서 부터 코드 입력 --%>
+
+<%@include file="common/footer.jsp"%>
 </body>
 </html>

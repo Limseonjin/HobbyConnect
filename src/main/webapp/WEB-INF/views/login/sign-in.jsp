@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>로그인 페이지</title>
 
     <%@include file="../common/static-head.jsp" %>
-    <link rel="stylesheet" href="/assets/css/login/sign-in.css">
+    <link rel="stylesheet" href="/assets/css/login/gn-in.css">
     <script src="/assets/js/login/sign-in.js" defer></script>
 </head>
 <body>
