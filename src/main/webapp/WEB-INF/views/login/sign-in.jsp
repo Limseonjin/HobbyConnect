@@ -7,7 +7,7 @@
     <title>로그인 페이지</title>
 
     <%@include file="../common/static-head.jsp" %>
-    <link rel="stylesheet" href="/assets/css/login/gn-in.css">
+    <link rel="stylesheet" href="/assets/css/login/sign-in.css">
     <script src="/assets/js/login/sign-in.js" defer></script>
 </head>
 <body>
@@ -39,7 +39,8 @@
                                            placeholder="비밀번호"></td>
                             </tr>
                             <tr>
-                                <td style="width: 100%; text-align: center; colspan: 2;"><Button type="submit" value="로그인" class="btn form-control tooltipstered" id="signIn-btn">
+                                <td style="width: 100%; text-align: center; colspan: 2;"><Button type="submit" class="btn form-control tooltipstered" id="signIn-btn">
+                                    로그인
                                 </Button></td>
                             </tr>
                             <tr>
@@ -61,7 +62,6 @@
                                 </td>
                             </tr>
                         </table>
-                        <Button type="submit"  class="btn form-control tooltipstered" id="signIn-btn"></Button>
                     </form>
                 </div>
             </div>

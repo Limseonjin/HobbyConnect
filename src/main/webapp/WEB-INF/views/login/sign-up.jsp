@@ -15,8 +15,8 @@
 
     <div id="form-wrapper">
         <h2> 회원가입 폼 </h2>
+        <div class="end"> *은 필수 입력값 입니다.</div>
         <form action="sign-up" name="signup" id="signUpForm" class="sign-up-form" method="post">
-
             <div class="mb-3">
                 <label for="user_id" class="form-label">아이디*</label>
                 <input type="text" class="form-control" id="user_id" name="personId">
@@ -51,9 +51,6 @@
                 <input type="text" class="form-control" id="sign_intro" name="introduction">
             </div>
            <div class="container">
-               <div> *은 필수 입력값 입니다.</div>
-
-               <br>
                <button id="sign_ok" type="button" class="btn btn-primary">가입하기</button>
            </div>
         </form>
