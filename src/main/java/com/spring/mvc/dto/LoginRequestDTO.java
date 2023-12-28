@@ -2,7 +2,7 @@ package com.spring.mvc.dto;
 
 
 import lombok.*;
-
+@Setter
 @Getter
 @ToString
 @EqualsAndHashCode

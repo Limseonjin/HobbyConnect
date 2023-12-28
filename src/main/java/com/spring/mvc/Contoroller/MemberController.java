@@ -34,11 +34,7 @@ public class MemberController {
         log.info("/login/sign-up GET : forwarding to sign-up.jsp");
     return"login/sign-up";
     }
-    @GetMapping("/sign-in")
-    public String signIn(){
-        log.info("/login/sign-up GET : forwarding to sign-up.jsp");
-    return"login/sign-in";
-    }
+
 
     //아이디, 이메일 중복체크 비동기 요청 처리
     @GetMapping("/check")
@@ -61,7 +57,12 @@ public class MemberController {
 
     //로그인 양식 요청
     @GetMapping("/sign-in")
-    public String SignIn() {
+    public String SignIn(HttpSession session) {
+        if(session.getAttribute("login")==null){
+            System.out.println(" 로그인 하지 않았습니다.");
+        }else{
+            System.out.println(" 로그인 성공 ! ");
+        }
         log.info("/login/sign-in GET - forwarding to sign-in.jspr");
         return "login/sign-in";
     }
@@ -71,6 +72,9 @@ public class MemberController {
     // Model에 담긴 데이터는 리다이렉트시 jsp로 가지 않음
     // 왜냐하면 리다이렉트는 요청이 2번 들어가서 첫번째 요청시 보관한 데이터가 손실 됨.
     public String signIn(LoginRequestDTO dto, RedirectAttributes ra, HttpServletResponse response, HttpSession session){
+
+
+
         log.info("/login/sign-in POST !!!");
         log.debug("parameter : {}", dto);
 
@@ -83,7 +87,7 @@ public class MemberController {
 
             //세션으로 로그인을 유지한다.
             memberService.maintainLoginState(session,dto.getPersonId());
-            return"redirect:/hobby";
+            return "/";
         }
         return "redirect:/login/sign-in"; //로그인 실패 시
     }
@@ -93,9 +97,12 @@ public class MemberController {
     public String signOut(HttpServletResponse response,
                           HttpServletRequest request,
                           Authentication authentication){
-        if(authentication != null) {
-            new SecurityContextLogoutHandler().logout(request, response, authentication);
-        }
+        System.out.println("response = " + response);
+        System.out.println("request = " + request);
+        System.out.println("authentication = " + authentication);
+        HttpSession session = request.getSession();
+        session.setAttribute("login","2");
+        session.setMaxInactiveInterval(0);
         return "redirect:/hobby";
     }
 }

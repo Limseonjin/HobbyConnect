@@ -22,10 +22,11 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="/members/sign-in" name="sign-in" method="post" id="signInForm">
+                    <form action="/login/sign-in" method="post" id="signInForm">
+
                         <table id="signInTable">
                             <tr>
-                                <td><input type="text" name="account" id="signInId"
+                                <td><input type="text" name="personId" id="signInId"
                                            class="form-control tooltipstered" maxlength="10"
                                            required="required" aria-required="true"
                                            placeholder="아이디"></td>
@@ -38,9 +39,8 @@
                                            placeholder="비밀번호"></td>
                             </tr>
                             <tr>
-                                <td style="width: 100%; text-align: center; colspan: 2;"><input
-                                        type="submit" value="로그인" class="btn form-control tooltipstered" id="signIn-btn">
-                                </td>
+                                <td style="width: 100%; text-align: center; colspan: 2;"><Button type="submit" value="로그인" class="btn form-control tooltipstered" id="signIn-btn">
+                                </Button></td>
                             </tr>
                             <tr>
                                 <td id="signUpBox">
@@ -61,6 +61,7 @@
                                 </td>
                             </tr>
                         </table>
+                        <Button type="submit"  class="btn form-control tooltipstered" id="signIn-btn"></Button>
                     </form>
                 </div>
             </div>

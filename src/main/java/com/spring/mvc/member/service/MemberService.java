@@ -50,6 +50,7 @@ public class MemberService {
         }
 
         log.info("{}님 로그인 성공!",foundMember.getPersonId());
+
         return LoginResult.SUCCESS;
     }
 
@@ -78,7 +79,8 @@ public class MemberService {
                 .persinId(member.getPersonId())
                 .email(member.getEmail())
                 .nickname(member.getNickname())
-
+                .location(member.getLocation())
+                .introduction(member.getIntroduction())
                 .build();
 
         //세션에 로그인한 회원의 정보를 저장
