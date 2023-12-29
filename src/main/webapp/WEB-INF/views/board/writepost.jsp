@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/css/board/writepost.css">
 </head>
 <body>
+<script type="text/javascript" src="./js/page-form/page-form.js"></script>
 <%@include file="../common/head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
 <div id="write-post-wrapper">
@@ -43,8 +44,9 @@
         </form>
         <button type="button" class="btn btn-success">만들기</button>
         <button type="button" class="btn btn-success">취소</button>
-    </div>
+        <br>
 
+    </div>
 </div>
 
 <%@include file="../common/footer.jsp"%>

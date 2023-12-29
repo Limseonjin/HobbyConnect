@@ -1,11 +1,13 @@
 /* board 전체 */
 #write-post-wrapper{
     margin-top: 200px;
+    background-color: #FAFAFA;
+    padding: 8px;
 }
 /* 게시글 작성 창 */
 #post-wrapper{
-    margin: 100px;
-    background-color: #E0E0F8;
+    margin: 200px;
+    background-color:#E0ECF8 ;
 }
 /* 게시글 내용 */
 #post-wrapper #content{
@@ -13,12 +15,18 @@
 
 /* 방 만들기 폼 */
 #create-room{
-    background-color: bisque;
+    margin: 20px; /* Adjusted margin */
+    padding: 20px;
+    background-color: #81BEF7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 /* 방 만들기 - 암호 */
 #roo
 #roomRockChecked{
+    margin-right: 5px;
     position: absolute;
     left: 0;
 }
