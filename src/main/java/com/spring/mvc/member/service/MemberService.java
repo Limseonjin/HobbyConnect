@@ -1,8 +1,8 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.LoginRequestDTO;
-import com.spring.mvc.member.dto.LoginUserResponseDTO;
-import com.spring.mvc.member.dto.SignUpRequestDTO;
+import com.spring.mvc.member.dto.request.LoginRequestDTO;
+import com.spring.mvc.member.dto.response.LoginUserResponseDTO;
+import com.spring.mvc.member.dto.request.SignUpRequestDTO;
 import com.spring.mvc.member.entity.LoginResult;
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.repository.MemberMapper;

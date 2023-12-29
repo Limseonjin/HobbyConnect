@@ -1,0 +1,11 @@
+#write-post-wrapper{
+    margin-top: 200px;
+}
+#post-wrapper{
+    margin: 100px;
+    background-color: #E0E0F8;
+}
+#post-wrapper #content{
+    background-color: #f78f24;
+    height: 700px;
+}
