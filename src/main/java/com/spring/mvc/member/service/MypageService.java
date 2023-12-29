@@ -10,11 +10,13 @@ import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.entity.Reply;
 import com.spring.mvc.member.repository.MypageMapper;
+import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,12 +41,12 @@ public class MypageService {
 
 
     // 1. 내가 쓴 글 조회
-    public List<MypageBoardResponseDTO> getBoardList(String personId) {
-        return mypageMapper.findAllMyBoard(personId)
+    public List<MypageBoardResponseDTO> getBoardList(HttpSession session) {
+        List<MypageBoardResponseDTO> collect = mypageMapper.findAllMyBoard(LoginUtil.getCurrentLoginMemberAccount(session))
                 .stream()
                 .map(MypageBoardResponseDTO::new)
-                .collect(Collectors.toList())
-                ;
+                .collect(Collectors.toList());
+        return collect;
     }
 
     // 2. 내가 쓴 댓글 조회

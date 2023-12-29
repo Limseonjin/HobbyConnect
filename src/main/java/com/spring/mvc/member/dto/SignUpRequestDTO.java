@@ -1,5 +1,6 @@
 package com.spring.mvc.member.dto.request;
 
+
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.entity.location;
 import lombok.*;
