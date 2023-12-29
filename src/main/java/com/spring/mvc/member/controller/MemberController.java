@@ -1,15 +1,13 @@
-package com.spring.mvc.Contoroller;
+package com.spring.mvc.member.controller;
 
-import com.spring.mvc.dto.LoginRequestDTO;
-import com.spring.mvc.dto.SignUpRequestDTO;
+import com.spring.mvc.member.dto.request.LoginRequestDTO;
+import com.spring.mvc.member.dto.request.SignUpRequestDTO;
 import com.spring.mvc.member.entity.LoginResult;
 import com.spring.mvc.member.service.MemberService;
-import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
