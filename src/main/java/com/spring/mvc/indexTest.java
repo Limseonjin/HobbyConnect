@@ -12,4 +12,13 @@ public class indexTest {
         return "myPage/myboard";
     }
 
+    @RequestMapping("/mr")
+    public String mTest() {
+        return "myPage/myreply";
+    }
+    @RequestMapping("/info")
+    public String myInfoTest() {
+        return "myPage/myinfo";
+    }
+
 }
