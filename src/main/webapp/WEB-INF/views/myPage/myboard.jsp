@@ -23,6 +23,7 @@
                 <div class="card border-secondary mb-3">
                     <div class="card-body">
                         <div class="mypage-board card border-secondary mb-3" >
+
                             <div class="card-body board-wrapper">
                                 <div class="title">
                                     <p>boardTitle</p>
