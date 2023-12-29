@@ -15,12 +15,12 @@
 <div id="myinfo-wapper">
     <%@include file="side-menu.jsp"%>
     <div id="form-wrapper" style="height: 1500px">
-        <h2> 회원가입 폼 </h2>
+        <h2> 회원수정 </h2>
         <div class="end"> *은 필수 입력값 입니다.</div>
         <form action="sign-up" name="signup" id="signUpForm" class="sign-up-form" method="post">
             <div class="mb-3">
-                <label for="user_id" class="form-label">아이디*</label>
-                <input type="text" class="form-control" id="user_id" name="personId">
+                <label for="user_id" class="form-label">아이디</label>
+                <input type="text" class="form-control" id="user_id" name="personId"  value="${personId}"  readonly>
                 <div id="idHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
@@ -35,24 +35,24 @@
             </div>
             <div class="mb-3">
                 <label for="sign_nickname" class="form-label">닉네임*</label>
-                <input type="text" class="form-control" id="sign_nickname" name="nickname">
+                <input type="text" class="form-control" id="sign_nickname" name="nickname" value="${nickname}">
                 <div id="nickHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="sign_email" class="form-label">이메일</label>
-                <input type="email" class="form-control" id="sign_email" name="email">
+                <input type="email" class="form-control" id="sign_email" name="email" >
                 <div id="emailHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="sign_local" class="form-label">지역</label>
-                <input type="text" class="form-control" id="sign_local" name="location" >
+                <input type="text" class="form-control" id="sign_local" name="location"  value="${location}">
             </div>
             <div class="mb-3">
                 <label for="sign_intro" class="form-label">한 줄 소개</label>
-                <input type="text" class="form-control" id="sign_intro" name="introduction">
+                <input type="text" class="form-control" id="sign_intro" name="introduction" value="${introduction}">
             </div>
             <div class="container">
-                <button id="sign_ok" type="button" class="btn btn-primary">가입하기</button>
+                <button id="sign_ok" type="button" class="btn btn-primary">수정하기</button>
             </div>
         </form>
 </div>
