@@ -1,7 +1,8 @@
 package com.spring.mvc.service;
 
+import com.spring.mvc.member.dto.request.LoginRequestDTO;
+import com.spring.mvc.member.dto.request.SignUpRequestDTO;
 import com.spring.mvc.member.entity.LoginResult;
-import com.spring.mvc.member.entity.location;
 import com.spring.mvc.member.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ class MemberServiceTest {
                 .password("kitty1234")
                 .nickname("태용키티")
                 .email("hhhhasdf@naver.com")
-                .locationEnum(location.Busan)
+                .location("충남")
                 .build();
         //when
         boolean flag = memberService.join(dto);

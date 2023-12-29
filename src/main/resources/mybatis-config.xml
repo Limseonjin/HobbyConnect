@@ -20,5 +20,6 @@
     <mappers>
         <mapper resource="mappers/MemberMapper.xml"/>
         <mapper resource="mappers/MypageMapper.xml"/>
+        <mapper resource="mappers/BoardMapper.xml"/>
     </mappers>
 </configuration>
