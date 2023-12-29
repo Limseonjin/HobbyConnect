@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.RoomMapper">
+
+    <!-- 방을 만들기 -->
+    <insert id="save" parameterType="Room" useGeneratedKeys="true" keyProperty="roomId">
+        INSERT INTO tbl_room
+        (person_id, room_name, room_pw, max_user, curr_user)
+        VALUES
+        (#{personId}, #{roomName}, #{roomPw}, #{maxUser}, #{currUser})
+    </insert>
+
+    <!-- 모든 방을 조회 -->
+    <select id="findAll" resultType="Room">
+        SELECT * FROM tbl_room
+    </select>
+
+    <!-- 방장의 아이디로 특정 방을 조회 -->
+    <select id="findByPersonId" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE person_id = #{personId}
+    </select>
+
+    <!-- 내가 찾고 싶은 방을 방 아이디로 조회 -->
+    <select id="findOne" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE room_id = #{roomId}
+    </select>
+
+    <!-- 방 삭제 -->
+    <delete id="deleteRoom" parameterType="Long">
+        DELETE FROM tbl_room WHERE room_id = #{roomId}
+    </delete>
+
+</mapper>

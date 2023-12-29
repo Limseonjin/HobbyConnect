@@ -29,7 +29,7 @@ class MemberMapperTest {
                 .password(encoder.encode("hello123"))
               .nickname("태용이다")
                 .email("Taeyong@naver.com")
-                .locationEnum(location.Daegu)
+                .location("충청도")
                 .introduction("여여 난 태용이다")
                 .build();
         //when
