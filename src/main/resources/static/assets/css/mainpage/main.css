@@ -1,3 +1,81 @@
 #main-wrapper{
-    margin-top: 200px;
+    margin: 200px 50px 50px 50px;
+}
+
+/* 검색창과 간단 프로필 */
+#main-head{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 검색창 */
+#serch{
+    width: 40%;
+
+}
+
+/* main-body (게시글 목록들)*/
+#main-body{
+    margin-top: 50px;
+
+}
+#create-room{
+    margin-bottom: 10px;
+}
+#main-body .card h1{
+    font-size: 1.5rem;
+}
+#post-list{
+    height: 1108px;
+}
+#post-list .card-body{
+    padding: 0;
+
+}
+
+/* 개별 게시글 */
+#post-list .room-post{
+    margin: 20px;
+}
+#post-list .room-post .card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+#post-list .room-post .card-header h2{
+    font-weight: 800;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#post-list .room-post .card-header .bi{
+     width: 30px;
+     height: 30px;
+     margin-top: 10px;
+ }
+#post-list .room-post .card-body{
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+#post-list .room-post .card-body .jcend{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+#post-list .room-post .card-body button{
+    width: 100px;
+}
+
+/* 페이지 번호 */
+#page-num{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
