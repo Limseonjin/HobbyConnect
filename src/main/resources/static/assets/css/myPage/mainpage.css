@@ -25,31 +25,57 @@
 }
 
 /* 조회 창 */
-.page-wrapper .activies{
+.page-wrapper .activities{
     width: 60%;
     margin-top: 50px;
 }
 /*조회창 전체 */
-.page-wrapper .activies .active-list-wrapper .card-body{
+.page-wrapper .activities .active-list-wrapper .card-body{
     height: 700px;
     overflow: auto;
 }
-.page-wrapper .activies .active-list-wrapper .card-body .mypage-board{
+/* mypage 중 board 조회 css */
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board{
+    padding: 10px;
+    padding-left: 50px;
+    height: 150px;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board .board-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board .board-wrapper .title{
+    font-weight: 800;
+    font-size: 1.5em;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board .board-wrapper .other{
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+/* mypage 중 reply 조회 csss */
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply{
     padding: 10px;
     padding-left: 50px;
     height: 200px;
 }
-.page-wrapper .activies .active-list-wrapper .card-body .mypage-board .board-wrapper{
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply .reply-wrapper{
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
 }
-.page-wrapper .activies .active-list-wrapper .card-body .mypage-board .board-wrapper .title{
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply .reply-wrapper .title{
     font-weight: 800;
     font-size: 1.5em;
 }
-.page-wrapper .activies .active-list-wrapper .card-body .mypage-board .board-wrapper .other{
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply .reply-wrapper .other{
     font-weight: 400;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    justify-content: flex-end;
+    align-items:flex-end;
 }
