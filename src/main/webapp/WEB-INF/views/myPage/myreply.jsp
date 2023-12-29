@@ -15,27 +15,25 @@
     <div class="page-wrapper">
         <%@include file="./side-menu.jsp"%>
 
-        <div class="activies">
+        <div class="activities">
             <button id="room-list" type="button" class="btn btn-light">참여중인 방 </button>
             <button id="board-list" type="button" class="btn btn-light">내가 쓴 글</button>
             <button id="reply-list" type="button" class="btn btn-light">내가 쓴 댓글</button>
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="card-body">
-<%--                       게시글 생성 jstl --%>
-<%--                        <c:forEach var="b" items="${bList}">--%>
-<%--                            <div class="mypage-board card border-secondary mb-3" >--%>
-<%--                                <div class="card-body board-wrapper">--%>
-<%--                                    <div class="title">--%>
-<%--                                        <p>boardTitle</p>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="other">--%>
-<%--                                        <p>작성자 : nickname</p>--%>
-<%--                                        <p>조회수 : viewCount</p>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
-<%--                        </c:forEach>--%>
+                        <div class="mypage-reply card border-secondary mb-3" >
+                            <div class="card-body reply-wrapper">
+                                <div class="title">
+                                    <p>boardTitle</p>
+                                    <p>boardContent</p>
+                                </div>
+                                <div class="other">
+                                    <p>작성자 : nickname</p>
+                                    <p>조회수 : viewCount</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
