@@ -1,11 +1,24 @@
+/* board 전체 */
 #write-post-wrapper{
     margin-top: 200px;
 }
+/* 게시글 작성 창 */
 #post-wrapper{
     margin: 100px;
     background-color: #E0E0F8;
 }
+/* 게시글 내용 */
 #post-wrapper #content{
-    background-color: #f78f24;
-    height: 700px;
+}
+
+/* 방 만들기 폼 */
+#create-room{
+    background-color: bisque;
+}
+
+/* 방 만들기 - 암호 */
+#roo
+#roomRockChecked{
+    position: absolute;
+    left: 0;
 }
