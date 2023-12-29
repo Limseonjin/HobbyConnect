@@ -1,4 +1,4 @@
-package com.spring.mvc.dto;
+package com.spring.mvc.member.dto.request;
 
 
 import lombok.*;
