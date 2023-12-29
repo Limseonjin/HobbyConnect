@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#myinfo-wapper {
+    display: flex;
+    flex-direction: column; /* 아이템들을 세로로 정렬합니다. */
+    align-items: center; /* 아이템들을 가로로 중앙에 정렬합니다. */
+}
+
+#side-menu {
+    width: 70%; /* 메뉴의 너비를 조정합니다. */
+    background-color: #333;
+    color: #FAFAFA;
+    padding: 20px;
+    margin-bottom: 20px; /* 메뉴와 폼 사이에 여백을 추가합니다. */
+}
+
+#form-wrapper {
+    width: 70%; /* 폼의 너비를 조정합니다. */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}

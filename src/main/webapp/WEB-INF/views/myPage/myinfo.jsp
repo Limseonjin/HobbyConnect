@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>마이페이지</title>
-
+    <link rel="stylesheet" type="text/css" href="assets/css/myPage/myinfo.css">
     <%@include file="../common/static-head.jsp"%>
     <%-- 필요한 css나 js 선언   --%>
 </head>
