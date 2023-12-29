@@ -22,20 +22,19 @@
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="card-body">
-<%--                       게시글 생성 jstl --%>
-<%--                        <c:forEach var="b" items="${bList}">--%>
+                        <c:forEach var="b" items="${bList}">
                             <div class="mypage-board card border-secondary mb-3" >
                                 <div class="card-body board-wrapper">
                                     <div class="title">
-                                        <p>boardTitle</p>
+                                        <p>${b.boardTitle}</p>
                                     </div>
                                     <div class="other">
-                                        <p>작성자 : nickname</p>
-                                        <p>조회수 : viewCount</p>
+                                        <p>작성자 : ${b.nickName}</p>
+                                        <p>조회수 : ${b.viewCount}</p>
                                     </div>
                                 </div>
                             </div>
-<%--                        </c:forEach>--%>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

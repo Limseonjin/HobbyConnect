@@ -24,6 +24,7 @@ public class MypageController {
     public String list(HttpSession session, Model model) {
         List<MypageBoardResponseDTO> boardList = mypageService.getBoardList(session);
         model.addAttribute("bList", boardList);
+        log.debug("bList:{}",boardList);
         return "/myPage/myboard";
     }
 }
