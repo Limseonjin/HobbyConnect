@@ -3,7 +3,7 @@ const $deleteBtn = document.getElementById('delete');
 const $creteBtn = document.getElementById('create-room');
 
 (() => {
-    postList();
+    // postList();
 })()
 
 // 게시글 조회 화면 렌더링
