@@ -9,7 +9,6 @@
     <%@ include file="../common/static-head.jsp"%>
     <link rel="stylesheet" href="/assets/css/myPage/mainpage.css">
     <script src="/assets/js/main/myactive.js" defer></script>
-
 </head>
 <body>
     <%@include file="../common/head.jsp"%>
@@ -22,19 +21,21 @@
             <button id="reply-list" type="button" class="btn btn-light">내가 쓴 댓글</button>
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
-                    <div class="card-body">
-                        <div class="mypage-reply card border-secondary mb-3" >
-                            <div class="card-body reply-wrapper">
-                                <div class="title">
-                                    <p>boardTitle</p>
-                                    <p>boardContent</p>
-                                </div>
-                                <div class="other">
-                                    <p>작성자 : nickname</p>
-                                    <p>조회수 : viewCount</p>
+                    <div class="room-card card-body">
+<%--                        <c:forEach var="r" items="${rList}">--%>
+                            <div class="mypage-room card border-secondary mb-3" >
+                                <div class="card-body room-wrapper">
+                                    <img class="room-img">
+                                    <div class="title">
+                                        <p>방 이름${r.roomName}</p>
+                                    </div>
+                                    <div class="other">
+                                        <p>방 인원(${currUser}/${maxUser})</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+<%--                        </c:forEach>--%>
+
                     </div>
                 </div>
             </div>

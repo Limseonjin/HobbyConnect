@@ -8,7 +8,7 @@
 
     <%@ include file="../common/static-head.jsp"%>
     <link rel="stylesheet" href="/assets/css/myPage/mainpage.css">
-
+    <script src="/assets/js/main/myactive.js" defer></script>
 </head>
 <body>
     <%@include file="../common/head.jsp"%>
