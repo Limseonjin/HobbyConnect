@@ -38,4 +38,8 @@ public class Room {
     private Integer maxUser;
     private Integer currUser;
     private LocalDateTime regDate;
+
+
 }
+
+

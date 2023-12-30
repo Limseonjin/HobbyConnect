@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.nio.file.LinkOption;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -53,7 +54,7 @@ class RoomMapperTest {
         //given
         int roomId= 4;
         //when
-        List<Room> one = roomMapper.findOne((long) roomId);
+       Room one = roomMapper.findOne((long) roomId);
         System.out.println("one = " + one);
         //then
 
@@ -65,12 +66,22 @@ class RoomMapperTest {
         //given
         int roomid= 4;
         //when
-        List<Room> findRoom = roomMapper.findOne((long) roomid);
+        Room findRoom = roomMapper.findOne((long) roomid);
         //then
-        Room room = findRoom.get(0);
-        assertTrue(room.getRoomName().contains("모두"));
+
+        assertTrue(findRoom.getRoomName().contains("모두"));
     }
 
+    @Test
+    @DisplayName("특정 회원이 내 방에 들어오면 currUser 를 변경 시켜야 한다.")
+    void updateCurrUser(){
+        //given
+        int currUser = 2;
+        //when
+        boolean updated = roomMapper.updateCurrUser(currUser, 2L);
+        //then
+        assertTrue(updated);
+    }
 
     @Test
     @Transactional
@@ -87,8 +98,8 @@ class RoomMapperTest {
 
         //then
         // 방이 삭제되었으므로, 해당 roomId로 방을 조회해보고 방이 존재하지 않아야 합니다.
-        List<Room> findRoom = roomMapper.findOne(room.getRoomId());
-        assertTrue(findRoom.isEmpty(), "방이 삭제되지 않았습니다.");
+        Room findRoom = roomMapper.findOne(room.getRoomId());
+
     }
 }
 

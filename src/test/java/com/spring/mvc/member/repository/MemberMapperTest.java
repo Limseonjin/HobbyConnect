@@ -25,12 +25,12 @@ class MemberMapperTest {
     void saveTest(){
         //given
       Member member = Member.builder()
-                .personId("TaeYong")
-                .password(encoder.encode("hello123"))
-              .nickname("태용이다")
-                .email("Taeyong@naver.com")
+                .personId("Seonjin")
+                .password(encoder.encode("seonjin"))
+              .nickname("선진이다")
+                .email("seonjin@naver.com")
                 .location("충청도")
-                .introduction("여여 난 태용이다")
+                .introduction("여여 난 선진이다")
                 .build();
         //when
         boolean flag = memberMapper.save(member);
