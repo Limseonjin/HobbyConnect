@@ -10,9 +10,7 @@
     <%-- 필요한 css나 js 선언   --%>
     <link rel="stylesheet" href="/assets/css/mainpage/main.css">
 
-    <script>
-
-    </script>
+    <script src="/assets/js/main/mainpage.js" defer></script>
 </head>
 <body>
 <%@include file="common/head.jsp"%>

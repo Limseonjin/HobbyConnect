@@ -54,3 +54,7 @@ function postList(){
 $modifyBtn.addEventListener('click',()=>{
 //     모달창 뜨게 하기
 })
+
+$creteBtn.addEventListener('click',()=>{
+    window.location.href = '/board'
+})
