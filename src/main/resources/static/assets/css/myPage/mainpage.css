@@ -18,7 +18,7 @@
 }
 .page-wrapper #userInfo,
 .page-wrapper #mypage-side-menu{
-    margin: 50px 10%;
+    margin: 50px ;
 }
 .page-wrapper #userInfo .card-body{
     position: relative;

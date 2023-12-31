@@ -16,9 +16,17 @@
         <%@include file="./side-menu.jsp"%>
 
         <div class="activities">
-            <button id="room-list" type="button" class="btn btn-light">참여중인 방 </button>
-            <button id="board-list" type="button" class="btn btn-light">내가 쓴 글</button>
-            <button id="reply-list" type="button" class="btn btn-light">내가 쓴 댓글</button>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/mypage/room">참여중인 방</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mypage/board">내가 쓴 글</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mypage/reply">내가 쓴 댓글</a>
+                </li>
+            </ul>
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="room-card card-body">
