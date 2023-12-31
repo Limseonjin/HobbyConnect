@@ -1,7 +1,7 @@
-const $modifyBtn = document.getElementById('modify');
-const $deleteBtn = document.getElementById('delete');
+
 const $creteBtn = document.getElementById('create-room');
 
+const URL = '/mainpage';
 (() => {
     // postList();
 })()
@@ -40,21 +40,57 @@ function postListRender(dtoList){
 
 // 게시글 비동기 처리
 function postList(){
-    fetch(URL)
+    fetch(`${URL}`)
         .then(dto=> dto.json())
         .then(dtoList =>
             postListRender(dtoList)
         )
 }
 
+// 수정 비동기 처리
+function updateBoard(bno){
+    console.log(bno)
+    const requestInfo = {
+        method : 'DELETE',
+    }
+    fetch(`${URL}/${bno}`,requestInfo)
+        .then(res => res.json())
+        .then(boardList => {
+            postListRender(boardList)
+        })
+}
 
 
-// 수정 버튼 클릭시
+const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: false})
+const $postBody = document.getElementById('post-list-body')
+const $okDelete = document.getElementById('delete-Btn');
 
-$modifyBtn.addEventListener('click',()=>{
-//     모달창 뜨게 하기
+const myModalEl = document.getElementById('delete-modal')
+
+
+// 모달창이 뜨고 나서 실행할 코드
+myModalEl.addEventListener('shown.bs.modal', function (e) {
+    //relatedTarget : 모달을 열기전 클릭한 타켓
+    const targetClass =e.relatedTarget.getAttribute('class');
+    if(targetClass !== 'trash' && targetClass !== 'bi-trash' ) return
+
+    myModalEl.dataset.dataBno = e.relatedTarget.closest('.room-post').dataset.bno
 })
 
+// 삭제 모달에서 삭제버튼 클릭시
+$okDelete.onclick = () =>{
+    const bno = myModalEl.dataset.dataBno;
+    $deleteModal.hide()
+    updateBoard(bno);
+}
+
+// 수정 버튼 클릭시
+const $modifyBtn = document.getElementById('update-Btn');
+$modifyBtn.addEventListener('click',()=>{
+    //수정 비동기 처리
+})
+
+// 방 만들기 클릭시
 $creteBtn.addEventListener('click',()=>{
     window.location.href = '/board'
 })
