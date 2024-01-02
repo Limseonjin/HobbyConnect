@@ -11,6 +11,7 @@ import lombok.*;
 @RequiredArgsConstructor
 public class MaxUserResponseDTO {
 
+    private Long boardId;
     private Integer maxUser;
     private Integer currUser;
     private String mainBoardTitle;
@@ -19,6 +20,7 @@ public class MaxUserResponseDTO {
 
 
     public MaxUserResponseDTO(MainBoard mainBoard) {
+        this.boardId = mainBoard.getMainBoardId();
         this.maxUser = mainBoard.getMaxUser();
         this.currUser = mainBoard.getCurrUser();
         this.mainBoardTitle = mainBoard.getMainBoardTitle();

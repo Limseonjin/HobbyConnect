@@ -32,7 +32,7 @@ public class BoardController {
     // main-board 목록 조회
     @GetMapping("/main")
     public ResponseEntity<?> mainPage() {
-        List<MaxUserResponseDTO> list = mainBoardService.findAll();
+        List<MainBoardResponseDTO> list = mainBoardService.findAll();
         System.out.println("list = " + list);
         log.debug("list: {}", list);
         return ResponseEntity.ok().body(list);
@@ -69,7 +69,7 @@ public class BoardController {
         }
         log.info("/api/v1/mainBoards/{} : DELETE", bno);
         try {
-            List<MainBoardResponseDTO> boardList = boardService.delete(bno);
+            List<MainBoardResponseDTO> boardList = mainBoardService.delete(bno);
             return ResponseEntity
                     .ok()
                     .body(boardList);

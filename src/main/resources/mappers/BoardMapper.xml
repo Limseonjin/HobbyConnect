@@ -7,7 +7,6 @@
         SELECT b.*, r.max_user, r.curr_user
         FROM tbl_main_board b
         INNER JOIN tbl_room r ON b.room_id = r.room_id
-        WHERE b.room_id IS NOT NULL;
     </select>
 
     <insert id="save">

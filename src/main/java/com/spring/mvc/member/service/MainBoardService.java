@@ -1,6 +1,7 @@
 package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
+import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MaxUserResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.entity.Room;
@@ -8,6 +9,7 @@ import com.spring.mvc.member.repository.MainBoardMapper;
 import com.spring.mvc.member.repository.RoomMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.eclipse.jdt.internal.compiler.batch.Main;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -28,10 +30,10 @@ public class MainBoardService {
         return mainBoardMapper.save(dto.mainBoard(session));
 
     }
-    public List<MaxUserResponseDTO> findAll(){
+    public List<MainBoardResponseDTO> findAll(){
         List<MainBoard> maxUser = mainBoardMapper.findAll();
         return maxUser.stream()
-                .map(MaxUserResponseDTO::new)
+                .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
     }
     //personId로 회원이 만든 게시글 조회
@@ -47,5 +49,12 @@ public class MainBoardService {
     //keyword로 내가 찾고 싶은 게시글 조회
     public List<MainBoard> findRoomByTitle(String keyword){
         return mainBoardMapper.findTitle(keyword);
+    }
+
+    public List<MainBoardResponseDTO> delete(Long bno) {
+        mainBoardMapper.delete(bno);
+        return mainBoardMapper.findAll().stream()
+                .map(MainBoardResponseDTO::new)
+                .collect(Collectors.toList());
     }
 }
