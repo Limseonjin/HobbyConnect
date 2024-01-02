@@ -18,7 +18,7 @@ public class LoginUtil {
     public static String getCurrentLoginMemberAccount(HttpSession session) {
         LoginUserResponseDTO loginUserInfo
                 = (LoginUserResponseDTO) session.getAttribute(LOGIN_KEY);
-        return loginUserInfo.getPersinId();
+        return loginUserInfo.getPersonId();
     }
 
 }
