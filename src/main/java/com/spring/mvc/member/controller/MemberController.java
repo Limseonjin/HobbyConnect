@@ -82,7 +82,7 @@ public class MemberController {
 
             //세션으로 로그인을 유지한다.
             memberService.maintainLoginState(session,dto.getPersonId());
-            return "login/sign-in";
+            return "mainpage";
         }
         return "redirect:/login/sign-in"; //로그인 실패 시
     }

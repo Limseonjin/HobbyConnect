@@ -30,7 +30,6 @@ public class MypageController {
         List<Board> boards = boardList.stream()
                         .map(this::convertToBoard)
                         .collect(Collectors.toList());
-        System.out.println("boards = " + boards);
         MemberResponseDTO member = mypageService.getMemberBySession(session);
         model.addAttribute("m", member);
         model.addAttribute("bList", boards);

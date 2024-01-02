@@ -1,17 +1,18 @@
 
 const $creteBtn = document.getElementById('create-room');
 
-const URL = '/mainpage';
+const URL = '/api/v1/mainBoards';
 (() => {
-    // postList();
+    postList();
 })()
 
 // 게시글 조회 화면 렌더링
 function postListRender(dtoList){
+    console.log(dtoList)
     const $postBody = document.getElementById('post-list-body');
     let tag = ``;
-    for (const dto of `${dtoList}`) {
-        tag +=`<div class="card room-post">
+    for (const dto of dtoList) {
+        tag +=`<div class="card room-post" data-bno="${dto.boardId}">
                         <div class="card-header">
                             <h2> ${dto.boardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
                              <div class="icon">
@@ -32,7 +33,7 @@ function postListRender(dtoList){
                         <div class="card-body">
                             <p class="contents">content:${dto.boardContent}</p>
                             <div class="jcend">
-                                <p class="card-text">작성자:${dto.nickname}</p>
+                                <p class="card-text">작성자:${dto.personId}</p>
                             </div>
 
                             <button class="btn btn-primary" type="submit">참여하기</button>
@@ -44,7 +45,7 @@ function postListRender(dtoList){
 
 // 게시글 비동기 처리
 function postList(){
-    fetch(`${URL}`)
+    fetch(`${URL}/main`)
         .then(dto=> dto.json())
         .then(dtoList =>
             postListRender(dtoList)
@@ -54,10 +55,11 @@ function postList(){
 //수정 비동기 처리
 function updateBoard(bno) {
     const payload = {
-        'boardId' : bno,
-        'boardTitle' : document.querySelector('.update-board-title').value,
-        'board_content' : document.querySelector('.update-board-content').value
+        boardId : bno,
+        boardTitle : document.querySelector('.update-board-title').value,
+        boardContent : document.querySelector('.update-board-content').value
     }
+    console.log(payload);
     const requestInfo = {
         method : 'PUT',
         headers : {
@@ -65,11 +67,14 @@ function updateBoard(bno) {
         },
         body : JSON.stringify(payload)
     }
-    fetch(`${URL}/${bno}`,requestInfo)
+    fetch(`${URL}/bno`,requestInfo)
         .then(res => res.json())
         .then(boardList => {
+
             postListRender(boardList)
         })
+    document.querySelector('.update-board-title').value = ''
+    document.querySelector('.update-board-content').value = ''
 }
 // 삭제 비동기 처리
 function deleteBoard(bno){
@@ -92,19 +97,19 @@ const $okUpdate = document.getElementById('update-Btn');
 const deleteModalEl = document.getElementById('delete-modal')
 const updateModalEl = document.getElementById('update-modal')
 
-//수정 모달창이 뜨고 나서 실행할 코드
-updateModalEl.addEventListener('hidden.bs.modal',()=>{
-    document.querySelector('.update-board-title').value = ''
-    document.querySelector('.update-board-content').value = ''
-})
+// updateModalEl.addEventListener('hidden.bs.modal',()=>{
+//     document.querySelector('.update-board-title').value = ''
+//     document.querySelector('.update-board-content').value = ''
+// })
 
+// 수정 모달창이 뜨고 나서 실행할 코드
 updateModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass = e.relatedTarget.getAttribute('class');
     //수정버튼 아니면 돌아가
     if(targetClass !== 'modify' ) return
     //게시물 넘버 저장
-    updateModalEl.dataset.dataBno = e.relatedTarget.closest('.room-post').dataset.bno
+    updateModalEl.dataset.bno = e.relatedTarget.closest('.room-post').dataset.bno
 })
 
 //삭제 모달창이 뜨고 나서 실행할 코드
@@ -112,19 +117,19 @@ deleteModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass =e.relatedTarget.getAttribute('class');
     if(targetClass !== 'trash' && targetClass !== 'bi-trash' ) return
-
-    deleteModalEl.dataset.dataBno = e.relatedTarget.closest('.room-post').dataset.bno
+    console.log(e.relatedTarget.closest('.room-post').dataset.bno)
+    deleteModalEl.dataset.bno = e.relatedTarget.closest('.room-post').dataset.bno
 })
 // 삭제 모달에서 삭제버튼 클릭시
 $okUpdate.onclick = () =>{
-    const bno = updateModalEl.dataset.dataBno;
+    const bno = updateModalEl.dataset.bno;
     $updateModal.hide()
     updateBoard(bno);
 }
 
 // 삭제 모달에서 삭제버튼 클릭시
 $okDelete.onclick = () =>{
-    const bno = deleteModalEl.dataset.dataBno;
+    const bno = deleteModalEl.dataset.bno;
     $deleteModal.hide()
     deleteBoard(bno);
 }
