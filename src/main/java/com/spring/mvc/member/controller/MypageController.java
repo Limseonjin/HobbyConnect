@@ -37,13 +37,13 @@ public class MypageController {
         model.addAttribute("m", member);
         model.addAttribute("bList", boards);
         log.debug("bList:{}",boardList);
-        return "/myPage/myboard";
+        return "/mypage/myboard";
     }
     // 2. 내가 쓴 댓글 전체 조회 요청
     @GetMapping("/reply")
     public String replyList(HttpSession session, Model model) {
         List<MypageReplyResponseDTO> replyList = mypageService.getReplyList(session);
-        return "/myPage/myreply";
+        return "/mypage/myreply";
     }
 
     // 3. 회원정보 수정 창 띄우기
@@ -51,7 +51,7 @@ public class MypageController {
     public String modifyInfo(HttpSession session, Model model) {
         MemberResponseDTO member = mypageService.getMemberBySession(session);
         model.addAttribute("m", member);
-        return "/myPage/myinfo";
+        return "/mypage/myinfo";
     }
     // 회원 정보 수정 요청 받기
     @PostMapping("/info")
