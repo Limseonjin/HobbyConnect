@@ -1,5 +1,5 @@
 body {
-    background-color: #E0E0F8;
+    background:url("././img/a.jpg");
 }
 
 h1 {
@@ -7,6 +7,7 @@ h1 {
     padding: 10px 10px;
     padding-bottom: 30px;
     border-bottom: 1px solid #848484;
+
 }
 
 .form-0 {
@@ -81,7 +82,6 @@ hr {
     cursor: pointer;
     margin: 10px auto;
 }
-
 .write-5 {
     display: inline-block;
     padding: 30px 35px;
@@ -135,14 +135,13 @@ input[value="댓글 수정"] {
 input[value="댓글 삭제"] {
     background-color: #e74c3c;
 }
-input[value="댓글 조회"] {
+input[value="댓글 목록"] {
     background-color: #81BEF7;
 }
 /* 댓글 목록 스타일 (예시) */
 h2 {
     padding-bottom: 10px;
 }
-
 p {
     margin-bottom: 10px;
 }
