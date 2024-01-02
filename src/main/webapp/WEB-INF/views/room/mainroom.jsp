@@ -4,46 +4,43 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>MAIN</title>
+    <title>회원가입 페이지</title>
 
-    <%@include file="common/static-head.jsp"%>
-    <%-- 필요한 css나 js 선언   --%>
-    <link rel="stylesheet" href="/assets/css/mainpage/main.css">
+    <%@include file="../common/static-head.jsp"%>
     <link rel="stylesheet" href="/assets/css/board/boardList.css">
-
-    <script src="/assets/js/main/mainpage.js" defer></script>
-
+    <link rel="stylesheet" href="/assets/css/room/main.css">
+    <%-- 필요한 css나 js 선언   --%>
 </head>
 <body>
-
-<%@include file="common/del-modal.jsp"%>
-<%@include file="common/mod-modal.jsp"%>
-<%@include file="common/head.jsp"%>
+<%@include file="../common/del-modal.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
-<div id="main-wrapper">
-<%--       서치와 간단 프로필 --%>
-   <div id="main-head">
-       <div id="serch" class="input-group mb-3">
-           <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-           <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-       </div>
-       <div class="card" style="width: 18rem;">
-           <div class="card-body">
-               <h2 class="card-title">어서오세요 ${nickName}님!</h2>
-               <a href="/mypage/board" class="card-link">My Page</a>
-               <a href="/login/sign-out" class="card-link">Logout</a>
-           </div>
-       </div>
-   </div>
-<%--     게시글 목록들 --%>
+<div id="room-main-wrapper">
+    <div id="members">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">어서오세요 ${nickName}님!</h2>
+                <a href="/mypage/board" class="card-link">My Page</a>
+                <a href="/login/sign-out" class="card-link">Logout</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <ul>멤버 목록
+                    <li>하이1</li>
+                    <li>하이2</li>
+                    <li>하이3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div id="main-body">
-        <button id="create-room" type="button" class="btn btn-warning">방 만들기</button>
+        <button id="create-room" type="button" class="btn btn-warning">글 쓰기</button>
         <div id="post-list" class="card">
             <div id="post-list-body" class="card-body">
                 <%--                <c:forEach var="b" items="${bList}">  ${b.boardId} --%>
                 <div class="card room-post" data-bno="2">
                     <div class="card-header">
-                        <h2> ${b.boardTitle}Title (${currUser}/${maxUser})</h2>
+                        <h2> ${b.boardTitle}Title</h2>
                         <div class="icon">
                             <button class="modify btn" data-bs-toggle="modal"  data-bs-target="#update-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -71,29 +68,9 @@
                 <%--                </c:forEach>--%>
             </div>
         </div>
-        <%--    페이지 번호 --%>
-        <nav id="page-num" aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </div>
-<%@include file="common/footer.jsp"%>
 
+<%@include file="../common/footer.jsp"%>
 </body>
 </html>

@@ -13,4 +13,8 @@ public class seonjinTest {
     public String tTest() {
         return "myPage/myroom";
     }
+    @RequestMapping("/oneroom")
+    public String tsTest() {
+        return "room/mainroom";
+    }
 }
