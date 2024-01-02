@@ -1,0 +1,116 @@
+body{
+    background-color: #FAFAFA;
+}
+h1{
+    text-align: center;
+    padding: 10px 10px;
+    padding-bottom: 30px;
+    border-bottom:1px solid #848484;
+    font-family: 'Black Han Sans', sans-serif;
+}
+.board-top {
+    width : 80%;
+    height: 50px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.form-0{
+    position: relative;
+}
+.form-1 {
+    width : 80%;
+    height: 50px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.write-1 {
+    height: 50px;
+    border : none;
+    font-size: 40px;
+    background-color: #f5f6f7;
+    outline: none;
+}
+
+.write-2 {
+    margin-top: 30px;
+    font-size: 15px;
+    border: none;
+    background-color: #f5f6f7;
+    outline: none;
+}
+
+.write-3 {
+    margin-top: 10px;
+}
+
+.write-4 {
+    margin-top: 10px;
+
+    width: 70px;
+    height: 30px;
+    border: none;
+    background-color: #f5f6f7;
+    Cursor:pointer;
+}
+
+.write-5 {
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    width: 70px;
+    height: 30px;
+    border: none;
+    background-color: #f5f6f7;
+    Cursor:pointer;
+}
+.table1 {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #585858;
+    border-radius: 0.45rem;
+}
+.table1 td {
+    align: left;
+    background-color: #E6E6E6;
+    padding: 10px;
+    border-radius: 0.45rem;
+}
+.table2 {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #585858;
+    border-radius: 0.45rem;
+}
+.table2 td {
+    align: left;
+
+}
+.table3 {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #585858;
+    border-radius: 0.45rem;
+}
+.table3 td {
+    align: left;
+}
+.form-control {
+    width: 100%;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #819FF7;
+    border: 1px solid #ffffff;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.45rem;
+}
+.btn:hover {
+    color: #FFF;
+}
