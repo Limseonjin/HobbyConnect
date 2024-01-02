@@ -11,3 +11,4 @@ $myboard.addEventListener('click',()=>{
 $myreply.addEventListener('click',()=>{
     window.location.href = '/mypage/reply';
 })
+

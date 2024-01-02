@@ -5,8 +5,8 @@
         <div class="card border-secondary mb-3" >
             <div class="card-body">
                 <p class="card-text">닉네임 : ${login.nickname}</p>
-                <p class="card-text">${m.personId}</p>
-                <p class="card-text">${m.introduction}</p>
+                <p class="card-text">아이디 : ${m.personId}</p>
+                <p class="card-text">한줄소개 : ${m.introduction}</p>
             </div>
         </div>
 
