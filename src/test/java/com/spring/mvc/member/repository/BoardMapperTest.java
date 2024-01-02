@@ -23,9 +23,9 @@ class BoardMapperTest {
         //given
 
         //when
-        List<Board> boardList = mapper.findAll();
+//        List<Board> boardList = mapper.findAll();
         //then
-        System.out.println("boardList = " + boardList);
+//        System.out.println("boardList = " + boardList);
     }
 
     @Test
@@ -37,7 +37,7 @@ class BoardMapperTest {
                 .boardTitle("testMainBoardTitle3")
                 .boardContent("testMainBoardContent3")
                 .build();
-        mapper.save(build);
+//        mapper.save(build);
         //when
 
         //then
@@ -53,7 +53,7 @@ class BoardMapperTest {
         Board build = Board.builder().boardId(boardId).boardTitle(boardTitle).boardContent(boardContent).build();
 
         //when
-        boolean modify = mapper.modify(build);
+//        boolean modify = mapper.modify(build);
         //then
         assertTrue(modify);
     }

@@ -27,6 +27,18 @@ public class MypageService {
     private final MypageMapper mypageMapper;
 
     // 회원 목록 전체 조회
+    public MemberResponseDTO getMemberBySession(HttpSession session) {
+        Member member = mypageMapper.findMember(LoginUtil.getCurrentLoginMemberAccount(session));
+        return MemberResponseDTO.builder()
+                .personId(member.getPersonId())
+                .email(member.getEmail())
+                .password(member.getPassword())
+                .nickname(member.getNickname())
+                .location(member.getLocation())
+                .introduction(member.getIntroduction())
+                .build();
+    }
+
     public MemberResponseDTO getMember(String personId) {
         Member member = mypageMapper.findMember(personId);
         return MemberResponseDTO.builder()

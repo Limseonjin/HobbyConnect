@@ -1,6 +1,7 @@
 package com.spring.mvc.member.entity;
 
 import com.spring.mvc.member.dto.request.BoardWriteRequestDTO;
+import com.spring.mvc.member.dto.request.MainBoardWriteRequestDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import lombok.*;
 import org.apache.tomcat.jni.Local;

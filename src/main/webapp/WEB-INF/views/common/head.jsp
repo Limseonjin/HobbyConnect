@@ -3,7 +3,7 @@
 <header id="head">
     <div class="logo-wrapper">
         <div class="logo">
-            <a href="/main"><img src="/assets/img/0.png" width="300" height="150"></a>
+            <a href="/main/main-page"><img src="/assets/img/0.png" width="300" height="150"></a>
         </div>
         <div id="head-btn" class="btn btn-wrap">
             <c:if test="${not empty login}">
