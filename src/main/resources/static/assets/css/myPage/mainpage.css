@@ -6,7 +6,7 @@
 
 }
 /*my page 간단정보 박스랑 메뉴박스 wrapper */
-.page-wrapper #mypage-side-bar{
+#mypage-side-bar{
     width: 30%;
 }
 /* 사이드 메뉴 박스 */

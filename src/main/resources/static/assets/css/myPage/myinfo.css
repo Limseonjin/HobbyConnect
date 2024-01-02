@@ -1,33 +1,44 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
-    margin: 0;
+
+/* my page 전체 */
+.myinfo-wrapper{
+    height: 1000px;
+    padding-top: 150px;
+    display: flex;
+
+}
+/*my page 간단정보 박스랑 메뉴박스 wrapper */
+#mypage-side-bar{
+    width: 30%;
+}
+/* 사이드 메뉴 박스 */
+#mypage-side-menu .card-body{
     padding: 0;
 }
-
-#myinfo-wapper {
-    display: flex;
-    margin-top: 200px;
+#mypage-side-menu .card-body .category{
+    padding: 1rem 1rem;
+}
+.page-wrapper #userInfo,
+.page-wrapper #mypage-side-menu{
+    margin: 50px ;
+}
+.page-wrapper #userInfo .card-body{
+    position: relative;
 }
 
-#side-menu {
-    width: 20%;
-    background-color: #333;
-    color: #FAFAFA;
-    padding: 20px;
-    float: left;
+/* 조회 창 */
+.page-wrapper .activities{
+    width: 60%;
+    margin-top: 50px;
 }
-
+/*조회창 전체 */
+.page-wrapper .activities .active-list-wrapper .card-body{
+    height: 700px;
+    overflow: auto;
+}
 #form-wrapper {
     width: 80%;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 40px 80px 20px; /* 위, 오른쪽, 아래, 왼쪽 순서로 마진을 지정합니다. */
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: #fff;
 }

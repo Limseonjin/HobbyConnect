@@ -15,7 +15,7 @@
 <%-- 여기서 부터 코드 입력 --%>
 <div id="myinfo-wapper">
     <%@include file="side-menu.jsp"%>
-    <div id="form-wrapper" style="height: 1500px">
+    <div id="form-wrapper">
         <h2> 회원수정 </h2>
         <div class="end"> *은 필수 입력값 입니다.</div>
         <form action="sign-up" name="signup" id="signUpForm" class="sign-up-form" method="post">
@@ -30,16 +30,6 @@
             <div class="mb-3" id="pwform">
 
             </div>
-<%--            <div class="mb-3">--%>
-<%--                <label for="sign_pw" class="form-label">비밀번호*</label>--%>
-<%--                <input type="password" class="form-control" id="sign_pw" name="password">--%>
-<%--                <div id="pwHelp" class="form-text"></div>--%>
-<%--            </div>--%>
-<%--            <div class="mb-3">--%>
-<%--                <label for="sign_pw2" class="form-label">비밀번호 재입력*</label>--%>
-<%--                <input type="password" class="form-control" id="sign_pw2">--%>
-<%--                <div id="pw2Help" class="form-text"></div>--%>
-<%--            </div>--%>
             <div class="mb-3">
                 <label for="sign_nickname" class="form-label">닉네임*</label>
                 <input type="text" class="form-control" id="sign_nickname" name="nickname" value="${p.nickname}">
