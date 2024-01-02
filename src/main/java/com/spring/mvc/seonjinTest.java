@@ -9,4 +9,8 @@ public class seonjinTest {
     public String Test() {
         return "board/writepost";
     }
+    @RequestMapping("/room")
+    public String tTest() {
+        return "myPage/myroom";
+    }
 }

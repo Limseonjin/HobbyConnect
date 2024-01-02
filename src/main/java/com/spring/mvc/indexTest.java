@@ -20,5 +20,9 @@ public class indexTest {
     public String myInfoTest() {
         return "myPage/myinfo";
     }
+    @RequestMapping("/main")
+    public String moTest() {
+        return "/mainpage";
+    }
 
 }

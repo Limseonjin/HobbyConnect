@@ -18,7 +18,7 @@
 }
 .page-wrapper #userInfo,
 .page-wrapper #mypage-side-menu{
-    margin: 50px 10%;
+    margin: 50px ;
 }
 .page-wrapper #userInfo .card-body{
     position: relative;
@@ -79,3 +79,29 @@
     justify-content: flex-end;
     align-items:flex-end;
 }
+
+/* mypage 중 room 조회 csss */
+.page-wrapper .activities .active-list-wrapper .room-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: start;
+
+}
+.page-wrapper .activities .active-list-wrapper .room-card .mypage-room{
+    padding: 10px;
+    padding-left: 20px;
+    width: 170px;
+    height: 200px;
+    margin-left: 20px;
+}
+.page-wrapper .activities .active-list-wrapper .room-card .mypage-room .room-wrapper{
+    display: flex;
+    flex-direction: column;
+
+}
+.page-wrapper .activities .active-list-wrapper .room-card .mypage-room .room-wrapper .room-img{
+    width: 100px;
+    height: 100px;
+}
+
