@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/assets/css/board/board.css">
 </head>
 <body>
-<h1>COMMENT</h1>
+<form> <input class='write-5' type="submit" value="돌아가기"> </form> <h1> COMMENT </h1>
+
 <div class='form-0'>
     <div class="board-top">
         <form class='form-1' method="POST"  enctype="multipart/form-data">
@@ -21,9 +22,7 @@
             <hr>
             <input class='write-4' type="submit" value="올리기">
         </form>
-        <form>
-            <input class='write-5' type="submit" value="돌아가기">
-        </form>
+
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
