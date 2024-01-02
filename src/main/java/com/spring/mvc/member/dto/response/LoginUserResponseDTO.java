@@ -14,7 +14,7 @@ import javax.validation.constraints.Email;
 
 public class LoginUserResponseDTO {
 
-    private String persinId;
+    private String personId;
     private String nickname;
     private String email;
     private String location;

@@ -76,7 +76,7 @@ public class MemberService {
 
         //DB 데이터를 보여줄 것만 정제
         LoginUserResponseDTO dto = LoginUserResponseDTO.builder()
-                .persinId(member.getPersonId())
+                .personId(member.getPersonId())
                 .email(member.getEmail())
                 .nickname(member.getNickname())
                 .location(member.getLocation())
