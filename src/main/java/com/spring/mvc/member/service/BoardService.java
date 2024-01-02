@@ -37,12 +37,14 @@ public class BoardService {
         boardMapper.save(board);
     }
 
-    public void modify(MainBoardModifyRequestDTO dto) {
+    public List<MainBoardResponseDTO> modify(MainBoardModifyRequestDTO dto) {
         boardMapper.modify(dto.toEntity());
+        return getList();
     }
 
-    public void delete(int boardId) {
+    public List<MainBoardResponseDTO> delete(long boardId) {
         boardMapper.delete(boardId);
+        return getList();
     }
 
 }

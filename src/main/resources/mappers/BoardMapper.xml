@@ -17,13 +17,13 @@
     </insert>
 
     <update id="modify">
-        UPDATE tbl_board
-        SET board_title = #{boardTitle},
-            board_content = #{boardContent}
-        WHERE board_id = #{boardId}
+        UPDATE tbl_main_board
+        SET main_board_title = #{mainBoardTitle},
+            main_board_content = #{mainBoardContent}
+        WHERE main_board_id = #{mainBoardId}
     </update>
 
     <delete id="delete">
-        DELETE FROM tbl_board WHERE board_id = #{boardId}
+        DELETE FROM tbl_main_board WHERE main_board_id = #{boardId}
     </delete>
 </mapper>

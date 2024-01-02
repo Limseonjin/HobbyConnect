@@ -1,14 +1,11 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.MypageMemberModifyLocationRequestDTO;
-import com.spring.mvc.member.dto.request.MypageMemberModifyNickNameRequestDTO;
+import com.spring.mvc.member.dto.request.MypageMemberModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MemberResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MypageIntroductionResponseDTO;
 import com.spring.mvc.member.dto.response.MypageReplyResponseDTO;
-import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.Member;
-import com.spring.mvc.member.entity.Reply;
 import com.spring.mvc.member.repository.MypageMapper;
 import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
@@ -62,8 +59,8 @@ public class MypageService {
     }
 
     // 2. 내가 쓴 댓글 조회
-    public List<MypageReplyResponseDTO> getReplyList(String personId) {
-        return mypageMapper.findAllMyReply(personId)
+    public List<MypageReplyResponseDTO> getReplyList(HttpSession session) {
+        return mypageMapper.findAllMyReply(LoginUtil.getCurrentLoginMemberAccount(session))
                 .stream()
                 .map(MypageReplyResponseDTO::new)
                 .collect(Collectors.toList())
@@ -79,18 +76,13 @@ public class MypageService {
         return new MypageIntroductionResponseDTO(introduction);
     }
 
-    // 5. 닉네임 수정
+    // 5. 수정
     @Transactional
-    public MemberResponseDTO modifyNickName(MypageMemberModifyNickNameRequestDTO dto) {
-        mypageMapper.modifyNickName(dto.toEntitiy());
-        return getMember(dto.getPersonId());
-    }
-
-    // 6. 지역 수정
-    @Transactional
-    public MemberResponseDTO modifyLocation(MypageMemberModifyLocationRequestDTO dto) {
-        mypageMapper.modifyLocation(dto.toEntitiy());
-        return getMember(dto.getPersonId());
+    public MemberResponseDTO modify(HttpSession session,MypageMemberModifyRequestDTO dto) {
+        Member entity = dto.toEntitiy(LoginUtil.getCurrentLoginMemberAccount(session));
+        System.out.println("entity = " + entity);
+        mypageMapper.modify(entity);
+        return getMember(entity.getPersonId());
     }
 
 }

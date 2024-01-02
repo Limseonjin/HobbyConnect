@@ -25,10 +25,8 @@ public interface MypageMapper {
     // 4. 한줄 소게 조회
     Member findIntroduction(String personId);
 
-    // 5. 닉네임 수정
-    boolean modifyNickName(Member member);
+    // 5. 수정
+    boolean modify(Member member);
 
-    // 6. 지역 수정
-    boolean modifyLocation(Member member);
 
 }

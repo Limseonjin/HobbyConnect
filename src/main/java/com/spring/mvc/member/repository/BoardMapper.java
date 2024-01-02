@@ -16,6 +16,6 @@ public interface BoardMapper {
     // 3. 수정(title, content)
     boolean modify(MainBoard MainBoard);
     // 4. 삭제
-    boolean delete(int boardId);
+    boolean delete(long boardId);
 
 }

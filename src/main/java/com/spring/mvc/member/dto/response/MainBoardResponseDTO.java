@@ -25,6 +25,7 @@ public class MainBoardResponseDTO {
     private int maxUser;
     private int currUser;
 
+
     public MainBoardResponseDTO(MainBoard board) {
         this.boardId = board.getMainBoardId();
         this.personId = board.getPersonId();
