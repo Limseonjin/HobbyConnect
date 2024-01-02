@@ -49,20 +49,29 @@ hr {
 }
 
 .write-2 {
-    margin-top: 20px;
-    font-size: 15px;
-    border: 5px solid #6E6E6E; /* 전체 테두리 추가 */
-    background-color: #ffffff;
-    outline: none;
+    margin-top: 10px;
+    font-size: 14px;
+    border: 5px solid #6E6E6E;
+    background-color: #fff;
     padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    resize: vertical; /* 사용자가 수직으로만 리사이즈할 수 있도록 설정 */
 }
+
+/* 선택 시 포커스 스타일링 */
+.write-2:focus {
+    border-color: #819FF7;
+    box-shadow: 0 0 5px rgba(129, 159, 247, 0.5);
+}
+
 .write-3 {
     margin-top: 10px;
 }
 
 .write-4 {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 30px 35px;
     text-decoration: none;
     font-size: 16px;
     color: #ffffff;
@@ -75,9 +84,9 @@ hr {
 
 .write-5 {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 30px 35px;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     color: #ffffff;
     background-color: #819FF7;
     border: 1px solid #819FF7;
@@ -89,4 +98,51 @@ hr {
 .write-4:hover,
 .write-5:hover {
     background-color: #F78181;
+}
+/* 댓글 작성 폼 스타일 */
+form {
+    margin-top: 20px; /* 원하는 간격으로 조정 */
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 5px solid #6E6E6E;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 댓글 등록 버튼의 배경 색상 지정 */
+input[value="댓글 등록"] {
+    background-color: #04B404;
+}
+
+/* 댓글 수정 버튼의 배경 색상 지정 */
+input[value="댓글 수정"] {
+    background-color: #e67e22;
+}
+
+/* 댓글 삭제 버튼의 배경 색상 지정 */
+input[value="댓글 삭제"] {
+    background-color: #e74c3c;
+}
+input[value="댓글 조회"] {
+    background-color: #81BEF7;
+}
+/* 댓글 목록 스타일 (예시) */
+h2 {
+    padding-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
 }
