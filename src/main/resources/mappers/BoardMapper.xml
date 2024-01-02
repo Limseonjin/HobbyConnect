@@ -3,9 +3,11 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.mvc.member.repository.BoardMapper">
-    <select id="findAll" resultType="Board">
-        SELECT * FROM tbl_board
-        WHERE room_id IS NULL
+    <select id="findAll" resultType="MainBoard">
+        SELECT b.*, r.max_user, r.curr_user
+        FROM tbl_main_board b
+        INNER JOIN tbl_room r ON b.room_id = r.room_id
+        WHERE b.room_id IS NOT NULL;
     </select>
 
     <insert id="save">
@@ -15,13 +17,13 @@
     </insert>
 
     <update id="modify">
-        UPDATE tbl_board
-        SET board_title = #{boardTitle},
-            board_content = #{boardContent}
-        WHERE board_id = #{boardId}
+        UPDATE tbl_main_board
+        SET main_board_title = #{mainBoardTitle},
+            main_board_content = #{mainBoardContent}
+        WHERE main_board_id = #{mainBoardId}
     </update>
 
     <delete id="delete">
-        DELETE FROM tbl_board WHERE board_id = #{boardId}
+        DELETE FROM tbl_main_board WHERE main_board_id = #{boardId}
     </delete>
 </mapper>

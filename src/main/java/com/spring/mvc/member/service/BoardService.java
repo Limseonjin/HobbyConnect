@@ -1,8 +1,14 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;
+import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;S
+import com.spring.mvc.member.dto.request.BoardWriteRequestDTO;
+import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
+import com.spring.mvc.member.dto.request.MainBoardWriteRequestDTO;
 import com.spring.mvc.member.dto.response.BoardResponseDTO;
+import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
+import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.entity.Board;
+import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.repository.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,25 +22,27 @@ import java.util.stream.Collectors;
 public class BoardService {
     private final BoardMapper boardMapper;
 
-    public List<BoardResponseDTO> getList() {
+    public List<MainBoardResponseDTO> getList() {
         return boardMapper.findAll()
                 .stream()
-                .map(BoardResponseDTO::new)
+                .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
     }
 
-    public void register(BoardResponseDTO dto, HttpSession session) {
+    public void register(MainBoardWriteRequestDTO dto) {
         // dto 를 엔터티로 변환
-        Board board = new Board(dto);
+        MainBoard board = new MainBoard(dto);
         boardMapper.save(board);
     }
 
-    public void modify(BoardModifyRequestDTO dto) {
+    public List<MainBoardResponseDTO> modify(MainBoardModifyRequestDTO dto) {
         boardMapper.modify(dto.toEntity());
+        return getList();
     }
 
-    public void delete(int boardId) {
+    public List<MainBoardResponseDTO> delete(long boardId) {
         boardMapper.delete(boardId);
+        return getList();
     }
 
 

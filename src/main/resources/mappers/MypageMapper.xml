@@ -23,15 +23,12 @@
         WHERE person_id = #{personId}
     </select>
 
-    <update id="modifyNickName">
+    <update id="modify">
         UPDATE tbl_person
-        SET nickname = #{nickname}
+        SET nickname = #{nickname},
+            email = #{email},
+            introduction = #{introduction}
         WHERE person_id = #{personId}
     </update>
 
-    <update id="modifyLocation">
-        UPDATE tbl_person
-        SET location = #{location}
-        WHERE person_id = #{personId}
-    </update>
 </mapper>

@@ -20,13 +20,16 @@ public class indexTest {
     public String myInfoTest() {
         return "myPage/myinfo";
     }
-    @RequestMapping("/main")
-    public String moTest() {
-        return "/mainpage";
+//    @RequestMapping("/main")
+//    public String moTest() {
+//        return "/mainpage";
+//    }
+    @RequestMapping("/mypage/del")
+    public String myInfTest() {
+        return "myPage/myinfodel";
     }
     @RequestMapping("/board/detail")
     public String mdTest() {
         return "/board/detail";
     }
-
 }

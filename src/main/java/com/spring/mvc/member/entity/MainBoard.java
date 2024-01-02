@@ -1,5 +1,6 @@
 package com.spring.mvc.member.entity;
 
+import com.spring.mvc.member.dto.request.MainBoardWriteRequestDTO;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -32,15 +33,20 @@ CREATE TABLE tbl_main_board
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 public class MainBoard {
-
-    private Long mainBoardId ;
+    private int mainBoardId;
     private String personId;
     private String mainBoardTitle;
     private String mainBoardContent;
-    private Long roomId;
-    private Integer viewCount; //조회수 상승 처리 기능
+    private int roomId;
+    private int viewCount;
     private LocalDateTime regDate;
+    private int maxUser;
+    private int currUser;
 
+    public MainBoard(MainBoardWriteRequestDTO dto) {
+        this.personId = dto.getPersonId();
+        this.mainBoardTitle = dto.getBoardTitle();
+        this.mainBoardContent = dto.getBoardContent();
+    
 }
