@@ -24,5 +24,9 @@ public class indexTest {
     public String moTest() {
         return "/mainpage";
     }
+    @RequestMapping("/board/detail")
+    public String mdTest() {
+        return "/board/detail";
+    }
 
 }
