@@ -1,5 +1,6 @@
 package com.spring.mvc.member.controller;
 
+import com.spring.mvc.member.dto.response.MemberResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.service.MypageService;
@@ -30,6 +31,8 @@ public class MypageController {
                         .map(this::convertToBoard)
                         .collect(Collectors.toList());
         System.out.println("boards = " + boards);
+        MemberResponseDTO member = mypageService.getMemberBySession(session);
+        model.addAttribute("m", member);
         model.addAttribute("bList", boards);
         log.debug("bList:{}",boardList);
         return "/myPage/myboard";
