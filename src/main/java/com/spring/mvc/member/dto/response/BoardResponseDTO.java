@@ -1,7 +1,10 @@
 package com.spring.mvc.member.dto.response;
 
 import com.spring.mvc.member.entity.Board;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +13,8 @@ import java.time.format.DateTimeFormatter;
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
-public class MypageBoardResponseDTO {
+public class BoardResponseDTO {
+
     private int boardId;
     private String personId;
     private String boardTitle;
@@ -19,7 +23,7 @@ public class MypageBoardResponseDTO {
     private int viewCount;
     private String regDate;
 
-    public MypageBoardResponseDTO(Board board) {
+    public BoardResponseDTO(Board board) {
         this.boardId = board.getBoardId();
         this.personId = board.getPersonId();
         this.boardTitle = board.getBoardTitle();
