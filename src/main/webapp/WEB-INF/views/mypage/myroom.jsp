@@ -7,7 +7,7 @@
     <title>마이페이지</title>
 
     <%@ include file="../common/static-head.jsp"%>
-    <link rel="stylesheet" href="/assets/css/myPage/mainpage.css">
+    <link rel="stylesheet" href="/assets/css/mypage/mainpage.css">
     <script src="/assets/js/main/myactive.js" defer></script>
 </head>
 <body>
