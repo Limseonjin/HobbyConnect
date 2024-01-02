@@ -15,11 +15,11 @@ import java.time.format.DateTimeFormatter;
 @EqualsAndHashCode
 @RequiredArgsConstructor
 public class MainBoardResponseDTO {
-    private int boardId;
+    private Long boardId;
     private String personId;
     private String boardTitle;
     private String boardContent;
-    private int roomId;
+    private Long roomId;
     private int viewCount;
     private String regDate;
     private int maxUser;

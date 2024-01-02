@@ -34,11 +34,11 @@ CREATE TABLE tbl_main_board
 @AllArgsConstructor
 @Builder
 public class MainBoard {
-    private int mainBoardId;
+    private Long mainBoardId;
     private String personId;
     private String mainBoardTitle;
     private String mainBoardContent;
-    private int roomId;
+    private Long roomId;
     private int viewCount;
     private LocalDateTime regDate;
     private int maxUser;
@@ -48,5 +48,5 @@ public class MainBoard {
         this.personId = dto.getPersonId();
         this.mainBoardTitle = dto.getBoardTitle();
         this.mainBoardContent = dto.getBoardContent();
-    
+    }
 }

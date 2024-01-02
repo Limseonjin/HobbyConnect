@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class MainBoardModifyRequestDTO {
     @NotNull
-    private int boardId;
+    private Long boardId;
     private String boardTitle;
     private String boardContent;
 

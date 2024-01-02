@@ -1,6 +1,6 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;S
+import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.BoardWriteRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardWriteRequestDTO;
