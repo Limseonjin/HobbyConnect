@@ -3,15 +3,15 @@
 <header id="head">
     <div class="logo-wrapper">
         <div class="logo">
-            <img src="/assets/img/0.png" width="300" height="150">
+            <a href="/main"><img src="/assets/img/0.png" width="300" height="150"></a>
         </div>
         <div id="head-btn" class="btn btn-wrap">
             <c:if test="${not empty login}">
-                <button type="button" class="btn btn-light">LOGOUT</button>
-                <button type="button" class="btn btn-light">MY PAGE</button>
+                <button id="logout" type="button" class="btn btn-light"><a href="/login/sign-out">LOGOUT</a></button>
+                <button id="mypage" type="button" class="btn btn-light"><a href="/mypage/board">MY PAGE</a></button>
             </c:if>
             <c:if test="${empty login}">
-                <button type="button" class="btn btn-light">LOGIN</button>
+                <button id="loginp" type="button" class="btn btn-light"><a href="/login/sign-in">LOGIN</a></button>
             </c:if>
         </div>
     </div>

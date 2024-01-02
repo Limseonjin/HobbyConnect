@@ -11,38 +11,42 @@
     <link rel="stylesheet" href="/assets/css/board/writepost.css">
 </head>
 <body>
+<script type="text/javascript" src="./js/page-form/page-form.js"></script>
 <%@include file="../common/head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
 <div id="write-post-wrapper">
     <div id="post-wrapper">
         <div id="title">
-            <label>제목</label>
-            <input>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="ro=me">제목</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="roomCreateChecked" checked>
-            <label class="form-check-label" for="roomCreateChecked">
-                방 만들기 여부
-            </label>
+        <div id="content">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="re">간단소개</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
         </div>
-        <form>
+        <form action="#" method="post" id="create-room" >
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="room-name">방이름</span>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="roomRockChecked" checked>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="room-key">방 암호</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="roomdfe">방암호</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
-
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="room-me">최대인원수</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
         </form>
-        <div id="content">
-        </div>
-    </div>
+        <button type="button" class="btn btn-success">만들기</button>
+        <button type="button" class="btn btn-success">취소</button>
+        <br>
 
+    </div>
 </div>
 
 <%@include file="../common/footer.jsp"%>
