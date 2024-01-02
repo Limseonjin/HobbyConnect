@@ -24,9 +24,12 @@ public class indexTest {
 //    public String moTest() {
 //        return "/mainpage";
 //    }
-@RequestMapping("/mypage/del")
-public String myInfTest() {
-    return "myPage/myinfodel";
-}
-
+    @RequestMapping("/mypage/del")
+    public String myInfTest() {
+        return "myPage/myinfodel";
+    }
+    @RequestMapping("/board/detail")
+    public String mdTest() {
+        return "/board/detail";
+    }
 }

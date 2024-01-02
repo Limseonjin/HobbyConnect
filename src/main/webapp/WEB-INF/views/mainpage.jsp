@@ -9,56 +9,16 @@
     <%@include file="common/static-head.jsp" %>
     <%-- 필요한 css나 js 선언   --%>
     <link rel="stylesheet" href="/assets/css/mainpage/main.css">
+    <link rel="stylesheet" href="/assets/css/board/boardList.css">
 
     <script src="/assets/js/main/mainpage.js" defer></script>
 
 </head>
 <body>
-<div id="delete-modal" class="modal" data-bno=0 tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">정말 삭제 하시겠습니까?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>삭제하면 되돌릴 수 없습니다.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="delete-Btn" type="button" class="btn btn-primary">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="update-modal" class="modal" data-bno=2 tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">게시글 수정</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="update-board-title">제목</span>
-                    <input type="text" class="form-control update-board-title" name="boardTitle" placeholder="Title"
-                           aria-label="Username" aria-describedby="addon-wrapping">
-                </div>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="update-board-content">내용</span>
-                    <input type="text" class="form-control update-board-content" name="boardContent"
-                           placeholder="Content" aria-label="Content" aria-describedby="addon-wrapping">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="update-Btn" type="button" class="btn btn-primary">Update</button>
-            </div>
-        </div>
-    </div>
-</div>
-<%@include file="common/head.jsp" %>
 
+<%@include file="common/del-modal.jsp"%>
+<%@include file="common/mod-modal.jsp"%>
+<%@include file="common/head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
 <div id="main-wrapper">
     <%--       서치와 간단 프로필 --%>

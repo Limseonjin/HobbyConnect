@@ -1,7 +1,6 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.common.Search;
-import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;
+import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;S
 import com.spring.mvc.member.dto.request.BoardWriteRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardWriteRequestDTO;
@@ -13,7 +12,6 @@ import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.repository.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -46,5 +44,6 @@ public class BoardService {
         boardMapper.delete(boardId);
         return getList();
     }
+
 
 }
