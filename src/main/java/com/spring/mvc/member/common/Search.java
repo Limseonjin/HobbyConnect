@@ -9,6 +9,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @EqualsAndHashCode
+
 public class Search extends Page {
     private String type, keyword;
 

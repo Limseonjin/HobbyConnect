@@ -1,9 +1,7 @@
 package com.spring.mvc.member.entity;
 
-import com.spring.mvc.member.dto.request.BoardWriteRequestDTO;
-import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
+import com.spring.mvc.member.dto.response.BoardResponseDTO;
 import lombok.*;
-import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDateTime;
 
@@ -41,7 +39,7 @@ public class Board {
     private int viewCount;
     private LocalDateTime regDate;
 
-    public Board(BoardWriteRequestDTO dto) {
+    public Board(BoardResponseDTO dto) {
         this.personId = dto.getPersonId();
         this.boardTitle = dto.getBoardTitle();
         this.boardContent = dto.getBoardContent();

@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -19,7 +20,7 @@ public class RoomService {
     private final RoomMapper roomMapper;
 
     //방 만들기 서비스
-    public boolean makeRoom(RoomRequestDTO dto){
+    public boolean makeRoom(RoomRequestDTO dto, HttpSession session){
 
         return roomMapper.save(dto.room());
     }

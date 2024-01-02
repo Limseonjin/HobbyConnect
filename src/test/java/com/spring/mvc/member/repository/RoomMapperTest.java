@@ -1,7 +1,6 @@
 package com.spring.mvc.member.repository;
 
 import com.spring.mvc.member.entity.Room;
-import com.spring.mvc.member.repository.RoomMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.file.LinkOption;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class RoomMapperTest {
@@ -31,6 +29,7 @@ class RoomMapperTest {
                 .maxUser(4)
                 .currUser(1)
                 .build();
+
 
         // when
         boolean flag = roomMapper.save(room);
