@@ -24,7 +24,7 @@ public class RoomController {
     // 방 만들기 화면 요청
     @GetMapping("/room")
     public String Room(){
-        return "mainpage";
+        return "board/writepost";
     }
 
     //방 만들기 등록 요청

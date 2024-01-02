@@ -142,5 +142,5 @@ $modifyBtn.addEventListener('click',()=>{
 
 // 방 만들기 클릭시
 $creteBtn.addEventListener('click',()=>{
-    window.location.href = '/board'
+    window.location.href = '/board/room'
 })
