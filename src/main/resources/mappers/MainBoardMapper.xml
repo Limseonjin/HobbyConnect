@@ -32,14 +32,17 @@
     <!-- 게시글을 만든다-->
     <insert id="save">
         INSERT INTO tbl_main_board
-        (person_id,main_board_title, main_board_content)
+        (person_id,main_board_title, main_board_content, room_id)
         VALUES
-        (#{personId},#{mainBoardTitle},#{mainBoardContent})
+        (#{personId},#{mainBoardTitle},#{mainBoardContent},#{roomId})
     </insert>
 
     <!-- 모든 게시글을 조회한다.-->
     <select id="findAll" resultType="MainBoard">
-    SELECT * FROM tbl_main_board
+    SELECT mb.person_id, main_board_title, main_board_content, curr_user, max_user
+        FROM tbl_main_board mb
+       LEFT OUTER JOIN tbl_room r
+        WHERE mb.room_id = r.room_id
     </select>
 
     <!-- 특정 사용자가 만든 게시글을 조회한다.-->

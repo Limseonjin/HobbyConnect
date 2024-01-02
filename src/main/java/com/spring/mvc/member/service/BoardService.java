@@ -1,9 +1,6 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;
-import com.spring.mvc.member.dto.request.BoardWriteRequestDTO;
-import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
-import com.spring.mvc.member.dto.request.MainBoardWriteRequestDTO;
+import com.spring.mvc.member.dto.request.*;
 import com.spring.mvc.member.dto.response.BoardResponseDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
@@ -29,10 +26,9 @@ public class BoardService {
                 .collect(Collectors.toList());
     }
 
-    public void register(MainBoardWriteRequestDTO dto) {
+    public void register(MainBoardRequestDTO dto,HttpSession session) {
         // dto 를 엔터티로 변환
-        MainBoard board = new MainBoard(dto);
-        boardMapper.save(board);
+        boardMapper.save(dto.mainBoard(session));
     }
 
     public List<MainBoardResponseDTO> modify(MainBoardModifyRequestDTO dto) {

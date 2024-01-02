@@ -1,5 +1,6 @@
 package com.spring.mvc.member.service;
 
+import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.request.RoomPassWordRequestDTO;
 import com.spring.mvc.member.dto.request.RoomRequestDTO;
 import com.spring.mvc.member.dto.request.CurrUserAndMaxUserDTO;
@@ -20,9 +21,9 @@ public class RoomService {
     private final RoomMapper roomMapper;
 
     //방 만들기 서비스
-    public boolean makeRoom(RoomRequestDTO dto, HttpSession session){
+    public boolean makeRoom(MainBoardRequestDTO dto, HttpSession session){
 
-        return roomMapper.save(dto.room());
+        return roomMapper.save(dto.room(session));
     }
 
     //PersonId로 회원이 만든 방들 조회

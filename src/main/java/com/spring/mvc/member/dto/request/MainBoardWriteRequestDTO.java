@@ -5,6 +5,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
+@AllArgsConstructor
 @EqualsAndHashCode
 @NoArgsConstructor
 public class MainBoardWriteRequestDTO {

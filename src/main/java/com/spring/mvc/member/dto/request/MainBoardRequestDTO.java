@@ -2,8 +2,11 @@ package com.spring.mvc.member.dto.request;
 
 
 import com.spring.mvc.member.entity.MainBoard;
+import com.spring.mvc.member.entity.Room;
+import com.spring.mvc.util.LoginUtil;
 import lombok.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -41,27 +44,40 @@ public class MainBoardRequestDTO {
     private Long mainBoardId ;
     @NotBlank
     private String personId;
+    private String roomPw;
     @NotBlank
     @Size(min = 2, max = 20)
     private String mainBoardTitle;
     @NotBlank
-    @Size(min = 1, max =400)
+    @Size(min = 1, max = 400)
     private String mainBoardContent;
     @NotBlank
     private Long roomId;
-    @NotBlank
-    private Integer viewCount; //조회수 상승 처리 기능
     private LocalDateTime regDate;
+    private int maxUser;
+    private String roomName;
 
-   public MainBoard mainBoard(){
+   public MainBoard mainBoard(HttpSession session){
        return MainBoard.builder()
                .mainBoardId(mainBoardId)
-               .personId(personId)
+               .personId(LoginUtil.getCurrentLoginMemberAccount(session))
                .mainBoardTitle(mainBoardTitle)
                .mainBoardContent(mainBoardContent)
                .roomId(roomId)
-               .viewCount(viewCount)
                .regDate(regDate)
                .build();
    }
+
+   public Room room(HttpSession session){
+       return Room.builder()
+               .roomId(roomId)
+               .roomPw(roomPw)
+               .personId(LoginUtil.getCurrentLoginMemberAccount(session))
+               .maxUser(maxUser)
+               .regDate(regDate)
+               .roomName(roomName)
+               .build();
+   }
+
+
 }

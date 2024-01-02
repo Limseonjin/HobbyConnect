@@ -14,7 +14,7 @@ function postListRender(dtoList){
     for (const dto of dtoList) {
         tag +=`<div class="card room-post" data-bno="${dto.boardId}">
                         <div class="card-header">
-                            <h2> ${dto.boardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
+                            <h2> ${dto.mainBoardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
                              <div class="icon">
                             <button class="modify" data-bs-toggle="modal"  data-bs-target="#update-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -31,7 +31,7 @@ function postListRender(dtoList){
                         </div>
                         </div>
                         <div class="card-body">
-                            <p class="contents">content:${dto.boardContent}</p>
+                            <p class="contents">content:${dto.mainBoardContent}</p>
                             <div class="jcend">
                                 <p class="card-text">작성자:${dto.personId}</p>
                             </div>

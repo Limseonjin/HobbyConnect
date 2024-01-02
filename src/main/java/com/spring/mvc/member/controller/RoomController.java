@@ -1,7 +1,10 @@
 package com.spring.mvc.member.controller;
 
+import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.request.RoomRequestDTO;
+import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.service.BoardService;
+import com.spring.mvc.member.service.MainBoardService;
 import com.spring.mvc.member.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +23,7 @@ public class RoomController {
 
     private final RoomService roomService;
     private final BoardService boardService;
+    private final MainBoardService mainBoardService;
 
     // 방 만들기 화면 요청
     @GetMapping("/room")
@@ -29,8 +33,12 @@ public class RoomController {
 
     //방 만들기 등록 요청
     @PostMapping("/room")
-    public String Room(RoomRequestDTO dto, HttpSession session){
+    public String Room(MainBoardRequestDTO dto,
+                       HttpSession session){
         roomService.makeRoom(dto, session);
+        mainBoardService.save(dto, session);
         return "board/writepost";
     }
+
+
 }

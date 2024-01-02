@@ -16,7 +16,7 @@
 <%-- 여기서 부터 코드 입력 --%>
 <div id="write-post-wrapper">
     <div id="post-wrapper">
-        <form action="/main/main-page" method="post" id="create-room-form" >
+        <form action="/board/room" method="post" id="create-room-form" >
             <div id="title">
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="ro=me">제목</span>

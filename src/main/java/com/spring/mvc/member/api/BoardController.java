@@ -3,9 +3,11 @@ package com.spring.mvc.member.api;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.response.BoardResponseDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
+import com.spring.mvc.member.dto.response.MaxUserResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.service.BoardService;
+import com.spring.mvc.member.service.MainBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -25,16 +27,14 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/mainBoards")
 public class BoardController {
     private final BoardService boardService;
+    private final MainBoardService mainBoardService;
 
     // main-board 목록 조회
     @GetMapping("/main")
     public ResponseEntity<?> mainPage() {
-        List<MainBoardResponseDTO> list = boardService.getList();
+        List<MaxUserResponseDTO> list = mainBoardService.findAll();
         System.out.println("list = " + list);
-        List<MainBoard> boards = list.stream()
-                .map(this::convertToBoard)
-                .collect(Collectors.toList());
-        log.debug("boards: {}", boards);
+        log.debug("list: {}", list);
         return ResponseEntity.ok().body(list);
     }
     

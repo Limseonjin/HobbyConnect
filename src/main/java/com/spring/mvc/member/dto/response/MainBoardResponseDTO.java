@@ -2,14 +2,11 @@ package com.spring.mvc.member.dto.response;
 
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.MainBoard;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+@Setter
 @Getter
 @ToString
 @EqualsAndHashCode
