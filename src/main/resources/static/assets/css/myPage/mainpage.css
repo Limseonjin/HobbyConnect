@@ -1,9 +1,6 @@
 /* my page 전체 */
 .page-wrapper{
-    height: 1000px;
-    padding-top: 150px;
     display: flex;
-
 }
 /*my page 간단정보 박스랑 메뉴박스 wrapper */
 #mypage-side-bar{
@@ -105,3 +102,15 @@
     height: 100px;
 }
 
+/* 회원 수정, 삭제 조회 창 */
+#form-wrapper {
+    width: 60%;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin : 50px 0;
+}
+#form-wrapper h2{
+    text-align: center;
+    font-size: 1.5em;
+}
