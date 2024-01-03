@@ -10,9 +10,7 @@
     <%-- 필요한 css나 js 선언   --%>
     <link rel="stylesheet" href="/assets/css/mainpage/main.css">
     <link rel="stylesheet" href="/assets/css/board/boardList.css">
-
     <script src="/assets/js/main/mainpage.js" defer></script>
-
 </head>
 <body>
 
@@ -36,7 +34,7 @@
     <div id="main-body">
         <div id="post-list" class="card">
             <div id="post-list-body" class="card-body">
-
+<%--               js 비동기 처리 --%>
             </div>
         </div>
         <%--    페이지 번호 --%>

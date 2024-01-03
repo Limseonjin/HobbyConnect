@@ -52,6 +52,15 @@ function postList(){
         )
 }
 
+// 게시글 비동기 처리
+function serchPostList(){
+    fetch(`${URL}/mainserch`)
+        .then(dto=> dto.json())
+        .then(dtoList =>
+            postListRender(dtoList)
+        )
+}
+
 //수정 비동기 처리
 function updateBoard(bno) {
     const payload = {
