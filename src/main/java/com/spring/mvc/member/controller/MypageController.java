@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
@@ -31,14 +32,15 @@ public class MypageController {
     public String boardList(HttpSession session, Model model) {
         List<MypageBoardResponseDTO> boardList = mypageService.getBoardList(session);
         List<Board> boards = boardList.stream()
-                        .map(this::convertToBoard)
-                        .collect(Collectors.toList());
+                .map(this::convertToBoard)
+                .collect(Collectors.toList());
         MemberResponseDTO member = mypageService.getMemberBySession(session);
         model.addAttribute("m", member);
         model.addAttribute("bList", boards);
-        log.debug("bList:{}",boardList);
+        log.debug("bList:{}", boardList);
         return "/mypage/myboard";
     }
+
     // 2. 내가 쓴 댓글 전체 조회 요청
     @GetMapping("/reply")
     public String replyList(HttpSession session, Model model) {
@@ -53,13 +55,24 @@ public class MypageController {
         model.addAttribute("m", member);
         return "/mypage/myinfo";
     }
+
     // 회원 정보 수정 요청 받기
     @PostMapping("/info")
-    public String modifyInfo(HttpSession session, MypageMemberModifyRequestDTO dto, Model model){
-        mypageService.modify(session,dto);
+    public String modifyInfo(HttpSession session, MypageMemberModifyRequestDTO dto) {
+        mypageService.modify(session, dto);
         return "redirect:/mypage/info";
     }
 
+    //회원탈퇴 창 요청
+    @GetMapping("/del")
+    public String delMember() {
+        return "/mypage/myinfodel";
+    }
+    @GetMapping("/deleteCon")
+    public String delMember(HttpSession session) {
+        mypageService.delete(session);
+        return "redirect:/main/mainpage";
+    }
 
 
     private Board convertToBoard(MypageBoardResponseDTO mypageBoard) {
