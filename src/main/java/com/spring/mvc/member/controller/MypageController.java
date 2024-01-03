@@ -52,7 +52,7 @@ public class MypageController {
     @GetMapping("/info")
     public String modifyInfo(HttpSession session, Model model) {
         MemberResponseDTO member = mypageService.getMemberBySession(session);
-        model.addAttribute("m", member);
+        model.addAttribute("p", member);
         return "/mypage/myinfo";
     }
 
@@ -68,6 +68,7 @@ public class MypageController {
     public String delMember() {
         return "/mypage/myinfodel";
     }
+
     @GetMapping("/deleteCon")
     public String delMember(HttpSession session) {
         mypageService.delete(session);
