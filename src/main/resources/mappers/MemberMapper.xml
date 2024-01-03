@@ -37,15 +37,15 @@ INSERT INTO tbl_person
     </select>
 
     <update id="saveAutoLogin">
-        UPDATE tbl_member
-        SET session_id = #{seesionId}, limit_time =#{limitTime}
+        UPDATE tbl_person
+        SET session_id = #{sessionId}, limit_time =#{limitTime}
         WHERE person_id = #{personId}
     </update>
 
     <select id="findMemberByCookie" resultType="Person">
         SELECT
-        person_id,nickname,email,introducation,limit_time
-        FROM tbl_member
+        person_id,nickname,email,introduction,limit_time
+        FROM tbl_person
         WHERE session_id = #{sessionId}
     </select>
 

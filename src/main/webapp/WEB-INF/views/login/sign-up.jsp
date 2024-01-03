@@ -43,10 +43,6 @@
                 <div id="emailHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
-                <label for="sign_local" class="form-label">지역</label>
-                <input type="text" class="form-control" id="sign_local" name="location" >
-            </div>
-            <div class="mb-3">
                 <label for="sign_intro" class="form-label">한 줄 소개</label>
                 <input type="text" class="form-control" id="sign_intro" name="introduction">
             </div>

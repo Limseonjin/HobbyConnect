@@ -119,10 +119,10 @@ public class MemberController {
             // 세션을 무효화하여 세션에 저장된 속성을 제거
             session.invalidate();
 
-            return "/main-mainpage";
+            return "redirect:/main/main-page";
         }
 
-        return "/login/sign-in";
+        return "redirect:/login/sign-in";
     }
 }
 

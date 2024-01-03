@@ -45,7 +45,7 @@
                             </tr>
                             <tr>
                                 <td id="autoLoginBox">
-                                    자동로그인 <input type="checkbox" id="autoLogin">
+                                    자동로그인 <input type="checkbox" id="autoLogin" name="autoLogin">
                                 </td>
                             </tr>
                             <tr>

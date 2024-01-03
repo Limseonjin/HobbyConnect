@@ -8,7 +8,7 @@
         <div id="head-btn" class="btn btn-wrap">
             <c:if test="${not empty login}">
                 <button id="logout" type="button" class="btn btn-light"><a href="/login/sign-out">LOGOUT</a></button>
-                <button id="mypage" type="button" class="btn btn-light"><a href="/mypage/board">MY PAGE</a></button>
+                <button id="mypage" type="button" class="btn btn-light"><a href="/mypage/room">MY PAGE</a></button>
             </c:if>
             <c:if test="${empty login}">
                 <button id="loginp" type="button" class="btn btn-light"><a href="/login/sign-in">LOGIN</a></button>
