@@ -20,4 +20,9 @@ public class indexTest {
         return "/mainserch";
 
     }
+    @RequestMapping("/rooms")
+    public String mdsdfTe() {
+        return "/room/mainroom";
+
+    }
 }

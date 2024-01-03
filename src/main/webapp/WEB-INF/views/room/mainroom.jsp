@@ -13,6 +13,7 @@
 </head>
 <body>
 <%@include file="../common/del-modal.jsp"%>
+<%@include file="room-head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
 <div id="room-main-wrapper">
     <div id="members">
