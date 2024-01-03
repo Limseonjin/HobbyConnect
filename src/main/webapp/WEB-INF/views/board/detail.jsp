@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/assets/css/board/board.css">
 </head>
 <body>
-<form> <input class='write-5' type="submit" value="돌아가기"> </form> <h1> 게시판 </h1>
-
+<form> <input class='write-5' type="submit" value="BACK">
+</form> <h1> 게시판 </h1>
 <div class='form-0'>
     <div class="board-top">
         <form class='form-1' method="POST"  enctype="multipart/form-data">
@@ -22,8 +22,7 @@
 <%--                <label for="file">파일찾기</label>--%>
 <%--                <input type="file" id="file">--%>
 <%--            </div>--%>
-            <hr>
-            <input class='write-4' type="submit" value="올리기">
+            <input class='write-4' type="submit" value="UPLOAD">
         </form>
 
     </div>
@@ -42,17 +41,75 @@
 <%--댓글 띄우는 코드--%>
 <div>
     <h3>댓글</h3>
-    <ul id="commentList">
+    <ul class="commentList">
         <!-- 댓글 목록이 표시되는 부분 -->
-<%--        <!--<c:forEach var="comment" items="${commentList}">-->--%>
+<%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
         <li>
-            <p><strong>88888<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
+            <p><strong> 지나가던 행인 입니다. 맞팔 해염^^<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
                 <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
             <button type="button" class="btn-comment-up">수정</button>
             <button type="button" class="btn-comment-delete">삭제</button>
+            <div>
+                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
+                작성일자 : <>
+            </div>
         </li>
         <!-- <%--</c:forEach>--%>-->
     </ul>
 </div>
+<div>
+    <ul class="commentList">
+        <!-- 댓글 목록이 표시되는 부분 -->
+        <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
+        <li>
+            <p><strong>게시물 잘 보고 가염 8^^8 오늘 하루도 좋은 날이 되세염 ~!!<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
+                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
+            <button type="button" class="btn-comment-up">수정</button>
+            <button type="button" class="btn-comment-delete">삭제</button>
+            <div>
+                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
+                작성일자 : <>
+            </div>
+        </li>
+        <!-- <%--</c:forEach>--%>-->
+    </ul>
+</div>
+
+<div>
+    <ul class="commentList">
+        <!-- 댓글 목록이 표시되는 부분 -->
+        <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
+        <li>
+            <p><strong>새로운 마음 가짐으로 맨날 봐요 ㅎㅎㅎ 맞팔 하실래여 ^^~<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
+                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
+            <button type="button" class="btn-comment-up">수정</button>
+            <button type="button" class="btn-comment-delete">삭제</button>
+            <div>
+                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
+                작성일자 : <>
+            </div>
+        </li>
+        <!-- <%--</c:forEach>--%>-->
+    </ul>
+</div>
+
+<div>
+    <ul class="commentList">
+        <!-- 댓글 목록이 표시되는 부분 -->
+        <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
+        <li>
+            <p><strong><!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
+                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
+            <button type="button" class="btn-comment-up">수정</button>
+            <button type="button" class="btn-comment-delete">삭제</button>
+            <div>
+                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
+                작성일자 : <>
+            </div>
+        </li>
+        <!-- <%--</c:forEach>--%>-->
+    </ul>
+</div>
+
 </body>
 </html>
