@@ -18,10 +18,10 @@
             <textarea class='write-2' name="detail" rows="20"
                       cols="20" maxlength="254" placeholder="내용 작성,최대 254자 가능합니다" required>
             </textarea>
-            <div class="filebox">
-                <label for="file">파일찾기</label>
-                <input type="file" id="file">
-            </div>
+<%--            <div class="filebox">--%>
+<%--                <label for="file">파일찾기</label>--%>
+<%--                <input type="file" id="file">--%>
+<%--            </div>--%>
             <hr>
             <input class='write-4' type="submit" value="올리기">
         </form>
