@@ -23,6 +23,16 @@
     border: 1px solid #d9d9de;
 }
 
+#signInForm #signInTable #autoLoginBox #autoLogin {
+    margin-left: 5px;
+    height: 40px;
+}
+#signInForm #signInTable #autoLoginBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #signInForm #signInTable #signIn-btn {
     background-color: #343A40;
     margin-top: 0;
@@ -55,7 +65,7 @@
 
 
 #iconBox {
-    width: 100%;
+    width: 80%;
     text-align: center;
     margin-top: 50px;
     padding-top: 20px;
@@ -64,9 +74,10 @@
 
 #iconBox .custom-login-btn {
     margin-left: 10px;
+    width: 30%;
 }
 
 #iconBox .custom-login-btn img {
-    width: 100px;
-    height: 100px;
+    width: 25%;
+    height: 30%;
 }

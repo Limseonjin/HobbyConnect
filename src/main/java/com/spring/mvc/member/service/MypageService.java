@@ -85,4 +85,10 @@ public class MypageService {
         return getMember(entity.getPersonId());
     }
 
+    //6. 삭제
+    @Transactional
+    public void delete(HttpSession session) {
+        mypageMapper.delMember(LoginUtil.getCurrentLoginMemberAccount(session));
+    }
+
 }

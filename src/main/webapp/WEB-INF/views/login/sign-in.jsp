@@ -44,6 +44,11 @@
                                 </Button></td>
                             </tr>
                             <tr>
+                                <td id="autoLoginBox">
+                                    자동로그인 <input type="checkbox" id="autoLogin">
+                                </td>
+                            </tr>
+                            <tr>
                                 <td id="signUpBox">
                                     <div>계정이 없으신가요?<a href="/login/sign-up">가입하기</a></div>
                                 </td>
