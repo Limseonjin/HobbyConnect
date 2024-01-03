@@ -1,6 +1,7 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.MypageMemberModifyRequestDTO;
+import com.spring.mvc.member.dto.request.MypageMemberInfoModifyRequestDTO;
+import com.spring.mvc.member.dto.request.MypageMemberPasswordModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MemberResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MypageIntroductionResponseDTO;
@@ -10,6 +11,7 @@ import com.spring.mvc.member.repository.MypageMapper;
 import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +24,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MypageService {
     private final MypageMapper mypageMapper;
+    private final PasswordEncoder encoder;
 
     // 회원 목록 전체 조회
     public MemberResponseDTO getMemberBySession(HttpSession session) {
@@ -76,14 +79,18 @@ public class MypageService {
 
     // 5. 수정
     @Transactional
-    public MemberResponseDTO modify(HttpSession session,MypageMemberModifyRequestDTO dto) {
+    public void modifyInfo(HttpSession session, MypageMemberInfoModifyRequestDTO dto) {
         Member entity = dto.toEntitiy(LoginUtil.getCurrentLoginMemberAccount(session));
-        System.out.println("entity = " + entity);
-        mypageMapper.modify(entity);
-        return getMember(entity.getPersonId());
+        mypageMapper.modifyInfo(entity);
     }
 
-    //6. 삭제
+    @Transactional
+    public void modifyPassword(HttpSession session, MypageMemberPasswordModifyRequestDTO dto) {
+        Member entity = dto.toEntitiy(LoginUtil.getCurrentLoginMemberAccount(session), encoder);
+        mypageMapper.modifyPassword(entity);
+    }
+
+    // 6. 삭제
     @Transactional
     public void delete(HttpSession session) {
         mypageMapper.delMember(LoginUtil.getCurrentLoginMemberAccount(session));

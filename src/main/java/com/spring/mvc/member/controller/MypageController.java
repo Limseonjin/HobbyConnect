@@ -1,6 +1,7 @@
 package com.spring.mvc.member.controller;
 
-import com.spring.mvc.member.dto.request.MypageMemberModifyRequestDTO;
+import com.spring.mvc.member.dto.request.MypageMemberInfoModifyRequestDTO;
+import com.spring.mvc.member.dto.request.MypageMemberPasswordModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MemberResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MypageReplyResponseDTO;
@@ -13,10 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,8 +57,15 @@ public class MypageController {
 
     // 회원 정보 수정 요청 받기
     @PostMapping("/info")
-    public String modifyInfo(HttpSession session, MypageMemberModifyRequestDTO dto) {
-        mypageService.modify(session, dto);
+    public String modifyInfo(HttpSession session, MypageMemberInfoModifyRequestDTO dto) {
+        mypageService.modifyInfo(session, dto);
+        return "redirect:/mypage/info";
+    }
+
+    // 비밀번호 수정 요청
+    @PostMapping("/infopw")
+    public String modifyPassWord(HttpSession session, MypageMemberPasswordModifyRequestDTO dto) {
+        mypageService.modifyPassword(session, dto);
         return "redirect:/mypage/info";
     }
 
