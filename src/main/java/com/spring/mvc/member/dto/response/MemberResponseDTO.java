@@ -20,12 +20,12 @@ public class MemberResponseDTO {
     private String introduction;
     private LocalDateTime regDate;
 
-    public MemberResponseDTO(Member member) {
-        this.personId = member.getPersonId();
-        this.email = member.getEmail();
-        this.password = member.getPassword();
-        this.nickname = member.getNickname();
-        this.introduction = member.getIntroduction();
-        this.regDate = member.getRegDate();
-    }
+//    public MemberResponseDTO(Member member) {
+//        this.personId = member.getPersonId();
+//        this.email = member.getEmail();
+//        this.password = member.getPassword();
+//        this.nickname = member.getNickname();
+//        this.introduction = member.getIntroduction();
+//        this.regDate = member.getRegDate();
+//    }
 }

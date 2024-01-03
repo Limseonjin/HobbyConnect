@@ -31,16 +31,16 @@ public class RoomRequestDTO {
     private Integer currUser;
     private LocalDateTime regDate;
 
-    //엔터티로 변환 시킨다
-    public Room room(){
-        return Room.builder()
-                .personId(personId)
-                .roomName(roomName)
-                .roomPw(roomPw)
-                .maxUser(maxUser)
-                .currUser(currUser)
-                .regDate(regDate)
-                .build();
-    }
+//    //엔터티로 변환 시킨다
+//    public Room toEntity(){
+//        return Room.builder()
+//                .personId(personId)
+//                .roomName(roomName)
+//                .roomPw(roomPw)
+//                .maxUser(maxUser)
+//                .currUser(currUser)
+//                .regDate(regDate)
+//                .build();
+//    }
 
 }

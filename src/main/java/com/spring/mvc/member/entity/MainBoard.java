@@ -37,9 +37,7 @@ public class MainBoard {
     private Long mainBoardId;
     private String personId;
     private String mainBoardTitle;
-    private String boardTitle;
     private String mainBoardContent;
-    private String boardContent;
     private Long roomId;
     private LocalDateTime regDate;
     private int maxUser;
@@ -47,7 +45,7 @@ public class MainBoard {
 
     public MainBoard(MainBoardWriteRequestDTO dto) {
         this.personId = dto.getPersonId();
-        this.boardTitle = dto.getBoardTitle();
-        this.boardContent = dto.getBoardContent();
+        this.mainBoardTitle = dto.getBoardTitle();
+        this.mainBoardContent = dto.getBoardContent();
     }
 }

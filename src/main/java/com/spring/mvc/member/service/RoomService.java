@@ -22,7 +22,7 @@ public class RoomService {
 
     //방 만들기 서비스
     public boolean makeRoom(MainBoardRequestDTO dto, HttpSession session){
-        return roomMapper.save(dto.room(session));
+        return roomMapper.save(dto.toEntity(session));
     }
 
     //PersonId로 회원이 만든 방들 조회

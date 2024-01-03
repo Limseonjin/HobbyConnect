@@ -8,7 +8,7 @@ import lombok.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 public class BoardWriteRequestDTO {
-    private String personId;
-    private String boardTitle;
-    private String boardContent;
+//    private String personId;
+//    private String boardTitle;
+//    private String boardContent;
 }

@@ -68,7 +68,7 @@ public class MainBoardRequestDTO {
                .build();
    }
 
-   public Room room(HttpSession session){
+   public Room toEntity(HttpSession session){
        return Room.builder()
                .roomId(roomId)
                .roomPw(roomPw)

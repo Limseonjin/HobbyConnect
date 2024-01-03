@@ -19,12 +19,12 @@ public class MaxUserResponseDTO {
     private String personId;
 
 
-    public MaxUserResponseDTO(MainBoard mainBoard) {
-        this.boardId = mainBoard.getMainBoardId();
-        this.maxUser = mainBoard.getMaxUser();
-        this.currUser = mainBoard.getCurrUser();
-        this.mainBoardTitle = mainBoard.getMainBoardTitle();
-        this.mainBoardContent = mainBoard.getMainBoardContent();
-        this.personId = mainBoard.getPersonId();
-    }
+//    public MaxUserResponseDTO(MainBoard mainBoard) {
+//        this.boardId = mainBoard.getMainBoardId();
+//        this.maxUser = mainBoard.getMaxUser();
+//        this.currUser = mainBoard.getCurrUser();
+//        this.mainBoardTitle = mainBoard.getMainBoardTitle();
+//        this.mainBoardContent = mainBoard.getMainBoardContent();
+//        this.personId = mainBoard.getPersonId();
+//    }
 }

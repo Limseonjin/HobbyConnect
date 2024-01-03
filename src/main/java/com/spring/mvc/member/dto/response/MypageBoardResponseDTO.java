@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @ToString
 @EqualsAndHashCode
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class MypageBoardResponseDTO {
     private int boardId;
@@ -34,14 +35,14 @@ public class MypageBoardResponseDTO {
         return pattern.format(regDateTime);
     }
 
-    public Board toEntity() {
-        return Board.builder()
-                .boardId(boardId)
-                .personId(personId)
-                .boardTitle(boardTitle)
-                .boardContent(boardContent)
-                .roomId(roomId)
-                .viewCount(viewCount)
-                .build();
-    }
+//    public Board toEntity() {
+//        return Board.builder()
+//                .boardId(boardId)
+//                .personId(personId)
+//                .boardTitle(boardTitle)
+//                .boardContent(boardContent)
+//                .roomId(roomId)
+//                .viewCount(viewCount)
+//                .build();
+//    }
 }

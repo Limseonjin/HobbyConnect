@@ -28,9 +28,6 @@ public class SignUpRequestDTO {
     @NotBlank
     @Email
     private String email;
-
-    private String location;
-
     private String introduction;
 
     // 엔터티로 변환하는 유틸메서드
