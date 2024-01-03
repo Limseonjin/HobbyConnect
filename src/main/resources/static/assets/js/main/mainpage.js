@@ -53,8 +53,8 @@ function postList(){
 }
 
 // 게시글 비동기 처리
-function serchPostList(){
-    fetch(`${URL}/mainserch`)
+function searchPostList(){
+    fetch(`${URL}/mainsearch`)
         .then(dto=> dto.json())
         .then(dtoList =>
             postListRender(dtoList)

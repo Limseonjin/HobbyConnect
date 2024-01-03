@@ -1,7 +1,5 @@
 package com.spring.mvc.member.repository;
 
-import com.spring.mvc.member.common.Search;
-import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.MainBoard;
 import org.apache.ibatis.annotations.Mapper;
 
