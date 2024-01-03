@@ -8,8 +8,6 @@ h1 {
     text-align: center;
     padding: 10px 10px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #848484;
-
 }
 hr {
     border: none; /* 기본 테두리 제거 */
@@ -148,26 +146,32 @@ h2 {
 p {
     margin-bottom: 10px;
 }
-#commentList {
+.commentList {
     list-style: none;
     padding: 0;
 }
 
-#commentList li {
+.commentList li {
     margin-bottom: 15px;
     border-radius: 8px; /* 둥근 네모로 표시하는 부분 */
-    border: 1px solid #ddd;
     padding: 10px;
     position: relative;
 }
 
-#commentList p {
+.commentList li p {
     margin: 0;
+    display: block; /* 댓글 내용을 블록 레벨로 표시 */
+    overflow: hidden; /* 내용이 넘칠 경우 가림 처리 */
+    white-space: nowrap; /* 텍스트가 줄바꿈 되지 않도록 설정 */
+    text-overflow: ellipsis; /* 텍스트가 너무 길 경우 말줄임표로 나타냄 */
+    position: relative; /* 상대적 위치 지정 */
+    z-index: 1; /* 글씨를 앞으로 가지고 옴 */
 }
 
-#commentList li p strong {
-    color: #333;
-    font-weight: bold;
+.commentList p {
+    margin: 0;
+    position: relative; /* 상대적 위치 지정 */
+    z-index: 1; /* 글씨를 앞으로 가지고 옴 */
 }
 
 .btn-comment-up,
@@ -180,6 +184,7 @@ p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2; /* 버튼을 배경보다 앞으로 가지고 옴 */
 }
 
 .btn-comment-up {
@@ -197,7 +202,7 @@ p {
     opacity: 0.9; /* 마우스 호버 시 버튼 색상이 조금 어두워지도록 효과 */
 }
 
-#commentList li::before {
+.commentList li::before {
     content: "";
     position: absolute;
     top: 0;
@@ -205,5 +210,6 @@ p {
     right: 0;
     bottom: 0;
     border-radius: 8px;
-    background-color: #FFFFFF; /* 약간의 투명한 배경을 채우는 부분을 투명하게 설정 */
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: -1; /* 배경을 뒤로 보냄 */
 }
