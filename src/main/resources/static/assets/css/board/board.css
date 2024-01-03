@@ -1,5 +1,7 @@
 body {
     background:url("././img/a.jpg");
+    background-repeat : no-repeat;
+    background-size : cover;
 }
 
 h1 {
@@ -8,6 +10,12 @@ h1 {
     padding-bottom: 30px;
     border-bottom: 1px solid #848484;
 
+}
+hr {
+    border: none; /* 기본 테두리 제거 */
+    height: 2px; /* 수평선의 두께 */
+    background-color: #333; /* 수평선의 색상 */
+    margin: 20px 0; /* 위아래 여백 조절 */
 }
 
 .form-0 {
@@ -145,11 +153,6 @@ p {
     padding: 0;
 }
 
-#commentList {
-    list-style: none;
-    padding: 0;
-}
-
 #commentList li {
     margin-bottom: 15px;
     border-radius: 8px; /* 둥근 네모로 표시하는 부분 */
@@ -162,9 +165,13 @@ p {
     margin: 0;
 }
 
+#commentList li p strong {
+    color: #333;
+    font-weight: bold;
+}
+
 .btn-comment-up,
 .btn-comment-delete {
-    background-color: #dc3545;
     color: #fff;
     padding: 5px 10px;
     border: none;
@@ -176,16 +183,18 @@ p {
 }
 
 .btn-comment-up {
-    right: 70px; /* 수정 버튼을 조절할 수 있는 위치 */
+    background-color: #007bff; /* 수정 버튼 색상 */
+    right: 110px; /* 수정 버튼을 조절할 수 있는 위치 */
 }
 
 .btn-comment-delete {
+    background-color: #dc3545; /* 삭제 버튼 색상 */
     right: 10px;
 }
 
 .btn-comment-up:hover,
 .btn-comment-delete:hover {
-    background-color: #c82333;
+    opacity: 0.9; /* 마우스 호버 시 버튼 색상이 조금 어두워지도록 효과 */
 }
 
 #commentList li::before {

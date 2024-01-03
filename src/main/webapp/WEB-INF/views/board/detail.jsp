@@ -44,7 +44,7 @@
     <h3>댓글</h3>
     <ul id="commentList">
         <!-- 댓글 목록이 표시되는 부분 -->
-<%--        <!--<c:forEach var="comment" items="${commentList}">-->--%>
+<%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
         <li>
             <p><strong>88888<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
                 <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
