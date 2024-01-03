@@ -31,7 +31,6 @@ public class MypageService {
                 .email(member.getEmail())
                 .password(member.getPassword())
                 .nickname(member.getNickname())
-                .location(member.getLocation())
                 .introduction(member.getIntroduction())
                 .build();
     }
@@ -43,7 +42,6 @@ public class MypageService {
                 .email(member.getEmail())
                 .password(member.getPassword())
                 .nickname(member.getNickname())
-                .location(member.getLocation())
                 .introduction(member.getIntroduction())
                 .build();
     }

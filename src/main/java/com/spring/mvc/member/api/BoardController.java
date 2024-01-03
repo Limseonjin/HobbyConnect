@@ -1,25 +1,17 @@
 package com.spring.mvc.member.api;
 
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
-import com.spring.mvc.member.dto.response.BoardResponseDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
-import com.spring.mvc.member.dto.response.MaxUserResponseDTO;
-import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.service.BoardService;
 import com.spring.mvc.member.service.MainBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
@@ -51,6 +43,7 @@ public class BoardController {
 
         try {
             List<MainBoardResponseDTO> modify = boardService.modify(dto);
+            log.debug("dto: {}",dto);
             return ResponseEntity.ok().body(modify);
 
         } catch (Exception e) {

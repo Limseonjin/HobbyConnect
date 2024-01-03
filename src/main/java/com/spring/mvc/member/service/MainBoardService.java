@@ -2,14 +2,12 @@ package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
-import com.spring.mvc.member.dto.response.MaxUserResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.repository.MainBoardMapper;
 import com.spring.mvc.member.repository.RoomMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.jdt.internal.compiler.batch.Main;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
@@ -50,6 +48,8 @@ public class MainBoardService {
     public List<MainBoard> findRoomByTitle(String keyword){
         return mainBoardMapper.findTitle(keyword);
     }
+
+
 
     public List<MainBoardResponseDTO> delete(Long bno) {
         mainBoardMapper.delete(bno);

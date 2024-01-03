@@ -6,7 +6,7 @@
     <select id="findAll" resultType="MainBoard">
         SELECT b.*, r.max_user, r.curr_user
         FROM tbl_main_board b
-        INNER JOIN tbl_room r ON b.room_id = r.room_id
+        INNER JOIN tbl_room r ON b.main_board_id = r.room_id
     </select>
 
     <insert id="save">
