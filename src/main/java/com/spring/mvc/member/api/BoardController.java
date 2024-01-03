@@ -25,8 +25,6 @@ public class BoardController {
     @GetMapping("/main")
     public ResponseEntity<?> mainPage() {
         List<MainBoardResponseDTO> list = mainBoardService.findAll();
-//        System.out.println("list = " + list);
-//        log.debug("list: {}", list);
         return ResponseEntity.ok().body(list);
     }
     

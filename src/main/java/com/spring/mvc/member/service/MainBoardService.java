@@ -61,9 +61,6 @@ public class MainBoardService {
 
 
     }
-
-
-
     public List<MainBoardResponseDTO> delete(Long bno) {
         mainBoardMapper.delete(bno);
         return mainBoardMapper.findAll().stream()

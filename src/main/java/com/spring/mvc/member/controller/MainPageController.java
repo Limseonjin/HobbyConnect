@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/main")
 public class MainPageController {
 
+    //메인 페이지 화면 요청
     @GetMapping("/main-page")
     public String list() {
 

@@ -57,7 +57,7 @@ public class MemberController {
 
     //로그인 양식 요청
     @GetMapping("/sign-in")
-    public String SignIn(HttpSession session) {
+    public String SignIn() {
         log.info("/login/sign-in GET - forwarding to sign-in.jspr");
         return "/login/sign-in";
     }
