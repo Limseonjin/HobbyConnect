@@ -9,16 +9,16 @@
     justify-content: space-between;
 }
 /* 검색창 */
-#serch{
+#search{
     width: 30%;
 }
 
-#serch .container-fluid form{
+#search .container-fluid form{
     width: 100%
 }
 
 
-#serch-head #serch{
+#serch-head #search{
     width: 100%;
     height: 100px;
 }

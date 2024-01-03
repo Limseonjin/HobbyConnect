@@ -20,8 +20,8 @@
 <%-- 여기서 부터 코드 입력 --%>
 <div id="main-wrapper">
     <%--       서치와 간단 프로필 --%>
-    <div id="serch-head">
-        <nav id="serch" class="navbar navbar-light bg-light">
+    <div id="search-head">
+        <nav id="search" class="navbar navbar-light bg-light">
             <div  class="container-fluid">
                 <form action="/serch" class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
