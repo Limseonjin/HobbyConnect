@@ -15,4 +15,8 @@ public class indexTest {
     public String mdTest() {
         return "/board/detail";
     }
+    @RequestMapping("/serch")
+    public String mdTe() {
+        return "/mainserch";
+    }
 }

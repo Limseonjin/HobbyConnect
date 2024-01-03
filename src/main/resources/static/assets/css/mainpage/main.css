@@ -1,15 +1,21 @@
 #main-wrapper{
-    margin: 200px 50px 50px 50px;
+    margin: 80px 50px 50px 50px;
 }
 
 /* 검색창과 간단 프로필 */
+
 #main-head{
     display: flex;
     justify-content: space-between;
 }
-
 /* 검색창 */
 #serch{
-    width: 40%;
-
+    width: 100%;
 }
+
+#serch .container-fluid{
+    width: 50%;
+}
+
+
+

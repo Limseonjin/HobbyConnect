@@ -24,24 +24,16 @@
     <%--       서치와 간단 프로필 --%>
     <div id="main-head">
         <nav id="serch" class="navbar navbar-light bg-light">
-            <div class="container-fluid">
+            <div  class="container-fluid">
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </nav>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>
-                <a href="/mypage/board" class="card-link">My Page</a>
-                <a href="/login/sign-out" class="card-link">Logout</a>
-            </div>
-        </div>
     </div>
     <%--     게시글 목록들 --%>
     <div id="main-body">
-        <button id="create-room" type="button" class="btn btn-warning">방 만들기</button>
         <div id="post-list" class="card">
             <div id="post-list-body" class="card-body">
 

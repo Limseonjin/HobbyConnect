@@ -12,7 +12,7 @@
 <body>
 <%@include file="common/head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
-
+<div class="page-wrapper"></div>
 <%@include file="common/footer.jsp"%>
 </body>
 </html>
