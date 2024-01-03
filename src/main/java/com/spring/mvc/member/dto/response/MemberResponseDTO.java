@@ -17,7 +17,6 @@ public class MemberResponseDTO {
     private String email;
     private String password;
     private String nickname;
-    private String location;
     private String introduction;
     private LocalDateTime regDate;
 
@@ -26,7 +25,6 @@ public class MemberResponseDTO {
         this.email = member.getEmail();
         this.password = member.getPassword();
         this.nickname = member.getNickname();
-        this.location = member.getLocation();
         this.introduction = member.getIntroduction();
         this.regDate = member.getRegDate();
     }

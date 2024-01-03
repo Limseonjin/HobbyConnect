@@ -1,7 +1,6 @@
 package com.spring.mvc.member.dto.request;
 
 import com.spring.mvc.member.entity.Member;
-import com.spring.mvc.member.entity.location;
 import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -41,7 +40,6 @@ public class SignUpRequestDTO {
                 .password(encoder.encode(password))
                 .email(email)
                 .nickname(nickname)
-                .location(location)
                 .introduction(introduction)
                 .build();
     }

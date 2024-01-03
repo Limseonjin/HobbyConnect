@@ -6,15 +6,15 @@
 
 <insert id="save">
 INSERT INTO tbl_person
-    (person_id,email, password,nickname,location,introduction)
+    (person_id,email, password,nickname,introduction)
 
     VALUES
-    (#{personId},#{email},#{password},#{nickname},#{location},#{introduction})
+    (#{personId},#{email},#{password},#{nickname},#{introduction})
 </insert>
 
     <select id="findMember" resultType="Person">
         SELECT
-        person_id, email, password, nickname,location,introduction, reg_date
+        person_id, email, password, nickname,introduction, reg_date
         FROM tbl_person
         WHERE person_id = #{personId}
     </select>
@@ -34,6 +34,19 @@ INSERT INTO tbl_person
             WHERE nickname = #{keyword}
         </if>
 
+    </select>
+
+    <update id="saveAutoLogin">
+        UPDATE tbl_member
+        SET session_id = #{seesionId}, limit_time =#{limitTime}
+        WHERE person_id = #{personId}
+    </update>
+
+    <select id="findMemberByCookie" resultType="Person">
+        SELECT
+        person_id,nickname,email,introducation,limit_time
+        FROM tbl_member
+        WHERE session_id = #{sessionId}
     </select>
 
 

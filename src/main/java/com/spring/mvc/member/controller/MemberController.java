@@ -4,6 +4,7 @@ import com.spring.mvc.member.dto.request.LoginRequestDTO;
 import com.spring.mvc.member.dto.request.SignUpRequestDTO;
 import com.spring.mvc.member.entity.LoginResult;
 import com.spring.mvc.member.service.MemberService;
+import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import static com.spring.mvc.util.LoginUtil.*;
 
 
 @Controller
@@ -49,7 +52,7 @@ public class MemberController {
         log.info("/login/sign-up POST ~");
         log.debug("parameter : {}", dto);
         boolean flag = memberService.join(dto);
-        return flag ? "redirect:/hoddy/list/ " : "redirect:/login/sign-up";
+        return flag ? "redirect:/main/main-page/ " : "redirect:/login/sign-up";
     }
 
     //로그인 양식 요청
@@ -91,13 +94,33 @@ public class MemberController {
     @GetMapping("/sign-out")
     public String signOut(HttpServletResponse response,
                           HttpServletRequest request,
-                          Authentication authentication){
+                          Authentication authentication)
+//                          HttpSession session)
+                {
+
+        HttpSession session = request.getSession();
+
         System.out.println("response = " + response);
         System.out.println("request = " + request);
         System.out.println("authentication = " + authentication);
-        HttpSession session = request.getSession();
-        // 세션을 무효화하여 세션에 저장된 속성을 제거
-        session.invalidate();
+
+        //로그인 상태인지 확인
+        if (LoginUtil.isLogin(session)) {
+
+            //자동 로그인 상태인지도 확인
+            if(isAutoLogin(request)){
+                //쿠키를 삭제하고 DB데이터도 원래대로 돌려놓을것임.
+                memberService.autoLoginClear(request, response);
+            }
+
+            //세션에서 로그인 정보 기록 삭제
+            session.removeAttribute(LOGIN_KEY);
+
+            // 세션을 무효화하여 세션에 저장된 속성을 제거
+            session.invalidate();
+
+            return "/main-mainpage";
+        }
 
         return "/login/sign-in";
     }
