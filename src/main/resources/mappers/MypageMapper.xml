@@ -31,4 +31,9 @@
         WHERE person_id = #{personId}
     </update>
 
+    <delete id="delMember">
+        DELETE FROM tbl_person
+        WHERE person_id = #{personId}
+    </delete>
+
 </mapper>
