@@ -1,11 +1,8 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.*;
-import com.spring.mvc.member.dto.response.BoardResponseDTO;
+import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
+import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
-import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
-import com.spring.mvc.member.entity.Board;
-import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.repository.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +17,7 @@ public class BoardService {
     private final BoardMapper boardMapper;
 
     public List<MainBoardResponseDTO> getList() {
+        Object page;
         return boardMapper.findAll()
                 .stream()
                 .map(MainBoardResponseDTO::new)
