@@ -80,7 +80,6 @@ public class BoardController {
                 .mainBoardTitle(mainBoard.getBoardTitle())
                 .mainBoardContent(mainBoard.getBoardContent())
                 .roomId(mainBoard.getRoomId())
-                .viewCount(mainBoard.getViewCount())
                 .currUser(mainBoard.getCurrUser())
                 .maxUser(mainBoard.getMaxUser())
                 .build();

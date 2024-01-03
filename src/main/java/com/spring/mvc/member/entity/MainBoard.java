@@ -41,7 +41,6 @@ public class MainBoard {
     private String mainBoardContent;
     private String boardContent;
     private Long roomId;
-    private int viewCount;
     private LocalDateTime regDate;
     private int maxUser;
     private int currUser;

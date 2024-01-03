@@ -23,9 +23,13 @@ public class MainBoardService {
     private final RoomMapper roomMapper;
 
     //게시글 만들기 서비스
-    public boolean save(MainBoardRequestDTO dto, HttpSession session){
+    public void save(MainBoardRequestDTO dto, HttpSession session){
         List<Room> byPersonId = roomMapper.findByPersonId(dto.getPersonId());
-        return mainBoardMapper.save(dto.mainBoard(session));
+        log.debug("main board save dto : {} ", dto);
+        MainBoard mainBoard = dto.mainBoard(session);
+        mainBoardMapper.save(mainBoard);
+        Long mainBoardId = mainBoard.getMainBoardId();
+        mainBoardMapper.roomSave(mainBoard);
 
     }
     public List<MainBoardResponseDTO> findAll(){

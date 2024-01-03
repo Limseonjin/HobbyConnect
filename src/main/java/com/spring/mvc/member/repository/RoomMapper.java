@@ -28,9 +28,7 @@ public interface RoomMapper {
     //특정 회원이 내 방에 들어오면 currUser이 증가함
     boolean updateCurrUser (@Param("currUser") int currUser,@Param("roomId") Long roomId);
 
-
-
-
     //방을 삭제
     boolean deleteRoom(Long roomId);
+
 }
