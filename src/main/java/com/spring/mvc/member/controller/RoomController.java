@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,14 +39,7 @@ public class RoomController {
                        HttpSession session){
         roomService.makeRoom(dto, session);
         mainBoardService.save(dto, session);
-        mainBoardService.addRoomId(dto,session);
-        return "/makeroom";
+        return "/mainpage";
     }
-
-    @GetMapping("/makeroom")
-    public String roomIds(){
-        return ""
-    }
-
 
 }

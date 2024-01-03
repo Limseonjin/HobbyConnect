@@ -30,11 +30,11 @@
 
 
     <!-- 게시글을 만든다-->
-    <insert id="save">
+    <insert id="save" useGeneratedKeys="true" keyProperty="mainBoardId">
         INSERT INTO tbl_main_board
-        (person_id,main_board_title, main_board_content,room_id)
+        (person_id,main_board_title, main_board_content)
         VALUES
-        (#{personId},#{mainBoardTitle},#{mainBoardContent}, #{roomId})
+        (#{personId},#{mainBoardTitle},#{mainBoardContent})
     </insert>
 
     <!-- 모든 게시글을 조회한다.-->
@@ -77,9 +77,9 @@
     </update>
 
     <update id="roomSave">
-        UPDATE tbl_main_board mb, tbl_room r
-        SET mb.room_id = r.room_id
-        WHERE r.room_id = #{mainBoardId}
+        UPDATE tbl_main_board
+        SET room_id = #{mainBoardId}
+        WHERE main_board_id = #{mainBoardId}
     </update>
 
 

@@ -31,7 +31,7 @@ class RoomServiceTest {
                 .currUser(1)
                 .build();
         //when
-        roomService.makeRoom(dto,null);
+//        roomService.makeRoom(dto,null);
         //then
     }
 

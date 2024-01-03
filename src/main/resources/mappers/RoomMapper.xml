@@ -5,7 +5,7 @@
 <mapper namespace="com.spring.mvc.member.repository.RoomMapper">
 
     <!-- 방을 만들기 -->
-    <insert id="save" parameterType="Room" useGeneratedKeys="true" keyProperty="roomId">
+    <insert id="save" parameterType="Room" >
         INSERT INTO tbl_room
         (person_id, room_name, room_pw, max_user, curr_user)
         VALUES

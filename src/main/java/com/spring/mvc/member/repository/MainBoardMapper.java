@@ -33,7 +33,7 @@ public interface MainBoardMapper {
     //게시글 삭제
     boolean delete(Long mainBoard);
 
-    // 룸 아이디 업뎃
-    boolean roomSave(MainBoard mainBoard);
+    void roomSave(MainBoard mainBoard);
+
 
 }
