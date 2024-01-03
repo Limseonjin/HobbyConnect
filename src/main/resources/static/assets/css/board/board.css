@@ -126,11 +126,6 @@ input[value="댓글 등록"] {
     background-color: #04B404;
 }
 
-/* 댓글 수정 버튼의 배경 색상 지정 */
-input[value="댓글 수정"] {
-    background-color: #e67e22;
-}
-
 /* 댓글 삭제 버튼의 배경 색상 지정 */
 input[value="댓글 삭제"] {
     background-color: #e74c3c;
@@ -144,4 +139,62 @@ h2 {
 }
 p {
     margin-bottom: 10px;
+}
+#commentList {
+    list-style: none;
+    padding: 0;
+}
+
+#commentList {
+    list-style: none;
+    padding: 0;
+}
+
+#commentList li {
+    margin-bottom: 15px;
+    border-radius: 8px; /* 둥근 네모로 표시하는 부분 */
+    border: 1px solid #ddd;
+    padding: 10px;
+    position: relative;
+}
+
+#commentList p {
+    margin: 0;
+}
+
+.btn-comment-up,
+.btn-comment-delete {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-comment-up {
+    right: 70px; /* 수정 버튼을 조절할 수 있는 위치 */
+}
+
+.btn-comment-delete {
+    right: 10px;
+}
+
+.btn-comment-up:hover,
+.btn-comment-delete:hover {
+    background-color: #c82333;
+}
+
+#commentList li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background-color: #FFFFFF; /* 약간의 투명한 배경을 채우는 부분을 투명하게 설정 */
 }
