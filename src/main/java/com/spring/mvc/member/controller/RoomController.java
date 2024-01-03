@@ -39,7 +39,7 @@ public class RoomController {
                        HttpSession session){
         roomService.makeRoom(dto, session);
         mainBoardService.save(dto, session);
-        return "/mainpage";
+        return "redirect:/main/main-page";
     }
 
 }

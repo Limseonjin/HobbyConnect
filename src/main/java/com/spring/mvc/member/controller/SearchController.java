@@ -34,21 +34,14 @@ public class SearchController {
     // personId로 회원이 만든 게시글 조회 요청 처리
     @GetMapping("/findByPersonId/{personId}")
     public ResponseEntity<?> findMainBoardsByPersonId(@PathVariable String personId) {
-        List<MainBoard> boards = mainBoardService.findRoomByPersonId(personId);
+        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByPersonId(personId);
         return ResponseEntity.ok().body(boards);
-    }
-
-    // mainBoardId로 게시글 조회 요청 처리
-    @GetMapping("/findByMainBoardId/{mainBoardId}")
-    public ResponseEntity<?> findMainBoardByMainBoardId(@PathVariable Long mainBoardId) {
-        MainBoard board = mainBoardService.findRoomByBoardId(mainBoardId);
-        return ResponseEntity.ok().body(board);
     }
 
     // keyword로 게시글 조회 요청 처리
     @GetMapping("/findByTitle/{keyword}")
     public ResponseEntity<?> findMainBoardsByTitle(@PathVariable String keyword) {
-        List<MainBoard> boards = mainBoardService.findRoomByTitle(keyword);
+        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByTitle(keyword);
         return ResponseEntity.ok().body(boards);
     }
 }

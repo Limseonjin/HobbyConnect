@@ -1,7 +1,9 @@
 
 const $creteBtn = document.getElementById('create-room');
-
+const $searchInput = document.getElementById('search-content');
+const $searchType = document.getElementById('search-type')
 const URL = '/api/v1/mainBoards';
+const SEARCH_URL = '/api/mainboard';
 (() => {
     postList();
 })()
@@ -12,9 +14,9 @@ function postListRender(dtoList){
     const $postBody = document.getElementById('post-list-body');
     let tag = ``;
     for (const dto of dtoList) {
-        tag +=`<div class="card room-post" data-bno="${dto.boardId}">
+        tag +=`<div class="card room-post" data-bno="${dto.mainBoardId}">
                         <div class="card-header">
-                            <h2> ${dto.boardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
+                            <h2> ${dto.mainBoardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
                              <div class="icon">
                             <button class="modify" data-bs-toggle="modal"  data-bs-target="#update-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -31,7 +33,7 @@ function postListRender(dtoList){
                         </div>
                         </div>
                         <div class="card-body">
-                            <p class="contents">content:${dto.boardContent}</p>
+                            <p class="contents">content:${dto.mainBoardContent}</p>
                             <div class="jcend">
                                 <p class="card-text">작성자:${dto.personId}</p>
                             </div>
@@ -46,16 +48,16 @@ function postListRender(dtoList){
 // 게시글 비동기 처리
 function postList(){
     fetch(`${URL}/main`)
-        .then(dto=> dto.json())
+        .then(res=>res.json())
         .then(dtoList =>
             postListRender(dtoList)
         )
 }
 
 // 게시글 비동기 처리
-function searchPostList(){
-    fetch(`${URL}/mainsearch`)
-        .then(dto=> dto.json())
+function SearchPostList(type,input){
+    fetch(`${SEARCH_URL}/${type}/${input}`)
+        .then(res=> res.json())
         .then(dtoList =>
             postListRender(dtoList)
         )
@@ -102,6 +104,7 @@ const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal')
 const $updateModal = new bootstrap.Modal(document.getElementById('update-modal'), {keyboard: false})
 const $okDelete = document.getElementById('delete-Btn');
 const $okUpdate = document.getElementById('update-Btn');
+const $searchBtn = document.getElementById('search-btn');
 
 const deleteModalEl = document.getElementById('delete-modal')
 const updateModalEl = document.getElementById('update-modal')
@@ -153,3 +156,14 @@ $modifyBtn.addEventListener('click',()=>{
 $creteBtn.addEventListener('click',()=>{
     window.location.href = '/board/room'
 })
+
+
+function searchClickHandler() {
+    let sInput = $searchInput.value
+    let sType = $searchType.value
+    console.log(sInput);
+    console.log(sType);
+    SearchPostList(sType, sInput);
+}
+// 서치 버튼 클릭시
+$searchBtn.addEventListener('click',searchClickHandler)

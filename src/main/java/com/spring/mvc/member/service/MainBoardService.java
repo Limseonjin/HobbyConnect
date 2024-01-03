@@ -39,9 +39,12 @@ public class MainBoardService {
                 .collect(Collectors.toList());
     }
     //personId로 회원이 만든 게시글 조회
-    public List<MainBoard> findRoomByPersonId(String personId){
+    public List<MainBoardResponseDTO> findRoomByPersonId(String personId){
 
-        return mainBoardMapper.findPersonId(personId);
+        List<MainBoard> mainboard = mainBoardMapper.findPersonId(personId);
+        return mainboard.stream()
+                .map(MainBoardResponseDTO::new)
+                .collect(Collectors.toList());
     }
     //mainBoardId로 게시글 하나를 조회
     public MainBoard findRoomByBoardId(Long BoardId){
@@ -49,8 +52,14 @@ public class MainBoardService {
     }
 
     //keyword로 내가 찾고 싶은 게시글 조회
-    public List<MainBoard> findRoomByTitle(String keyword){
-        return mainBoardMapper.findTitle(keyword);
+    public List<MainBoardResponseDTO> findRoomByTitle(String keyword){
+
+        List<MainBoard> mainBoards = mainBoardMapper.findTitle(keyword);
+        return mainBoards.stream()
+                .map(MainBoardResponseDTO::new)
+                .collect(Collectors.toList());
+
+
     }
 
 

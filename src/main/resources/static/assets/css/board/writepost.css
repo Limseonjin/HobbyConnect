@@ -1,12 +1,12 @@
 /* board 전체 */
 #write-post-wrapper{
-    margin-top: 200px;
+
     background-color: #FAFAFA;
     padding: 8px;
 }
 /* 게시글 작성 창 */
 #post-wrapper{
-    margin: 200px;
+    margin: 100px;
     background-color:#E0ECF8 ;
 }
 /* 게시글 내용 */

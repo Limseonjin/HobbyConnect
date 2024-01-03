@@ -17,7 +17,7 @@ public class indexTest {
     }
     @RequestMapping("/serch")
     public String mdTe() {
-        return "/mainserch";
+        return "/mainsearch";
 
     }
     @RequestMapping("/rooms")

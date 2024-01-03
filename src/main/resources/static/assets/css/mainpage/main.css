@@ -10,15 +10,18 @@
 }
 /* 검색창 */
 #search{
-    width: 30%;
+    width: 40%;
 }
 
-#search .container-fluid form{
+#search .container-fluid .d-flex{
     width: 100%
 }
+#search .container-fluid .type-select{
+    width: 120px
+}
 
 
-#serch-head #search{
+#search-head #search{
     width: 100%;
     height: 100px;
 }

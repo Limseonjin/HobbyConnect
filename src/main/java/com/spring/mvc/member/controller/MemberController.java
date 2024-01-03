@@ -52,19 +52,14 @@ public class MemberController {
         log.info("/login/sign-up POST ~");
         log.debug("parameter : {}", dto);
         boolean flag = memberService.join(dto);
-        return flag ? "redirect:/main/main-page/ " : "redirect:/login/sign-up";
+        return flag ? "redirect:/login/sign-in" : "redirect:/login/sign-up";
     }
 
     //로그인 양식 요청
     @GetMapping("/sign-in")
     public String SignIn(HttpSession session) {
-        if(session.getAttribute("login")==null){
-            System.out.println(" 로그인 하지 않았습니다.");
-        }else{
-            System.out.println(" 로그인 성공 ! ");
-        }
         log.info("/login/sign-in GET - forwarding to sign-in.jspr");
-        return "login/sign-in";
+        return "/login/sign-in";
     }
 
     //로그인 검증 요청
@@ -85,7 +80,7 @@ public class MemberController {
 
             //세션으로 로그인을 유지한다.
             memberService.maintainLoginState(session,dto.getPersonId());
-            return "mainpage";
+            return "redirect:/main/main-page";
         }
         return "redirect:/login/sign-in"; //로그인 실패 시
     }
