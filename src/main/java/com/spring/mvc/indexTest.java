@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class indexTest {
 
-    @RequestMapping("/mypage/del")
-    public String myInfTest() {
-        return "mypage/myinfodel";
-    }
+//    @RequestMapping("/mypage/del")
+//    public String myInfTest() {
+//        return "mypage/myinfodel";
+//    }
     @RequestMapping("/board/detail")
     public String mdTest() {
         return "/board/detail";
@@ -18,5 +18,6 @@ public class indexTest {
     @RequestMapping("/serch")
     public String mdTe() {
         return "/mainserch";
+
     }
 }

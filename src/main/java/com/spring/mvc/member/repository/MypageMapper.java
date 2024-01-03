@@ -28,5 +28,8 @@ public interface MypageMapper {
     // 5. 수정
     boolean modify(Member member);
 
+    // 6. 회원 삭제
+    boolean delMember(String personId);
+
 
 }
