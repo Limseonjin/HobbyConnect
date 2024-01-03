@@ -25,8 +25,12 @@ public class MainBoardService {
     //게시글 만들기 서비스
     public boolean save(MainBoardRequestDTO dto, HttpSession session){
         List<Room> byPersonId = roomMapper.findByPersonId(dto.getPersonId());
+        log.debug("main board save dto : {} ", dto);
         return mainBoardMapper.save(dto.mainBoard(session));
 
+    }
+    public void addRoomId(MainBoardRequestDTO dto, HttpSession session){
+        mainBoardMapper.roomSave(dto.mainBoard(session));
     }
     public List<MainBoardResponseDTO> findAll(){
         List<MainBoard> maxUser = mainBoardMapper.findAll();

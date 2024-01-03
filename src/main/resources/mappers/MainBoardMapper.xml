@@ -32,9 +32,9 @@
     <!-- 게시글을 만든다-->
     <insert id="save">
         INSERT INTO tbl_main_board
-        (person_id,main_board_title, main_board_content)
+        (person_id,main_board_title, main_board_content,room_id)
         VALUES
-        (#{personId},#{mainBoardTitle},#{mainBoardContent})
+        (#{personId},#{mainBoardTitle},#{mainBoardContent}, #{roomId})
     </insert>
 
     <!-- 모든 게시글을 조회한다.-->
@@ -75,6 +75,13 @@
         SET main_board_content =#{mainBoardContent}
         WHERE person_id = #{personId}
     </update>
+
+    <update id="roomSave">
+        UPDATE tbl_main_board mb, tbl_room r
+        SET mb.room_id = r.room_id
+        WHERE r.room_id = #{mainBoardId}
+    </update>
+
 
     <!-- 내 게시글 삭제하기-->
     <delete id="delete">

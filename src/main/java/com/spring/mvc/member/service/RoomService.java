@@ -22,7 +22,6 @@ public class RoomService {
 
     //방 만들기 서비스
     public boolean makeRoom(MainBoardRequestDTO dto, HttpSession session){
-
         return roomMapper.save(dto.room(session));
     }
 

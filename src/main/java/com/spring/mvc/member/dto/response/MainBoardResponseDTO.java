@@ -29,7 +29,6 @@ public class MainBoardResponseDTO {
         this.boardTitle = board.getMainBoardTitle();
         this.boardContent= board.getMainBoardContent();
         this.roomId = board.getRoomId();
-        this.viewCount = board.getViewCount();
         this.regDate = makePrettierDateString(board.getRegDate());
         this.maxUser = board.getMaxUser();
         this.currUser = board.getCurrUser();

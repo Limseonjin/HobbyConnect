@@ -6,6 +6,7 @@ import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.service.BoardService;
 import com.spring.mvc.member.service.MainBoardService;
 import com.spring.mvc.member.service.RoomService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -37,7 +38,13 @@ public class RoomController {
                        HttpSession session){
         roomService.makeRoom(dto, session);
         mainBoardService.save(dto, session);
-        return "board/writepost";
+        mainBoardService.addRoomId(dto,session);
+        return "/makeroom";
+    }
+
+    @GetMapping("/makeroom")
+    public String roomIds(){
+        return ""
     }
 
 
