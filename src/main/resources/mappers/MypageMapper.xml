@@ -23,11 +23,17 @@
         WHERE person_id = #{personId}
     </select>
 
-    <update id="modify">
+    <update id="modifyInfo">
         UPDATE tbl_person
         SET nickname = #{nickname},
             email = #{email},
             introduction = #{introduction}
+        WHERE person_id = #{personId}
+    </update>
+
+    <update id="modifyPassword">
+        UPDATE tbl_person
+        SET password = #{password}
         WHERE person_id = #{personId}
     </update>
 

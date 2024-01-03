@@ -4,7 +4,6 @@ import com.spring.mvc.member.entity.Member;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.websocket.Session;
 
 @Getter
 @Setter
@@ -13,7 +12,7 @@ import javax.websocket.Session;
 @NoArgsConstructor
 @EqualsAndHashCode
 @AllArgsConstructor
-public class MypageMemberModifyRequestDTO {
+public class MypageMemberInfoModifyRequestDTO {
     @NotBlank
     private String personId; // 수정할 member id
 

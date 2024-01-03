@@ -26,7 +26,10 @@ public interface MypageMapper {
     Member findIntroduction(String personId);
 
     // 5. 수정
-    boolean modify(Member member);
+    // -회원정보 수정
+    boolean modifyInfo(Member member);
+    // -회원 비밀번호 수정
+    boolean modifyPassword(Member member);
 
     // 6. 회원 삭제
     boolean delMember(String personId);
