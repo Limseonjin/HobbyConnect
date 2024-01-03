@@ -28,7 +28,7 @@
 <script>
     const $personDeleteBtn = document.getElementById('person-del')
     $personDeleteBtn.onclick = () =>{
-        window.location.href = '/main'
+        window.location.href = '/mypage/deleteCon'
     }
 </script>
 </body>
