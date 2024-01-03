@@ -31,31 +31,28 @@
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <hr>
-<%--댓글 조회시 시간,내용,사용자 뜸--%>
-
-<%--<%--%>
-<%--    // 댓글이 작성되면 출력--%>
-<%--    if (commentText != null && !commentText.isEmpty()) {--%>
-<%--%>--%>
-<%--<div>--%>
-<%--    <strong><%= commenterName %></strong> (<%= currentTime %>): <%= commentText %>--%>
-<%--</div>--%>
-<%--<%--%>
-<%--    }--%>
-<%--%>--%>
-
-
-<input type="submit" value="댓글 목록">
+<%--<input type="submit" value="댓글 목록">--%>
 <h2>댓글 작성</h2>
 <form method="post" action="">
     <textarea name="comment" rows="4" cols="50" placeholder="댓글을 작성하세요">
     </textarea><br>
     <input type="submit" value="댓글 등록">
-    <input type="submit" value="댓글 수정">
-    <input type="submit" value="댓글 삭제">
+<%--    <input type="submit" value="댓글 삭제">--%>
 </form>
-
-
-
+<%--댓글 띄우는 코드--%>
+<div>
+    <h3>댓글</h3>
+    <ul id="commentList">
+        <!-- 댓글 목록이 표시되는 부분 -->
+<%--        <!--<c:forEach var="comment" items="${commentList}">-->--%>
+        <li>
+            <p><strong>88888<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
+                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
+            <button type="button" class="btn-comment-up">수정</button>
+            <button type="button" class="btn-comment-delete">삭제</button>
+        </li>
+        <!-- <%--</c:forEach>--%>-->
+    </ul>
+</div>
 </body>
 </html>
