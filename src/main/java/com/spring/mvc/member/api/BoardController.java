@@ -75,10 +75,10 @@ public class BoardController {
 
     private MainBoard convertToBoard(MainBoardResponseDTO mainBoard) {
         return MainBoard.builder()
-                .mainBoardId(mainBoard.getBoardId())
+                .mainBoardId(mainBoard.getMainBoardId())
                 .personId(mainBoard.getPersonId())
-                .mainBoardTitle(mainBoard.getBoardTitle())
-                .mainBoardContent(mainBoard.getBoardContent())
+                .mainBoardTitle(mainBoard.getMainBoardTitle())
+                .mainBoardContent(mainBoard.getMainBoardContent())
                 .roomId(mainBoard.getRoomId())
                 .currUser(mainBoard.getCurrUser())
                 .maxUser(mainBoard.getMaxUser())

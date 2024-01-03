@@ -46,8 +46,9 @@
 
     <!-- 특정 사용자가 만든 게시글을 조회한다.-->
     <select id="findPersonId" resultType="MainBoard">
-        SELECT * FROM tbl_main_board
-        WHERE person_id = #{personId}
+        SELECT * FROM tbl_main_board mb
+        JOIN tbl_room r ON mb.room_id = r.room_id
+        WHERE mb.person_id = #{personId}
     </select>
 
     <!-- 내가 찾고 싶은 게시글을 게시글 아이디로 조회 -->
@@ -58,7 +59,8 @@
 
     <!-- 내가 찾고 싶은 게시글 제목으로 조회-->
     <select id="findTitle" resultType="MainBoard">
-        SELECT * FROM  tbl_main_board
+        SELECT * FROM  tbl_main_board mb
+        JOIN tbl_room r ON mb.room_id = r.room_id
         WHERE main_board_title LIKE CONCAT('%',#{keyword},'%')
     </select>
 

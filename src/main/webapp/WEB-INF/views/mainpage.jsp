@@ -25,10 +25,15 @@
     <div id="main-head">
         <nav id="search" class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                <div class="d-flex">
+                    <select id="search-type" class="type-select form-select form-select-lg">
+                        <option value="findByTitle" selected>제목</option>
+                        <option value="content">내용</option>
+                        <option value="findByPersonId">작성자</option>
+                    </select>
+                    <input id="search-content" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button id="search-btn" class="btn btn-outline-success" type="button">Search</button>
+                </div>
             </div>
         </nav>
         <div class="card" style="width: 18rem;">
