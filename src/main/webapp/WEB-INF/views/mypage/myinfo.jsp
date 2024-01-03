@@ -20,22 +20,22 @@
         <form action="/mypage/info" name="info" id="signUpForm" class="info-form" method="post">
             <div class="mb-3">
                 <label for="user_id" class="form-label">아이디</label>
-                <input type="text" class="form-control" id="user_id" name="personId" value="${personId}" readonly>
+                <input type="text" class="form-control" id="user_id" name="personId" value="${login.personId}" readonly>
                 <div id="idHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="sign_nickname" class="form-label">닉네임</label>
-                <input type="text" class="form-control" id="sign_nickname" name="nickname" value="${nickname}">
+                <input type="text" class="form-control" id="sign_nickname" name="nickname" value="${login.nickname}">
                 <div id="nickHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="sign_email" class="form-label">이메일</label>
-                <input type="email" class="form-control" id="sign_email" name="email" value="${nickname}" >
+                <input type="email" class="form-control" id="sign_email" name="email" value="${login.nickname}" >
                 <div id="emailHelp" class="form-text"></div>
             </div>
             <div class="mb-3">
                 <label for="sign_intro" class="form-label">한 줄 소개</label>
-                <input type="text" class="form-control" id="sign_intro" name="introduction" value="${introduction}">
+                <input type="text" class="form-control" id="sign_intro" name="introduction" value="${login.introduction}">
             </div>
             <div class="container">
                 <button id="sign_ok" type="submit" class="btn btn-primary">수정하기</button>
