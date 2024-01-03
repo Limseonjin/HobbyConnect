@@ -7,7 +7,7 @@ CREATE TABLE tbl_person
 (
     person_id VARCHAR(20),
     email   VARCHAR(255) NOT NULL ,
-    password VARCHAR(20) NOT NULL ,
+    password VARCHAR(255) NOT NULL ,
     nickname VARCHAR(20) NOT NULL ,
     introduction VARCHAR(40),
     reg_date TIME DEFAULT current_timestamp,
