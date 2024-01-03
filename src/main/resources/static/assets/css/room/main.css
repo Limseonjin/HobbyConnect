@@ -1,11 +1,34 @@
 
 /* 룸 헤더 */
-.logo h1 {
-    font-size: 1.5em;
+.logo-wrapper .logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.logo-wrapper .logo h1 {
+    font-size: 2em;
+}
+
+/* 룸 메인 */
 #room-main-wrapper{
     margin: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#room-main-wrapper #members{
+    margin-top: 50px;
+    width: 30%;
+}
+#room-main-wrapper #members card{
+    margin-top: 30px;
+}
+
+/* 게시글 목록 */
+#room-main-wrapper #main-body{
+    width: 100%;
+    margin:0 50px;
+}
+
+#room-main-wrapper #main-body #post-list-body .card-body{
+    height: 200px;
 }
