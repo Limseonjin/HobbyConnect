@@ -62,15 +62,14 @@ function replyRender(boards){
         </li>`
     }
     for (let i = begin; i < prev; i++) {
-        <li className="page-item"><a className="page-link" href="#">${``}</a></li>
+       tag += `<li className="page-item"><a className="page-link" href="#">${i}</a></li>`
     }
-
-
-    <li className="page-item">
-        <a className="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-        </a>
-    </li>
+    //
+    // <li className="page-item">
+    //     <a className="page-link" href="#" aria-label="Next">
+    //         <span aria-hidden="true">&raquo;</span>
+    //     </a>
+    // </li>
 }
 
 // 게시글 비동기 처리
