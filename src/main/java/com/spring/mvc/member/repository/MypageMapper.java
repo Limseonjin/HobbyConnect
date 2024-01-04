@@ -1,6 +1,7 @@
 package com.spring.mvc.member.repository;
 
 import com.spring.mvc.member.entity.Board;
+import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.entity.Reply;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,6 +14,9 @@ public interface MypageMapper {
 
     //회원 조회
     Member findMember(String personId);
+
+    // 메인보드 조회
+    List<MainBoard> findAllMyMainBoard(String personId);
 
     // 1. 내가 쓴 게시글 전체 조회
     List<Board> findAllMyBoard(String personId);

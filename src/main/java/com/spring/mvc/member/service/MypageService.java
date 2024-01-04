@@ -2,10 +2,8 @@ package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.dto.request.MypageMemberInfoModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MypageMemberPasswordModifyRequestDTO;
-import com.spring.mvc.member.dto.response.MemberResponseDTO;
-import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
-import com.spring.mvc.member.dto.response.MypageIntroductionResponseDTO;
-import com.spring.mvc.member.dto.response.MypageReplyResponseDTO;
+import com.spring.mvc.member.dto.response.*;
+import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.repository.MypageMapper;
 import com.spring.mvc.util.LoginUtil;
@@ -47,6 +45,16 @@ public class MypageService {
                 .nickname(member.getNickname())
                 .introduction(member.getIntroduction())
                 .build();
+    }
+
+    public List<MypageMainBoardResponseDTO> getMainBoardList(HttpSession session) {
+        List<MypageMainBoardResponseDTO> collect = mypageMapper.findAllMyMainBoard(LoginUtil.getCurrentLoginMemberAccount(session))
+                .stream()
+                .map(MypageMainBoardResponseDTO::new)
+                .collect(Collectors.toList());
+        System.out.println("collect = " + collect);
+        return collect;
+
     }
 
 

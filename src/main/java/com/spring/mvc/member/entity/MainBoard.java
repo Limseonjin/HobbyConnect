@@ -41,5 +41,4 @@ public class MainBoard {
     private LocalDateTime regDate;
     private int maxUser;
     private int currUser;
-
 }
