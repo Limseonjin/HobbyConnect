@@ -7,6 +7,7 @@
     <title>BBS Update</title>
     <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        <%--수정 폼 디자인--%>
         body {
             font-family: Arial, sans-serif;
 
@@ -91,6 +92,7 @@
         }
     </style>
 </head>
+<%--폼 메인 코드--%>
 <body>
 <form action="#" method="post">
     <div class="conf">
@@ -118,10 +120,34 @@
             </table>
         </div>
         <div class="btn-group" role="group" aria-label="...">
-            <input type="submit" class="btn-default" value="수정하기">
-            <input type="submit" class="btn-default2" value="취소하기">
+            <input type="button" class="btn-default" value="수정하기" onclick="confirmEdit()">
+            <input type="button" class="btn-default2" value="취소하기" onclick="confirmCancel()">
         </div>
     </div>
 </form>
+<%--스크립트--%>
+<script>
+    function confirmEdit() {
+        const isEdit = confirm('수정 하시겠습니까?'); // 사용자에게 확인 메시지 표시
+        if (isEdit) {
+            // 여기에 실제 수정 처리 로직을 추가
+            alert('수정 완료');
+            return true; // true면 submit 진행
+        } else {
+            return false; // false면 submit 취소
+        }
+    }
+
+    function confirmCancel() {
+        const isCancel = confirm(' 취소 하시겠습니까?'); // 사용자에게 확인 메시지 표시
+        if (isCancel) {
+            // 여기에 취소 처리 로직을 추가
+            alert('취소 완료');
+            return true; // true면 submit 진행
+        } else {
+            return false; // false면 submit 취소
+        }
+    }
+</script>
 </body>
 </html>
