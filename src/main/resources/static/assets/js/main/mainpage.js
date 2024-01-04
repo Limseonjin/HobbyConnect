@@ -16,7 +16,13 @@ function postListRender(dtoList){
     for (const dto of dtoList) {
         tag +=`<div class="card room-post" data-bno="${dto.mainBoardId}">
                         <div class="card-header">
-                            <h2> ${dto.mainBoardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
+                       
+                            <h2>`
+        if(dto.roomPw !== null){
+            tag +=  `<span class="lnr lnr-lock"></span>`
+        }
+
+                            tag +=`${dto.mainBoardTitle}Title (${dto.currUser}/${dto.maxUser})</h2>
                              <div class="icon">
                             <button class="modify" data-bs-toggle="modal"  data-bs-target="#update-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -38,7 +44,7 @@ function postListRender(dtoList){
                                 <p class="card-text">작성자:${dto.personId}</p>
                             </div>
 
-                            <button class="btn btn-primary" type="submit">참여하기</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#room-pw-modal" type="button">참여하기</button>
                         </div>
                     </div>`
     }
@@ -54,7 +60,7 @@ function postList(){
         )
 }
 
-// 게시글 비동기 처리
+// 검색시 게시글 비동기 처리
 function SearchPostList(type,input){
     fetch(`${SEARCH_URL}/${type}/${input}`)
         .then(res=> res.json())
@@ -102,17 +108,23 @@ function deleteBoard(bno){
 
 const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: false})
 const $updateModal = new bootstrap.Modal(document.getElementById('update-modal'), {keyboard: false})
+const $roomPwModal = new bootstrap.Modal(document.getElementById('room-pw-modal'), {keyboard: false})
 const $okDelete = document.getElementById('delete-Btn');
 const $okUpdate = document.getElementById('update-Btn');
 const $searchBtn = document.getElementById('search-btn');
 
 const deleteModalEl = document.getElementById('delete-modal')
 const updateModalEl = document.getElementById('update-modal')
+const roomPwModalEl = document.getElementById('room-pw-modal')
 
-// updateModalEl.addEventListener('hidden.bs.modal',()=>{
-//     document.querySelector('.update-board-title').value = ''
-//     document.querySelector('.update-board-content').value = ''
-// })
+// 룸 암호 모달창이 뜰 때 실행할 코드
+roomPwModalEl.addEventListener('show.bs.modal',function (e){
+    const preTarget = e.relatedTarget;
+    const boardId= preTarget.closest('.room-post').dataset.bno
+    if (boardId === id){
+
+    }
+})
 
 // 수정 모달창이 뜨고 나서 실행할 코드
 updateModalEl.addEventListener('shown.bs.modal', function (e) {

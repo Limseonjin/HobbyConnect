@@ -18,6 +18,7 @@
 
 <%@include file="common/del-modal.jsp"%>
 <%@include file="common/mod-modal.jsp"%>
+<%@include file="common/room-pw-modal.jsp"%>
 <%@include file="common/head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
 <div id="main-wrapper">
@@ -46,7 +47,9 @@
     </div>
     <%--     게시글 목록들 --%>
     <div id="main-body">
-        <button id="create-room" type="button" class="btn btn-warning">방 만들기</button>
+        <c:if test="${login != null}">
+            <button id="create-room" type="button" class="btn btn-warning">방 만들기</button>
+        </c:if>
         <div id="post-list" class="card">
             <div id="post-list-body" class="card-body">
 
