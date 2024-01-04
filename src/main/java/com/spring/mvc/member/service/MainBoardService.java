@@ -1,5 +1,6 @@
 package com.spring.mvc.member.service;
 
+import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
@@ -22,13 +23,12 @@ public class MainBoardService {
     private final MainBoardMapper mainBoardMapper;
     private final RoomMapper roomMapper;
 
+
     //게시글 만들기 서비스
     public void save(MainBoardRequestDTO dto, HttpSession session){
-        List<Room> byPersonId = roomMapper.findByPersonId(dto.getPersonId());
         log.debug("main board save dto : {} ", dto);
         MainBoard mainBoard = dto.mainBoard(session);
         mainBoardMapper.save(mainBoard);
-        Long mainBoardId = mainBoard.getMainBoardId();
         mainBoardMapper.roomSave(mainBoard);
 
     }
@@ -38,6 +38,15 @@ public class MainBoardService {
                 .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
     }
+    public List<MainBoardResponseDTO> modify(MainBoardModifyRequestDTO dto) {
+        mainBoardMapper.modify(dto.toEntity());
+        return findAll();
+    }
+
+    public List<MainBoardResponseDTO> delete(long boardId) {
+        mainBoardMapper.delete(boardId);
+        return findAll();
+    }
     //personId로 회원이 만든 게시글 조회
     public List<MainBoardResponseDTO> findRoomByPersonId(String personId){
 
@@ -46,11 +55,6 @@ public class MainBoardService {
                 .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
     }
-    //mainBoardId로 게시글 하나를 조회
-    public MainBoard findRoomByBoardId(Long BoardId){
-        return mainBoardMapper.findMainBoardId(BoardId);
-    }
-
     //keyword로 내가 찾고 싶은 게시글 조회
     public List<MainBoardResponseDTO> findRoomByTitle(String keyword){
 
@@ -67,4 +71,5 @@ public class MainBoardService {
                 .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
     }
+
 }

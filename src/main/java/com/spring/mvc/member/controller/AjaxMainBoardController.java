@@ -1,9 +1,8 @@
-package com.spring.mvc.member.api;
+package com.spring.mvc.member.controller;
 
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
-import com.spring.mvc.member.service.BoardService;
 import com.spring.mvc.member.service.MainBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +16,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/mainBoards")
-public class BoardController {
-    private final BoardService boardService;
+public class AjaxMainBoardController {
     private final MainBoardService mainBoardService;
 
     // main-board 목록 조회
@@ -40,7 +38,7 @@ public class BoardController {
         log.debug("Parameter: {}", dto);
 
         try {
-            List<MainBoardResponseDTO> modify = boardService.modify(dto);
+            List<MainBoardResponseDTO> modify = mainBoardService.modify(dto);
             log.debug("dto: {}",dto);
             return ResponseEntity.ok().body(modify);
 

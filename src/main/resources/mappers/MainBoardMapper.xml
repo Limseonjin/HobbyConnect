@@ -64,18 +64,11 @@
         WHERE main_board_title LIKE CONCAT('%',#{keyword},'%')
     </select>
 
-    <!-- 내 게시글 제목 수정하기-->
     <update id="modify">
         UPDATE tbl_main_board
-        SET main_board_title =#{mainBoardTitle}
-        WHERE person_id = #{personId}
-    </update>
-
-    <!-- 내 게시글 글 내용 수정하기-->
-    <update id="modifyContent">
-        UPDATE tbl_main_board
-        SET main_board_content =#{mainBoardContent}
-        WHERE person_id = #{personId}
+        SET main_board_title = #{mainBoardTitle},
+        main_board_content = #{mainBoardContent}
+        WHERE main_board_id = #{mainBoardId}
     </update>
 
     <update id="roomSave">

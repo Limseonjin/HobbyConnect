@@ -3,7 +3,6 @@ package com.spring.mvc.member.controller;
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.request.RoomRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
-import com.spring.mvc.member.service.BoardService;
 import com.spring.mvc.member.service.MainBoardService;
 import com.spring.mvc.member.service.RoomService;
 import lombok.Getter;
@@ -24,7 +23,6 @@ import javax.servlet.http.HttpSession;
 public class RoomController {
 
     private final RoomService roomService;
-    private final BoardService boardService;
     private final MainBoardService mainBoardService;
 
     // 방 만들기 화면 요청
