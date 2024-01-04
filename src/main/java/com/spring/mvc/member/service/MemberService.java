@@ -112,8 +112,9 @@ public class MemberService {
                 .personId(member.getPersonId())
                 .email(member.getEmail())
                 .nickname(member.getNickname())
-                .introduction(member.getIntroduction())
-                .build();
+                .introduction(member.getIntroduction()).build();
+//                .auth(member.getAuth().toString()).build();
+
 
         //세션에 로그인한 회원의 정보를 저장
         session.setAttribute(LOGIN_KEY,dto);

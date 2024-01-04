@@ -7,6 +7,7 @@ import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.repository.MainBoardMapper;
 import com.spring.mvc.member.repository.RoomMapper;
+import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -28,9 +29,11 @@ public class MainBoardService {
     public void save(MainBoardRequestDTO dto, HttpSession session){
         log.debug("main board save dto : {} ", dto);
         MainBoard mainBoard = dto.mainBoard(session);
+        mainBoard.setPersonId(LoginUtil.getCurrentLoginMemberAccount(session));
         mainBoardMapper.save(mainBoard);
         Long mainBoardId = mainBoard.getMainBoardId();
         mainBoardMapper.roomSave(mainBoardId);
+
 
     }
     // 페이징 처리한 조회

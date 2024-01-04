@@ -19,5 +19,6 @@ public class LoginUserResponseDTO {
     private String email;
     private String location;
     private String introduction;
+    private String auth;
 
 }
