@@ -29,7 +29,8 @@ public class MainBoardService {
         log.debug("main board save dto : {} ", dto);
         MainBoard mainBoard = dto.mainBoard(session);
         mainBoardMapper.save(mainBoard);
-        mainBoardMapper.roomSave(mainBoard);
+        Long mainBoardId = mainBoard.getMainBoardId();
+        mainBoardMapper.roomSave(mainBoardId);
 
     }
     // 페이징 처리한 조회

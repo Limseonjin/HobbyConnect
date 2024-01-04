@@ -40,6 +40,6 @@ public class MainBoard {
     private Long roomId;
     private String roomPw;
     private LocalDateTime regDate;
-    private int maxUser;
-    private int currUser;
+    private Integer maxUser;
+    private Integer currUser;
 }
