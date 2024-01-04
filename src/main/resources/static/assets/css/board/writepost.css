@@ -1,12 +1,19 @@
 /* board 전체 */
 #write-post-wrapper{
-    height: 600px;
+    height:700px;
     padding: 50px;
+}
+/* 제목 css */
+#write-post-wrapper h2{
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.5em;
 }
 
 #post-wrapper-back{
     padding: 50px;
     background-color: #d0d0d0;
+    border-radius: 20px;
 
 }
 /* 게시글 작성 창 */
@@ -15,7 +22,11 @@
 }
 /* 게시글 내용 */
 #post-wrapper .create-content{
-    margin: 20px 0;
+    margin-bottom: 40px;
+}
+
+#create-room-form .sub-title{
+    margin: 0;
 }
 
 /*!* 방 만들기 폼 *!*/

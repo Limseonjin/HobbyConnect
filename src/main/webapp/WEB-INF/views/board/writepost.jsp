@@ -19,6 +19,7 @@
         <div id="post-wrapper">
             <h2>홍보 게시물 및 방 만들기</h2>
             <form action="/board/room" method="post" id="create-room-form" >
+                <p class="sub-title">홍보 게시물 작성</p>
                 <div id="title" class="create-content">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="ro=me">제목</span>
@@ -30,11 +31,12 @@
                 </div>
                 <div id="content" class="create-content">
                     <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="re">간단소개</span>
+                        <span class="input-group-text" id="re">간단 소개</span>
                         <input type="text" class="form-control" name="mainBoardContent" placeholder="Content" aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
                 </div>
                 <div id="create-room" >
+                    <p class="sub-title">방 만들기</p>
                     <div class="input-group flex-nowrap create-content" >
                         <span class="input-group-text" id="room-name">방이름</span>
                         <input type="text" class="form-control" name="roomName" placeholder="Room_Name" aria-label="Username" aria-describedby="addon-wrapping">
