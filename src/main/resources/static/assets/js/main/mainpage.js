@@ -51,9 +51,10 @@ function postListRender(dtoList){
     $postBody.innerHTML = tag;
 }
 
-//
-function replyRender(boards){
+/** 페이지 넘버 렌더링 함수  */
+function pageNoRender(boards){
     let tag = ``;
+    // 이전 버튼
     if (prev){
         tag += `<li className="page-item">
             <a className="page-link" href="#" aria-label="Previous">
@@ -61,34 +62,47 @@ function replyRender(boards){
             </a>
         </li>`
     }
+    //  페이지 번호 리스트
     for (let i = begin; i < prev; i++) {
        tag += `<li className="page-item"><a className="page-link" href="#">${i}</a></li>`
     }
-    //
-    // <li className="page-item">
-    //     <a className="page-link" href="#" aria-label="Next">
-    //         <span aria-hidden="true">&raquo;</span>
-    //     </a>
-    // </li>
+    //  다음 버튼
+    if (next) {
+        tag += `<li className="page-item">
+        <a className="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+        `
+    }
+    // 페이지 태그 렌더링
+    const $pageUl = document.querySelector('.pagination');
+    $pageUl.innerHTML = tag;
+    // ul에 마지막 페이지 번호 저장
+    $pageUl.dataset.fp = finalPage;
 }
 
 // 게시글 비동기 처리
-function postList(){
-    fetch(`${URL}/main`)
+function postList(page=1){
+    fetch(`${URL}/main/page/${page}`)
         .then(res=>res.json())
-        .then(dtoList =>
+        .then(dtoList =>{
             postListRender(dtoList)
+                pageNoRender(dtoList)
+        }
+
         )
 }
 
-// 검색시 게시글 비동기 처리
-function SearchPostList(type,input){
-    fetch(`${SEARCH_URL}/${type}/${input}`)
+function SearchPostList(type,input,page=1){
+    fetch(`${SEARCH_URL}/${type}/${input}/page/{pageNo}`)
         .then(res=> res.json())
-        .then(dtoList =>
+        .then(dtoList =>{
             postListRender(dtoList)
-        )
+            pageNoRender(dtoList)
+        })
 }
+// 검색시 게시글 비동기 처리
 
 //수정 비동기 처리
 function updateBoard(bno) {
