@@ -32,18 +32,20 @@
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="card-body">
+                        <c:forEach var="r" items="${rList}">
                         <div class="mypage-reply card border-secondary mb-3" >
                             <div class="card-body reply-wrapper">
                                 <div class="title">
-                                    <p>boardTitle</p>
-                                    <p>boardContent</p>
+                                    <p>글 제목:${r.boardTitle}</p>
+                                    <p>댓글내용:${r.content}</p>
                                 </div>
                                 <div class="other">
-                                    <p>작성자 : nickname</p>
-                                    <p>조회수 : viewCount</p>
+                                    <p>작성자 : ${r.nickname}</p>
+                                    <p>조회수 : ${r.viewCount}</p>
                                 </div>
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@
             <div class="active-list-wrapper">
                 <div class="card border-secondary mb-3">
                     <div class="room-card card-body">
-<%--                        <c:forEach var="r" items="${rList}">--%>
+<%--                        <c:forEach var="r" items="${mbList}">--%>
                             <div class="mypage-room card border-secondary mb-3" >
                                 <div class="card-body room-wrapper">
                                     <img class="room-img">
@@ -38,7 +38,7 @@
                                         <p>방 이름${r.roomName}</p>
                                     </div>
                                     <div class="other">
-                                        <p>방 인원(${currUser}/${maxUser})</p>
+                                        <p>방 인원(${r.currUser}/${r.maxUser})</p>
                                     </div>
                                 </div>
                             </div>

@@ -19,7 +19,7 @@
     <div id="members">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title">어서오세요 ${nickName}님!</h2>
+                <h2 class="card-title">어서오세요 ${nickname}님!</h2>
                 <a href="/mypage/board" class="card-link">My Page</a>
                 <a href="/login/sign-out" class="card-link">Logout</a>
             </div>
@@ -27,9 +27,9 @@
         <div class="card">
             <div class="card-body">
                 <ul>멤버 목록
-                    <li>하이1</li>
-                    <li>하이2</li>
-                    <li>하이3</li>
+                    <c:forEach var="rm" items="rmList">
+                        <li>${rm.nickname}</li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
@@ -38,6 +38,7 @@
         <button id="create-room" type="button" class="btn btn-warning">글 쓰기</button>
         <div id="post-list" class="card">
             <div id="post-list-body" class="card-body">
+<%--                게시글 조회 비동기 --%>
                 <div class="card room-post" data-bno="2">
                     <div class="card-header">
                         <h2>Title</h2>
