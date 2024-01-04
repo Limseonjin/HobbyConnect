@@ -37,7 +37,7 @@
                                         <p>${b.boardTitle}</p>
                                     </div>
                                     <div class="other">
-                                        <p>작성자 : ${login.nickname}</p>
+                                        <p>작성자 : ${p.nickname}</p>
                                         <p>조회수 : ${b.viewCount}</p>
                                     </div>
                                 </div>

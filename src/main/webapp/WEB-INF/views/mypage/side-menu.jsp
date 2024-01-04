@@ -4,9 +4,9 @@
     <div id="userInfo">
         <div class="card border-secondary mb-3" >
             <div class="card-body">
-                <p class="card-text">닉네임 : ${login.nickname}</p>
-                <p class="card-text">아이디 : ${login.personId}</p>
-                <p class="card-text">한줄소개 : ${login.introduction}</p>
+                <p class="card-text">닉네임 : ${p.nickname}</p>
+                <p class="card-text">아이디 : ${p.personId}</p>
+                <p class="card-text">한줄소개 : ${p.introduction}</p>
             </div>
         </div>
 

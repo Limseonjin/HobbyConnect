@@ -38,6 +38,7 @@ public class MainBoard {
     private String mainBoardTitle;
     private String mainBoardContent;
     private Long roomId;
+    private String roomPw;
     private LocalDateTime regDate;
     private int maxUser;
     private int currUser;
