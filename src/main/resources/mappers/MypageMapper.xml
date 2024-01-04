@@ -8,6 +8,11 @@
         WHERE person_id = #{personId}
     </select>
 
+    <select id="findAllMyMainBoard" resultType="MainBoard">
+        SELECT * FROM tbl_main_board
+        WHERE person_id = #{personId}
+    </select>
+
     <select id="findAllMyBoard" resultType="Board">
         SELECT * FROM tbl_board
         WHERE person_id = #{personId}

@@ -4,8 +4,10 @@ import com.spring.mvc.member.dto.request.MypageMemberInfoModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MypageMemberPasswordModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MemberResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
+import com.spring.mvc.member.dto.response.MypageMainBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MypageReplyResponseDTO;
 import com.spring.mvc.member.entity.Board;
+import com.spring.mvc.member.entity.Reply;
 import com.spring.mvc.member.service.MypageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +28,14 @@ import java.util.stream.Collectors;
 public class MypageController {
     private final MypageService mypageService;
 
+    @GetMapping("/room")
+    public String roomList(HttpSession session, Model model) {
+        List<MypageMainBoardResponseDTO> mainBoardList = mypageService.getMainBoardList(session);
+        MemberResponseDTO member = mypageService.getMemberBySession(session);
+        model.addAttribute("mbList", mainBoardList);
+        model.addAttribute("p", member);
+        return "/mypage/myroom";
+    }
     // 1. 내가 쓴 게시글 전체 조회 요청
     @GetMapping("/board")
     public String boardList(HttpSession session, Model model) {
@@ -34,8 +44,8 @@ public class MypageController {
                 .map(this::convertToBoard)
                 .collect(Collectors.toList());
         MemberResponseDTO member = mypageService.getMemberBySession(session);
-        model.addAttribute("m", member);
         model.addAttribute("bList", boards);
+        model.addAttribute("p", member);
         log.debug("bList:{}", boardList);
         return "/mypage/myboard";
     }
@@ -44,6 +54,10 @@ public class MypageController {
     @GetMapping("/reply")
     public String replyList(HttpSession session, Model model) {
         List<MypageReplyResponseDTO> replyList = mypageService.getReplyList(session);
+        MemberResponseDTO member = mypageService.getMemberBySession(session);
+
+        model.addAttribute("rList", replyList);
+        model.addAttribute("p", member);
         return "/mypage/myreply";
     }
 
