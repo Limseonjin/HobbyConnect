@@ -37,8 +37,8 @@
                 </div>
             </div>
         </nav>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
+        <div class="user-info card">
+            <div class=" card-body">
                 <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>
                 <a href="/mypage/board" class="card-link">My Page</a>
                 <a href="/login/sign-out" class="card-link">Logout</a>

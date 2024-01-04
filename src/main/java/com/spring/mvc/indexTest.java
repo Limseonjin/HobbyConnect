@@ -25,4 +25,9 @@ public class indexTest {
         return "/room/mainroom";
 
     }
+    @RequestMapping("/detail2")
+    public String me() {
+        return "/board/UpdateForm";
+
+    }
 }
