@@ -54,24 +54,22 @@ function postListRender(dtoList){
 //
 function replyRender(boards){
     let tag = ``;
-    for (const b of boards) {
-
+    if (prev){
+        tag += `<li className="page-item">
+            <a className="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>`
     }
-    tag+=
-        <ul className="pagination">
-            <li className="page-item">
-                <a className="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li className="page-item"><a className="page-link" href="#">1</a></li>
-
-            <li className="page-item">
-                <a className="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+    for (let i = begin; i < prev; i++) {
+       tag += `<li className="page-item"><a className="page-link" href="#">${i}</a></li>`
+    }
+    //
+    // <li className="page-item">
+    //     <a className="page-link" href="#" aria-label="Next">
+    //         <span aria-hidden="true">&raquo;</span>
+    //     </a>
+    // </li>
 }
 
 // 게시글 비동기 처리

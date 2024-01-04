@@ -9,7 +9,7 @@
         INSERT INTO tbl_room
         (person_id, room_name, room_pw, max_user, curr_user)
         VALUES
-        (#{personId}, #{roomName}, #{roomPw}, #{maxUser}, #{currUser})
+        (#{personId}, #{roomName}, #{roomPw}, #{maxUser},1)
     </insert>
 
     <!-- 모든 방을 조회 -->

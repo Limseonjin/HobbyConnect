@@ -58,6 +58,9 @@
         <%--    페이지 번호 --%>
         <nav id="page-num" aria-label="Page navigation example">
 <%--            페이지 번호 비동기 처리 --%>
+            <ul className="pagination">
+
+            </ul>
         </nav>
     </div>
 </div>
