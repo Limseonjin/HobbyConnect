@@ -44,17 +44,22 @@
         JOIN tbl_room r ON mb.main_board_id = r.room_id
     </select>
 
+    <!-- 모든 게시글을 조회시 페이징 처리한다.-->
+    <select id="pagefindAll" resultType="MainBoard">
+        SELECT *
+        FROM tbl_main_board mb
+        JOIN tbl_room r ON mb.main_board_id = r.room_id
+        ORDER BY main_board_id DESC
+        LIMIT #{p.pageStart},#{p.amount}
+    </select>
+
     <!-- 특정 사용자가 만든 게시글을 조회한다.-->
     <select id="findPersonId" resultType="MainBoard">
         SELECT * FROM tbl_main_board mb
         JOIN tbl_room r ON mb.room_id = r.room_id
         WHERE mb.person_id = #{personId}
-    </select>
-
-    <!-- 내가 찾고 싶은 게시글을 게시글 아이디로 조회 -->
-    <select id="findMainBoardId" resultType="MainBoard">
-        SELECT * FROM tbl_main_board
-        WHERE main_board_id = #{mainBoardId}
+        ORDER BY main_board_id DESC
+        LIMIT #{p.pageStart},#{p.amount}
     </select>
 
     <!-- 내가 찾고 싶은 게시글 제목으로 조회-->
@@ -62,6 +67,8 @@
         SELECT * FROM  tbl_main_board mb
         JOIN tbl_room r ON mb.room_id = r.room_id
         WHERE main_board_title LIKE CONCAT('%',#{keyword},'%')
+        ORDER BY main_board_id DESC
+        LIMIT #{p.pageStart},#{p.amount}
     </select>
 
     <update id="modify">

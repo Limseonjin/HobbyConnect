@@ -1,6 +1,7 @@
 package com.spring.mvc.member.controller;
 
 
+import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.service.MainBoardService;
@@ -22,26 +23,28 @@ public class SearchController {
     @Autowired
     private MainBoardService mainBoardService;
 
-    // 게시글 조회 요청 처리
-    @GetMapping("/findAll")
-    public ResponseEntity<?> findAllMainBoards() {
-        List<MainBoardResponseDTO> boards = mainBoardService.findAll();
-        System.out.println("boards = " + boards);
-        log.debug("boards : {}", boards);
-        return ResponseEntity.ok().body(boards);
-    }
-
     // personId로 회원이 만든 게시글 조회 요청 처리
-    @GetMapping("/findByPersonId/{personId}")
-    public ResponseEntity<?> findMainBoardsByPersonId(@PathVariable String personId) {
-        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByPersonId(personId);
+    @GetMapping("/findByPersonId/{personId}/page/{pageNo}")
+    public ResponseEntity<?> findMainBoardsByPersonId(
+            @PathVariable String personId,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByPersonId(personId,page);
+
         return ResponseEntity.ok().body(boards);
     }
 
-    // keyword로 게시글 조회 요청 처리
-    @GetMapping("/findByTitle/{keyword}")
-    public ResponseEntity<?> findMainBoardsByTitle(@PathVariable String keyword) {
-        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByTitle(keyword);
+    // keyword로 게시글 제목으로 조회 요청 처리
+    @GetMapping("/findByTitle/{keyword}/page/{pageNo}")
+    public ResponseEntity<?> findMainBoardsByTitle(
+            @PathVariable String keyword,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByTitle(keyword, page);
         return ResponseEntity.ok().body(boards);
     }
 }
