@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/css/board/board.css">
 </head>
 <body>
-<form> <input class='write-5' type="submit" value="BACK">
+<form> <input class='write-5' type="submit" value="BACK" onclick="confirmBack()">
 </form> <h1> 게시판 </h1>
 <div class='form-0'>
     <div class="board-top">
@@ -18,11 +18,7 @@
             <textarea class='write-2' name="detail" rows="20"
                       cols="20" maxlength="254" placeholder="내용 작성,최대 254자 가능합니다" required>
             </textarea>
-<%--            <div class="filebox">--%>
-<%--                <label for="file">파일찾기</label>--%>
-<%--                <input type="file" id="file">--%>
-<%--            </div>--%>
-            <input class='write-4' type="submit" value="UPLOAD">
+            <input class='write-4' type="submit" value="UPLOAD" onclick="showUploadAlert()" >
         </form>
 
     </div>
@@ -110,6 +106,34 @@
         <!-- <%--</c:forEach>--%>-->
     </ul>
 </div>
+
+<script>
+    function confirmBack() {
+        const isConfirmed = confirm('돌아가시겠습니까? 작성된 내용이 사라집니다.');
+        if (isConfirmed) {
+            // 사용자가 확인을 눌렀을 때의 처리 로직을 추가하세요.
+            // 예를 들어, 페이지 이동 등을 수행할 수 있습니다.
+            window.location.reload();
+        }
+        // 사용자가 취소를 눌렀을 때는 아무 처리도 하지 않습니다.
+    }
+
+    function showUploadAlert() {
+        // 폼에서 제목과 내용을 가져옵니다.
+       const title = document.getElementsByName('title')[0].value.trim();
+       const content = document.getElementsByName('detail')[0].value.trim();
+
+        // 제목이나 내용 중 하나라도 비어있으면 알림을 띄우고 추가적인 처리를 하지 않습니다.
+        if (title === '' || content === '') {
+            alert('제목 또는 내용이 비어있습니다. 작성 후 등록해주세요.');
+        } else {
+            // 등록이 완료되었을 때의 알림을 띄우고 추가적인 처리 로직을 추가하세요.
+            alert('등록이 완료되었습니다.');
+
+            // 여기에 등록 완료 후 추가적인 처리 로직을 추가하세요.
+        }
+    }
+</script>
 
 </body>
 </html>
