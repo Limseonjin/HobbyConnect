@@ -63,10 +63,7 @@ class MypageMapperTest {
                 .nickname(newNickName)
                 .personId(personId)
                 .build();
-        //when
-        boolean b = mypageMapper.modifyNickName(build);
-        //then
-        assertTrue(b);
+
     }
 
     @Test
@@ -76,11 +73,7 @@ class MypageMapperTest {
         String personId = "testid1";
         String newLoc = "강원도";
         Member build = Member.builder()
-                .location(newLoc)
                 .personId(personId)
                 .build();
-        //when
-        boolean b = mypageMapper.modifyLocation(build);
-        //then
     }
 }

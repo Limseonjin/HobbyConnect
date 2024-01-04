@@ -4,6 +4,7 @@ import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.request.RoomRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.service.MainBoardService;
+import com.spring.mvc.member.service.RoomMemberService;
 import com.spring.mvc.member.service.RoomService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ public class RoomController {
 
     private final RoomService roomService;
     private final MainBoardService mainBoardService;
+    private final RoomMemberService roomMemberService;
 
     // 방 만들기 화면 요청
     @GetMapping("/room")

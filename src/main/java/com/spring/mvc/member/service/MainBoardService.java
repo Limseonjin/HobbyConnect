@@ -5,8 +5,11 @@ import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
+import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.repository.MainBoardMapper;
+import com.spring.mvc.member.repository.MemberMapper;
 import com.spring.mvc.member.repository.RoomMapper;
+import com.spring.mvc.member.repository.RoomMemberMapper;
 import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +26,7 @@ public class MainBoardService {
 
     private final MainBoardMapper mainBoardMapper;
     private final RoomMapper roomMapper;
+    private final RoomMemberMapper roomMemberMapper;
 
 
     //게시글 만들기 서비스
@@ -33,6 +37,8 @@ public class MainBoardService {
         mainBoardMapper.save(mainBoard);
         Long mainBoardId = mainBoard.getMainBoardId();
         mainBoardMapper.roomSave(mainBoardId);
+        roomMemberMapper.save(dto.toEntityByRoomMember(session,mainBoardId));
+
 
 
     }

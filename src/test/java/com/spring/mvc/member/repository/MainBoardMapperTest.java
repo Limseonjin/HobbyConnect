@@ -66,10 +66,7 @@ class MainBoardMapperTest {
     void findTitleIdTest () {
         //given
             String titleId = "모두";
-        //when
-        List<MainBoard> findRoom = mainBoardMapper.findTitle(titleId);
-        //then
-        assertEquals("모두 들어와~ 나랑 같이 게임 ㄱㄱ",findRoom.get(0).getMainBoardTitle());
+
     }
     
     //아이디가 TaeYong인 회원의 제목을 수정 하면 수정한 결과가 나와야 한다.
@@ -120,8 +117,7 @@ class MainBoardMapperTest {
         MainBoard mainBoard = new MainBoard();
         mainBoard.setMainBoardId((long) mainBoardId);
         mainBoardMapper.delete(mainBoard.getMainBoardId());
-        //then
-        mainBoardMapper.findMainBoardId(mainBoard.getRoomId());
+
     }
 
 

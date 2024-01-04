@@ -3,6 +3,7 @@ package com.spring.mvc.member.dto.request;
 
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.entity.Room;
+import com.spring.mvc.member.entity.RoomMember;
 import com.spring.mvc.util.LoginUtil;
 import lombok.*;
 
@@ -76,6 +77,14 @@ public class MainBoardRequestDTO {
                .maxUser(maxUser)
                .regDate(regDate)
                .roomName(roomName)
+               .build();
+   }
+
+   public RoomMember toEntityByRoomMember(HttpSession session,Long mainBoardId){
+       return RoomMember.builder()
+               .personId(LoginUtil.getCurrentLoginMemberAccount(session))
+               .roomId(mainBoardId)
+               .authority("ADMIN")
                .build();
    }
 

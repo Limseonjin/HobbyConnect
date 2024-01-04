@@ -10,10 +10,10 @@ public class RoomMember {
 }
  */
 
-import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.entity.RoomMember;
 import org.apache.ibatis.annotations.Mapper;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 @Mapper
 
@@ -23,7 +23,7 @@ public interface RoomMemberMapper {
     boolean save(RoomMember roomMember);
 
     //방 회원 전체 조회
-    List<MainBoard> findAll();
+    List<RoomMember> findAll();
 
     //회원 삭제
     boolean delete(String PersonId);
