@@ -1,14 +1,12 @@
 package com.spring.mvc.member.common;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 @AllArgsConstructor
 public class Page {
     private int pageNo; // 클라이언트가 요청한 페이지 번호

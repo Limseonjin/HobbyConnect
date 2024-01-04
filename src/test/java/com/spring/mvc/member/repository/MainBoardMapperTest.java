@@ -55,7 +55,7 @@ class MainBoardMapperTest {
         //given
         String personId = "seonjin";
         //when
-        List<MainBoard> findPersonId = mainBoardMapper.findPersonId(personId);
+        List<MainBoard> findPersonId = mainBoardMapper.findPersonId(personId,null);
         //then
         System.out.println("personId = " + findPersonId);
     }

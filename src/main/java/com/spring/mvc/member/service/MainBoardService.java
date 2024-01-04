@@ -1,10 +1,10 @@
 package com.spring.mvc.member.service;
 
+import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
-import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.repository.MainBoardMapper;
 import com.spring.mvc.member.repository.RoomMapper;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +32,14 @@ public class MainBoardService {
         mainBoardMapper.roomSave(mainBoard);
 
     }
+    // 페이징 처리한 조회
+    public List<MainBoardResponseDTO> pagefindAll(Page page){
+        List<MainBoard> mainBoards = mainBoardMapper.pagefindAll(page);
+        return mainBoards.stream()
+                .map(MainBoardResponseDTO::new)
+                .collect(Collectors.toList());
+    }
+    // 일반 조회
     public List<MainBoardResponseDTO> findAll(){
         List<MainBoard> maxUser = mainBoardMapper.findAll();
         return maxUser.stream()
@@ -43,22 +51,18 @@ public class MainBoardService {
         return findAll();
     }
 
-    public List<MainBoardResponseDTO> delete(long boardId) {
-        mainBoardMapper.delete(boardId);
-        return findAll();
-    }
     //personId로 회원이 만든 게시글 조회
-    public List<MainBoardResponseDTO> findRoomByPersonId(String personId){
+    public List<MainBoardResponseDTO> findRoomByPersonId(String personId,Page page){
 
-        List<MainBoard> mainboard = mainBoardMapper.findPersonId(personId);
+        List<MainBoard> mainboard = mainBoardMapper.findPersonId(personId, page);
         return mainboard.stream()
                 .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
     }
     //keyword로 내가 찾고 싶은 게시글 조회
-    public List<MainBoardResponseDTO> findRoomByTitle(String keyword){
+    public List<MainBoardResponseDTO> findRoomByTitle(String keyword, Page page){
 
-        List<MainBoard> mainBoards = mainBoardMapper.findTitle(keyword);
+        List<MainBoard> mainBoards = mainBoardMapper.findTitle(keyword, page);
         return mainBoards.stream()
                 .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());

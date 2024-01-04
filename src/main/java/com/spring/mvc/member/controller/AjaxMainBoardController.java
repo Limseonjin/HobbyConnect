@@ -1,5 +1,6 @@
 package com.spring.mvc.member.controller;
 
+import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
@@ -7,6 +8,7 @@ import com.spring.mvc.member.service.MainBoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,9 +22,14 @@ public class AjaxMainBoardController {
     private final MainBoardService mainBoardService;
 
     // main-board 목록 조회
-    @GetMapping("/main")
-    public ResponseEntity<?> mainPage() {
-        List<MainBoardResponseDTO> list = mainBoardService.findAll();
+    // /page/페이지 번호
+    @GetMapping("/main/page/{pageNo}")
+    public ResponseEntity<?> mainPage(
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<MainBoardResponseDTO> list = mainBoardService.pagefindAll(page);
         return ResponseEntity.ok().body(list);
     }
     
