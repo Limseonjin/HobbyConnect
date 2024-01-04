@@ -64,3 +64,13 @@
     justify-content: center;
     align-items: center;
 }
+
+/* room css */
+/* board 게시글 전체 창 */
+#room-post-list{
+    max-height: 2000px;
+}
+
+#room-post-list .room-post{
+    margin: 40px 20px;
+}

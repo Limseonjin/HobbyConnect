@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/assets/css/board/boardList.css">
     <link rel="stylesheet" href="/assets/css/room/main.css">
     <%-- 필요한 css나 js 선언   --%>
+    <script src="/assets/js/board/room-board.js" defer></script>
 </head>
 <body>
 <%@include file="../common/del-modal.jsp"%>
@@ -27,27 +28,31 @@
         <div class="card">
             <div class="card-body">
                 <ul>멤버 목록
-                    <c:forEach var="rm" items="rmList">
-                        <li>${rm.nickname}</li>
-                    </c:forEach>
+<%--                    <c:forEach var="rm" items="rmList">--%>
+<%--                        <li>${rm.nickname}</li>--%>
+<%--                    </c:forEach>--%>
                 </ul>
             </div>
         </div>
     </div>
     <div id="main-body">
         <button id="create-room" type="button" class="btn btn-warning">글 쓰기</button>
-        <div id="post-list" class="card">
+        <div id="room-post-list" class="card">
             <div id="post-list-body" class="card-body">
 <%--                게시글 조회 비동기 --%>
-                <div class="card room-post" data-bno="2">
+                <div  class="card room-post" data-bno="2">
                     <div class="card-header">
-                        <h2>Title</h2>
                         <p class="card-text">작성자:${nickname}</p>
                     </div>
                     <div class="card-body">
                         <p class="contents">content:${b.boardContent}</p>
                     </div>
+                    <div class="card-footer">
+                        <p>조회수:${b.viewCount} </p>
+                        <p>댓글수:${b.replyCount} </p>
+                    </div>
                 </div>
+<%--            --%>
             </div>
         </div>
     </div>
