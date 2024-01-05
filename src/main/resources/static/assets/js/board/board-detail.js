@@ -16,7 +16,6 @@ function editComment(comment) {
     buttonElement.type = 'button';
     buttonElement.textContent = '저장';
     buttonElement.classList.add('reply-save');
-    buttonElement.classList.add('btn');
     buttonElement.classList.add('btn-comment-up');
 
     console.log(inputElement)

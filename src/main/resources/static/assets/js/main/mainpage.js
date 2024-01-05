@@ -98,9 +98,11 @@ function postList(pageNo=1){
 }
 
 function SearchPostList(type,input,pageNo=1){
+    console.log("hi")
     fetch(`${URL}/${type}/${input}/page/{pageNo}`)
         .then(res=> res.json())
         .then(dtoList =>{
+            console.log(dtoList)
             postListRender(dtoList)
             pageNoRender(dtoList)
         })

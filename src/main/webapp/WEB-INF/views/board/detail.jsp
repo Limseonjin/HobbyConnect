@@ -20,39 +20,43 @@
 <div id="bullentin-wrapper">
     <div class='form-0'>
             <form class='form-1' method="POST"  enctype="multipart/form-data">
-                <input class='write-1' type="text" name="boardTitle" readonly>
-                <input class='write-2' name="boardContent"  readonly>
-                </input>
                 <input class='write-4' type="submit" value="수정" >
+                <input class='write-1' type="text" name="boardTitle" value="title 타이틀${boardTitle}" readonly>
+                <input class='write-2' name="boardContent" value="content내영 ${boardContent}" readonly>
             </form>
     </div>
-    <div id="reply-wrapper">
+    <div class="line"></div>
+    <div id="reply-wrapper" class="">
         <h2>댓글 작성</h2>
-        <form method="post" action="">
+        <form class="reply-write" method="post" action="">
             <textarea name="comment" rows="4" cols="50" placeholder="댓글을 작성하세요"></textarea>
             <input type="submit" value="댓글 등록">
         </form>
         <%--댓글 띄우는 코드--%>
-        <div>
-            <ul class="comments">
-                <li class="comment">
-                    <div class="reply-wrap">
-                        <div class="author">Susan Sanddollar</div>
-                        <p class="reply-content">Lorem ipsum dolor sit amet</p>
-                    </div>
-                    <div class="reply-btn-wrap">
-                        <button type="button" class="reply-modify btn-comment-up">수정</button>
-                        <button type="button" class="reply-delete btn-comment-delete">삭제</button>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <ul class="comments">
+            <li class="comment">
+                <div class="reply-wrap">
+                    <div class="author">Susan Sanddollar</div>
+                    <p class="reply-content">Lorem ipsum dolor sit amet</p>
+                </div>
+                <div class="reply-btn-wrap">
+                    <button type="button" class="reply-modify btn-comment-up">수정</button>
+                    <button type="button" class="reply-delete btn-comment-delete">삭제</button>
+                </div>
+            </li>
+            <li class="comment">
+                <div class="reply-wrap">
+                    <div class="author">Susan Sanddollar</div>
+                    <p class="reply-content">Lorem ipsum dolor sit amet</p>
+                </div>
+                <div class="reply-btn-wrap">
+                    <button type="button" class="reply-modify btn-comment-up">수정</button>
+                    <button type="button" class="reply-delete btn-comment-delete">삭제</button>
+                </div>
+            </li>
+        </ul>
     </div>
-
 </div>
-
-<script>
-
-</script>
+<%@include file="../common/footer.jsp"%>
 </body>
 </html>

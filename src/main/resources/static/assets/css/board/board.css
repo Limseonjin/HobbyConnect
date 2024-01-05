@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');*/
 body {
     background: #F7F8E0;
 }
@@ -6,12 +6,10 @@ header{
     background-color: #333;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
-.hero {
-    background-color: #333;
-}
+
 h1 {
-    background-color: #333;
     tfont-size: 24px;
     line-height: normal;
     color: #FACC2E;
@@ -21,7 +19,6 @@ h1 {
     cursor: crosshair;
 }
 .note{
-    background-color: #333;
     font-family: 'Abril Fatface', cursive;
     color: #FE642E;
     text-align: center;
@@ -54,7 +51,8 @@ hr {
     flex-direction: column;
     width: 80%;
     margin: 0 auto;
-    resize: none
+    resize: none;
+    align-items: end;
 }
 
 .write-1,
@@ -64,13 +62,13 @@ hr {
     text-align: left;
     border: 1px solid #ccc; /* 네모박스 테두리 추가 */
     border-radius: 5px; /* 테두리를 둥글게 만듭니다. */
+
 }
 .write-1 {
     width:100%;
-    font-size: 40px;
-    border: 5px solid #6E6E6E;
+    font-size: 30px;
+    border: 2px solid #6E6E6E;
     background-color: #ffffff;
-
     outline: none;
     border-bottom: 2px solid #000;
     resize: none;
@@ -78,12 +76,13 @@ hr {
 
 .write-2 {
     margin-top: 10px;
-    font-size: 14px;
-    border: 5px solid #6E6E6E;
+    font-size: 20px;
+    border: 2px solid #6E6E6E;
     background-color: #fff;
     width: 100%;
     border-radius: 5px;
     resize: none;
+    height: 300px;
 }
 
 /* 선택 시 포커스 스타일링 */
@@ -106,7 +105,8 @@ hr {
     border: 1px solid #819FF7;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px auto;
+    width: 100px;
+    margin-bottom: 10px;
 }
 .write-5 {
     display: inline-block;
@@ -129,7 +129,7 @@ textarea {
     width: 90%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 5px solid #6E6E6E;
+    border: 3px solid #6E6E6E;
     border-radius: 5px;
     resize: none;
 }
@@ -140,6 +140,18 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+/* 댓글 전체 css */
+#reply-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    resize: none;
+}
+#reply-wrapper h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
 }
 
 /* 댓글 등록 버튼의 배경 색상 지정 */
@@ -161,6 +173,15 @@ input[value="댓글 등록"] {
     cursor: pointer;
     margin-top: 10px; /* 버튼과 상단 간격 조절 */
 }
+.line{
+    margin: 50px 0;
+    border: 1px;
+}
+
+/* 댓글 작성 css */
+#reply-wrapper .reply-write {
+    margin-bottom: 30px;
+}
 /* 기본 스타일 (댓글)*/
 .comments {
     list-style: none;
@@ -178,6 +199,7 @@ input[value="댓글 등록"] {
     cursor: pointer;
 }
 
+
 .btn-comment-delete {
     display: inline-block;
     margin-left: auto; /* 버튼을 왼쪽으로 밀어서 오른쪽 정렬 */
@@ -189,12 +211,18 @@ input[value="댓글 등록"] {
     border-radius: 5px;
     cursor: pointer;
 }
+.comments{
+    height: 300px;
+}
 .comment {
-    border-bottom: 1px solid #ccc;
-    padding: 2rem;
     display: flex;
     justify-content: space-between;
+    /*border: 1px black solid;*/
+    padding: 10px;
 }
 .comment .reply-wrap {
-    width: 60%;
+    width: 70%;
+}
+.comment .reply-wrap .author{
+    margin-bottom: 10px;
 }
