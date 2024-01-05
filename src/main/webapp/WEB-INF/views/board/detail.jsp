@@ -9,10 +9,11 @@
 </head>
 <body>
 <header>
-    <form> <input class='write-5' type="submit" value="BACK" onclick="confirmBack()">
-    </form>
     <div class="hero">
         <h1>Bulletin Board</h1>
+<%--        <form class="btnc">--%>
+<%--            <input class='write-6' type="submit" value="BACK" onclick="confirmBack()">--%>
+<%--        </form>--%>
     </div>
     <p class="note">"It's HOBBY CONNECT with you.
         Feel free to share your opinions,<br> share news,
@@ -27,6 +28,7 @@
                       cols="20" maxlength="254" placeholder="내용 작성,최대 254자 가능합니다" required>
             </textarea>
             <input class='write-4' type="submit" value="UPLOAD" onclick="showUploadAlert()" >
+
         </form>
 
     </div>
@@ -40,37 +42,33 @@
     <textarea name="comment" rows="4" cols="50" placeholder="댓글을 작성하세요">
     </textarea><br>
     <input type="submit" value="댓글 등록">
+
 <%--    <input type="submit" value="댓글 삭제">--%>
 </form>
 <%--댓글 띄우는 코드--%>
 <div>
-    <ul class="commentList">
-        <!-- 댓글 목록이 표시되는 부분 -->
-        <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
-        <li>
-            <p><strong><!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
-                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
-            <button type="button" class="btn-comment-up">수정</button>
-            <button type="button" class="btn-comment-delete">삭제</button>
-            <div>
-                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
-                작성일자 : <>
+    <ol class="comments">
+        <li class="comment">
+            <div class="comment-text">
+                <div class="author">Susan Sanddollar</div>
+                <p>Lorem ipsum dolor sit amet</p>
+
+                <button type="button" class="btn-comment-up" onclick="editComment()">수정</button>
+                <button type="button" class="btn-comment-delete">삭제</button>
             </div>
         </li>
-        <!-- <%--</c:forEach>--%>-->
-    </ul>
+        <li class="comment">
+            <div class="comment-text">
+                <div class="author">Susan Sanddollar</div>
+                <p>Lorem ipsum dolor</p>
+
+                <button type="button" class="btn-comment-up" onclick="editComment()">수정</button>
+                <button type="button" class="btn-comment-delete">삭제</button>
+            </div>
+        </li>
+    </ol>
 </div>
 <script>
-    function confirmBack() {
-        const isConfirmed = confirm('돌아가시겠습니까? 작성된 내용이 사라집니다.');
-        if (isConfirmed) {
-            // 사용자가 확인을 눌렀을 때의 처리 로직을 추가하세요.
-            // 예를 들어, 페이지 이동 등을 수행할 수 있습니다.
-            window.location.reload();
-        }
-        // 사용자가 취소를 눌렀을 때는 아무 처리도 하지 않습니다.
-    }
-
     function showUploadAlert() {
         // 폼에서 제목과 내용을 가져옵니다.
        const title = document.getElementsByName('title')[0].value.trim();
@@ -85,6 +83,40 @@
 
             // 여기에 등록 완료 후 추가적인 처리 로직을 추가하세요.
         }
+    }
+    // 댓글 수정 버튼을 누르면 p태그가 input으로 바뀌는 js코드
+    function editComment() {
+        // 현재 댓글 텍스트를 가져옵니다.
+        const commentText = document.getElementById('commentText').innerText;
+
+        // 새로운 input 엘리먼트를 생성합니다.
+        const inputElement = document.createElement('input');
+        inputElement.type = 'text';
+        inputElement.value = commentText;
+
+        // <p> 태그를 input 엘리먼트로 교체합니다.
+        document.getElementById('commentText').replaceWith(inputElement);
+
+        // 사용자 편의를 위해 input에 포커스를 맞춥니다.
+        inputElement.focus();
+
+        // "수정" 버튼 클릭 이벤트를 변경하여 변경 사항을 저장합니다.
+        document.querySelector('.btn-comment-up').onclick = saveChanges;
+    }
+
+    function saveChanges() {
+        // input의 값을 가져옵니다.
+        const updatedComment = document.querySelector('input').value;
+
+        // 업데이트된 댓글이 담긴 새로운 <p> 태그를 생성합니다.
+        const newParagraph = document.createElement('p');
+        newParagraph.innerText = updatedComment;
+
+        // input 엘리먼트를 새로운 <p> 태그로 교체합니다.
+        document.querySelector('input').replaceWith(newParagraph);
+
+        // "수정" 버튼 클릭 이벤트를 다시 편집 모드로 변경합니다.
+        document.querySelector('.btn-comment-up').onclick = editComment;
     }
 </script>
 </body>
