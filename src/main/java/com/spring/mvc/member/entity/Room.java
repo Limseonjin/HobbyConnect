@@ -46,6 +46,9 @@ public class Room {
     public void RoomPersonId(HttpSession session){
         this.personId = LoginUtil.getCurrentLoginMemberAccount(session);
     }
+    public void MakeByRoomMember(HttpSession session){
+
+    }
 
 
 }
