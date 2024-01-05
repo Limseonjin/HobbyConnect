@@ -5,8 +5,11 @@ import com.spring.mvc.member.common.PageMaker;
 import com.spring.mvc.member.dto.request.*;
 import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
 import com.spring.mvc.member.dto.response.RoomResponseDTO;
+import com.spring.mvc.member.entity.Auth;
 import com.spring.mvc.member.entity.Room;
+import com.spring.mvc.member.entity.RoomMember;
 import com.spring.mvc.member.repository.RoomMapper;
+import com.spring.mvc.member.repository.RoomMemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.parameters.P;
@@ -22,12 +25,21 @@ import java.util.stream.Collectors;
 public class RoomService {
 
     private final RoomMapper roomMapper;
+    private final RoomMemberMapper roomMemberMapper;
 
     //방 만들기 서비스
     public void makeRoom(Room room, HttpSession session){
         room.RoomPersonId(session);
         log.debug("room : {}",room);
-        roomMapper.save(room);
+        boolean save = roomMapper.save(room);
+        Long roomId = room.getRoomId();
+        RoomMember build = RoomMember.builder()
+                .roomId(roomId)
+                .personId(room.getPersonId())
+                .auth(Auth.ADMIN.name())
+                .build();
+        roomMemberMapper.save(build);
+
     }
     // 방 전체 조회
     public List<Room> getRoomList(){

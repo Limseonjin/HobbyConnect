@@ -28,7 +28,7 @@ public class AjaxMainPageController {
     ) {
         Page page = new Page();
         page.setPageNo(pageNo);
-        page.setAmount(5);
+        page.setAmount(6);
         RoomListPageResponseDTO list = roomService.pagefindAll(page);
         return ResponseEntity.ok().body(list);
     }
