@@ -1,7 +1,7 @@
 
 const $roomBoard = document.querySelectorAll(...['.room-post']);
 const $writePost = document.getElementById('create-board')
-const $boardList = document.getElementById('post-list-body');
+const $boardList = document.getElementById('board-list');
 const URL = '/room';
 (()=>{
     roomPostList(document.getElementById('room-title').dataset.room)
@@ -12,7 +12,7 @@ function roomPostRender(bList){
     let tag = ``;
     for (const b of bList) {
         tag += `
-    <div  class="card room-post" data-bno="0">
+    <div  class="card room-post" data-bno="${b.boardNo}">
                     <div class="card-header">
                         <p class="card-text">작성자:${nickname}</p>
                     </div>
@@ -26,6 +26,7 @@ function roomPostRender(bList){
                 </div>
     `
     }
+    $boardList.innerHTML = tag;
 
 
 }
@@ -40,9 +41,10 @@ function roomPostList(bno){
 }
 
 //** 개별 board 클릭시 나타는 클릭 이벤트 핸들러 */
-function boardClickHandler() {
+function boardClickHandler(e) {
     console.log('클릭함')
-    window.location.href = '';
+    const bno = e.target.closest('.room-post').dataset.bno;
+    window.location.href = `/room/board/detail?boardNo=${bno}`;
 }
 
 /** 글 쓰기 버튼 이벤트 핸들러 */
