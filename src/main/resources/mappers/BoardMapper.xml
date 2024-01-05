@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.BoardMapper">
+
+    <insert id="save">
+        INSERT INTO tbl_board (person_id, board_title, board_content,room_id)
+        VALUES (#{personId},#{boardTitle},#{boardContent},#{roomId})
+    </insert>
+
+    <select id="findAll" resultType="Board">
+        SELECT * FROM tbl_board
+    </select>
+
+    <update id="modify">
+        UPDATE tbl_board
+        SET board_title = #{boardTitle},
+        board_content = #{boardContent}
+        WHERE board_id = #{boardId}
+    </update>
+    <delete id="delete" parameterType="Long">
+        DELETE FROM tbl_board WHERE board_id = #{boardId}
+    </delete>
+</mapper>

@@ -12,12 +12,12 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class MypageBoardResponseDTO {
-    private int boardId;
+    private Long boardId;
     private String personId;
     private String boardTitle;
     private String boardContent;
-    private int roomId;
-    private int viewCount;
+    private Long roomId;
+    private Long viewCount;
     private String regDate;
 
     public MypageBoardResponseDTO(Board board) {

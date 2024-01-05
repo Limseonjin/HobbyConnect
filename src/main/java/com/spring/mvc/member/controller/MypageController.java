@@ -98,12 +98,12 @@ public class MypageController {
 
     private Board convertToBoard(MypageBoardResponseDTO mypageBoard) {
         return Board.builder()
-                .boardId(mypageBoard.getBoardId())
+                .boardId((long) mypageBoard.getBoardId())
                 .personId(mypageBoard.getPersonId())
                 .boardTitle(mypageBoard.getBoardTitle())
                 .boardContent(mypageBoard.getBoardContent())
-                .roomId(mypageBoard.getRoomId())
-                .viewCount(mypageBoard.getViewCount())
+                .roomId((long) mypageBoard.getRoomId())
+                .viewCount((long) mypageBoard.getViewCount())
                 .build();
     }
 }

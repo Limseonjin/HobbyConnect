@@ -24,6 +24,7 @@
         <mapper resource="mappers/MypageMapper.xml"/>
         <mapper resource="mappers/RoomMapper.xml"/>
         <mapper resource="mappers/RoomMemberMapper.xml"/>
+        <mapper resource="mappers/BoardMapper.xml"/>
 
     </mappers>
 </configuration>

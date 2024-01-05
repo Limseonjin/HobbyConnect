@@ -24,7 +24,7 @@ class RoomMemberMapperTest {
         RoomMember build = RoomMember.builder()
                 .roomId(1L)
                 .personId("hhhhgong4")
-                .authority("ADMIN")
+                .auth("ADMIN")
                 .build();
         //when
 //        boolean save = roomMemberMapper.save(build, session);
