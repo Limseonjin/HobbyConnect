@@ -26,6 +26,8 @@ public interface RoomMapper {
 
     //내가 찾고 싶은 방을 제목으로 검색
     List<Room> findRoomByTitle(@Param("keyword") String keyword,@Param("p") Page page);
+    List<Room> findRoomByContent(@Param("keyword") String keyword,@Param("p") Page page);
+
 
     //특정 회원이 내 방에 들어오면 currUser이 증가함
     boolean updateCurrUser (@Param("currUser") int currUser,@Param("roomId") Long roomId);
@@ -39,4 +41,7 @@ public interface RoomMapper {
 
     //게시글 카운트
     int count();
+    int searchCountPersonId(String personId);
+    int searchCountTitle(String mainBoardTitle);
+    int searchCountContent(String mainBoardContent);
 }

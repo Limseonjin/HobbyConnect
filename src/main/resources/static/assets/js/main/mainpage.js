@@ -92,17 +92,18 @@ function postList(pageNo=1){
     fetch(`${URL}/main/page/${pageNo}`)
         .then(res=>res.json())
         .then(dtoList =>{
-            console.log(dtoList)
+
             postListRender(dtoList)
         })
 }
 
 function SearchPostList(type,input,pageNo=1){
-    fetch(`${URL}/${type}/${input}/page/{pageNo}`)
+    console.log("실행")
+    fetch(`${URL}/${type}/${input}/page/${pageNo}`)
         .then(res=> res.json())
         .then(dtoList =>{
+            console.log(dtoList)
             postListRender(dtoList)
-            pageNoRender(dtoList)
         })
 }
 // 검색시 게시글 비동기 처리
@@ -222,10 +223,16 @@ function makePageButtonClickEvent() {
 
 function searchClickHandler() {
     let sInput = $searchInput.value
+    if (sInput === "") {
+        alert("검색어가 없습니다.")
+        return
+    }
     let sType = $searchType.value
     console.log(sInput);
     console.log(sType);
     SearchPostList(sType, sInput);
 }
 // 서치 버튼 클릭시
-$searchBtn.addEventListener('click',searchClickHandler)
+$searchBtn.addEventListener('click', () => {
+    searchClickHandler();
+})
