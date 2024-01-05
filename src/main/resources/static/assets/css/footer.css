@@ -1,28 +1,24 @@
-footer{
 
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
 }
 .footer-wrapper{
+    padding-top: 30px;
     width: 100%;
-    background-color: #BDBDBD;
+    background-color: red;
     position: relative;
     bottom: 0;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
 }
-footer img{
+footer.footer-wrapper.footer-list1{
     width: 70px;
-    height: 70px;
-    border-radius : 50%;
-    margin-top: 7px;
+    height: 50px;
 }
-.fo_d1{
-    text-align: center;
-    text-size : 40px;
+footer.footer-wrapper.footer-list1.footer-col1{
+}
 
-}
-.fo_d1 span{
-    color: white;
-
-}
-.fo_d1 p{
-    color: white;
-
-}
