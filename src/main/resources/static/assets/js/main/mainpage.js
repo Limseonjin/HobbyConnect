@@ -3,6 +3,7 @@ const $creteBtn = document.getElementById('create-room');
 const $searchInput = document.getElementById('search-content');
 const $searchType = document.getElementById('search-type')
 const URL = '/api/v1/mainBoards';
+const ROOM_PW = '';
 (() => {
     postList();
     makePageButtonClickEvent();
@@ -15,11 +16,11 @@ function postListRender({mainBoards, pageInfo}){
     const $postBody = document.getElementById('post-list-body');
     let tag = ``;
     for (const dto of mainBoards) {
-        tag +=`<div class="card room-post" data-bno="${dto.mainBoardId}">
+        tag +=`<div class="card room-post" data-bno="${dto.roomId}">
                     <div class="card-header">
                            <h2>`
-                                if(dto.roomPw !== null){
-                                    tag +=  `<span class="lnr lnr-lock"></span>`
+                                if(dto.roomPw !== ""){
+                                    tag +=  `<span id="isPw" class="lnr lnr-lock"></span>`
                                 }
                             tag +=`${dto.mainBoardTitle}Title (${dto.currUser}/${dto.maxUser})
                             </h2>
@@ -161,8 +162,13 @@ const roomPwModalEl = document.getElementById('room-pw-modal')
 roomPwModalEl.addEventListener('show.bs.modal',function (e){
     const preTarget = e.relatedTarget;
     const boardId= preTarget.closest('.room-post').dataset.bno
-    if (boardId === id){
+    console.log(boardId)
+    const closest = preTarget.closest('.room-post').querySelector('#isPw');
+    if (!!closest){
 
+    }else{
+        $roomPwModal.hide()
+        window.location.href = `/room/${boardId}`
     }
 })
 

@@ -49,7 +49,7 @@
             <div id="post-list-body" class="card-body">
                 <button id="create-board" type="button" class="btn btn-dark">글 쓰기</button>
 <%--                게시글 조회 비동기 --%>
-                <div  class="card room-post" data-bno="2">
+                <div  class="card room-post" data-bno="0">
                     <div class="card-header">
                         <p class="card-text">작성자:${nickname}</p>
                     </div>

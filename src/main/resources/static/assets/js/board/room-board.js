@@ -1,16 +1,18 @@
 
 const $roomBoard = document.querySelectorAll(...['.room-post']);
 const $writePost = document.getElementById('create-board')
-const URL = '/api/v2/room';
+const $boardList = document.getElementById('post-list-body');
+const URL = '/room';
 (()=>{
-    // roomPostList()
+    roomPostList(document.getElementById('room-title').dataset.room)
 })()
 
 /** room 안에 게시글 렌더링 하는 함수  */
 function roomPostRender(bList){
     let tag = ``;
-    tag += `
-    <div class="card room-post" data-bno="2">
+    for (const b of bList) {
+        tag += `
+    <div  class="card room-post" data-bno="0">
                     <div class="card-header">
                         <p class="card-text">작성자:${nickname}</p>
                     </div>
@@ -23,11 +25,14 @@ function roomPostRender(bList){
                     </div>
                 </div>
     `
+    }
+
+
 }
 
 /** room 안에 게시글 비동기 조회*/
-function roomPostList(){
-    fetch(`${URL}`)
+function roomPostList(bno){
+    fetch(`${URL}/bno`)
         .then(res=>res.json())
         .then(b => {
             roomPostList(bList)
