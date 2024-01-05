@@ -1,7 +1,9 @@
 package com.spring.mvc.member.entity;
 
+import com.spring.mvc.util.LoginUtil;
 import lombok.*;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 
 /*
@@ -40,6 +42,10 @@ public class Room {
     private Integer maxUser;
     private Integer currUser;
     private LocalDateTime regDate;
+
+    public void RoomPersonId(HttpSession session){
+        this.personId = LoginUtil.getCurrentLoginMemberAccount(session);
+    }
 
 
 }

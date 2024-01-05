@@ -20,6 +20,8 @@ public class RoomService {
 
     //방 만들기 서비스
     public void makeRoom(Room room, HttpSession session){
+        room.RoomPersonId(session);
+        log.debug("room : {}",room);
         roomMapper.save(room);
     }
     // 방 전체 조회

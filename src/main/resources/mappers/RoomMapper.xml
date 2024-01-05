@@ -7,9 +7,9 @@
     <!-- 방을 만들기 -->
     <insert id="save" parameterType="Room" >
         INSERT INTO tbl_room
-        (,main_board_title, main_board_content,person_id, room_name, room_pw, max_user, curr_user)
+        (main_board_title, main_board_content,person_id, room_name, room_pw, max_user, curr_user)
         VALUES
-        (#{mainBoardTitle},#{mainBoardContent}#{personId}, #{roomName}, #{roomPw}, #{maxUser},1)
+        (#{mainBoardTitle},#{mainBoardContent},#{personId}, #{roomName}, #{roomPw}, #{maxUser},1)
     </insert>
 
     <!-- 모든 방을 조회 -->

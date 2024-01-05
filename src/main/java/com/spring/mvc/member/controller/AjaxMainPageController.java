@@ -22,13 +22,6 @@ public class AjaxMainPageController {
 
     private final RoomService roomService;
 
-    //방 만들기 등록 요청
-    @PostMapping("/room")
-    public String Room(Room room,
-                       HttpSession session){
-        roomService.makeRoom(room, session);
-        return "redirect:/main/main-page";
-    }
     //페이징 으로 전체 조회
     @GetMapping("/main/page/{pageNo}")
     public ResponseEntity<?> mainPage(
