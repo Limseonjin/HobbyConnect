@@ -4,9 +4,6 @@ body {
 }
 header{
     background-color: #333;
-    height: 360px;
-    margin: 0;
-    padding: 0;
     align-items: center;
     justify-content: center;
 }
@@ -17,7 +14,6 @@ h1 {
     background-color: #333;
     tfont-size: 24px;
     line-height: normal;
-    margin-top: 20px;
     color: #FACC2E;
     font-size: 80px;
     font-family: 'Abril Fatface', cursive;
@@ -85,7 +81,6 @@ hr {
     font-size: 14px;
     border: 5px solid #6E6E6E;
     background-color: #fff;
-    padding: 10px;
     width: 100%;
     border-radius: 5px;
     resize: none;
@@ -130,33 +125,6 @@ hr {
 .write-5:hover {
     background-color: #F78181;
 }
-/* 댓글 작성 폼 스타일 */
-/*form {*/
-/*    margin-top: 20px; !* 원하는 간격으로 조정 *!*/
-/*}*/
-/*.btnc {*/
-/*    text-align: left;*/
-/*    margin: 40px 0px 0px 20px;*/
-/*}*/
-
-/*.btnc .write-6 {*/
-/*    display: inline-block;*/
-/*    padding: 20px 25px;*/
-/*    text-decoration: none;*/
-/*    font-size: 16px; !* 크기를 조절하기 위한 수정 *!*/
-/*    color: #ffffff;*/
-/*    background-color: #819FF7;*/
-/*    border: 1px solid #819FF7;*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*    margin: 10px 0 0; !* BACK 버튼을 가운데 정렬하고 업로드 버튼 위에 간격을 추가 *!*/
-/*}*/
-
-/*!* BACK 버튼 호버 효과 스타일 *!*/
-/*.btnc .write-6:hover {*/
-/*    background-color: #F78181;*/
-/*}*/
-
 textarea {
     width: 90%;
     padding: 10px;
@@ -225,20 +193,8 @@ input[value="댓글 등록"] {
     border-bottom: 1px solid #ccc;
     padding: 2rem;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
 }
-.comment-text {
-    flex: 1;
-}
-.commentList {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-    align-items: center;
-    margin-top: 10px;
-}
-.commentList div {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #777;
+.comment .reply-wrap {
+    width: 60%;
 }
