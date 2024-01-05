@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="/assets/css/board/board.css">
 </head>
 <body>
-<form> <input class='write-5' type="submit" value="BACK" onclick="confirmBack()">
-</form> <h1> 게시판 </h1>
+    <form> <input class='write-5' type="submit" value="BACK" onclick="confirmBack()">
+    </form>
+    <div class="hero">
+        <h1>Bulletin Board</h1>
+    </div>
+    <p class="note">Note: Best view in Desktop</p>
 <div class='form-0'>
     <div class="board-top">
         <form class='form-1' method="POST"  enctype="multipart/form-data">
@@ -134,6 +138,5 @@
         }
     }
 </script>
-
 </body>
 </html>

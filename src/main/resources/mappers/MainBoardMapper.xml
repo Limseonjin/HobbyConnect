@@ -49,7 +49,7 @@
         SELECT *
         FROM tbl_main_board mb
         JOIN tbl_room r ON mb.main_board_id = r.room_id
-        ORDER BY main_board_id DESC
+        ORDER BY mb.main_board_id DESC
         LIMIT #{p.pageStart},#{p.amount}
     </select>
 
@@ -58,7 +58,7 @@
         SELECT * FROM tbl_main_board mb
         JOIN tbl_room r ON mb.room_id = r.room_id
         WHERE mb.person_id = #{personId}
-        ORDER BY main_board_id DESC
+        ORDER BY mb.main_board_id DESC
         LIMIT #{p.pageStart},#{p.amount}
     </select>
 
@@ -67,7 +67,7 @@
         SELECT * FROM  tbl_main_board mb
         JOIN tbl_room r ON mb.room_id = r.room_id
         WHERE main_board_title LIKE CONCAT('%',#{keyword},'%')
-        ORDER BY main_board_id DESC
+        ORDER BY mb.main_board_id DESC
         LIMIT #{p.pageStart},#{p.amount}
     </select>
 
@@ -89,6 +89,13 @@
     <delete id="delete">
         delete FROM tbl_main_board WHERE main_board_id = #{mainBoardId}
     </delete>
+
+    <!-- 게시글 수 가져오기 -->
+    <select id="count" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_main_board
+    </select>
+
 
 
 </mapper>
