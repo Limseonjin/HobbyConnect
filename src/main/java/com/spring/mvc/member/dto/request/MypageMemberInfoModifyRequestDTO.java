@@ -23,14 +23,6 @@ public class MypageMemberInfoModifyRequestDTO {
     @NotBlank
     private String introduction; // 수정할 introduction
 
-//    public Member toEntitiy() {
-//        return Member.builder()
-//                .personId(personId)
-//                .nickname(nickname)
-//                .email(email)
-//                .introduction(introduction)
-//                .build();
-//    }
     public Member toEntitiy(String person) {
         System.out.println("person = " + person);
         return Member.builder()
