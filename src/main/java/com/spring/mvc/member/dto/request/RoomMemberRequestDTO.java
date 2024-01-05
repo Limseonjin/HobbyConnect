@@ -17,7 +17,7 @@ public class RoomMemberRequestDTO {
     private Integer roomMembers;
     private Long roomId;
     private String personId;
-    private String authority;
+    private String auth;
     private LocalDateTime reg_date;
 
     public RoomMember toEntity(){
@@ -25,7 +25,7 @@ public class RoomMemberRequestDTO {
                 .roomMembers(roomMembers)
                 .roomId(roomId)
                 .personId(personId)
-                .authority(authority)
+                .auth(auth)
                 .reg_date(reg_date)
                 .build();
     }

@@ -45,15 +45,4 @@ public class Board {
         this.boardTitle = dto.getBoardTitle();
         this.boardContent = dto.getBoardContent();
     }
-
-//    public void covertBoard(MypageBoardResponseDTO dto) {
-//        this.boardId = dto.getBoardId();
-//        this.personId = dto.getPersonId();
-//        this.boardTitle = dto.getBoardTitle();
-//        this.boardContent = dto.getBoardContent();
-//        this.roomId = dto.getRoomId();
-//        this.viewCount = dto.getViewCount();
-//        this.regDate = LocalDateTime.parse(dto.getRegDate());
-//    }
-
 }

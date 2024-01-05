@@ -1,10 +1,5 @@
 package com.spring.mvc.member.service;
 
-import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
-import com.spring.mvc.member.dto.request.RoomMemberRequestDTO;
-import com.spring.mvc.member.entity.RoomMember;
-import com.spring.mvc.member.repository.MemberMapper;
-import com.spring.mvc.member.repository.RoomMapper;
 import com.spring.mvc.member.repository.RoomMemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

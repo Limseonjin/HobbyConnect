@@ -14,11 +14,11 @@ public class RoomMemberResponseDTO {
 
     private Integer roomMembers;
     private String personId;
-    private String authority;
+    private String auth;
 
     public RoomMemberResponseDTO(RoomMember roomMember){
         this.roomMembers = roomMember.getRoomMembers();
         this.personId = roomMember.getPersonId();
-        this.authority = roomMember.getAuthority();
+        this.auth = roomMember.getAuth();
     }
 }

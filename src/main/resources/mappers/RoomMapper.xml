@@ -7,9 +7,9 @@
     <!-- 방을 만들기 -->
     <insert id="save" parameterType="Room" >
         INSERT INTO tbl_room
-        (person_id, room_name, room_pw, max_user, curr_user)
+        (,main_board_title, main_board_content,person_id, room_name, room_pw, max_user, curr_user)
         VALUES
-        (#{personId}, #{roomName}, #{roomPw}, #{maxUser},1)
+        (#{mainBoardTitle},#{mainBoardContent}#{personId}, #{roomName}, #{roomPw}, #{maxUser},1)
     </insert>
 
     <!-- 모든 방을 조회 -->
@@ -17,22 +17,32 @@
         SELECT * FROM tbl_room
     </select>
 
-    <!-- 방장의 아이디로 특정 방을 조회 -->
-    <select id="findByPersonId" resultType="Room">
-        SELECT * FROM tbl_room
-        WHERE person_id = #{personId}
-    </select>
-
     <!-- 내가 찾고 싶은 방을 방 아이디로 조회 -->
     <select id="findOne" resultType="Room">
         SELECT * FROM tbl_room
         WHERE room_id = #{roomId}
+    </select>
+    <!-- 모든 방을 조회 -->
+    <select id="pageFindAll" resultType="Room">
+        SELECT * FROM tbl_room
+        ORDER BY reg_date DESC
+        LIMIT (#{p.pageStart},#{p.amount})
+    </select>
+
+    <!-- 방장의 아이디로 특정 방을 조회 -->
+    <select id="findByPersonId" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE person_id = #{personId}
+        ORDER BY reg_date DESC
+        LIMIT (#{p.pageStart},#{p.amount})
     </select>
 
     <!-- 내가 찾고 싶은 방을 방 제목으로 조회-->
     <select id="titleFindAll" resultType="Room">
         SELECT * FROM tbl_room
         WHERE room_name LIKE CONCAT('%',#{keyword},'%')
+        ORDER BY reg_date DESC
+        LIMIT (#{p.pageStart},#{p.amount})
     </select>
 
     <!-- 특정 회원이 내 방에 들어오면 currUser가 증가 되거나 감소 해야 함 -->
@@ -41,9 +51,17 @@
             SET curr_user = #{currUser}
             WHERE room_id = #{roomId}
         </update>
+
     <!-- 방 삭제 -->
     <delete id="deleteRoom" parameterType="Long">
         DELETE FROM tbl_room WHERE room_id = #{roomId}
     </delete>
+
+    <update id="modify">
+        UPDATE tbl_room
+        SET main_board_title = #{mainBoardTitle},
+        main_board_content = #{mainBoardContent}
+        WHERE room_id = #{room_id}
+    </update>
 
 </mapper>

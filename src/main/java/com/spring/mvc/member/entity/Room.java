@@ -33,6 +33,8 @@ public class Room {
 
     private Long roomId;
     private String personId;
+    private String mainBoardTitle;
+    private String mainBoardContent;
     private String roomName;
     private String roomPw;
     private Integer maxUser;

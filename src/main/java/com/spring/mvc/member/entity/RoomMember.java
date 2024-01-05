@@ -31,6 +31,6 @@ public class RoomMember {
     Integer roomMembers;
     Long roomId;
     String personId;
-    String authority;
+    String auth;
     LocalDateTime reg_date;
 }

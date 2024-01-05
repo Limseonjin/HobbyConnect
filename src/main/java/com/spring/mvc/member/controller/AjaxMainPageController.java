@@ -1,41 +1,72 @@
 package com.spring.mvc.member.controller;
 
 import com.spring.mvc.member.common.Page;
-import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
-import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
-import com.spring.mvc.member.entity.MainBoard;
-import com.spring.mvc.member.service.MainBoardService;
+import com.spring.mvc.member.dto.request.RoomModifyRequestDTO;
+import com.spring.mvc.member.entity.Room;
+import com.spring.mvc.member.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/mainBoards")
-public class AjaxMainBoardController {
-    private final MainBoardService mainBoardService;
+public class AjaxMainPageController {
 
-    // main-board 목록 조회
-    // /page/페이지 번호
+    private final RoomService roomService;
+
+    //방 만들기 등록 요청
+    @PostMapping("/room")
+    public String Room(Room room,
+                       HttpSession session){
+        roomService.makeRoom(room, session);
+        return "redirect:/main/main-page";
+    }
+    //페이징 으로 전체 조회
     @GetMapping("/main/page/{pageNo}")
     public ResponseEntity<?> mainPage(
             @PathVariable int pageNo
     ) {
         Page page = new Page();
         page.setPageNo(pageNo);
-        List<MainBoardResponseDTO> list = mainBoardService.pagefindAll(page);
+        List<Room> list = roomService.pagefindAll(page);
         return ResponseEntity.ok().body(list);
     }
-    
+    // personId로 회원이 만든 게시글 조회 요청 처리
+    @GetMapping("/findByPersonId/{personId}/page/{pageNo}")
+    public ResponseEntity<?> findMainBoardsByPersonId(
+            @PathVariable String personId,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<Room> boards = roomService.findRoomByPersonId(personId,page);
+
+        return ResponseEntity.ok().body(boards);
+    }
+
+    // keyword로 게시글 제목으로 조회 요청 처리
+    @GetMapping("/findByTitle/{keyword}/page/{pageNo}")
+    public ResponseEntity<?> findRoomByTitle(
+            @PathVariable String keyword,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<Room> boards = roomService.findRoomByTitle(keyword, page);
+        return ResponseEntity.ok().body(boards);
+    }
+
     // main-board 수정 요청 처리
     @PutMapping("/{bno}")
-    public ResponseEntity<?> update(@RequestBody MainBoardModifyRequestDTO dto, BindingResult result, @PathVariable String bno) {
+    public ResponseEntity<?> update(@RequestBody RoomModifyRequestDTO dto, BindingResult result, @PathVariable String bno) {
         if (result.hasErrors()) {
             return ResponseEntity
                     .badRequest()
@@ -45,7 +76,7 @@ public class AjaxMainBoardController {
         log.debug("Parameter: {}", dto);
 
         try {
-            List<MainBoardResponseDTO> modify = mainBoardService.modify(dto);
+            List<Room> modify = roomService.modify(dto);
             log.debug("dto: {}",dto);
             return ResponseEntity.ok().body(modify);
 
@@ -65,7 +96,7 @@ public class AjaxMainBoardController {
         }
         log.info("/api/v1/mainBoards/{} : DELETE", bno);
         try {
-            List<MainBoardResponseDTO> boardList = mainBoardService.delete(bno);
+            List<Room> boardList = roomService.deleteRoom(bno);
             return ResponseEntity
                     .ok()
                     .body(boardList);
@@ -75,17 +106,4 @@ public class AjaxMainBoardController {
                     .body(e.getMessage());
         }
     }
-
-    private MainBoard convertToBoard(MainBoardResponseDTO mainBoard) {
-        return MainBoard.builder()
-                .mainBoardId(mainBoard.getMainBoardId())
-                .personId(mainBoard.getPersonId())
-                .mainBoardTitle(mainBoard.getMainBoardTitle())
-                .mainBoardContent(mainBoard.getMainBoardContent())
-                .roomId(mainBoard.getRoomId())
-                .currUser(mainBoard.getCurrUser())
-                .maxUser(mainBoard.getMaxUser())
-                .build();
-    }
-
 }
