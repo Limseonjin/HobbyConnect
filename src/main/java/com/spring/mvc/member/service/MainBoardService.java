@@ -1,8 +1,10 @@
 package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.common.Page;
+import com.spring.mvc.member.common.PageMaker;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MainBoardRequestDTO;
+import com.spring.mvc.member.dto.response.MainBoardListResponseDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.repository.MainBoardMapper;
@@ -37,11 +39,16 @@ public class MainBoardService {
 
     }
     // 페이징 처리한 조회
-    public List<MainBoardResponseDTO> pagefindAll(Page page){
-        List<MainBoard> mainBoards = mainBoardMapper.pagefindAll(page);
-        return mainBoards.stream()
+    public MainBoardListResponseDTO pagefindAll(Page page){
+        List<MainBoardResponseDTO> mainBoards = mainBoardMapper.pagefindAll(page)
+                .stream()
                 .map(MainBoardResponseDTO::new)
                 .collect(Collectors.toList());
+        int count = mainBoardMapper.count();
+        return MainBoardListResponseDTO.builder()
+                .mainBoards(mainBoards)
+                .pageInfo(new PageMaker(page, count))
+                .build();
     }
     // 일반 조회
     public List<MainBoardResponseDTO> findAll(){

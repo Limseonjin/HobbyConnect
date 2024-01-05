@@ -17,7 +17,6 @@ public class MainBoardResponseDTO {
     private String mainBoardContent;
     private Long roomId;
     private String roomPw;
-    private int viewCount;
     private String regDate;
     private int maxUser;
     private int currUser;

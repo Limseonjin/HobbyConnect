@@ -2,6 +2,7 @@ package com.spring.mvc.member.controller;
 
 import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
+import com.spring.mvc.member.dto.response.MainBoardListResponseDTO;
 import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import com.spring.mvc.member.service.MainBoardService;
@@ -24,12 +25,11 @@ public class AjaxMainBoardController {
     // main-board 목록 조회
     // /page/페이지 번호
     @GetMapping("/main/page/{pageNo}")
-    public ResponseEntity<?> mainPage(
-            @PathVariable int pageNo
-    ) {
+    public ResponseEntity<?> mainPage(@PathVariable int pageNo) {
         Page page = new Page();
         page.setPageNo(pageNo);
-        List<MainBoardResponseDTO> list = mainBoardService.pagefindAll(page);
+        page.setAmount(5);
+        MainBoardListResponseDTO list = mainBoardService.pagefindAll(page);
         return ResponseEntity.ok().body(list);
     }
     
@@ -75,17 +75,29 @@ public class AjaxMainBoardController {
                     .body(e.getMessage());
         }
     }
+    // personId로 회원이 만든 게시글 조회 요청 처리
+    @GetMapping("/findByPersonId/{personId}/page/{pageNo}")
+    public ResponseEntity<?> findMainBoardsByPersonId(
+            @PathVariable String personId,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByPersonId(personId,page);
 
-    private MainBoard convertToBoard(MainBoardResponseDTO mainBoard) {
-        return MainBoard.builder()
-                .mainBoardId(mainBoard.getMainBoardId())
-                .personId(mainBoard.getPersonId())
-                .mainBoardTitle(mainBoard.getMainBoardTitle())
-                .mainBoardContent(mainBoard.getMainBoardContent())
-                .roomId(mainBoard.getRoomId())
-                .currUser(mainBoard.getCurrUser())
-                .maxUser(mainBoard.getMaxUser())
-                .build();
+        return ResponseEntity.ok().body(boards);
+    }
+
+    // keyword로 게시글 제목으로 조회 요청 처리
+    @GetMapping("/findByTitle/{keyword}/page/{pageNo}")
+    public ResponseEntity<?> findMainBoardsByTitle(
+            @PathVariable String keyword,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        List<MainBoardResponseDTO> boards = mainBoardService.findRoomByTitle(keyword, page);
+        return ResponseEntity.ok().body(boards);
     }
 
 }
