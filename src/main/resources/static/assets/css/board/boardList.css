@@ -4,24 +4,28 @@
     margin-top: 50px;
 
 }
-#create-room{
-    margin-bottom: 10px;
-}
+
 #main-body .card h1{
     font-size: 1.5rem;
+}
+#post-list-body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
 }
 #post-list{
     height: 1108px;
     box-shadow: 0px 0px 5px 1px #c3c3c3;
 }
-#post-list .card-body{
-    padding: 0;
 
-}
 
 /* 개별 게시글 */
-#post-list .room-post{
+.room-post{
     margin: 20px;
+    width: 80%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 #post-list .room-post .card-header{
     display: flex;
