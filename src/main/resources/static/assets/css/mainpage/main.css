@@ -8,9 +8,15 @@
     display: flex;
     justify-content: space-between;
 }
+/* 간단 프로필 */
+#main-head .user-info{
+    width: 30%;
+    --bs-card-border-width: 2px;
+}
+
 /* 검색창 */
 #search{
-    width: 40%;
+    width: 50%;
 }
 
 #search .container-fluid .d-flex{
