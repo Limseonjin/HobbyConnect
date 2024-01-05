@@ -26,15 +26,14 @@
     <select id="pageFindAll" resultType="Room">
         SELECT * FROM tbl_room
         ORDER BY reg_date DESC
-        LIMIT (#{p.pageStart},#{p.amount})
+        LIMIT #{p.pageStart},#{p.amount}
     </select>
-
     <!-- 방장의 아이디로 특정 방을 조회 -->
     <select id="findByPersonId" resultType="Room">
         SELECT * FROM tbl_room
         WHERE person_id = #{personId}
         ORDER BY reg_date DESC
-        LIMIT (#{p.pageStart},#{p.amount})
+        LIMIT #{p.pageStart},#{p.amount}
     </select>
 
     <!-- 내가 찾고 싶은 방을 방 제목으로 조회-->
@@ -42,7 +41,7 @@
         SELECT * FROM tbl_room
         WHERE room_name LIKE CONCAT('%',#{keyword},'%')
         ORDER BY reg_date DESC
-        LIMIT (#{p.pageStart},#{p.amount})
+        LIMIT #{p.pageStart},#{p.amount}
     </select>
 
     <!-- 특정 회원이 내 방에 들어오면 currUser가 증가 되거나 감소 해야 함 -->
@@ -63,5 +62,9 @@
         main_board_content = #{mainBoardContent}
         WHERE room_id = #{room_id}
     </update>
+
+    <select id="count" resultType="int">
+        SELECT count(*) FROM tbl_room
+    </select>
 
 </mapper>

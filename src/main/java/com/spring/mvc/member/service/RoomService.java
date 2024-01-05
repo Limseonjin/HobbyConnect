@@ -1,15 +1,20 @@
 package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.common.Page;
+import com.spring.mvc.member.common.PageMaker;
 import com.spring.mvc.member.dto.request.*;
+import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
+import com.spring.mvc.member.dto.response.RoomResponseDTO;
 import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.repository.RoomMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -34,8 +39,15 @@ public class RoomService {
         return roomMapper.findOne(roomId);
     }
 
-    public List<Room> pagefindAll(Page page){
-        return roomMapper.pageFindAll(page);
+    public RoomListPageResponseDTO pagefindAll(Page page){
+        List<RoomResponseDTO> rooms = roomMapper.pageFindAll(page).stream()
+                .map(RoomResponseDTO::new)
+                .collect(Collectors.toList());
+        int count1 = roomMapper.count();
+        return RoomListPageResponseDTO.builder()
+                .mainBoards(rooms)
+                .pageInfo(new PageMaker(page,count1))
+                .build();
     }
 
     //PersonId로 회원이 만든 방들 조회

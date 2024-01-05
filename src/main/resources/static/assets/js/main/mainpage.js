@@ -94,6 +94,7 @@ function postList(pageNo=1){
     fetch(`${URL}/main/page/${pageNo}`)
         .then(res=>res.json())
         .then(dtoList =>{
+            console.log(dtoList)
             postListRender(dtoList)
         })
 }

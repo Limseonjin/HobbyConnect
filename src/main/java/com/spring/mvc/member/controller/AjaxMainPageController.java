@@ -1,22 +1,16 @@
 package com.spring.mvc.member.controller;
 
 import com.spring.mvc.member.common.Page;
-import com.spring.mvc.member.dto.request.MainBoardModifyRequestDTO;
-import com.spring.mvc.member.dto.response.MainBoardListResponseDTO;
-import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
-import com.spring.mvc.member.entity.MainBoard;
-import com.spring.mvc.member.service.MainBoardService;
 import com.spring.mvc.member.dto.request.RoomModifyRequestDTO;
+import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
+import com.spring.mvc.member.dto.response.RoomResponseDTO;
 import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -35,7 +29,7 @@ public class AjaxMainPageController {
         Page page = new Page();
         page.setPageNo(pageNo);
         page.setAmount(5);
-        List<Room> list = roomService.pagefindAll(page);
+        RoomListPageResponseDTO list = roomService.pagefindAll(page);
         return ResponseEntity.ok().body(list);
     }
     // personId로 회원이 만든 게시글 조회 요청 처리
@@ -104,18 +98,6 @@ public class AjaxMainPageController {
                     .internalServerError()
                     .body(e.getMessage());
         }
-    }
-
-    private MainBoard convertToBoard(MainBoardResponseDTO mainBoard) {
-        return MainBoard.builder()
-                .mainBoardId(mainBoard.getMainBoardId())
-                .personId(mainBoard.getPersonId())
-                .mainBoardTitle(mainBoard.getMainBoardTitle())
-                .mainBoardContent(mainBoard.getMainBoardContent())
-                .roomId(mainBoard.getRoomId())
-                .currUser(mainBoard.getCurrUser())
-                .maxUser(mainBoard.getMaxUser())
-                .build();
     }
 
 }
