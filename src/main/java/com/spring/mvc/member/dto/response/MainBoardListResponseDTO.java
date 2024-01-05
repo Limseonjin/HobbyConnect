@@ -14,5 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class MainBoardListResponseDTO {
     private PageMaker pageInfo; // 페이지 정보
-    private List<MainBoardResponseDTO> mainBoards; // 실제 댓글 리스트
+    private List<MainBoardResponseDTO> mainBoards; // 띄워질 보드 리스트
+
 }
