@@ -8,8 +8,8 @@
         WHERE person_id = #{personId}
     </select>
 
-    <select id="findAllMyMainBoard" resultType="MainBoard">
-        SELECT * FROM tbl_main_board
+    <select id="findAllMyRoom" resultType="Room">
+        SELECT * FROM tbl_room
         WHERE person_id = #{personId}
     </select>
 

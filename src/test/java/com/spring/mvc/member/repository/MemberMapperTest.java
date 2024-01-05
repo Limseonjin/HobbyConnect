@@ -1,7 +1,6 @@
 package com.spring.mvc.member.repository;
 
 import com.spring.mvc.member.entity.Member;
-import com.spring.mvc.member.entity.location;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +28,6 @@ class MemberMapperTest {
                 .password(encoder.encode("seonjin"))
               .nickname("선진이다")
                 .email("seonjin@naver.com")
-                .location("충청도")
                 .introduction("여여 난 선진이다")
                 .build();
         //when

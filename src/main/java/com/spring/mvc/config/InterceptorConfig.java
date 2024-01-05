@@ -1,8 +1,7 @@
 package com.spring.mvc.config;
 
-import com.spring.mvc.interceptor.AfterLoginInterceptor;
-import com.spring.mvc.interceptor.BoardInterceptor;
-import com.spring.mvc.member.entity.Board;
+import com.spring.mvc.member.interceptor.AfterLoginInterceptor;
+import com.spring.mvc.member.interceptor.BoardInterceptor;
 import com.spring.mvc.member.interceptor.AutoLoginInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

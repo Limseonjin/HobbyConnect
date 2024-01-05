@@ -29,7 +29,6 @@ class MemberServiceTest {
                 .password("kitty1234")
                 .nickname("태용키티")
                 .email("hhhhasdf@naver.com")
-                .location("충남")
                 .build();
         //when
         boolean flag = memberService.join(dto);

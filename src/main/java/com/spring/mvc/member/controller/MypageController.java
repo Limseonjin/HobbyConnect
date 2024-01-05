@@ -4,10 +4,10 @@ import com.spring.mvc.member.dto.request.MypageMemberInfoModifyRequestDTO;
 import com.spring.mvc.member.dto.request.MypageMemberPasswordModifyRequestDTO;
 import com.spring.mvc.member.dto.response.MemberResponseDTO;
 import com.spring.mvc.member.dto.response.MypageBoardResponseDTO;
-import com.spring.mvc.member.dto.response.MypageMainBoardResponseDTO;
 import com.spring.mvc.member.dto.response.MypageReplyResponseDTO;
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.Reply;
+import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.service.MypageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class MypageController {
 
     @GetMapping("/room")
     public String roomList(HttpSession session, Model model) {
-        List<MypageMainBoardResponseDTO> mainBoardList = mypageService.getMainBoardList(session);
+        List<Room> mainBoardList = mypageService.getMainBoardList(session);
         MemberResponseDTO member = mypageService.getMemberBySession(session);
         model.addAttribute("mbList", mainBoardList);
         model.addAttribute("p", member);
