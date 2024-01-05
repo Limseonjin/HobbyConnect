@@ -36,13 +36,16 @@
 }
 #room-main-wrapper #main-body #post-list-body{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #room-main-wrapper #main-body #post-list-body .card-body{
     height: 200px;
+
 }
 
 /* 글 쓰기 버튼 css */
 #create-board{
-    width: 100%;
-    margin: 0 auto;
+    width: 80%;
 }
