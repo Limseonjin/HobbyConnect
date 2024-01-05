@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="/assets/css/board/board.css">
 </head>
 <body>
+<header>
     <form> <input class='write-5' type="submit" value="BACK" onclick="confirmBack()">
     </form>
     <div class="hero">
         <h1>Bulletin Board</h1>
     </div>
-    <p class="note">Note: Best view in Desktop</p>
+    <p class="note">"It's HOBBY CONNECT with you.
+        Feel free to share your opinions,<br> share news,
+        ask questions, and participate in event notifications and more!"</p>
+</header>
 <div class='form-0'>
     <div class="board-top">
         <form class='form-1' method="POST"  enctype="multipart/form-data">
@@ -40,60 +44,6 @@
 </form>
 <%--댓글 띄우는 코드--%>
 <div>
-    <h3>댓글</h3>
-    <ul class="commentList">
-        <!-- 댓글 목록이 표시되는 부분 -->
-<%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
-        <li>
-            <p><strong> 지나가던 행인 입니다. 맞팔 해염^^<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
-                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
-            <button type="button" class="btn-comment-up">수정</button>
-            <button type="button" class="btn-comment-delete">삭제</button>
-            <div>
-                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
-                작성일자 : <>
-            </div>
-        </li>
-        <!-- <%--</c:forEach>--%>-->
-    </ul>
-</div>
-<div>
-    <ul class="commentList">
-        <!-- 댓글 목록이 표시되는 부분 -->
-        <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
-        <li>
-            <p><strong>게시물 잘 보고 가염 8^^8 오늘 하루도 좋은 날이 되세염 ~!!<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
-                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
-            <button type="button" class="btn-comment-up">수정</button>
-            <button type="button" class="btn-comment-delete">삭제</button>
-            <div>
-                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
-                작성일자 : <>
-            </div>
-        </li>
-        <!-- <%--</c:forEach>--%>-->
-    </ul>
-</div>
-
-<div>
-    <ul class="commentList">
-        <!-- 댓글 목록이 표시되는 부분 -->
-        <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
-        <li>
-            <p><strong>새로운 마음 가짐으로 맨날 봐요 ㅎㅎㅎ 맞팔 하실래여 ^^~<!-- 여기에 댓글 작성자를 표시하는 코드를 넣으세요 --></strong>
-                <!-- 여기에 댓글 내용을 표시하는 코드를 넣으세요 --></p>
-            <button type="button" class="btn-comment-up">수정</button>
-            <button type="button" class="btn-comment-delete">삭제</button>
-            <div>
-                <!--댓글 날짜 조회 ex : yyyy-mm-dd a hh:mm(2024-01-03 오후 01:55분)-->
-                작성일자 : <>
-            </div>
-        </li>
-        <!-- <%--</c:forEach>--%>-->
-    </ul>
-</div>
-
-<div>
     <ul class="commentList">
         <!-- 댓글 목록이 표시되는 부분 -->
         <%--<!--<c:forEach var="comment" items="${commentList}">-->--%>
@@ -110,7 +60,6 @@
         <!-- <%--</c:forEach>--%>-->
     </ul>
 </div>
-
 <script>
     function confirmBack() {
         const isConfirmed = confirm('돌아가시겠습니까? 작성된 내용이 사라집니다.');

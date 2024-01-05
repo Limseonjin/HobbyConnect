@@ -3,12 +3,18 @@ body {
     background: #F7F8E0;
 }
 header{
+    background-color: #333;
+    height: 360px;
     margin: 0;
     padding: 0;
     align-items: center;
     justify-content: center;
 }
+.hero {
+    background-color: #333;
+}
 h1 {
+    background-color: #333;
     tfont-size: 24px;
     line-height: normal;
     margin: 0;
@@ -19,10 +25,11 @@ h1 {
     cursor: crosshair;
 }
 .note{
+    background-color: #333;
     font-family: 'Abril Fatface', cursive;
     color: #FE642E;
     text-align: center;
-    font-size: 40px;
+    font-size: 25px;
 }
 hr {
     border: none; /* 기본 테두리 제거 */
@@ -32,6 +39,7 @@ hr {
 }
 
 .form-0 {
+    margin-top: 30px;
     position: relative;
 }
 
@@ -41,7 +49,6 @@ hr {
     margin: 0 auto;
     max-width: 100%;
 }
-
 hr {
     width: 100%;
 }
@@ -61,7 +68,6 @@ hr {
     border: 1px solid #ccc; /* 네모박스 테두리 추가 */
     border-radius: 5px; /* 테두리를 둥글게 만듭니다. */
 }
-
 .write-1 {
     width:100%;
     font-size: 40px;
