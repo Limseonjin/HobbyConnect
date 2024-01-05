@@ -23,6 +23,9 @@
 <%-- 여기서 부터 코드 입력 --%>
 <div id="main-wrapper">
 
+    <div class="mainImg">
+        <img src="/assets/img/mainPageLogo.png" width="100%" height="100%"></a>
+    </div>
     <div id="main-head">
         <nav id="search" class="navbar navbar-light bg-light">
             <div class="container-fluid">
@@ -38,13 +41,13 @@
             </div>
         </nav>
 
-        <div class="user-info card">
-            <div class=" card-body">
-                <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>
-                <a href="/mypage/board" class="card-link">My Page</a>
-                <a href="/login/sign-out" class="card-link">Logout</a>
-            </div>
-        </div>
+<%--        <div class="user-info card">--%>
+<%--            <div class=" card-body">--%>
+<%--                <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>--%>
+<%--                <a href="/mypage/board" class="card-link">My Page</a>--%>
+<%--                <a href="/login/sign-out" class="card-link">Logout</a>--%>
+<%--            </div>--%>
+<%--        </div>--%>
     </div>
     <%--     게시글 목록들 --%>
     <div id="main-body">
