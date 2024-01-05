@@ -3,17 +3,18 @@ const $creteBtn = document.getElementById('create-room');
 const $searchInput = document.getElementById('search-content');
 const $searchType = document.getElementById('search-type')
 const URL = '/api/v1/mainBoards';
-const SEARCH_URL = '/api/mainboard';
 (() => {
     postList();
+    makePageButtonClickEvent();
 })()
 
 // 게시글 조회 화면 렌더링
-function postListRender(dtoList){
-    console.log(dtoList)
+function postListRender({mainBoards, pageInfo}){
+    console.log(mainBoards);
+    console.log(pageInfo);
     const $postBody = document.getElementById('post-list-body');
     let tag = ``;
-    for (const dto of dtoList) {
+    for (const dto of mainBoards) {
         tag +=`<div class="card room-post" data-bno="${dto.mainBoardId}">
                         <div class="card-header">
                        
@@ -49,46 +50,63 @@ function postListRender(dtoList){
                     </div>`
     }
     $postBody.innerHTML = tag;
+    pageNoRender(pageInfo);
 }
 
-//
-function replyRender(boards){
+/** 페이지 넘버 렌더링 함수  */
+function pageNoRender({begin, end, prev, next, page, finalPage}){
     let tag = ``;
+    // 이전 버튼
     if (prev){
         tag += `<li className="page-item">
-            <a className="page-link" href="#" aria-label="Previous">
+            <a className="page-link" href="\${begin - 1}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>`
     }
-    for (let i = begin; i < prev; i++) {
-       tag += `<li className="page-item"><a className="page-link" href="#">${i}</a></li>`
+    //페이지 번호 리스트 만들기
+    for (let i = begin; i <= end; i++) {
+        let active = '';
+        if (page.pageNo === i) {
+            active = 'p-active';
+        }
+
+        tag += `<li class='page-item \${active}'><a class='page-link page-custom' href='${i}'>${i}</a></li>`;
     }
-    //
-    // <li className="page-item">
-    //     <a className="page-link" href="#" aria-label="Next">
-    //         <span aria-hidden="true">&raquo;</span>
-    //     </a>
-    // </li>
+    //  다음 버튼
+    if (next) {
+        tag += `<li className="page-item">
+        <a className="page-link" href="\${end + 1}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+        `
+    }
+    // 페이지 태그 렌더링
+    const $pageUl = document.querySelector('.pagination');
+    $pageUl.innerHTML = tag;
+    // ul에 마지막 페이지 번호 저장
+    $pageUl.dataset.fp = finalPage;
 }
 
 // 게시글 비동기 처리
-function postList(){
-    fetch(`${URL}/main`)
+function postList(pageNo=1){
+    fetch(`${URL}/main/page/${pageNo}`)
         .then(res=>res.json())
-        .then(dtoList =>
+        .then(dtoList =>{
             postListRender(dtoList)
-        )
+        })
 }
 
-// 검색시 게시글 비동기 처리
-function SearchPostList(type,input){
-    fetch(`${SEARCH_URL}/${type}/${input}`)
+function SearchPostList(type,input,pageNo=1){
+    fetch(`${URL}/${type}/${input}/page/{pageNo}`)
         .then(res=> res.json())
-        .then(dtoList =>
+        .then(dtoList =>{
             postListRender(dtoList)
-        )
+            pageNoRender(dtoList)
+        })
 }
+// 검색시 게시글 비동기 처리
 
 //수정 비동기 처리
 function updateBoard(bno) {
@@ -190,6 +208,18 @@ $creteBtn.addEventListener('click',()=>{
     window.location.href = '/board/room'
 })
 
+// 페이지 클릭 이번테 핸들러 등록 함수
+function makePageButtonClickEvent() {
+    const $pageUl = document.querySelector('.pagination');
+
+    $pageUl.onclick = e => {
+        // 이벤트 타겟이 a링크가 아니면 타겟 제한
+        if (!e.target.matches('.page-item a')) return;
+        e.preventDefault(); // 태그 기본 동작 기능 중단.
+        // 페이지 번호에 맞는 새로운 댓글 목록 비동기 요청
+        postList(e.target.getAttribute('href'));
+    }
+}
 
 function searchClickHandler() {
     let sInput = $searchInput.value

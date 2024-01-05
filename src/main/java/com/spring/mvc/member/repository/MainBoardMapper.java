@@ -1,6 +1,7 @@
 package com.spring.mvc.member.repository;
 
 import com.spring.mvc.member.common.Page;
+import com.spring.mvc.member.dto.response.MainBoardResponseDTO;
 import com.spring.mvc.member.entity.MainBoard;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -17,7 +18,7 @@ public interface MainBoardMapper {
     List<MainBoard> findAll();
 
     //페이징 처리한 게시글 조회
-    List<MainBoard> pagefindAll( @Param("p") Page page);
+    List<MainBoard> pagefindAll(@Param("p") Page page);
 
     // 특정 사용자가 만든 게시글 조회
     List<MainBoard> findPersonId (@Param("personId") String personId, @Param("p")Page page);
@@ -35,6 +36,9 @@ public interface MainBoardMapper {
     boolean delete(Long mainBoard);
 
     void roomSave(Long mainBoardId);
+
+    // 총 게시글 수 조회
+    int count();
 
 
 }
