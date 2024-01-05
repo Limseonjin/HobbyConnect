@@ -15,20 +15,34 @@
     display: flex;
     flex-direction: row-reverse;
 }
+/*나의 정보 css */
 #room-main-wrapper #members{
-    margin-top: 50px;
     width: 30%;
 }
 #room-main-wrapper #members card{
     margin-top: 30px;
 }
-
+/* 멤버 목록 css */
+#room-main-wrapper .member-list{
+    margin-top: 20px;
+}
+#room-main-wrapper .member-list .nav-link{
+    color : black;
+}
 /* 게시글 목록 */
 #room-main-wrapper #main-body{
     width: 100%;
     margin:0 50px;
 }
-
+#room-main-wrapper #main-body #post-list-body{
+    padding: 20px;
+}
 #room-main-wrapper #main-body #post-list-body .card-body{
     height: 200px;
+}
+
+/* 글 쓰기 버튼 css */
+#create-board{
+    width: 100%;
+    margin: 0 auto;
 }
