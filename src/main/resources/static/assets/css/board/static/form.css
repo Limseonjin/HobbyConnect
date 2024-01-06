@@ -1,83 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Pacifico&display=swap');
-@font-face {
-    font-family: 'SejonghospitalBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-.overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-form {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 30px #585858;
-    padding: 20px;
-    width: 750px;
-}
+ @import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Han+Sans&family=Pacifico&display=swap');
+        @font-face {
+            font-family: 'SejonghospitalBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+        .overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 30px #585858;
+            padding: 20px;
+            width: 750px;
+        }
 
-.head-form {
-    text-align: center;
-    background-color: #333; /* 헤더의 배경 색상 */
-    border-radius: 8px 8px 0 0; /* 헤더의 위쪽만 둥글게 */
-    padding: 20px;
-}
+        .head-form {
+            text-align: center;
+            background-color: #333; /* 헤더의 배경 색상 */
+            border-radius: 8px 8px 0 0; /* 헤더의 위쪽만 둥글게 */
+            padding: 20px;
+        }
 
-.head-form h2 {
-    color: #fff;
-    font-size: 85px;
-    margin: 5px 5px 5px 5px;
-    font-family: 'Pacifico', cursive;
-}
+        .head-form h2 {
+            color: #fff;
+            font-size: 85px;
+            margin: 5px 5px 5px 5px;
+            font-family: 'Pacifico', cursive;
+        }
 
-.head-form p {
-    color: #fff;
-    font-size: 25px;
-    font-family:'SejonghospitalBold';
-}
-.field-set {
-    background-color: #333;
-    margin-bottom: 20px;
-    position: relative;
-}
+        .head-form p {
+            color: #fff;
+            font-size: 25px;
+            font-family:'SejonghospitalBold';
+        }
+        .field-set {
+            background-color: #333;
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-.input-item {
-    position: absolute;
-    top: 12px;
-    left: 10px;
-}
+        .input-item {
+            position: absolute;
+            top: 12px;
+            left: 10px;
+        }
 
-.i1, .t1 {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+        .i1, .t1 {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-.t1 {
-    resize: none;
-    overflow: hidden;
-    white-space: nowrap;
-    text-indent: -80px;
-}
-button {
-    display: block;
-    margin: 10px auto;
-    width: 10%;
-    padding: 7px;
-    background-color: #F78181;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-}
+        .t1 {
+            resize: none;
+            overflow: hidden;
+            white-space: nowrap;
+            text-indent: -90px;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            width: 10%;
+            padding: 7px;
+            font-family:'SejonghospitalBold';
+            background-color: #F78181;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
 
-button:hover {
-    background-color: #FF0000;
-}
+        button:hover {
+            background-color: #FF0000;
+        }
