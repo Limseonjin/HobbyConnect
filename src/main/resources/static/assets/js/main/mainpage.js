@@ -173,11 +173,11 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
     function pwBtnClickHandler(e) {
         // 동작(이벤트)을 실행하지 못하게 막는 메서드입니다.
         e.preventDefault();
-        if (idValue.trim() === ''){
+        if ($inputPw.value.trim() === ''){
             $inputPw.classList.add('is-invalid');
             $inputPw.nextElementSibling.textContent = '값을 입력하세요!';
         }else{
-            // 비동기 (회원가입 유효성 검사 참고할 것)
+            // 비동기 (회원가입 유효성 검사 참고할 것 => flag 프론트로 넘겨줘야함 )
             fetch('/room/check?roomPw='+$inputPw.value)
                 .then(res => res.json())
                 .then(flag=>{  // flag = 비밀번호 일치 검사 결과

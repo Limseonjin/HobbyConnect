@@ -27,15 +27,13 @@ function roomPostRender(bList){
     `
     }
     $boardList.innerHTML = tag;
-
-
 }
 
 /** room 안에 게시글 비동기 조회*/
-function roomPostList(bno){
-    fetch(`${URL}/bno`)
+function roomPostList(){
+    fetch(`${URL}`)
         .then(res=>res.json())
-        .then(b => {
+        .then(bList => {
             roomPostList(bList)
         })
 }
