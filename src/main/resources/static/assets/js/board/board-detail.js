@@ -1,10 +1,11 @@
 
 const $userReply = document.querySelectorAll(...['.comment']);
 const $replyBtnWrap = document.querySelector(".reply-btn-wrap")
+const $modifyBtn = document.getElementById('board-modity')
 // 댓글 수정 버튼을 누르면 p태그가 input으로 바뀌는 js코드
 function editComment($comment) {
     const commentText =$comment.innerText;
-    const $parentElement = comment.parentElement;
+    const $parentElement = $comment.parentElement;
 
     const $inputElement = document.createElement('input');
     $inputElement.type = 'text';
@@ -51,8 +52,12 @@ function modifyReplyClickHandler(e) {
     console.log(e.target)
     const $replyContent = e.target.closest('.comment').querySelector('.reply-content');
     editComment($replyContent)
-
 }
 
 $userReply.forEach(r => r.addEventListener('click',
     modifyReplyClickHandler))
+
+// 게시글 수정 버튼 클릭시
+$modifyBtn.addEventListener('click',function modifyBtnOnClick(){
+    window.location.href = `/room/board/detail?boardNo=${boardNo}/write`
+})

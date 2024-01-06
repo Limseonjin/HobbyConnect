@@ -33,7 +33,7 @@
                         <c:forEach var="r" items="${mbList}">
                             <div class="mypage-room card border-secondary mb-3" >
                                 <div class="card-body room-wrapper">
-                                    <img class="room-img">
+                                    <img src="/assets/img/roomImg.png" class="room-img" alt="기본이미지">
                                     <div class="title">
                                         <p>${r.roomName}</p>
                                     </div>
