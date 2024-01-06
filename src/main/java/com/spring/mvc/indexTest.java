@@ -30,4 +30,9 @@ public class indexTest {
         return "/board/UpdateForm";
 
     }
+    @RequestMapping("/detail3")
+    public String meef() {
+        return "/board/Form_Window";
+
+    }
 }

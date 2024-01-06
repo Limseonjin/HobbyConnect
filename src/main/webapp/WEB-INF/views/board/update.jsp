@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>BBS Update</title>
-    <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <%@include file="../common/static-head.jsp"%>
     <style>
         <%--수정 폼 디자인--%>
         body {
@@ -94,6 +94,7 @@
 </head>
 <%--폼 메인 코드--%>
 <body>
+<%@ include file="../room/room-head.jsp"%>
 <form action="#" method="post">
     <div class="conf">
         <input type="hidden" name="pageNum" value="#">
@@ -102,18 +103,14 @@
             <table class="tab">
                 <thead>
                 <tr>
-                    <th>글쓴이</th>
-                    <td></td>
-                </tr>
-                <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" value="" class="fcon" aria-describedby="basic-addon1"></td>
+                    <td><input type="text" name="boardTitle" value="${boardTitle}" class="fcon" aria-describedby="basic-addon1"></td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td colspan="2">
-                        <textarea class="fcon" rows="20" name="content"></textarea>
+                        <textarea class="fcon" rows="20" name="boardContent">${boardContent}</textarea>
                     </td>
                 </tr>
                 </tbody>
@@ -125,6 +122,8 @@
         </div>
     </div>
 </form>
+
+<%@include file="../common/footer.jsp"%>
 <%--스크립트--%>
 <script>
     function confirmEdit() {

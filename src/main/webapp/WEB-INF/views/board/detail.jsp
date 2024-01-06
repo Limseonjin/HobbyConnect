@@ -20,7 +20,7 @@
 <div id="bullentin-wrapper">
     <div class='form-0'>
             <form class='form-1' method="POST"  enctype="multipart/form-data">
-                <input class='write-4' type="submit" value="수정" >
+                <inputS class='write-4' type="submit" value="수정" >
                 <input class='write-1' type="text" name="boardTitle" value="title 타이틀${boardTitle}" readonly>
                 <input class='write-2' name="boardContent" value="content내영 ${boardContent}" readonly>
             </form>

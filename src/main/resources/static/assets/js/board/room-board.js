@@ -49,7 +49,7 @@ function boardClickHandler(e) {
 
 /** 글 쓰기 버튼 이벤트 핸들러 */
 function writePostClickHandler() {
-    window.location.href = '';
+    window.location.href = '/write';
 }
 
 // 룸 안에 게시글마다 클릭 이벤트 걸기
