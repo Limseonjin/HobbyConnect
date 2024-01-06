@@ -27,15 +27,13 @@ function roomPostRender(bList){
     `
     }
     $boardList.innerHTML = tag;
-
-
 }
 
 /** room 안에 게시글 비동기 조회*/
-function roomPostList(bno){
-    fetch(`${URL}/bno`)
+function roomPostList(){
+    fetch(`${URL}`)
         .then(res=>res.json())
-        .then(b => {
+        .then(bList => {
             roomPostList(bList)
         })
 }
@@ -49,7 +47,7 @@ function boardClickHandler(e) {
 
 /** 글 쓰기 버튼 이벤트 핸들러 */
 function writePostClickHandler() {
-    window.location.href = '';
+    window.location.href = 'room/board/write';
 }
 
 // 룸 안에 게시글마다 클릭 이벤트 걸기

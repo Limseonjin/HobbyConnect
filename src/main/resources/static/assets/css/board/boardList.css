@@ -27,23 +27,26 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-#post-list .room-post .card-header{
+#post-list .room-post .card-header,
+#post-list-body .room-post .card-header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
 }
-#post-list .room-post .card-header h2{
+#post-list .room-post .card-header h2,
+#post-list-body .room-post .card-header h2{
     font-weight: 800;
     font-size: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#post-list .room-post .card-header .bi{
+
+#post-list .room-post .card-header .bi,
+#post-list-body .room-post .card-header .bi{
     width: 30px;
     height: 30px;
-    margin-top: 10px;
 }
 #post-list .room-post .card-body{
     padding: 20px;
@@ -60,6 +63,10 @@
 
 #post-list .room-post .card-body button{
     width: 100px;
+}
+/* 참여하기 버튼 */
+#post-list-body .foward-room{
+    margin-top: 10px;
 }
 
 /* 페이지 번호 */
