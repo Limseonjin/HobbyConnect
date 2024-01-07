@@ -1,7 +1,6 @@
 package com.spring.mvc.member.service;
 
 import com.spring.mvc.member.dto.response.RoomMemberListResponseDTO;
-import com.spring.mvc.member.repository.MemberMapper;
 import com.spring.mvc.member.repository.RoomMemberMapper;
 import com.spring.mvc.util.LoginUtil;
 import lombok.RequiredArgsConstructor;
@@ -21,16 +20,16 @@ public class RoomMemberService {
     //    public void save(MainBoardRequestDTO dto, HttpSession session){
 //        roomMemberMapper.save(dto.toEntityByRoomMember(session));
 //    }
-    public boolean isIn(int roomId, HttpSession session) {
+    public boolean isIn(Long roomId, HttpSession session) {
         int in = roomMemberMapper.isIn(roomId, LoginUtil.getCurrentLoginMemberAccount(session));
         return in != 0;
     }
 
-    public void newMember(int roomId, HttpSession session) {
+    public void newMember(Long roomId, HttpSession session) {
         roomMemberMapper.joinCommonMember(roomId, LoginUtil.getCurrentLoginMemberAccount(session));
     }
 
-    public List<RoomMemberListResponseDTO> findByRoomId(int roomId) {
+    public List<RoomMemberListResponseDTO> findByRoomId(Long roomId) {
         return roomMemberMapper.findByRoomId(roomId);
     }
 
@@ -40,9 +39,11 @@ public class RoomMemberService {
 
 
     //방장이 특정 회원을 방에서 추방 시키는 메서드
-    public void delete(String personId, Long roomId) {
+    public List<RoomMemberListResponseDTO> delete(String personId, Long roomId) {
         roomMemberMapper.delete(personId,roomId);
+       return roomMemberMapper.findByRoomId(roomId);
     }
+
 
 
 
