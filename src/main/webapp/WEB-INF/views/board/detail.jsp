@@ -11,13 +11,7 @@
 </head>
 <body>
 <%@include file="../common/del-modal.jsp"%>
-<header>
-    <div class="hero">
-        <h1>Bulletin Board</h1>
-    </div>
-    <p class="note">"It's HOBBY CONNECT with you.
-        Feel free to share your opinions,ask questions</p>
-</header>
+<%@include file="../common/head.jsp"%>
 <div id="bullentin-wrapper">
     <div class='form-0'>
             <div class='form-1'>
