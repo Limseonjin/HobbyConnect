@@ -95,7 +95,7 @@ function postList(pageNo=1){
     fetch(`${URL}/main/page/${pageNo}`)
         .then(res=>res.json())
         .then(dtoList =>{
-            console.log(dtoList)
+
             postListRender(dtoList)
         })
 }
@@ -107,7 +107,6 @@ function SearchPostList(type,input,pageNo=1){
         .then(dtoList =>{
             console.log(dtoList)
             postListRender(dtoList)
-            pageNoRender(dtoList)
         })
 }
 // 검색시 게시글 비동기 처리
@@ -260,6 +259,10 @@ function makePageButtonClickEvent() {
 /** 검색 버튼 클릭 이벤트 핸들러 (비동기)*/
 function searchClickHandler() {
     let sInput = $searchInput.value
+    if (sInput === "") {
+        alert("검색어가 없습니다.")
+        return
+    }
     let sType = $searchType.value
     SearchPostList(sType, sInput);
 }
@@ -269,3 +272,4 @@ $searchBtn.addEventListener('click',searchClickHandler);
 
 
 // =====================유효성 검사 ============
+

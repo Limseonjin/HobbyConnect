@@ -40,9 +40,9 @@ public class AjaxMainPageController {
     ) {
         Page page = new Page();
         page.setPageNo(pageNo);
-        List<Room> boards = roomService.findRoomByPersonId(personId,page);
-
-        return ResponseEntity.ok().body(boards);
+        page.setAmount(6);
+        RoomListPageResponseDTO roomByPersonId = roomService.findRoomByPersonId(personId, page);
+        return ResponseEntity.ok().body(roomByPersonId);
     }
 
     // keyword로 게시글 제목으로 조회 요청 처리
@@ -53,8 +53,22 @@ public class AjaxMainPageController {
     ) {
         Page page = new Page();
         page.setPageNo(pageNo);
-        List<Room> boards = roomService.findRoomByTitle(keyword, page);
-        return ResponseEntity.ok().body(boards);
+        page.setAmount(6);
+        RoomListPageResponseDTO roomByTitle = roomService.findRoomByTitle(keyword, page);
+        return ResponseEntity.ok().body(roomByTitle);
+    }
+
+    // keyword로 게시글 내용으로 조회 요청 처리
+    @GetMapping("/content/{keyword}/page/{pageNo}")
+    public ResponseEntity<?> findRoomByContent(
+            @PathVariable String keyword,
+            @PathVariable int pageNo
+    ) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        page.setAmount(6);
+        RoomListPageResponseDTO roomByContent = roomService.findRoomByContent(keyword, page);
+        return ResponseEntity.ok().body(roomByContent);
     }
 
     // main-board 수정 요청 처리
