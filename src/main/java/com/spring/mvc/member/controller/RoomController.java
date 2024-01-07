@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/board")
+@RequestMapping("/room")
 public class RoomController {
 
     private final RoomService roomService;
