@@ -4,7 +4,9 @@ package com.spring.mvc.member.controller;
 import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.dto.response.RoomBoardResponseDTO;
 import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
+import com.spring.mvc.member.dto.response.RoomMemberListResponseDTO;
 import com.spring.mvc.member.entity.Room;
+import com.spring.mvc.member.service.RoomMemberService;
 import com.spring.mvc.member.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,10 +21,11 @@ import java.util.List;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/board")
+@RequestMapping("/room")
 public class RoomController {
 
     private final RoomService roomService;
+    private final RoomMemberService roomMemberService;
 
     // 방 암호 검중 처리
     @GetMapping("/check/{roomId}")
@@ -33,9 +36,16 @@ public class RoomController {
 
     // 방 참여하기 처리
     @GetMapping("/main")
-    public String detail(int roomId, Model model) {
+    public String intoTheRoom(int roomId, Model model, HttpSession session) {
+        boolean in = roomMemberService.isIn(roomId, session);
+        if (!in) {
+            roomMemberService.newMember(roomId, session);
+        }
         Room roomByRoomId = roomService.getRoomByRoomId((long) roomId);
+        List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
+        System.out.println("byRoomId = " + byRoomId);
         model.addAttribute("r", roomByRoomId);
+        model.addAttribute("rmList", byRoomId);
         return "room/mainroom";
     }
 

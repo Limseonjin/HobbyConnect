@@ -177,11 +177,11 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
             $inputPw.nextElementSibling.textContent = '값을 입력하세요!';
         }else{
             // 비동기 (회원가입 유효성 검사 참고할 것 => flag 프론트로 넘겨줘야함 )
-            fetch(`/board/check/${roomId}?roomPw=`+$inputPw.value)
+            fetch(`/room/check/${roomId}?roomPw=`+$inputPw.value)
                 .then(res => res.json())
                 .then(flag=>{  // flag = 비밀번호 일치 검사 결과
                     if (flag) { // 일치
-                        window.location.href = `/board/main?roomId=${roomId}`
+                        window.location.href = `/room/main?roomId=${roomId}`
                     } else { // 비일치
                         $inputPw.classList.add('is-invalid');
                         $inputPw.nextElementSibling.textContent = '틀렸습니다!';
@@ -196,7 +196,7 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
 
     }else{ //없으면 바로 방으로 이동
         $roomPwModal.hide()
-        window.location.href = `/board/main?roomId=${roomId}`
+        window.location.href = `/room/main?roomId=${roomId}`
     }
 })
 /** 룸 암호 입력모달이 닫히고 실행 될 코드 */
@@ -225,7 +225,7 @@ deleteModalEl.addEventListener('shown.bs.modal', function (e) {
 
 // 방 만들기 클릭시
 $creteBtn.addEventListener('click',()=>{
-    window.location.href = '/board/room'
+    window.location.href = '/room/room'
 })
 
 // 수정 모달에서 수정버튼 클릭시

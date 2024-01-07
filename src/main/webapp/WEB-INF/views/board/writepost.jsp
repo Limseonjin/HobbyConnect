@@ -18,7 +18,7 @@
     <div id="post-wrapper-back">
         <div id="post-wrapper">
             <h2>홍보 게시물 및 방 만들기</h2>
-            <form action="/board/room" method="post" id="create-room-form" >
+            <form action="/room/room" method="post" id="create-room-form" >
                 <p class="sub-title">홍보 게시물 작성</p>
                 <div id="title" class="create-content">
                     <div class="input-group flex-nowrap">

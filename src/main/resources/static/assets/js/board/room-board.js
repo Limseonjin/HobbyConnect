@@ -2,7 +2,7 @@
 const $roomBoard = document.querySelectorAll(...['.room-post']);
 const $writePost = document.getElementById('create-board')
 const $boardList = document.getElementById('board-list');
-const URL = '/board';
+const URL = '/room';
 const roomId = document.getElementById('room-title').dataset.room;
 console.log(roomId);
 (()=>{

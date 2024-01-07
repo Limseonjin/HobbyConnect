@@ -30,8 +30,8 @@ public class MainPageController {
 
     //메인 페이지 화면 요청
     @GetMapping("/main-page")
-    public String list() {
-
+    public String list(HttpSession session) {
+        System.out.println("session = " + session);
         return "/mainpage";
     }
 }
