@@ -8,10 +8,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,9 +33,28 @@ public class BoardController {
 
     //방 만들기 화면 등록 요청
     @PostMapping("/write")
-    public String makeBoard(Board board ,HttpSession session){
+    public String makeRoom(Board board ,HttpSession session){
         boardService.makeBoard(board, session);
         return "board/write";
+    }
+
+    // 클릭한 게시물 상세보기
+    @GetMapping("/detail")
+    public String oneBoard(
+            @RequestParam long boardId,
+            Model model)
+    {
+        log.info("detail id={} : GET!",boardId);
+        Board board = boardService.findOneByBoard(boardId);
+        log.debug("board : {}",board);
+        model.addAttribute("boardId",board.getBoardId());
+        model.addAttribute("personId",board.getPersonId());
+        model.addAttribute("boardTitle",board.getBoardTitle());
+        model.addAttribute("boardContent",board.getBoardContent());
+        model.addAttribute("roomId",board.getRoomId());
+        model.addAttribute("viewCount",board.getViewCount());
+        model.addAttribute("regDate",board.getRegDate());
+        return "board/detail";
     }
 
     @DeleteMapping("/write")
@@ -41,4 +62,5 @@ public class BoardController {
         boardService.delete(board);
         return "board/write";
     }
+
 }

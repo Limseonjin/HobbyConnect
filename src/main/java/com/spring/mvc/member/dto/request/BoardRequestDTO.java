@@ -28,7 +28,6 @@ public class BoardRequestDTO {
     public Board toEntity(){
         return Board.builder()
                 .boardId(boardId)
-                .replyId(replyId)
                 .personId(personId)
                 .boardTitle(boardTitle)
                 .boardContent(boardContent)

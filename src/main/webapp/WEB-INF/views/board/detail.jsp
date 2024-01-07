@@ -26,25 +26,14 @@
     <div class="line"></div>
     <div id="reply-wrapper" class="">
         <h2>댓글 작성</h2>
-        <form class="reply-write" method="post" action="">
+        <div class="reply-write">
             <textarea id="comment-area" name="comment" rows="4" cols="50" placeholder="댓글을 작성하세요"></textarea>
-            <button id="add-reply" type="submit" >댓글 등록</button>
-
-        </form>
+            <button id="add-reply">댓글 등록</button>
+        </div>
         <%--댓글 띄우는 코드--%>
         <ul class="comments">
 <%--            댓글 비동기 --%>
-            <li class="comment" data-rno="0">
-                <div class="reply-wrap">
-                    <div class="author">Susan Sanddollar</div>
-                    <p class="reply-content">Lorem ipsum dolor sit amet</p>
-                </div>
-                <div class="reply-btn-wrap">
-                    <button type="button" class="reply-modify btn-comment-up">수정</button>
-                    <button type="button" class="reply-delete btn-comment-delete" data-bs-toggle="modal"  data-bs-target="#delete-modal">
-                        삭제</button>
-                </div>
-            </li>
+
         </ul>
     </div>
 </div>

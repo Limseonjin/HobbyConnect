@@ -57,7 +57,7 @@ public class ReplyService {
     // 댓글 수정
     public ReplyListResponseDTO modify(ReplyModifyRequestDTO dto) {
         replyMapper.modify(dto.toEntity());
-        return getList(dto.getBId(), new Page(1, 5));
+        return getList(dto.getBoardId(), new Page(1, 5));
     }
 
 

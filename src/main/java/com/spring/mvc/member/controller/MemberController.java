@@ -59,7 +59,7 @@ public class MemberController {
     @GetMapping("/sign-in")
     public String SignIn() {
         log.info("/login/sign-in GET - forwarding to sign-in.jspr");
-        return "/login/sign-in";
+        return "login/sign-in";
     }
 
     //로그인 검증 요청
