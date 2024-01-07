@@ -27,16 +27,18 @@ public class BoardController {
 
     //방안에 게시글 만들기 화면요청
     @GetMapping("/write")
-    public String makeBoard(){
+    public String makeBoard(@RequestParam long roomId, Model model){
+        log.info("bord/write GET roomId : {}",roomId);
+        model.addAttribute("roomId",roomId);
         return "board/write";
     }
 
     //방 만들기 화면 등록 요청
-    @PostMapping("/write")
-    public String makeRoom(Board board ,HttpSession session){
-        boardService.makeBoard(board, session);
-        return "board/write";
-    }
+//    @PostMapping("/write")
+//    public String makeRoom(Board board ,HttpSession session){
+//        boardService.makeBoard(board, session);
+//        return "redirect:/room/main";
+//    }
 
     // 클릭한 게시물 상세보기
     @GetMapping("/detail")

@@ -11,7 +11,7 @@
 <body>
 <%@include file="../common/head.jsp"%>
 <div class="overlay">
-    <form action="#" method="post">
+    <form action="/room/main" method="post">
         <div class="con">
             <header class="head-form">
                 <h2>POST</h2>
@@ -25,25 +25,20 @@
         <div>
              <textarea rows="5" cols="13" name="boardContent" class="t1" title="남을 비방하거나 허위 정보를 전파하거나 타인을 모욕하는 말은 사용자 간에 신뢰를 떨어뜨릴 뿐만 아니라 관련 법률에 의해 처벌받을 수 있습니다"></textarea>
         </div>
-        <button class="writeForm" type="submit">완료</button>
+        <input type="hidden" name="roomId" value=${roomId}>
+        <button id="addOk" class="writeForm" type="submit">완료</button>
     </form>
 </div>
 <%@include file="../common/footer.jsp"%>
-<script>
-    function checkAndSubmit(event) {
-        // 제목과 게시물 내용을 가져오기
-        const title = document.querySelector('.i1').value;
-        const content = document.querySelector('.t1').value;
+<%--<script>--%>
+<%--    const $addOk = document.getElementById('addOk');--%>
 
-        if (title.trim() !== '' && content.trim() !== '') {
-            // 완료 메시지 띄우기
-            alert('게시물이 성공적으로 등록되었습니다.');
-        } else {
-            alert('제목과 내용을 모두 입력해주세요.');
+<%--    /** 완료 버튼 클릭 이벤트 핸들러  */--%>
+<%--    function addOkClickHandler() {--%>
+<%--        window.location.href = `/room/main?roomId=${roomId}`--%>
+<%--    }--%>
 
-            event.preventDefault();
-        }
-    }
-</script>
+<%--    $addOk.addEventListener('submit',addOkClickHandler)--%>
+<%--</script>--%>
 </body>
 </html>
