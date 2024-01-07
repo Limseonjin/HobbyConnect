@@ -24,11 +24,8 @@
         <mapper resource="mappers/MypageMapper.xml"/>
         <mapper resource="mappers/RoomMapper.xml"/>
         <mapper resource="mappers/RoomMemberMapper.xml"/>
-<<<<<<< HEAD
         <mapper resource="mappers/ReplyMapper.xml"/>
-=======
         <mapper resource="mappers/BoardMapper.xml"/>
 
->>>>>>> makeFooter
     </mappers>
 </configuration>
