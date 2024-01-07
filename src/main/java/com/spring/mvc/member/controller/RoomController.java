@@ -36,12 +36,12 @@ public class RoomController {
 
     // 방 참여하기 처리
     @GetMapping("/main")
-    public String intoTheRoom(int roomId, Model model, HttpSession session) {
+    public String intoTheRoom(Long roomId, Model model, HttpSession session) {
         boolean in = roomMemberService.isIn(roomId, session);
         if (!in) {
             roomMemberService.newMember(roomId, session);
         }
-        Room roomByRoomId = roomService.getRoomByRoomId((long) roomId);
+        Room roomByRoomId = roomService.getRoomByRoomId(roomId);
         List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
         System.out.println("byRoomId = " + byRoomId);
         model.addAttribute("r", roomByRoomId);
@@ -71,6 +71,10 @@ public class RoomController {
         return "redirect:/main/main-page";
     }
 
-    //
+    @DeleteMapping("/{personId}/exitRoom")
+    public ResponseEntity<?> ExitMember(@PathVariable String personId,Long roomId){
+        List<RoomMemberListResponseDTO> delete = roomMemberService.delete(personId, roomId);
+        return ResponseEntity.ok().body(delete);
+    }
 
 }
