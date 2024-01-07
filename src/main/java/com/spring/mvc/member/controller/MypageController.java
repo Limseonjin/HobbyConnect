@@ -21,6 +21,8 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.spring.mvc.util.LoginUtil.LOGIN_KEY;
+
 @Slf4j
 @Controller
 @RequestMapping("/mypage")
@@ -92,7 +94,7 @@ public class MypageController {
     @GetMapping("/deleteCon")
     public String delMember(HttpSession session) {
         mypageService.delete(session);
-        return "redirect:/main/mainpage";
+        return "redirect:/";
     }
 
 

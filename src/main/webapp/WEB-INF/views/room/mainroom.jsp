@@ -20,7 +20,7 @@
     <div id="members">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title">어서오세요 ${nickname}님!</h2>
+                <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>
                 <a href="/mypage/board" class="card-link">My Page</a>
                 <a href="/login/sign-out" class="card-link">Logout</a>
             </div>
@@ -30,9 +30,8 @@
                 <nav class="nav nav-pills flex-column">
                     <h2> 멤버목록 </h2>
                     <nav class="nav nav-pills flex-column">
-                        <p class="nav-link ms-3 my-1">닉네임 ${p.nickname}</p>
-                        <c:forEach var="rm" items="rmList">
-                            <p class="nav-link ms-3 my-1">닉네임 ${p.nickname}</p>
+                        <c:forEach var="rm" items="${rmList}">
+                            <p class="nav-link ms-3 my-1">닉네임 ${rm.nickname}</p>
                         </c:forEach>
                     </nav>
                 </nav>

@@ -17,6 +17,8 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.spring.mvc.util.LoginUtil.LOGIN_KEY;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -98,6 +100,12 @@ public class MypageService {
     @Transactional
     public void delete(HttpSession session) {
         mypageMapper.delMember(LoginUtil.getCurrentLoginMemberAccount(session));
+        System.out.println("session = " + session);
+        // 세션에서 로그인 정보 기록 삭제
+        session.removeAttribute(LOGIN_KEY);
+        // 세션 초기화
+        session.invalidate();
+        System.out.println("session = " + session);
     }
 
 }

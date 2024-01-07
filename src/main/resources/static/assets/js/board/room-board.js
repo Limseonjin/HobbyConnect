@@ -3,6 +3,8 @@ const $roomBoard = document.querySelectorAll(...['.room-post']);
 const $writePost = document.getElementById('create-board')
 const $boardList = document.getElementById('board-list');
 const URL = '/room';
+const roomId = document.getElementById('room-title').dataset.room;
+console.log(roomId);
 (()=>{
     roomPostList(document.getElementById('room-title').dataset.room)
 })()
@@ -10,11 +12,12 @@ const URL = '/room';
 /** room 안에 게시글 렌더링 하는 함수  */
 function roomPostRender(bList){
     let tag = ``;
-    for (const b of bList) {
-        tag += `
+    if (bList !== null && bList.length > 0) {
+        for (const b of bList) {
+            tag += `
     <div  class="card room-post" data-bno="${b.boardNo}">
                     <div class="card-header">
-                        <p class="card-text">작성자:${nickname}</p>
+                        <p class="card-text">작성자:${b.nickname}</p>
                     </div>
                     <div class="card-body">
                         <p class="contents">content:${b.boardContent}</p>
@@ -25,16 +28,19 @@ function roomPostRender(bList){
                     </div>
                 </div>
     `
+        }
+    } else {
+        tag += "<div id='boardContent' class='card-body'>게시글을 작성해 사람들과 소통하세요</div>";
     }
     $boardList.innerHTML = tag;
 }
 
 /** room 안에 게시글 비동기 조회*/
 function roomPostList(){
-    fetch(`${URL}`)
+    fetch(`${URL}/${roomId}`)
         .then(res=>res.json())
         .then(bList => {
-            roomPostList(bList)
+            roomPostRender(bList)
         })
 }
 

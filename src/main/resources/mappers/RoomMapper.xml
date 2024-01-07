@@ -25,6 +25,26 @@
         LIMIT #{p.pageStart},#{p.amount}
     </select>
 
+    <!-- roomId로 비동기로 띄워줄 정보 조회 -->
+    <select id="findBoard" resultType="RoomBoardResponseDTO">
+        SELECT
+        b.board_id,
+        b.view_count,
+        b.board_content,
+        p.nickname,
+        COUNT(r.reply_id) AS reply_count
+        FROM
+        tbl_board b
+        JOIN
+        tbl_person p ON b.person_id = p.person_id
+        LEFT JOIN
+        tbl_reply r ON b.board_id = r.board_id
+        WHERE
+        b.room_id = #{roomId}
+        GROUP BY
+        b.board_id, b.view_count, b.board_content, p.nickname
+    </select>
+
     <!-- 방장의 아이디로 특정 방을 조회 -->
     <select id="findByPersonId" resultType="Room">
         SELECT * FROM tbl_room
@@ -49,11 +69,11 @@
     </select>
 
     <!-- 특정 회원이 내 방에 들어오면 currUser가 증가 되거나 감소 해야 함 -->
-        <update id="updateCurrUser">
-            UPDATE tbl_room
-            SET curr_user = #{currUser}
-            WHERE room_id = #{roomId}
-        </update>
+    <update id="updateCurrUser">
+        UPDATE tbl_room
+        SET curr_user = #{currUser}
+        WHERE room_id = #{roomId}
+    </update>
 
     <!-- 방 삭제 -->
     <delete id="deleteRoom" parameterType="Long">
@@ -83,5 +103,10 @@
     <select id="searchCountContent" resultType="int">
         SELECT count(*) FROM tbl_room
         WHERE main_board_content LIKE CONCAT('%',#{keyword},'%')
+    </select>
+
+    <select id="password" resultType="int">
+        SELECT room_pw FROM tbl_room
+        WHERE room_id = #{roomId}
     </select>
 </mapper>

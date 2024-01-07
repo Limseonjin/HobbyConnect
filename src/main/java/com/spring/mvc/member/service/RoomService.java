@@ -3,6 +3,7 @@ package com.spring.mvc.member.service;
 import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.common.PageMaker;
 import com.spring.mvc.member.dto.request.*;
+import com.spring.mvc.member.dto.response.RoomBoardResponseDTO;
 import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
 import com.spring.mvc.member.dto.response.RoomResponseDTO;
 import com.spring.mvc.member.entity.Auth;
@@ -31,7 +32,7 @@ public class RoomService {
     public void makeRoom(Room room, HttpSession session) {
         room.RoomPersonId(session);
 
-        log.debug("room : {}",room);
+        log.debug("room : {}", room);
         boolean save = roomMapper.save(room);
         Long roomId = room.getRoomId();
         RoomMember build = RoomMember.builder()
@@ -40,6 +41,12 @@ public class RoomService {
                 .auth(Auth.ADMIN.name())
                 .build();
         roomMemberMapper.save(build);
+    }
+
+    // 방 비밀번호 검증
+    public boolean passwordCheck(int roomId, int roomPw) {
+        int dbPassword = roomMapper.password(roomId);
+        return roomPw == dbPassword;
     }
 
     // 방 전체 조회
@@ -51,6 +58,11 @@ public class RoomService {
     public Room getRoomByRoomId(Long roomId) {
 
         return roomMapper.findOne(roomId);
+    }
+
+    public List<RoomBoardResponseDTO> getBoards(int roomId) {
+        List<RoomBoardResponseDTO> board = roomMapper.findBoard(roomId);
+        return board;
     }
 
     public RoomListPageResponseDTO pagefindAll(Page page) {

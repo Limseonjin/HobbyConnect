@@ -10,6 +10,7 @@ public class RoomMember {
 }
  */
 
+import com.spring.mvc.member.dto.response.RoomMemberListResponseDTO;
 import com.spring.mvc.member.entity.RoomMember;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,11 +20,17 @@ import java.util.List;
 
 public interface RoomMemberMapper {
 
+    int isIn(int roomId, String personId);
+    boolean joinCommonMember(int roomId, String personId);
+
     //방에 사람이 들어오면 RoomMember 에 들어온 사람이 저장 되야함 .
     boolean save(RoomMember roomMember);
 
     //방 회원 전체 조회
     List<RoomMember> findAll();
+
+    // 같은 방에 있는 회원 전체 조회
+    List<RoomMemberListResponseDTO> findByRoomId(int roomId);
 
     //회원 삭제
     boolean delete(String PersonId);
