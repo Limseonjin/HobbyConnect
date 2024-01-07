@@ -31,13 +31,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Board {
-    private int boardId;
-    private int replyId;
+    private Long boardId;
+    private Long replyId;
     private String personId;
     private String boardTitle;
     private String boardContent;
-    private int roomId;
-    private int viewCount;
+    private Long roomId;
+    private Long viewCount;
     private LocalDateTime regDate;
 
 }

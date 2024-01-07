@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 //만든 인터셉터들을 스프링 컨텍스트에 등록하는 설정 파일
 @Configuration
+
 @RequiredArgsConstructor
 public class InterceptorConfig implements WebMvcConfigurer {
 
