@@ -31,7 +31,8 @@
         <h2>댓글 작성</h2>
         <form class="reply-write" method="post" action="">
             <textarea id="comment-area" name="comment" rows="4" cols="50" placeholder="댓글을 작성하세요"></textarea>
-            <button id="add-reply" type="submit" value="댓글 등록"></button>
+            <button id="add-reply" type="submit" >댓글 등록</button>
+
         </form>
         <%--댓글 띄우는 코드--%>
         <ul class="comments">

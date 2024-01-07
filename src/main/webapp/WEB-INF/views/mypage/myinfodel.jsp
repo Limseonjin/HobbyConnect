@@ -17,8 +17,8 @@
     <%@include file="side-menu.jsp"%>
     <div id="form-wrapper">
         <h2> 회원 삭제 </h2>
-        <p> 회원님의 모든 방과 게시물, 댓글이 삭제됩니다</p>
-        <p> 정말 삭제하시겠습니까?</p>
+        <p class="danger"> 회원님의 모든 방과 게시물, 댓글이 삭제됩니다</p>
+        <p class="danger"> 정말 삭제하시겠습니까?</p>
         <div>
             <button id="person-del" type="button" class="btn btn-primary">삭제</button>
         </div>
@@ -28,7 +28,7 @@
 <script>
     const $personDeleteBtn = document.getElementById('person-del')
     $personDeleteBtn.onclick = () =>{
-        window.location.href = '/mypage/deleteCon'
+        window.location.href = '/deleteCon'
     }
 </script>
 </body>

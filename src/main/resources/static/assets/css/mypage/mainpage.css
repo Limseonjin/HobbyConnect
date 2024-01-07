@@ -117,3 +117,19 @@
 #signUpForm{
     margin-bottom: 10px;
 }
+
+/* 삭제 경고문 */
+.danger {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 삭제 버튼 */
+#person-del{
+    margin-top: 30px;
+    width: 100%;
+}
+
+#person-del:hover {
+    background-color: red;
+}
