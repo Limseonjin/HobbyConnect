@@ -52,10 +52,10 @@ public class RoomController {
         return "room/mainroom";
     }
     @PostMapping("/main")
-    public String handlePostRequest(int roomId,Board board , HttpSession session) {
+    public String handlePostRequest(long roomId,Board board , HttpSession session) {
         log.debug("main POST board : {}",board);
         boardService.makeBoard(board, session);
-        return "redirect:/room/main"; // 게시글을 등록한 후 메인 페이지로 리디렉션
+        return "redirect:/room/main?roomId="+roomId; // 게시글을 등록한 후 메인 페이지로 리디렉션
     }
 
 

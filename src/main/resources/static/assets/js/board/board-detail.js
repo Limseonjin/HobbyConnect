@@ -185,9 +185,7 @@ $modifyBtn.addEventListener('click',function modifyBtnOnClick(){
 deleteModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass =e.relatedTarget.getAttribute('class');
-    console.log('모달 떳슈 :'+targetClass)
     if(targetClass !== 'reply-delete btn-comment-delete') return
-    console.log('데이터 저장 해유 :', e.relatedTarget.closest('.comment'))
     deleteModalEl.dataset.rno = e.relatedTarget.closest('.comment').dataset.rno
 })
 

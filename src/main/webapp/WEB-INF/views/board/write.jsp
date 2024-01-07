@@ -30,15 +30,6 @@
     </form>
 </div>
 <%@include file="../common/footer.jsp"%>
-<%--<script>--%>
-<%--    const $addOk = document.getElementById('addOk');--%>
 
-<%--    /** 완료 버튼 클릭 이벤트 핸들러  */--%>
-<%--    function addOkClickHandler() {--%>
-<%--        window.location.href = `/room/main?roomId=${roomId}`--%>
-<%--    }--%>
-
-<%--    $addOk.addEventListener('submit',addOkClickHandler)--%>
-<%--</script>--%>
 </body>
 </html>
