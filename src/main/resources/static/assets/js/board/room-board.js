@@ -1,5 +1,5 @@
 
-const $roomBoard = document.querySelectorAll(...['.room-post']);
+
 const $writePost = document.getElementById('create-board')
 const $boardList = document.getElementById('board-list');
 const URL = '/room';
@@ -15,7 +15,7 @@ function roomPostRender(bList){
     if (bList !== null && bList.length > 0) {
         for (const b of bList) {
             tag += `
-    <div  class="card room-post" data-bno="${b.boardNo}">
+    <div class="card room-post" data-bno="${b.boardId}">
                     <div class="card-header">
                         <p class="card-text">작성자:${b.nickname}</p>
                     </div>
@@ -33,6 +33,9 @@ function roomPostRender(bList){
         tag += "<div id='boardContent' class='card-body'>게시글을 작성해 사람들과 소통하세요</div>";
     }
     $boardList.innerHTML = tag;
+    const $roomBoard = document.querySelectorAll(...['.room-post']);
+    // 룸 안에 게시글마다 클릭 이벤트 걸기
+    $roomBoard.forEach(rm => {rm.addEventListener('click',boardClickHandler)})
 }
 
 /** room 안에 게시글 비동기 조회*/
@@ -48,16 +51,15 @@ function roomPostList(){
 function boardClickHandler(e) {
     console.log('클릭함')
     const bno = e.target.closest('.room-post').dataset.bno;
-    window.location.href = `/room/board/detail?boardNo=${bno}`;
+    window.location.href = `/room/board/detail?boardId=${bno}`;
 }
 
 /** 글 쓰기 버튼 이벤트 핸들러 */
 function writePostClickHandler() {
-    window.location.href = 'room/board/write';
+    window.location.href = '/room/board/write';
 }
 
-// 룸 안에 게시글마다 클릭 이벤트 걸기
-$roomBoard.forEach(rm => {rm.addEventListener('click',boardClickHandler)})
+
 
 //글 쓰기 클릭 이벤트
 $writePost.addEventListener('click',writePostClickHandler)

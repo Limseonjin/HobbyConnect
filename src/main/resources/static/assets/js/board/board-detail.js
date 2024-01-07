@@ -4,6 +4,8 @@ const $replyBtnWrap = document.querySelector(".reply-btn-wrap")
 const $modifyBtn = document.getElementById('board-modity');
 const $replyAddBtn = document.getElementById('add-reply');
 
+const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: true})
+const $boardDelBtn = document.getElementById('board-delete')
 const URL = `/room/board/detail/`;
 (()=>{
     replyList()
@@ -164,5 +166,19 @@ $replyAddBtn.addEventListener('click',
 
 // 게시글 수정 버튼 클릭시
 $modifyBtn.addEventListener('click',function modifyBtnOnClick(){
-    window.location.href = `/room/board/detail?boardNo=${boardNo}/write`
+    window.location.href = `/room/board/detail/write?boardId=${boardId}`
 })
+
+//삭제 모달창이 뜨고 나서 실행할 코드
+deleteModalEl.addEventListener('shown.bs.modal', function (e) {
+    //relatedTarget : 모달을 열기전 클릭한 타켓
+    const targetClass =e.relatedTarget.getAttribute('class');
+    if(targetClass !== 'write-4') return
+    console.log(e.relatedTarget.closest('.form-1').dataset.bno)
+    deleteModalEl.dataset.bno = e.relatedTarget.closest('.form-1').dataset.bno
+})
+
+// 삭제 모달에서 삭제버튼 클릭시
+$boardDelBtn.onclick = () =>{
+    const bno = deleteModalEl.dataset.bno;
+}

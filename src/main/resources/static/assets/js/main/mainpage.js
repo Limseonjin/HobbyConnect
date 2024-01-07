@@ -148,9 +148,9 @@ function deleteBoard(bno){
 }
 // ================================ JSP 관련(버튼) JS =======================
 
-const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: false})
-const $updateModal = new bootstrap.Modal(document.getElementById('update-modal'), {keyboard: false})
-const $roomPwModal = new bootstrap.Modal(document.getElementById('room-pw-modal'), {keyboard: false})
+const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: true})
+const $updateModal = new bootstrap.Modal(document.getElementById('update-modal'), {keyboard: true})
+const $roomPwModal = new bootstrap.Modal(document.getElementById('room-pw-modal'), {keyboard: true})
 const $okDelete = document.getElementById('delete-Btn');
 const $okUpdate = document.getElementById('update-Btn');
 const $searchBtn = document.getElementById('search-btn');
@@ -195,6 +195,7 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
         $pwSubmitBtn.addEventListener('click',pwBtnClickHandler)
 
     }else{ //없으면 바로 방으로 이동
+        $inputPw.value =''
         $roomPwModal.hide()
         window.location.href = `/room/main?roomId=${roomId}`
     }
