@@ -27,7 +27,12 @@ public class indexTest {
     }
     @RequestMapping("/detail2")
     public String me() {
-        return "/board/UpdateForm";
+        return "/board/detail";
+
+    }
+    @RequestMapping("/detail3")
+    public String meef() {
+        return "/board/update";
 
     }
 }

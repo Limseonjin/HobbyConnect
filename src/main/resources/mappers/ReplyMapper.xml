@@ -1,0 +1,54 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.ReplyMapper">
+
+    <!-- 댓글 작성 -->
+    <insert id="save" parameterType="Reply" >
+        INSERT INTO tbl_reply
+        (person_id, board_id, content)
+        VALUES
+        (#{personId},#{boardId},#{content})
+    </insert>
+
+    <!-- 댓글 수정 -->
+    <update id="modify">
+        UPDATE tbl_reply
+        SET content = #{content}
+        WHERE reply_id = #{replyId}
+    </update>
+
+    <!-- 댓글 삭제 -->
+    <delete id="delete">
+        DELETE FROM tbl_reply
+        WHERE reply_id = #{replyId}
+    </delete>
+
+    <!-- 댓글 단일 조회 -->
+    <select id="findOne" resultType="reply">
+        SELECT
+        reply_id, person_id, board_id, content
+        FROM tbl_reply
+        WHERE reply_no = #{replyNo}
+    </select>
+
+    <!-- 댓글 전체 조회 -->
+    <select id="findAll" resultType="reply">
+        SELECT
+        reply_id, person_id, board_id, content
+        FROM tbl_reply
+        WHERE board_id = #{bi}
+        ORDER BY reply_id
+        LIMIT #{p.pageStart}, #{p.amount}
+    </select>
+
+    <select id="count" resultType="int">
+        SELECT count(*) FROM tbl_reply
+        WHERE board_id = #{boardId}
+    </select>
+
+
+
+
+</mapper>

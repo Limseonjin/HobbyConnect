@@ -25,6 +25,6 @@
         <mapper resource="mappers/RoomMapper.xml"/>
         <mapper resource="mappers/RoomMemberMapper.xml"/>
         <mapper resource="mappers/BoardMapper.xml"/>
-
+        <mapper resource="mappers/ReplyMapper.xml"/>
     </mappers>
 </configuration>

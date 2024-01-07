@@ -27,7 +27,7 @@
         <img src="/assets/img/mainPageLogo.png" width="100%" height="100%"></a>
     </div>
     <div id="main-head">
-        <nav id="search" class="navbar navbar-light bg-light">
+        <nav id="search" class="navbar navbar-light">
             <div class="container-fluid">
                 <div class="d-flex">
                     <select id="search-type" class="type-select form-select form-select-lg">
@@ -36,33 +36,18 @@
                         <option value="findByPersonId">작성자</option>
                     </select>
                     <input id="search-content" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button id="search-btn" class="btn btn-outline-success" type="button">Search</button>
+                    <button id="search-btn" class="btn btn-outline-success" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
         </nav>
-
-<%--        <div class="user-info card">--%>
-<%--            <div class=" card-body">--%>
-<%--                <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>--%>
-<%--                <a href="/mypage/board" class="card-link">My Page</a>--%>
-<%--                <a href="/login/sign-out" class="card-link">Logout</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        <button id="create-room" type="button" class="btn">방 만들기</button>
     </div>
     <%--     게시글 목록들 --%>
     <div id="main-body">
-
-        <c:if test="${login != null}">
-            <button id="create-room" type="button" class="btn btn-warning">방 만들기</button>
-        </c:if>
-    </div>
-    <%--     게시글 목록들 --%>
-    <div id="main-body">
-        <div id="post-list" class="card">
-            <div id="post-list-body" class="card-body">
-
-            </div>
+        <div id="post-list-body" class="card-body">
+<%--                게시글 목록 비동기 처리--%>
         </div>
+
         <%--    페이지 번호 --%>
         <nav id="page-num" aria-label="Page navigation example">
 <%--            페이지 번호 비동기 처리 --%>
