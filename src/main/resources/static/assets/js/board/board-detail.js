@@ -166,8 +166,9 @@ function modifyReplyClickHandler(e) {
 }
 // 댓글 추가 이벤트 핸들러
 function replyaddClickHandler(e) {
-    $inputReply.value = ''
     replyAddList()
+    $inputReply.value = ''
+
 }
 
 
