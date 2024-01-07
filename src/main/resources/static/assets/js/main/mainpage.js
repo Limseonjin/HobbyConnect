@@ -195,6 +195,7 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
         $pwSubmitBtn.addEventListener('click',pwBtnClickHandler)
 
     }else{ //없으면 바로 방으로 이동
+        $inputPw.value =''
         $roomPwModal.hide()
         window.location.href = `/room/main?roomId=${roomId}`
     }

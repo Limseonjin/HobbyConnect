@@ -15,7 +15,7 @@ function roomPostRender(bList){
     if (bList !== null && bList.length > 0) {
         for (const b of bList) {
             tag += `
-    <div class="card room-post" data-bno="${b.boardNo}">
+    <div class="card room-post" data-bno="${b.boardId}">
                     <div class="card-header">
                         <p class="card-text">작성자:${b.nickname}</p>
                     </div>
