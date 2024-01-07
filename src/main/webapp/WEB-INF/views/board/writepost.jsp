@@ -53,7 +53,7 @@
                           </label>
                         </div>
                         </span>
-                        <input type="text" class="form-control" name="roomPw" placeholder="Room_Password" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input id="inputPw" type="text" class="form-control" name="roomPw" placeholder="Room_Password" aria-label="Username" aria-describedby="addon-wrapping" disabled>
                     </div>
                     <div class="input-group flex-nowrap create-content">
                         <span class="input-group-text" id="room-me">최대인원수</span>

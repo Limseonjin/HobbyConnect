@@ -2,13 +2,6 @@
 body {
     background: #F7F8E0;
 }
-header{
-    background-color: #333;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
 h1 {
     tfont-size: 24px;
     line-height: normal;
@@ -97,7 +90,7 @@ hr {
 
 .write-4 {
     display: inline-block;
-    padding: 30px 35px;
+    padding: 10px;
     text-decoration: none;
     font-size: 16px;
     color: #ffffff;
@@ -134,7 +127,7 @@ textarea {
     resize: none;
 }
 
-input[type="submit"] {
+#add-reply[type="submit"] {
     padding: 10px 15px;
     color: #fff;
     border: none;
@@ -155,8 +148,8 @@ input[type="submit"] {
 }
 
 /* 댓글 등록 버튼의 배경 색상 지정 */
-input[value="댓글 등록"] {
-    background-color: #04B404;
+#add-reply {
+    background-color: #949494;
 }
 
 /* 댓글 등록 버튼을 오른쪽으로 정렬 */
@@ -189,6 +182,7 @@ input[value="댓글 등록"] {
 }
 .btn-comment-up{
     display: inline-block;
+    margin-top: 10px;
     margin-left: auto; /* 버튼을 왼쪽으로 밀어서 오른쪽 정렬 */
     padding: 12px 20px; /* 크기를 키우려면 원하는 크기로 조절 */
     font-size: 16px; /* 폰트 크기를 조절 */
