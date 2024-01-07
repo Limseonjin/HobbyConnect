@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,7 @@ public class BoardController {
 
     //방안에 게시글 만들기 화면요청
     @GetMapping("/write")
-    public String makeRoom(){
+    public String makeBoard(){
         return "board/write";
     }
 
@@ -54,6 +55,12 @@ public class BoardController {
         model.addAttribute("viewCount",board.getViewCount());
         model.addAttribute("regDate",board.getRegDate());
         return "board/detail";
+    }
+
+    @DeleteMapping("/write")
+    public String deleteBoard(Long board){
+        boardService.delete(board);
+        return "board/write";
     }
 
 }
