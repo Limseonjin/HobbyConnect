@@ -1,7 +1,9 @@
 package com.spring.mvc.member.entity;
 
+import com.spring.mvc.util.LoginUtil;
 import lombok.*;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 
 //CREATE TABLE tbl_board
@@ -40,4 +42,7 @@ public class Board {
     private Long viewCount;
     private LocalDateTime regDate;
 
+    public void BoardPersonId(HttpSession session) {
+        this.personId = LoginUtil.getCurrentLoginMemberAccount(session);
+    }
 }
