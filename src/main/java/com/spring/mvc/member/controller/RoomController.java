@@ -71,6 +71,11 @@ public class RoomController {
         return "redirect:/main/main-page";
     }
 
-    //
+    @DeleteMapping("/{exitRoom}")
+    public ResponseEntity<?> ExitMember(@PathVariable String personId,Long roomId){
+
+        roomMemberService.delete(personId,roomId);
+        return ResponseEntity.ok().build();
+    }
 
 }

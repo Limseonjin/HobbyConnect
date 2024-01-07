@@ -38,9 +38,13 @@ public class RoomMemberService {
         roomMemberMapper.findAll();
     }
 
-    public void delete(String personId) {
-        roomMemberMapper.delete(personId);
+
+    //방장이 특정 회원을 방에서 추방 시키는 메서드
+    public void delete(String personId, Long roomId) {
+        roomMemberMapper.delete(personId,roomId);
     }
+
+
 
 
 }

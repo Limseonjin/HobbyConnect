@@ -13,6 +13,7 @@ public class RoomMember {
 import com.spring.mvc.member.dto.response.RoomMemberListResponseDTO;
 import com.spring.mvc.member.entity.RoomMember;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -33,5 +34,5 @@ public interface RoomMemberMapper {
     List<RoomMemberListResponseDTO> findByRoomId(int roomId);
 
     //회원 삭제
-    boolean delete(String PersonId);
+    boolean delete(@Param("PersonId")String personId, @Param("RoomId")Long roomId);
 }
