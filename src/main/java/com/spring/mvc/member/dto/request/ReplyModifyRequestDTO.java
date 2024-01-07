@@ -12,17 +12,17 @@ import lombok.*;
 public class ReplyModifyRequestDTO {
 
     // 수정할 댓글 번호
-    private int rId;
+    private int replyId;
     // 수정할 댓글 내용
     private String content;
     // 수정 이후 목록을 받기 위한 board_id
-    private int bId;
+    private int boardId;
 
     public Reply toEntity() {
         return Reply.builder()
-                .replyId(rId)
+                .replyId(replyId)
                 .content(content)
-                .boardId(bId)
+                .boardId(boardId)
                 .build();
     }
 }

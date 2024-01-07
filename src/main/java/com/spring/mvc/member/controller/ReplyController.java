@@ -23,7 +23,8 @@ public class ReplyController {
 
     //댓글 작성
     @PostMapping("/insert")
-    public ResponseEntity<?> writeReply(@RequestBody ReplyPostRequestDTO dto, HttpSession session){
+    public ResponseEntity<?> writeReply(
+            @RequestBody ReplyPostRequestDTO dto, HttpSession session){
         ReplyListResponseDTO register = replyService.register(dto, session);
         return ResponseEntity.ok().body(register);
     }
@@ -40,9 +41,9 @@ public class ReplyController {
     }
 
     //댓글 수정
-    @PutMapping("/{replyNo}/update")
+    @PutMapping("/{boardId}/update")
     public ResponseEntity<?> modifyByReply(
-            @PathVariable long replyNo,
+            @PathVariable long boardId,
             @RequestBody ReplyModifyRequestDTO dto){
         ReplyListResponseDTO modify = replyService.modify(dto);
         return ResponseEntity.ok().body(modify);

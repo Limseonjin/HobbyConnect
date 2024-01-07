@@ -1,25 +1,25 @@
 
-const $reply = document.querySelectorAll(...['.comment']);
-const $replyBtnWrap = document.querySelector(".reply-btn-wrap")
 const $modifyBtn = document.getElementById('board-modity');
 const $replyAddBtn = document.getElementById('add-reply');
-
+const $inputReply = document.getElementById('comment-area')
+const $replyDelBtn = document.getElementById('delete-Btn')
 const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: true})
 const deleteModalEl = document.getElementById('delete-modal')
 const $boardDelBtn = document.getElementById('board-delete')
+const BOARD_NO = document.querySelector('.form-1').dataset.bno
 const URL = `/room/board/detail`;
 (()=>{
-    replyList(document.querySelector('.form-1').dataset.bno)
+    replyList(BOARD_NO)
 })()
 
 /** 댓글을 화면에 렌더링 하는 함수*/
-function replyRender(replyList){
+function replyRender({replies}){
     let tag = ``;
-    for (const r of replyList) {
+    for (const r of replies) {
         tag +=`
         <li class="comment" data-rno="${r.replyId}">
             <div class="reply-wrap">
-                <div class="author">${nickname}</div>
+                <div class="author">${r.personId}</div>
                 <p class="reply-content">${r.content}</p>
             </div>
             <div class="reply-btn-wrap">
@@ -29,7 +29,11 @@ function replyRender(replyList){
             </div>
         </li>`
     }
-    document.querySelector('.comment').innerHTML=tag
+    document.querySelector('.comments').innerHTML=tag
+    const $reply = document.querySelectorAll(...['.comment']);
+    // 댓글 클릭시
+    $reply.forEach(r => r.addEventListener('click',
+        modifyReplyClickHandler))
 }
 
 /** 댓글 조회 비동기 처리 */
@@ -45,13 +49,15 @@ function replyList(boardId){
 
 /** 댓글 등록 비동기 처리 */
 function replyAddList(){
+    console.log(document.getElementById('comment-area').value)
     const payload = {
-        'content' : document.getElementById('comment-area').text
+        'boardId' : BOARD_NO ,
+        'content' : $inputReply.value
     }
     const reqInfo = {
         method : 'POST',
         headers : {
-            'content-type' : 'application.json'
+            'content-type' : 'application/json'
         },
         body : JSON.stringify(payload)
     }
@@ -64,13 +70,16 @@ function replyAddList(){
 }
 /** 댓글 수정 비동기 처리 */
 function replyUpdateList(newComment,rno){
+    console.log('replyUpdateList : '+rno)
     const payload = {
-        'content' : newComment
+        'replyId' : rno,
+        'content' : newComment,
+        'boardId' : BOARD_NO
     }
     const reqInfo = {
         method : 'PUT',
         headers : {
-            'content-type' : 'application.json'
+            'content-type' : 'application/json'
         },
         body : JSON.stringify(payload)
     }
@@ -97,7 +106,7 @@ function replyDeleteList(rno){
 
 /** 댓글 수정 버튼을 누르면 p태그가 input으로 바뀌는 js코드 */
 
-function editComment($comment,rno) {
+function editComment($comment,rno,$replyBtnWrap) {
     const commentText =$comment.innerText;
     const $parentElement = $comment.parentElement;
 
@@ -134,6 +143,7 @@ function saveChanges($inputElement, $saveButton,rno) {
     // p태그 재 생성
     const $newParagraph = document.createElement('p');
     $newParagraph.classList.add('reply-content');
+    $newParagraph.dataset.rno = rno
     $newParagraph.innerText = updatedText;
 
     //input 태그 원래 태그로 바꾸기
@@ -145,23 +155,21 @@ function saveChanges($inputElement, $saveButton,rno) {
 /** 댓글 수정 버튼 클릭 핸들러 */
 function modifyReplyClickHandler(e) {
     const rno = e.target.closest('.comment').dataset.rno;
-    console.log(rno)
+    const $replyBtnWrap = e.target.closest('.reply-btn-wrap')
     if (e.target.classList.contains('reply-modify')){ //수정 버튼 클릭시 실행
         const $replyContent = e.target.closest('.comment').querySelector('.reply-content');
-        editComment($replyContent,rno)
+        editComment($replyContent,rno,$replyBtnWrap)
     }
     else if (e.target.classList.contains('reply-delete')){ //삭제 버튼 클릭시 실행
-        replyDeleteList(rno)
+
     }
 }
 // 댓글 추가 이벤트 핸들러
 function replyaddClickHandler(e) {
-    console.log('클릭은 됨 ')
+    $inputReply.value = ''
     replyAddList()
 }
-// 댓글 클릭시
-$reply.forEach(r => r.addEventListener('click',
-    modifyReplyClickHandler))
+
 
 // 댓글 추가 클릭시
 $replyAddBtn.addEventListener('click',
@@ -176,12 +184,16 @@ $modifyBtn.addEventListener('click',function modifyBtnOnClick(){
 deleteModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass =e.relatedTarget.getAttribute('class');
-    if(targetClass !== 'write-4') return
-    console.log(e.relatedTarget.closest('.form-1').dataset.bno)
-    deleteModalEl.dataset.bno = e.relatedTarget.closest('.form-1').dataset.bno
+    console.log('모달 떳슈 :'+targetClass)
+    if(targetClass !== 'reply-delete btn-comment-delete') return
+    console.log('데이터 저장 해유 :', e.relatedTarget.closest('.comment'))
+    deleteModalEl.dataset.rno = e.relatedTarget.closest('.comment').dataset.rno
 })
 
-// 삭제 모달에서 삭제버튼 클릭시
-$boardDelBtn.onclick = () =>{
-    const bno = deleteModalEl.dataset.bno;
-}
+// 댓글 삭제 모달에서 삭제버튼 클릭시
+$replyDelBtn.addEventListener('click', () =>{
+    console.log('클릭은 됏슈')
+    const rno = deleteModalEl.dataset.rno
+    $deleteModal.hide()
+    replyDeleteList(rno)
+})
