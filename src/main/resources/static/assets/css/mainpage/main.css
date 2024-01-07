@@ -46,8 +46,7 @@
     width: 100px;
     border-color: #c3c3c3
 }
-
-
+/*메인 헤더 이미지 */
 .mainImg {
     display: flex;
     justify-content: center;
@@ -58,3 +57,5 @@
 .mainImg img {
     border-radius: 10px;
 }
+
+/* 제목 옆 수정, 삭제 아이콘 */

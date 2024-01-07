@@ -25,34 +25,27 @@
                 <a href="/login/sign-out" class="card-link">Logout</a>
             </div>
         </div>
-        <div class="card">
+        <div class="card member-list">
             <div class="card-body">
-                <ul>멤버 목록
-<%--                    <c:forEach var="rm" items="rmList">--%>
-<%--                        <li>${rm.nickname}</li>--%>
-<%--                    </c:forEach>--%>
-                </ul>
+                <nav class="nav nav-pills flex-column">
+                    <h2> 멤버목록 </h2>
+                    <nav class="nav nav-pills flex-column">
+                        <p class="nav-link ms-3 my-1">닉네임 ${p.nickname}</p>
+                        <c:forEach var="rm" items="rmList">
+                            <p class="nav-link ms-3 my-1">닉네임 ${p.nickname}</p>
+                        </c:forEach>
+                    </nav>
+                </nav>
             </div>
         </div>
     </div>
     <div id="main-body">
-        <button id="create-room" type="button" class="btn btn-warning">글 쓰기</button>
         <div id="room-post-list" class="card">
             <div id="post-list-body" class="card-body">
-<%--                게시글 조회 비동기 --%>
-                <div  class="card room-post" data-bno="2">
-                    <div class="card-header">
-                        <p class="card-text">작성자:${nickname}</p>
-                    </div>
-                    <div class="card-body">
-                        <p class="contents">content:${b.boardContent}</p>
-                    </div>
-                    <div class="card-footer">
-                        <p>조회수:${b.viewCount} </p>
-                        <p>댓글수:${b.replyCount} </p>
-                    </div>
+                <button id="create-board" type="button" class="btn btn-dark">글 쓰기</button>
+                <div id="board-list">
+                    <%-- 게시글 조회 비동기 --%>
                 </div>
-<%--            --%>
             </div>
         </div>
     </div>

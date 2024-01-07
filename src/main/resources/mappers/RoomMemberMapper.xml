@@ -6,8 +6,8 @@
 
     <!-- Roommember에 방 등록 저장  -->
     <insert id="save">
-        INSERT INTO tbl_roommember (room_id, person_id, authority)
-        VALUES (#{roomId}, #{personId}, #{authority})
+        INSERT INTO tbl_roommember (room_id, person_id, auth)
+        VALUES (#{roomId}, #{personId}, #{auth})
     </insert>
 
     <!-- Room에 있는 회원들 조회 -->

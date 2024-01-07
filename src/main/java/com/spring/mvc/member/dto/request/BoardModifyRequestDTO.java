@@ -19,11 +19,5 @@ public class BoardModifyRequestDTO {
     private String boardTitle;
     private String boardContent;
 
-//    public Board toEntity() {
-//        return Board.builder()
-//                .boardId(boardId)
-//                .boardTitle(boardTitle)
-//                .boardContent(boardContent)
-//                .build();
-//    }
+
 }
