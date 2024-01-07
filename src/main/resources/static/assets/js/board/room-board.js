@@ -51,7 +51,7 @@ function roomPostList(){
 function boardClickHandler(e) {
     console.log('클릭함')
     const bno = e.target.closest('.room-post').dataset.bno;
-    window.location.href = `/room/board/detail?boardNo=${bno}`;
+    window.location.href = `/room/board/detail?boardId=${bno}`;
 }
 
 /** 글 쓰기 버튼 이벤트 핸들러 */

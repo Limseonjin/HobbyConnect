@@ -18,7 +18,6 @@
                 <p>자유롭게 게시판을 적어주세요 !</p>
             </header>
         </div>
-
         <div class="">
             <input class="i1" type="text" name="boardTitle" placeholder="제목을 적어주세요" >
         </div>
