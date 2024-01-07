@@ -164,5 +164,5 @@ $replyAddBtn.addEventListener('click',
 
 // 게시글 수정 버튼 클릭시
 $modifyBtn.addEventListener('click',function modifyBtnOnClick(){
-    window.location.href = `/room/board/detail?boardNo=${boardNo}/write`
+    window.location.href = `/room/board/modify?boardId=${boardId}/`
 })

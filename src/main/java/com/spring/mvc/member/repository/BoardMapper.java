@@ -16,6 +16,9 @@ public interface BoardMapper {
     //방안에 게시글 전체 조회
     List<Board> findAll();
 
+    // 게시글 상세 조회
+    Board findOne(int boardId);
+
     //방안에 게시글을 수정 할 수 있다.
     boolean modify(Board boardId);
 

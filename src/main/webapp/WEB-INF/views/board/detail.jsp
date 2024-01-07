@@ -16,8 +16,8 @@
     <div class='form-0'>
             <div class='form-1'>
                 <input id="board-modity" class='write-4' type="button" value="수정" >
-                <input class='write-1' type="text" name="boardTitle" value="title 타이틀${boardTitle}" readonly>
-                <input class='write-2' name="boardContent" value="content내영 ${boardContent}" readonly>
+                <input class='write-1' type="text" name="boardTitle" value="title 타이틀${b.boardTitle}" readonly>
+                <input class='write-2' name="boardContent" value="content내영 ${b.boardContent}" readonly>
             </div>
     </div>
     <div class="line"></div>

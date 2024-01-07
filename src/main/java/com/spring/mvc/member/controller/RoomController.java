@@ -53,6 +53,7 @@ public class RoomController {
     @GetMapping("/{roomId}")
     public ResponseEntity<?> findMainBoardsByPersonId(@PathVariable String roomId) {
         List<RoomBoardResponseDTO> bList = roomService.getBoards(Integer.parseInt(roomId));
+        System.out.println("bList = " + bList);
         return ResponseEntity.ok().body(bList);
     }
 
