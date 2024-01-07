@@ -34,7 +34,6 @@ import java.time.LocalDateTime;
 @Builder
 public class Board {
     private Long boardId;
-    private Long replyId;
     private String personId;
     private String boardTitle;
     private String boardContent;

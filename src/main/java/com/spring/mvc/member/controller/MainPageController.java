@@ -32,6 +32,6 @@ public class MainPageController {
     @GetMapping("/main-page")
     public String list(HttpSession session) {
         System.out.println("session = " + session);
-        return "/mainpage";
+        return "mainpage";
     }
 }

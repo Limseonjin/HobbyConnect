@@ -34,7 +34,7 @@ public class ReplyController {
             @RequestParam(name ="pageNo", defaultValue = "1") int pageNo)
     {
         Page page = new Page();
-        page.setPageNo(1);
+        page.setPageNo(pageNo);
         ReplyListResponseDTO list = replyService.getList(boardId, page);
         return ResponseEntity.ok().body(list);
     }

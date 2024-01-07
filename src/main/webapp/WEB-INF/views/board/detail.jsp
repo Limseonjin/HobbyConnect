@@ -26,11 +26,10 @@
     <div class="line"></div>
     <div id="reply-wrapper" class="">
         <h2>댓글 작성</h2>
-        <form class="reply-write" method="post" action="">
+        <div class="reply-write">
             <textarea id="comment-area" name="comment" rows="4" cols="50" placeholder="댓글을 작성하세요"></textarea>
-            <button id="add-reply" type="submit" >댓글 등록</button>
-
-        </form>
+            <button id="add-reply">댓글 등록</button>
+        </div>
         <%--댓글 띄우는 코드--%>
         <ul class="comments">
 <%--            댓글 비동기 --%>

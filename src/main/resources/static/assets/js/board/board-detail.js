@@ -5,10 +5,11 @@ const $modifyBtn = document.getElementById('board-modity');
 const $replyAddBtn = document.getElementById('add-reply');
 
 const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: true})
+const deleteModalEl = document.getElementById('delete-modal')
 const $boardDelBtn = document.getElementById('board-delete')
-const URL = `/room/board/detail/`;
+const URL = `/room/board/detail`;
 (()=>{
-    replyList()
+    replyList(document.querySelector('.form-1').dataset.bno)
 })()
 
 /** 댓글을 화면에 렌더링 하는 함수*/
@@ -16,7 +17,7 @@ function replyRender(replyList){
     let tag = ``;
     for (const r of replyList) {
         tag +=`
-        <li class="comment" data-rno="${r.replyNo}">
+        <li class="comment" data-rno="${r.replyId}">
             <div class="reply-wrap">
                 <div class="author">${nickname}</div>
                 <p class="reply-content">${r.content}</p>
@@ -32,7 +33,8 @@ function replyRender(replyList){
 }
 
 /** 댓글 조회 비동기 처리 */
-function replyList(){
+function replyList(boardId){
+    console.log(boardId)
     fetch(`${URL}/${boardId}`)
         .then(res => res.json())
         .then(r =>{
@@ -154,6 +156,7 @@ function modifyReplyClickHandler(e) {
 }
 // 댓글 추가 이벤트 핸들러
 function replyaddClickHandler(e) {
+    console.log('클릭은 됨 ')
     replyAddList()
 }
 // 댓글 클릭시

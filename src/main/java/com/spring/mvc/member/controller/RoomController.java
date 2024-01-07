@@ -46,7 +46,7 @@ public class RoomController {
         System.out.println("byRoomId = " + byRoomId);
         model.addAttribute("r", roomByRoomId);
         model.addAttribute("rmList", byRoomId);
-        return "/room/mainroom";
+        return "room/mainroom";
     }
 
     // 게시글 조회 비동기 처리
@@ -59,7 +59,7 @@ public class RoomController {
     // 방 만들기 화면 요청
     @GetMapping("/room")
     public String Room() {
-        return "/board/writepost";
+        return "board/writepost";
     }
 
     //방 만들기 등록 요청
