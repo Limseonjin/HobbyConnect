@@ -75,13 +75,14 @@ hr {
     width: 100%;
     border-radius: 5px;
     resize: none;
-    height: 300px;
+    height: auto;
 }
 
 /* 선택 시 포커스 스타일링 */
 .write-2:focus {
     border-color: #819FF7;
     box-shadow: 0 0 5px rgba(129, 159, 247, 0.5);
+
 }
 
 .write-3 {
@@ -120,20 +121,13 @@ hr {
 }
 textarea {
     width: 90%;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 10px;
     border: 3px solid #6E6E6E;
     border-radius: 5px;
     resize: none;
 }
 
-#add-reply[type="submit"] {
-    padding: 10px 15px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 /* 댓글 전체 css */
 #reply-wrapper{
     display: flex;
@@ -147,8 +141,13 @@ textarea {
     margin-bottom: 20px;
 }
 
-/* 댓글 등록 버튼의 배경 색상 지정 */
+/* 댓글 등록 버튼 */
 #add-reply {
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     background-color: #949494;
 }
 

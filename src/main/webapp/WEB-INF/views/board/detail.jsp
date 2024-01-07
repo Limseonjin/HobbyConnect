@@ -11,7 +11,7 @@
 </head>
 <body>
 <%@include file="../common/del-modal.jsp"%>
-<%@include file="../common/head.jsp"%>
+<%@include file="../room/room-head.jsp"%>
 <div id="bullentin-wrapper">
     <div class='form-0'>
             <div class='form-1' data-bno="${boardId}">

@@ -1,9 +1,12 @@
 package com.spring.mvc.member.controller;
 
 import com.spring.mvc.member.dto.request.BoardRequestDTO;
+import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
 import com.spring.mvc.member.entity.Board;
+import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.repository.BoardMapper;
 import com.spring.mvc.member.service.BoardService;
+import com.spring.mvc.member.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.parameters.P;
@@ -24,12 +27,16 @@ import javax.servlet.http.HttpSession;
 public class BoardController {
 
     public final BoardService boardService;
+    public final RoomService roomService;
 
     //방안에 게시글 만들기 화면요청
     @GetMapping("/write")
     public String makeBoard(@RequestParam long roomId, Model model){
         log.info("bord/write GET roomId : {}",roomId);
+        Room room = roomService.getRoomByRoomId(roomId);
+        model.addAttribute("roomName",room.getRoomName());
         model.addAttribute("roomId",roomId);
+
         return "board/write";
     }
 
@@ -48,6 +55,7 @@ public class BoardController {
     {
         log.info("detail id={} : GET!",boardId);
         Board board = boardService.findOneByBoard(boardId);
+
         log.debug("board : {}",board);
         model.addAttribute("boardId",board.getBoardId());
         model.addAttribute("personId",board.getPersonId());
@@ -56,6 +64,9 @@ public class BoardController {
         model.addAttribute("roomId",board.getRoomId());
         model.addAttribute("viewCount",board.getViewCount());
         model.addAttribute("regDate",board.getRegDate());
+
+        Room room = roomService.getRoomByRoomId(board.getRoomId());
+        model.addAttribute("roomName",room.getRoomName());
         return "board/detail";
     }
 

@@ -47,7 +47,8 @@ public class RoomController {
         Room roomByRoomId = roomService.getRoomByRoomId(roomId);
         List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
         System.out.println("byRoomId = " + byRoomId);
-        model.addAttribute("r", roomByRoomId);
+        model.addAttribute("roomId", roomByRoomId.getRoomId());
+        model.addAttribute("roomName", roomByRoomId.getRoomName());
         model.addAttribute("rmList", byRoomId);
         return "room/mainroom";
     }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/assets/css/board/form.css">
 </head>
 <body>
-<%@include file="../common/head.jsp"%>
+<%@include file="../room/room-head.jsp"%>
 <div class="overlay">
     <form action="/room/main" method="post">
         <div class="con">
