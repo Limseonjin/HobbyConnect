@@ -33,7 +33,7 @@ function replyRender(replyList){
 
 /** 댓글 조회 비동기 처리 */
 function replyList(){
-    fetch(`${URL}`)
+    fetch(`${URL}/${boardId}`)
         .then(res => res.json())
         .then(r =>{
             console.log(r)

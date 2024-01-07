@@ -56,7 +56,7 @@ function boardClickHandler(e) {
 
 /** 글 쓰기 버튼 이벤트 핸들러 */
 function writePostClickHandler() {
-    window.location.href = '/room/board/write';
+    window.location.href = `/room/board/write?roomId=${roomId}`;
 }
 
 

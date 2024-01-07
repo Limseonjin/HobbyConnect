@@ -25,13 +25,18 @@ public class BoardController {
     //방안에 게시글 만들기 화면요청
     @GetMapping("/write")
     public String makeRoom(){
-        return "board/write";
+        return "/board/write";
     }
 
     //방 만들기 화면 등록 요청
-    @PostMapping("write")
+    @PostMapping("/write")
     public String makeRoom(Board board ,HttpSession session){
         boardService.makeBoard(board, session);
-        return "board/write";
+        return "/board/write";
     }
+    @GetMapping("/detail")
+    public String oneBoard(){
+        return "/board/detail";
+    }
+
 }

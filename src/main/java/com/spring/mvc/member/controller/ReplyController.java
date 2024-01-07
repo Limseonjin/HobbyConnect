@@ -28,7 +28,7 @@ public class ReplyController {
         return ResponseEntity.ok().body(register);
     }
     //댓글 전체 조회
-    @GetMapping()
+    @GetMapping("/{boardId}")
     public ResponseEntity<?> getReplyList(
             @PathVariable long boardId,
             @RequestParam(name ="pageNo", defaultValue = "1") int pageNo)
