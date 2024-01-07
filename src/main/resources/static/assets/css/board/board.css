@@ -2,15 +2,6 @@
 body {
     background: #F7F8E0;
 }
-h1 {
-    tfont-size: 24px;
-    line-height: normal;
-    color: #FACC2E;
-    font-size: 80px;
-    font-family: 'Abril Fatface', cursive;
-    text-align: center;
-    cursor: crosshair;
-}
 .note{
     font-family: 'Abril Fatface', cursive;
     color: #FE642E;
