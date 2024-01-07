@@ -40,7 +40,7 @@ function roomPostList(){
     fetch(`${URL}/${roomId}`)
         .then(res=>res.json())
         .then(bList => {
-            roomPostList(bList)
+            roomPostRender(bList)
         })
 }
 
