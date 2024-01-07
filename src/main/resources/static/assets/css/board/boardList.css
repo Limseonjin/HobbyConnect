@@ -23,9 +23,11 @@
 /* 개별 게시글 */
 .room-post{
     margin: 20px;
-    width: 80%;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+#board-list {
+    width: 90%;
 }
 #post-list .room-post .card-header,
 #post-list-body .room-post .card-header{
@@ -43,7 +45,6 @@
     align-items: center;
 }
 
-#post-list .room-post .card-header .bi,
 #post-list-body .room-post .card-header .bi{
     width: 30px;
     height: 30px;
