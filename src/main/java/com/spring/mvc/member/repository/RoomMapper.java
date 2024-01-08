@@ -45,7 +45,7 @@ public interface RoomMapper {
 
 
     // 게시글 제목 수정
-    boolean modify(Room mainBoard);
+    boolean modify(Room room);
 
     //게시글 카운트
     int count();

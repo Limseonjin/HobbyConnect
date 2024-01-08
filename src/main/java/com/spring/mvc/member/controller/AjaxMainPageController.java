@@ -72,8 +72,8 @@ public class AjaxMainPageController {
     }
 
     // main-board 수정 요청 처리
-    @PutMapping("/{bno}")
-    public ResponseEntity<?> update(@RequestBody RoomModifyRequestDTO dto, BindingResult result, @PathVariable String bno) {
+    @PutMapping("/modfiy")
+    public ResponseEntity<?> update(@RequestBody RoomModifyRequestDTO dto, BindingResult result) {
         if (result.hasErrors()) {
             return ResponseEntity
                     .badRequest()
@@ -83,7 +83,10 @@ public class AjaxMainPageController {
         log.debug("Parameter: {}", dto);
 
         try {
-            List<Room> modify = roomService.modify(dto);
+            Page page = new Page();
+            page.setPageNo(1);
+            page.setAmount(6);
+            RoomListPageResponseDTO modify = roomService.modify(dto, page);
             log.debug("dto: {}",dto);
             return ResponseEntity.ok().body(modify);
 
@@ -103,10 +106,13 @@ public class AjaxMainPageController {
         }
         log.info("/api/v1/mainBoards/{} : DELETE", bno);
         try {
-            List<Room> boardList = roomService.deleteRoom(bno);
+            Page page = new Page();
+            page.setPageNo(1);
+            page.setAmount(6);
+            RoomListPageResponseDTO roomListPageResponseDTO = roomService.deleteRoom(bno, page);
             return ResponseEntity
                     .ok()
-                    .body(boardList);
+                    .body(roomListPageResponseDTO);
         } catch (Exception e) {
             return ResponseEntity
                     .internalServerError()

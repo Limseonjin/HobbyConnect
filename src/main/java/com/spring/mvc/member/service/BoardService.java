@@ -26,6 +26,7 @@ public class BoardService {
     }
 
     public BoardDetailResponseDTO getDetail(long boardId) {
+        boardMapper.updateViewCount(boardId);
         Board one = boardMapper.findOne(boardId);
         return new BoardDetailResponseDTO(one);
     }

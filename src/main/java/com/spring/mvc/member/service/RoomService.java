@@ -112,14 +112,28 @@ public class RoomService {
     }
 
     //roomId로 방을 삭제
-    public List<Room> deleteRoom(Long bno) {
+    public RoomListPageResponseDTO deleteRoom(Long bno, Page page) {
         roomMapper.deleteRoom(bno);
-        return roomMapper.findAll();
+        List<RoomResponseDTO> rooms = roomMapper.pageFindAll(page).stream()
+                .map(RoomResponseDTO::new)
+                .collect(Collectors.toList());
+        int count1 = roomMapper.count();
+        return RoomListPageResponseDTO.builder()
+                .mainBoards(rooms)
+                .pageInfo(new PageMaker(page, count1))
+                .build();
     }
 
-    public List<Room> modify(RoomModifyRequestDTO dto) {
+    public RoomListPageResponseDTO modify(RoomModifyRequestDTO dto, Page page) {
         roomMapper.modify(dto.toEntity());
-        return roomMapper.findAll();
+        List<RoomResponseDTO> rooms = roomMapper.pageFindAll(page).stream()
+                .map(RoomResponseDTO::new)
+                .collect(Collectors.toList());
+        int count1 = roomMapper.count();
+        return RoomListPageResponseDTO.builder()
+                .mainBoards(rooms)
+                .pageInfo(new PageMaker(page, count1))
+                .build();
     }
 
 //    //DB에 curr_user 가 증가 해야 됨

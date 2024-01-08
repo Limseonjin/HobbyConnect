@@ -50,7 +50,7 @@ public class ReplyController {
     }
 
     //댓글 삭제
-    @DeleteMapping("/{replyNo}/delete")
+    @DeleteMapping("/{replyNo}")
     public ResponseEntity<?> deleteByReply(
             @PathVariable long replyNo
     ){
