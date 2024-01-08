@@ -195,4 +195,5 @@ $replyDelBtn.addEventListener('click', () =>{
     const rno = deleteModalEl.dataset.rno
     $deleteModal.hide()
     replyDeleteList(rno)
+
 })

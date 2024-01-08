@@ -1,4 +1,6 @@
 package com.spring.mvc.member.service;
+
+import com.spring.mvc.member.dto.response.BoardDetailResponseDTO;
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.repository.BoardMapper;
 import lombok.RequiredArgsConstructor;
@@ -17,14 +19,20 @@ public class BoardService {
 
 
     //방안에 게시글 만들기
-    public void makeBoard(Board board, HttpSession session){
+    public void makeBoard(long roomId, Board board, HttpSession session) {
         board.BoardPersonId(session);
+        board.setRoomId(roomId);
         boardMapper.save(board);
+    }
+
+    public BoardDetailResponseDTO getDetail(int boardId) {
+        Board one = boardMapper.findOne(boardId);
+        return new BoardDetailResponseDTO(one);
     }
 
     //방안에 게시글 전체 조회
     public List<Board> findAllByBoard() {
-       return boardMapper.findAll();
+        return boardMapper.findAll();
     }
 
    //방안에 게시글 하나 조회
@@ -33,12 +41,12 @@ public class BoardService {
     }
 
     //방안에 게시글 수정
-    public void modify(Board boardId){
+    public void modify(Board boardId) {
         boardMapper.modify(boardId);
     }
 
     //방안에 게시글 삭제
-    public void delete(Long boarId){
+    public void delete(Long boarId) {
         boardMapper.delete(boarId);
     }
 }

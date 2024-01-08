@@ -14,6 +14,6 @@ public class RoomBoardResponseDTO {
     private int viewCount;
     private String boardTitle;
     private String boardContent;
-    private String nickName;
+    private String nickname;
     private int replyCount;
 }
