@@ -116,38 +116,22 @@
                 </tbody>
             </table>
         </div>
-        <input type="hidden" name="roomId" value=${roomId}>
-        <input type="hidden" name="boardId" value=${boardId}>
+        <input id="roomid" type="hidden" name="roomId" value=${roomId}>
+        <input id="boardid" type="hidden" name="boardId" value=${boardId}>
         <div class="btn-group" role="group" aria-label="...">
             <input type="submit" class="btn-default" value="수정하기">
-            <input type="button" class="btn-default2" value="취소하기">
+            <input type="button" class="btn-default2" onclick="confirmCancel()" value="취소하기">
         </div>
     </div>
 </form>
 
 <%@include file="../common/footer.jsp"%>
-<%--스크립트--%>
-<%--<script>--%>
-<%--    function confirmEdit() {--%>
-<%--        const isEdit = confirm('수정 하시겠습니까?'); // 사용자에게 확인 메시지 표시--%>
-<%--        if (isEdit) {--%>
-<%--            // 여기에 실제 수정 처리 로직을 추가--%>
-<%--            return true; // true면 submit 진행--%>
-<%--        } else {--%>
-<%--            return false; // false면 submit 취소--%>
-<%--        }--%>
-<%--    }--%>
-
-<%--    function confirmCancel() {--%>
-<%--        const isCancel = confirm(' 취소 하시겠습니까?'); // 사용자에게 확인 메시지 표시--%>
-<%--        if (isCancel) {--%>
-<%--            // 여기에 취소 처리 로직을 추가--%>
-<%--            alert('취소 완료');--%>
-<%--            return true; // true면 submit 진행--%>
-<%--        } else {--%>
-<%--            return false; // false면 submit 취소--%>
-<%--        }--%>
-<%--    }--%>
-<%--</script>--%>
+<script>
+    const ROOM_ID = document.getElementById('roomid').value;
+    const BOARD_ID = document.getElementById('boardid').value;
+    function confirmCancel() {
+        window.location.href=`/room/board/detail?roomId=\${ROOM_ID}&boardId=\${BOARD_ID}`
+    }
+</script>
 </body>
 </html>
