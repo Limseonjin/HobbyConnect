@@ -10,5 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoomMemberListResponseDTO {
+    private String personId;
     private String nickname;
 }

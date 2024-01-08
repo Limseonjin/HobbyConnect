@@ -2,6 +2,8 @@
 
 const $writePost = document.getElementById('create-board')
 const $boardList = document.getElementById('board-list');
+const $delMember = document.querySelector('.del-mem');
+
 const URL = '/room';
 const roomId = document.getElementById('room-title').dataset.room;
 console.log(roomId);
@@ -47,6 +49,18 @@ function roomPostList(){
         })
 }
 
+/** roomMember 강퇴(삭제) 비동기 처리 */
+function deleteMember(personId){
+    const reqInfo = {
+        method : 'DELETE'
+    }
+    fetch(`${URL}/${personId}/exitRoom`,reqInfo)
+        .then(res => res.json())
+        .then(r =>{
+            window.location.href="/room/main?roomId="+roomId;
+        })
+}
+
 //** 개별 board 클릭시 나타는 클릭 이벤트 핸들러 */
 function boardClickHandler(e) {
     console.log('클릭함')
@@ -59,7 +73,11 @@ function writePostClickHandler() {
     window.location.href = `/room/board/write?roomId=${roomId}`;
 }
 
-
-
 //글 쓰기 클릭 이벤트
 $writePost.addEventListener('click',writePostClickHandler)
+
+// // 룸 멤버 삭제 클릭 이벤트
+// $delMember.onclick= ()=>{
+//     console.log('클릭될듯')
+//     deleteMember(document.querySelector('.nav-link.ms-3.my-1').dataset.id)
+// }
