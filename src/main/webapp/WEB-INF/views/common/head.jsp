@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<header id="head">
+<header id="head" data-id=${login.personId}>
     <div class="logo-wrapper">
         <div class="logo">
             <a href="/main/main-page"><img src="/assets/img/0.png" width="300" height="150"></a>
