@@ -33,8 +33,14 @@
         <%--댓글 띄우는 코드--%>
         <ul class="comments">
 <%--            댓글 비동기 --%>
-
         </ul>
+        <%--    페이지 번호 --%>
+        <nav id="page-num" aria-label="Page navigation example">
+            <%--            페이지 번호 비동기 처리 --%>
+            <ul class="pagination">
+
+            </ul>
+        </nav>
     </div>
 </div>
 <%@include file="../common/footer.jsp"%>

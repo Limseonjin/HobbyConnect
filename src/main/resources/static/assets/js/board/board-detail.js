@@ -13,8 +13,45 @@ const URL = `/room/board/detail`;
     replyList(BOARD_NO)
 })()
 
+
+/** 페이지 넘버 렌더링 함수  */
+function pageNoRender({begin, end, prev, next, page, finalPage}){
+    let tag = ``;
+    // 이전 버튼
+    if (prev){
+        tag += `<li className="page-item">
+            <a className="page-link" href="\${begin - 1}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>`
+    }
+    //페이지 번호 리스트 만들기
+    for (let i = begin; i <= end; i++) {
+        let active = '';
+        if (page.pageNo === i) {
+            active = 'p-active';
+        }
+
+        tag += `<li class='page-item \${active}'><a class='page-link page-custom' href='${i}' data-pageNo='${i}'>${i}</a></li>`;
+    }
+    //  다음 버튼
+    if (next) {
+        tag += `<li className="page-item">
+        <a className="page-link" href="\${end + 1}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+        `
+    }
+    // 페이지 태그 렌더링
+    const $pageUl = document.querySelector('.pagination');
+    $pageUl.innerHTML = tag;
+    // ul에 마지막 페이지 번호 저장
+    $pageUl.dataset.fp = finalPage;
+}
+
 /** 댓글을 화면에 렌더링 하는 함수*/
-function replyRender({replies}){
+function replyRender({replies,pageInfo}){
     let tag = ``;
     for (const r of replies) {
         tag +=`
@@ -35,6 +72,7 @@ function replyRender({replies}){
     // 댓글 클릭시
     $reply.forEach(r => r.addEventListener('click',
         modifyReplyClickHandler))
+    pageNoRender(pageInfo)
 }
 
 /** 게시글 삭제 비동기 처리  */
@@ -201,9 +239,11 @@ deleteModalEl.addEventListener('shown.bs.modal', function (e) {
     if(targetClass !== 'reply-delete btn-comment-delete' && targetClass !== 'write-4') return
     if (targetClass === 'reply-delete btn-comment-delete'){
         deleteModalEl.dataset.rno = e.relatedTarget.closest('.comment').dataset.rno
+        deleteModalEl.dataset.type = "reply"
     }else{
         deleteModalEl.dataset.bno = BOARD_NO
         deleteModalEl.dataset.room = ROOM_ID
+        deleteModalEl.dataset.type = "board"
     }
 
 })
@@ -214,9 +254,10 @@ $replyDelBtn.addEventListener('click', () =>{
     const rno = deleteModalEl.dataset.rno
     const bno = deleteModalEl.dataset.bno
     const room = deleteModalEl.dataset.room
+    const type = deleteModalEl.dataset.type
 
     $deleteModal.hide()
-    if (rno === 0){
+    if (type === "reply"){
         replyDeleteList(rno)
         return 0;
     }else{
