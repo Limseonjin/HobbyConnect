@@ -10,9 +10,11 @@
 }
 #post-list-body {
     display: grid;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    height: 900px;
 }
 #post-list{
     height: 1108px;
