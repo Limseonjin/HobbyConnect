@@ -87,7 +87,9 @@ public class MypageController {
 
     //회원탈퇴 창 요청
     @GetMapping("/del")
-    public String delMember() {
+    public String delMember(HttpSession session, Model model) {
+        MemberResponseDTO member = mypageService.getMemberBySession(session);
+        model.addAttribute("p", member);
         return "/mypage/myinfodel";
     }
 

@@ -18,9 +18,19 @@
         WHERE person_id = #{personId}
     </select>
 
-    <select id="findAllMyReply" resultType="Reply">
-        SELECT * FROM tbl_reply
-        WHERE person_id = #{personId}
+    <select id="findAllMyReply" resultType="MypageReplyResponseDTO">
+        SELECT
+        b.board_title,
+        p.nickname,
+        r.content
+        FROM
+        tbl_board b
+        JOIN
+        tbl_person p ON b.person_id = p.person_id
+        LEFT JOIN
+        tbl_reply r ON b.board_id = r.board_id
+        WHERE
+        b.person_id = #{personId};
     </select>
 
     <select id="findIntroduction" resultType="Person">

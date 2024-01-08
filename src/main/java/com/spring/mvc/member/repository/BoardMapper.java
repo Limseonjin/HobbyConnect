@@ -28,5 +28,6 @@ public interface BoardMapper {
 
     void updateViewCount(Long boardId);
 
+    int count(Long roomId);
 
 }

@@ -21,7 +21,7 @@ public interface RoomMapper {
     List<Room> findAll();
 
     //룸 페이지 내 보드 조회
-    List<RoomBoardResponseDTO> findBoard(int roomId);
+    List<RoomBoardResponseDTO> findBoard(int roomId, @Param("p") Page page);
 
     //내가 찾고 싶은 방 하나를 조회
     Room findOne(Long roomId);

@@ -2,6 +2,7 @@ package com.spring.mvc.member.controller;
 
 
 import com.spring.mvc.member.common.Page;
+import com.spring.mvc.member.dto.response.BoardListPageResponseDTO;
 import com.spring.mvc.member.dto.response.RoomBoardResponseDTO;
 import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
 import com.spring.mvc.member.dto.response.RoomMemberListResponseDTO;
@@ -47,7 +48,6 @@ public class RoomController {
         }
         Room roomByRoomId = roomService.getRoomByRoomId(roomId);
         List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
-        System.out.println("byRoomId = " + byRoomId);
         log.debug("roomMember : {} ",byRoomId);
         model.addAttribute("r", roomByRoomId);
         model.addAttribute("rmList", byRoomId);
@@ -63,11 +63,15 @@ public class RoomController {
 
 
     // 게시글 조회 비동기 처리
-    @GetMapping("/{roomId}")
-    public ResponseEntity<?> findMainBoardsByPersonId(@PathVariable String roomId) {
-        List<RoomBoardResponseDTO> bList = roomService.getBoards(Integer.parseInt(roomId));
-        System.out.println("bList = " + bList);
-        return ResponseEntity.ok().body(bList);
+    @GetMapping("/{roomId}/{pageNo}")
+    public ResponseEntity<?> findMainBoardsByPersonId(@PathVariable int roomId,
+                                                      @PathVariable int pageNo) {
+        Page page = new Page();
+        page.setPageNo(pageNo);
+        page.setAmount(4);
+
+        BoardListPageResponseDTO boards = roomService.getBoards(roomId, page);
+        return ResponseEntity.ok().body(boards);
     }
 
     // 방 만들기 화면 요청

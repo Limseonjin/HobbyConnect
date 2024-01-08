@@ -29,4 +29,8 @@
     <delete id="delete" parameterType="Long">
         DELETE FROM tbl_board WHERE board_id = #{boardId}
     </delete>
+    <select id="count" resultType="int">
+        SELECT count(*) FROM tbl_board
+        WHERE room_id = #{roomId}
+    </select>
 </mapper>
