@@ -23,7 +23,7 @@
                 </c:if>
 
                 <input class='write-1' type="text" name="boardTitle" value="${b.boardTitle}" readonly>
-                <input class='write-2' name="boardContent" value="${b.boardContent}" readonly>
+                <textarea class='write-2' name="boardContent" value="${b.boardContent}" readonly></textarea>
             </div>
     </div>
     <div class="line"></div>
