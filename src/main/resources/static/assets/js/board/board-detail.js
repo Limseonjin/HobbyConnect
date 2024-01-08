@@ -95,7 +95,7 @@ function replyDeleteList(rno){
     const reqInfo = {
         method : 'DELETE'
     }
-    fetch(`${URL}/${rno}/delete`,reqInfo)
+    fetch(`${URL}/${rno}`,reqInfo)
         .then(res => res.json())
         .then(r =>{
             console.log(r)

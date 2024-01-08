@@ -14,13 +14,13 @@
 <%@include file="../room/room-head.jsp"%>
 <div id="bullentin-wrapper">
     <div class='form-0'>
-            <div class='form-1' data-bno="${boardId}">
+            <div class='form-1' data-bno="${b.boardId}">
                 <div id="board-btn">
                     <input id="board-modity" class='write-4' type="button" value="수정">
                     <input id="board-delete" class='write-4' type="button" value="삭제"  data-bs-toggle="modal"  data-bs-target="#delete-modal">
                 </div>
-                <input class='write-1' type="text" name="boardTitle" value="${boardTitle}" readonly>
-                <input class='write-2' name="boardContent" value="${boardContent}" readonly>
+                <input class='write-1' type="text" name="boardTitle" value="${b.boardTitle}" readonly>
+                <input class='write-2' name="boardContent" value="${b.boardContent}" readonly>
             </div>
     </div>
     <div class="line"></div>

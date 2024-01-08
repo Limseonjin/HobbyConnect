@@ -10,6 +10,7 @@ import com.spring.mvc.member.service.BoardService;
 import com.spring.mvc.member.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,8 +46,10 @@ public class BoardController {
 
     // 게시글 상세 조회 요청
     @GetMapping("/detail")
-    public String boardDetail(int boardId, Model model) {
+    public String boardDetail(Long roomId, int boardId,Model model) {
         BoardDetailResponseDTO detail = boardService.getDetail(boardId);
+        Room room = roomService.getRoomByRoomId(roomId);
+        model.addAttribute("r", room);
         model.addAttribute("b", detail);
         return "board/detail";
     }
@@ -56,7 +59,7 @@ public class BoardController {
     public String boardModify(int boardId, Model model) {
         
         return "board/update";
-
+    }
     // 클릭한 게시물 상세보기
 //     @GetMapping("/detail")
 //     public String oneBoard(
@@ -80,10 +83,11 @@ public class BoardController {
 //         return "board/detail";
 //     }
 
-    @DeleteMapping("/write")
-    public String deleteBoard(Long board){
-        boardService.delete(board);
-        return "board/write";
+    @DeleteMapping("/{rno}/{bno}")
+    public String  deleteBoard(@PathVariable Long rno, @PathVariable Long bno){
+        boardService.delete(bno);
+
+        return "redirect:/room/main?roomId="+rno;
     }
 
 }

@@ -3,7 +3,7 @@
 <header id="head">
     <div class="logo-wrapper">
         <div id="room-logo" class="logo">
-            <h1 id="room-title" data-room="${roomId}">${roomName}</h1>
+            <h1 id="room-title" data-room="${r.roomId}">${r.roomName}</h1>
         </div>
         <div id="head-btn" class="btn btn-wrap">
             <c:if test="${not empty login}">

@@ -25,7 +25,7 @@ public class BoardService {
         boardMapper.save(board);
     }
 
-    public BoardDetailResponseDTO getDetail(int boardId) {
+    public BoardDetailResponseDTO getDetail(long boardId) {
         Board one = boardMapper.findOne(boardId);
         return new BoardDetailResponseDTO(one);
     }

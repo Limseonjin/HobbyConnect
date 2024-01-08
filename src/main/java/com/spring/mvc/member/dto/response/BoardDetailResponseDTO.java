@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class BoardDetailResponseDTO {
     private Long boardId;
-    private Long replyId;
     private String personId;
     private String boardTitle;
     private String boardContent;
@@ -22,7 +21,6 @@ public class BoardDetailResponseDTO {
 
     public BoardDetailResponseDTO(Board board) {
         this.boardId = board.getBoardId();
-        this.replyId = board.getReplyId();
         this.personId = board.getPersonId();
         this.boardTitle = board.getBoardTitle();
         this.boardContent = board.getBoardContent();

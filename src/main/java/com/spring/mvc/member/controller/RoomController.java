@@ -47,16 +47,16 @@ public class RoomController {
         Room roomByRoomId = roomService.getRoomByRoomId(roomId);
         List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
         System.out.println("byRoomId = " + byRoomId);
-        model.addAttribute("roomId", roomByRoomId.getRoomId());
-        model.addAttribute("roomName", roomByRoomId.getRoomName());
+        model.addAttribute("r", roomByRoomId);
         model.addAttribute("rmList", byRoomId);
         return "room/mainroom";
     }
+
     @PostMapping("/main")
-    public String handlePostRequest(long roomId,Board board , HttpSession session) {
-        log.debug("main POST board : {}",board);
-        boardService.makeBoard(board, session);
-        return "redirect:/room/main?roomId="+roomId; // 게시글을 등록한 후 메인 페이지로 리디렉션
+    public String handlePostRequest(long roomId, Board board, HttpSession session) {
+        log.debug("main POST board : {}", board);
+        boardService.makeBoard(roomId, board, session);
+        return "redirect:/room/main?roomId=" + roomId; // 게시글을 등록한 후 메인 페이지로 리디렉션
     }
 
 
@@ -84,7 +84,7 @@ public class RoomController {
     }
 
     @DeleteMapping("/{personId}/exitRoom")
-    public ResponseEntity<?> ExitMember(@PathVariable String personId,Long roomId){
+    public ResponseEntity<?> ExitMember(@PathVariable String personId, Long roomId) {
         List<RoomMemberListResponseDTO> delete = roomMemberService.delete(personId, roomId);
         return ResponseEntity.ok().body(delete);
     }
