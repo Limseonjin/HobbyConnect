@@ -5,6 +5,9 @@ const $inputReply = document.getElementById('comment-area')
 const $replyDelBtn = document.getElementById('delete-Btn')
 const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal'), {keyboard: true})
 const deleteModalEl = document.getElementById('delete-modal')
+
+const loginId = document.querySelector('.comments').dataset.id;
+
 const $boardDelBtn = document.getElementById('board-delete')
 const BOARD_NO = document.querySelector('.form-1').dataset.bno
 const ROOM_ID = document.getElementById('room-title').dataset.room
@@ -60,13 +63,17 @@ function replyRender({replies,pageInfo}){
             <div class="reply-wrap">
                 <div class="author">${r.personId}</div>
                 <p class="reply-content">${r.content}</p>
-            </div>
+            </div>`
+        if (loginId === r.personId){
+            tag += `
             <div class="reply-btn-wrap">
                 <button type="button" class="reply-modify btn-comment-up">수정</button>
                 <button type="button" class="reply-delete btn-comment-delete" data-bs-toggle="modal"  data-bs-target="#delete-modal">
                     삭제</button>
-            </div>
-        </li>`
+            </div>`
+        }
+
+        tag+=`</li>`
     }
     document.querySelector('.comments').innerHTML=tag
     const $reply = document.querySelectorAll(...['.comment']);

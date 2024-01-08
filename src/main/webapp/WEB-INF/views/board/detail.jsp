@@ -15,10 +15,13 @@
 <div id="bullentin-wrapper">
     <div class='form-0'>
             <div class='form-1' data-bno="${b.boardId}">
-                <div id="board-btn">
-                    <input id="board-modity" class='write-4' type="button" value="수정">
-                    <input id="board-delete" class='write-4' type="button" value="삭제"  data-bs-toggle="modal"  data-bs-target="#delete-modal">
-                </div>
+                <c:if test="${login.personId eq b.personId}">
+                    <div id="board-btn">
+                        <input id="board-modity" class='write-4' type="button" value="수정">
+                        <input id="board-delete" class='write-4' type="button" value="삭제"  data-bs-toggle="modal"  data-bs-target="#delete-modal">
+                    </div>
+                </c:if>
+
                 <input class='write-1' type="text" name="boardTitle" value="${b.boardTitle}" readonly>
                 <input class='write-2' name="boardContent" value="${b.boardContent}" readonly>
             </div>
@@ -31,7 +34,7 @@
             <button id="add-reply">댓글 등록</button>
         </div>
         <%--댓글 띄우는 코드--%>
-        <ul class="comments">
+        <ul class="comments" data-id="${login.personId}">
 <%--            댓글 비동기 --%>
         </ul>
         <%--    페이지 번호 --%>
