@@ -33,5 +33,5 @@ public interface RoomMemberMapper {
     List<RoomMemberListResponseDTO> findByRoomId(Long roomId);
 
     //회원 삭제
-    boolean delete(@Param("PersonId")String personId, @Param("RoomId")Long roomId);
+    boolean delete(@Param("personId")String personId, @Param("roomId")Long roomId);
 }

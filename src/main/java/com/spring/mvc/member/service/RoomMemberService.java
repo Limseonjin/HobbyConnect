@@ -44,8 +44,4 @@ public class RoomMemberService {
        return roomMemberMapper.findByRoomId(roomId);
     }
 
-
-
-
-
 }

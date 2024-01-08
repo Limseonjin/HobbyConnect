@@ -126,7 +126,7 @@ function updateBoard(bno) {
         },
         body : JSON.stringify(payload)
     }
-    fetch(`${URL}/bno`,requestInfo)
+    fetch(`${URL}/modify`,requestInfo)
         .then(res => res.json())
         .then(boardList => {
 
