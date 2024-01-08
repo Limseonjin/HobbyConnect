@@ -95,7 +95,7 @@
 <%--폼 메인 코드--%>
 <body>
 <%@ include file="../room/room-head.jsp"%>
-<form action="#" method="post">
+<form action="/room/board/modify" method="post">
     <div class="conf">
         <input type="hidden" name="pageNum" value="#">
         <input type="hidden" name="artNum" value="#">
@@ -104,48 +104,50 @@
                 <thead>
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="boardTitle" value="${boardTitle}" class="fcon" aria-describedby="basic-addon1"></td>
+                    <td><input type="text" name="boardTitle" value="${b.boardTitle}" class="fcon" aria-describedby="basic-addon1"></td>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td colspan="2">
-                        <textarea class="fcon" rows="20" name="boardContent">${boardContent}</textarea>
+                        <textarea class="fcon" rows="20" name="boardContent">${b.boardContent}</textarea>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
+        <input type="hidden" name="roomId" value=${roomId}>
+        <input type="hidden" name="boardId" value=${boardId}>
         <div class="btn-group" role="group" aria-label="...">
-            <input type="button" class="btn-default" value="수정하기" onclick="confirmEdit()">
-            <input type="button" class="btn-default2" value="취소하기" onclick="confirmCancel()">
+            <input type="submit" class="btn-default" value="수정하기">
+            <input type="button" class="btn-default2" value="취소하기">
         </div>
     </div>
 </form>
 
 <%@include file="../common/footer.jsp"%>
 <%--스크립트--%>
-<script>
-    function confirmEdit() {
-        const isEdit = confirm('수정 하시겠습니까?'); // 사용자에게 확인 메시지 표시
-        if (isEdit) {
-            // 여기에 실제 수정 처리 로직을 추가
-            return true; // true면 submit 진행
-        } else {
-            return false; // false면 submit 취소
-        }
-    }
+<%--<script>--%>
+<%--    function confirmEdit() {--%>
+<%--        const isEdit = confirm('수정 하시겠습니까?'); // 사용자에게 확인 메시지 표시--%>
+<%--        if (isEdit) {--%>
+<%--            // 여기에 실제 수정 처리 로직을 추가--%>
+<%--            return true; // true면 submit 진행--%>
+<%--        } else {--%>
+<%--            return false; // false면 submit 취소--%>
+<%--        }--%>
+<%--    }--%>
 
-    function confirmCancel() {
-        const isCancel = confirm(' 취소 하시겠습니까?'); // 사용자에게 확인 메시지 표시
-        if (isCancel) {
-            // 여기에 취소 처리 로직을 추가
-            alert('취소 완료');
-            return true; // true면 submit 진행
-        } else {
-            return false; // false면 submit 취소
-        }
-    }
-</script>
+<%--    function confirmCancel() {--%>
+<%--        const isCancel = confirm(' 취소 하시겠습니까?'); // 사용자에게 확인 메시지 표시--%>
+<%--        if (isCancel) {--%>
+<%--            // 여기에 취소 처리 로직을 추가--%>
+<%--            alert('취소 완료');--%>
+<%--            return true; // true면 submit 진행--%>
+<%--        } else {--%>
+<%--            return false; // false면 submit 취소--%>
+<%--        }--%>
+<%--    }--%>
+<%--</script>--%>
 </body>
 </html>

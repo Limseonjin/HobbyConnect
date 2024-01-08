@@ -1,6 +1,7 @@
 package com.spring.mvc.member.repository;
 
 
+import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.Room;
 import org.apache.ibatis.annotations.Mapper;
@@ -21,7 +22,7 @@ public interface BoardMapper {
     Board findOne(Long boardId);
 
     //방안에 게시글을 수정 할 수 있다.
-    boolean modify(Board boardId);
+    boolean modify(BoardModifyRequestDTO dto);
 
     //방안에 게시글을 삭제 할 수 있다.
     boolean delete(Long boardId);

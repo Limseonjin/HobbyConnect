@@ -229,7 +229,7 @@ $replyAddBtn.addEventListener('click',
 
 // 게시글 수정 버튼 클릭시
 $modifyBtn.addEventListener('click',()=>{
-    window.location.href = `/room/board/modify?boardId=${BOARD_NO}`
+    window.location.href = `/room/board/modify?roomId=${ROOM_ID}&boardId=${BOARD_NO}`
 })
 
 //댓글 삭제 모달창이 뜨고 나서 실행할 코드

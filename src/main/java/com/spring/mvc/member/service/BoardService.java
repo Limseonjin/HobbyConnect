@@ -1,5 +1,6 @@
 package com.spring.mvc.member.service;
 
+import com.spring.mvc.member.dto.request.BoardModifyRequestDTO;
 import com.spring.mvc.member.dto.response.BoardDetailResponseDTO;
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.repository.BoardMapper;
@@ -42,8 +43,8 @@ public class BoardService {
     }
 
     //방안에 게시글 수정
-    public void modify(Board boardId) {
-        boardMapper.modify(boardId);
+    public void modify(BoardModifyRequestDTO dto) {
+        boardMapper.modify(dto);
     }
 
     //방안에 게시글 삭제
