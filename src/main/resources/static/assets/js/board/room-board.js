@@ -104,10 +104,11 @@ $delMember.forEach(m =>m.onclick= (e)=>{
 
 /** 방 나가기 클릭 이벤트 핸들러 */
 function exitBtnClickHandler() {
-
-
-    exitMy(document.getElementById('myuser').dataset.id,ROOM_ID)
+//
 }
 
-// 방 나가기 클릭 이벤트
-$exitRoom.addEventListener('click',exitBtnClickHandler)
+//모달 안에 방 나가기 클릭 이벤트
+const $LeaveBtn = document.getElementById('confirmLeaveBtn');
+$LeaveBtn.addEventListener('click',()=>{
+    exitMy(document.getElementById('myuser').dataset.id,ROOM_ID)
+})
