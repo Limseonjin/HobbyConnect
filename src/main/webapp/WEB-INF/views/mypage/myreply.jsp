@@ -41,7 +41,6 @@
                                 </div>
                                 <div class="other">
                                     <p>작성자 : ${r.nickname}</p>
-                                    <p>조회수 : ${r.viewCount}</p>
                                 </div>
                             </div>
                         </div>

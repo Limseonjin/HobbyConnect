@@ -10,7 +10,8 @@ const BOARD_NO = document.querySelector('.form-1').dataset.bno
 const ROOM_ID = document.getElementById('room-title').dataset.room
 const URL = `/room/board/detail`;
 (()=>{
-    replyList(BOARD_NO)
+    replyList()
+    makePageButtonClickEvent()
 })()
 
 
@@ -90,9 +91,8 @@ function boardDelte(rno,bno){
 }
 
 /** 댓글 조회 비동기 처리 */
-function replyList(boardId){
-    console.log(boardId)
-    fetch(`${URL}/${boardId}`)
+function replyList(pageNo=1){
+    fetch(`${URL}/${BOARD_NO}/${pageNo}`)
         .then(res => res.json())
         .then(r =>{
             console.log(r)
@@ -265,3 +265,16 @@ $replyDelBtn.addEventListener('click', () =>{
     }
 
 })
+
+// 페이지 클릭 이번테 핸들러 등록 함수
+function makePageButtonClickEvent() {
+    const $pageUl = document.querySelector('.pagination');
+
+    $pageUl.onclick = e => {
+        // 이벤트 타겟이 a링크가 아니면 타겟 제한
+        if (!e.target.matches('.page-item a')) return;
+        e.preventDefault(); // 태그 기본 동작 기능 중단.
+        // 페이지 번호에 맞는 새로운 댓글 목록 비동기 요청
+        replyList(e.target.getAttribute('href'));
+    }
+}

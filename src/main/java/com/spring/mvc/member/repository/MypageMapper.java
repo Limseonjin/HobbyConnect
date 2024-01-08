@@ -1,5 +1,6 @@
 package com.spring.mvc.member.repository;
 
+import com.spring.mvc.member.dto.response.MypageReplyResponseDTO;
 import com.spring.mvc.member.entity.Board;
 import com.spring.mvc.member.entity.Member;
 import com.spring.mvc.member.entity.Reply;
@@ -22,7 +23,7 @@ public interface MypageMapper {
     List<Board> findAllMyBoard(String personId);
 
     // 2. 내가 쓴 댓글 전체 조회
-    List<Reply> findAllMyReply(String personId);
+    List<MypageReplyResponseDTO> findAllMyReply(String personId);
 
     // 3. 프사 (추후 제작)
 

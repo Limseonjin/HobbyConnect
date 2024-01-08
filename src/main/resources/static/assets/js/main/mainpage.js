@@ -13,8 +13,6 @@ const ROOM_PW = '';
 
 // 게시글 조회 화면 렌더링
 function postListRender({mainBoards, pageInfo}){
-    console.log(mainBoards);
-    console.log(pageInfo);
     const $postBody = document.getElementById('post-list-body');
     let tag = ``;
     for (const dto of mainBoards) {

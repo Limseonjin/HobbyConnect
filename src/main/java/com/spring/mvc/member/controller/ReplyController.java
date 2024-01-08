@@ -29,13 +29,13 @@ public class ReplyController {
         return ResponseEntity.ok().body(register);
     }
     //댓글 전체 조회
-    @GetMapping("/{boardId}")
-    public ResponseEntity<?> getReplyList(
-            @PathVariable long boardId,
-            @RequestParam(name ="pageNo", defaultValue = "1") int pageNo)
+    @GetMapping("/{boardId}/{pageNo}")
+    public ResponseEntity<?> getReplyList(@PathVariable long boardId, @PathVariable int pageNo)
     {
+        System.out.println("pageNo = " + pageNo);
         Page page = new Page();
         page.setPageNo(pageNo);
+        page.setAmount(6);
         ReplyListResponseDTO list = replyService.getList(boardId, page);
         return ResponseEntity.ok().body(list);
     }

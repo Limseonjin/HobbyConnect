@@ -3,12 +3,14 @@ package com.spring.mvc.member.service;
 import com.spring.mvc.member.common.Page;
 import com.spring.mvc.member.common.PageMaker;
 import com.spring.mvc.member.dto.request.*;
+import com.spring.mvc.member.dto.response.BoardListPageResponseDTO;
 import com.spring.mvc.member.dto.response.RoomBoardResponseDTO;
 import com.spring.mvc.member.dto.response.RoomListPageResponseDTO;
 import com.spring.mvc.member.dto.response.RoomResponseDTO;
 import com.spring.mvc.member.entity.Auth;
 import com.spring.mvc.member.entity.Room;
 import com.spring.mvc.member.entity.RoomMember;
+import com.spring.mvc.member.repository.BoardMapper;
 import com.spring.mvc.member.repository.RoomMapper;
 import com.spring.mvc.member.repository.RoomMemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,7 @@ public class RoomService {
 
     private final RoomMapper roomMapper;
     private final RoomMemberMapper roomMemberMapper;
+    private final BoardMapper boardMapper;
 
     //방 만들기 서비스
     public void makeRoom(Room room, HttpSession session) {
@@ -60,9 +63,13 @@ public class RoomService {
         return roomMapper.findOne(roomId);
     }
 
-    public List<RoomBoardResponseDTO> getBoards(int roomId) {
-        List<RoomBoardResponseDTO> board = roomMapper.findBoard(roomId);
-        return board;
+    public BoardListPageResponseDTO getBoards(int roomId,Page page) {
+        List<RoomBoardResponseDTO> board = roomMapper.findBoard(roomId, page);
+        int count = boardMapper.count((long) roomId);
+        return BoardListPageResponseDTO.builder()
+                .boards(board)
+                .pageInfo(new PageMaker(page,count))
+                .build();
     }
 
     public RoomListPageResponseDTO pagefindAll(Page page) {

@@ -18,6 +18,7 @@
         <typeAlias type="com.spring.mvc.member.entity.RoomMember" alias="RoomMember"/>
         <typeAlias type="com.spring.mvc.member.dto.response.RoomBoardResponseDTO" alias="RoomBoardResponseDTO"/>
         <typeAlias type="com.spring.mvc.member.dto.response.RoomMemberListResponseDTO" alias="RoomMemberListResponseDTO"/>
+        <typeAlias type="com.spring.mvc.member.dto.response.MypageReplyResponseDTO" alias="MypageReplyResponseDTO"/>
     </typeAliases>
 
     <!--  SQL을 적어둔 XML파일의 위치를 설정  -->

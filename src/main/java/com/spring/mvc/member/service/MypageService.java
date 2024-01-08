@@ -67,11 +67,7 @@ public class MypageService {
 
     // 2. 내가 쓴 댓글 조회
     public List<MypageReplyResponseDTO> getReplyList(HttpSession session) {
-        return mypageMapper.findAllMyReply(LoginUtil.getCurrentLoginMemberAccount(session))
-                .stream()
-                .map(MypageReplyResponseDTO::new)
-                .collect(Collectors.toList())
-                ;
+        return mypageMapper.findAllMyReply(LoginUtil.getCurrentLoginMemberAccount(session));
     }
 
     // 3. 프로필사진(추후 제작 예정)
