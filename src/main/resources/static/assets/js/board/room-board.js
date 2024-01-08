@@ -55,11 +55,11 @@ function deleteMember(personId,roomId){
     const reqInfo = {
         method : 'DELETE'
     }
-    fetch(`${URL}/${personId}/exitRoom/${roomId}`,reqInfo)
+    fetch(`${URL}/${personId}/${roomId}`,reqInfo)
         .then(res => res.json())
         .then(r =>{
             console.log(r)
-            // window.location.href="/room/main?roomId="+roomId;
+            window.location.href="/room/main?roomId="+roomId;
         })
 }
 

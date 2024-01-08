@@ -86,8 +86,8 @@ public class RoomController {
 
 
     @ResponseBody
-    @DeleteMapping("/{personId}/exitRoom/{roomId}")
-    public ResponseEntity<?> ExitMember(String personId, Long roomId) {
+    @DeleteMapping("/{personId}/{roomId}")
+    public ResponseEntity<?> ExitMember(@PathVariable String personId,@PathVariable Long roomId) {
         List<RoomMemberListResponseDTO> delete = roomMemberService.delete(personId, roomId);
         return ResponseEntity.ok().body(delete);
     }
