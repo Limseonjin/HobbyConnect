@@ -33,8 +33,7 @@ public class BoardController {
     public String makeBoard(@RequestParam long roomId, Model model) {
         log.info("bord/write GET roomId : {}", roomId);
         Room room = roomService.getRoomByRoomId(roomId);
-        model.addAttribute("roomName", room.getRoomName());
-        model.addAttribute("roomId", roomId);
+        model.addAttribute("r",room);
 
         return "board/write";
     }
@@ -55,7 +54,9 @@ public class BoardController {
     @GetMapping("/modify")
     public String boardModify(@RequestParam long roomId, @RequestParam long boardId, Model model) {
         Board oneByBoard = boardService.findOneByBoard(boardId);
+        Room room = roomService.getRoomByRoomId(roomId);
         model.addAttribute("b", oneByBoard);
+        model.addAttribute("r", room);
         model.addAttribute("roomId", roomId);
         model.addAttribute("boardId", boardId);
         return "board/update";
@@ -74,30 +75,6 @@ public class BoardController {
         boardService.modify(dto);
         return "redirect:/room/board/detail?roomId=" + roomId + "&boardId=" + boardId;
     }
-
-
-    // 클릭한 게시물 상세보기
-//     @GetMapping("/detail")
-//     public String oneBoard(
-//             @RequestParam long boardId,
-//             Model model)
-//     {
-//         log.info("detail id={} : GET!",boardId);
-//         Board board = boardService.findOneByBoard(boardId);
-
-//         log.debug("board : {}",board);
-//         model.addAttribute("boardId",board.getBoardId());
-//         model.addAttribute("personId",board.getPersonId());
-//         model.addAttribute("boardTitle",board.getBoardTitle());
-//         model.addAttribute("boardContent",board.getBoardContent());
-//         model.addAttribute("roomId",board.getRoomId());
-//         model.addAttribute("viewCount",board.getViewCount());
-//         model.addAttribute("regDate",board.getRegDate());
-
-//         Room room = roomService.getRoomByRoomId(board.getRoomId());
-//         model.addAttribute("roomName",room.getRoomName());
-//         return "board/detail";
-//     }
 
     @ResponseBody
     @DeleteMapping("/detail/{rno}/{bno}")

@@ -25,7 +25,7 @@
         <div>
              <textarea rows="5" cols="13" name="boardContent" class="t1" title="남을 비방하거나 허위 정보를 전파하거나 타인을 모욕하는 말은 사용자 간에 신뢰를 떨어뜨릴 뿐만 아니라 관련 법률에 의해 처벌받을 수 있습니다"></textarea>
         </div>
-        <input type="hidden" name="roomId" value=${roomId}>
+        <input type="hidden" name="roomId" value=${r.roomId}>
         <button id="addOk" class="writeForm" type="submit">완료</button>
     </form>
 </div>
