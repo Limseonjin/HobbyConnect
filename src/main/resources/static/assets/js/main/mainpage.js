@@ -72,7 +72,7 @@ function pageNoRender({begin, end, prev, next, page, finalPage}){
             active = 'p-active';
         }
 
-        tag += `<li class='page-item \${active}'><a class='page-link page-custom' href='${i}'>${i}</a></li>`;
+        tag += `<li class='page-item \${active}'><a class='page-link page-custom' href='${i}' data-pageNo='${i}'>${i}</a></li>`;
     }
     //  다음 버튼
     if (next) {
@@ -95,17 +95,15 @@ function postList(pageNo=1){
     fetch(`${URL}/main/page/${pageNo}`)
         .then(res=>res.json())
         .then(dtoList =>{
-
             postListRender(dtoList)
         })
 }
 
 function SearchPostList(type,input,pageNo=1){
     console.log("hi")
-    fetch(`${URL}/${type}/${input}/page/{pageNo}`)
+    fetch(`${URL}/${type}/${input}/page/${pageNo}`)
         .then(res=> res.json())
         .then(dtoList =>{
-            console.log(dtoList)
             postListRender(dtoList)
         })
 }
@@ -114,9 +112,9 @@ function SearchPostList(type,input,pageNo=1){
 //수정 비동기 처리
 function updateBoard(bno) {
     const payload = {
-        boardId : bno,
-        boardTitle : document.querySelector('.update-board-title').value,
-        boardContent : document.querySelector('.update-board-content').value
+        roomId : bno,
+        mainBoardTitle : document.querySelector('.update-board-title').value,
+        mainBoardContent : document.querySelector('.update-board-content').value
     }
     console.log(payload);
     const requestInfo = {
@@ -126,10 +124,9 @@ function updateBoard(bno) {
         },
         body : JSON.stringify(payload)
     }
-    fetch(`${URL}/bno`,requestInfo)
+    fetch(`${URL}/modfiy`,requestInfo)
         .then(res => res.json())
         .then(boardList => {
-
             postListRender(boardList)
         })
     document.querySelector('.update-board-title').value = ''
@@ -190,7 +187,7 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
         }
     }
     // 방 암호가 걸려있는지 체크
-    if (!!closest){
+    if (!closest){
         const $pwSubmitBtn = document.getElementById('forward-room-Btn')
         $pwSubmitBtn.addEventListener('click',pwBtnClickHandler)
 
@@ -210,7 +207,7 @@ updateModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass = e.relatedTarget.getAttribute('class');
     //수정버튼 아니면 돌아가
-    if(targetClass !== 'modify' ) return
+    if(targetClass !== 'icon-btn modify' ) return
     //게시물 넘버 저장
     updateModalEl.dataset.bno = e.relatedTarget.closest('.room-post').dataset.bno
 })
@@ -219,7 +216,8 @@ updateModalEl.addEventListener('shown.bs.modal', function (e) {
 deleteModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass =e.relatedTarget.getAttribute('class');
-    if(targetClass !== 'trash' && targetClass !== 'bi-trash' ) return
+    console.log(targetClass)
+    if(targetClass !== 'icon-btn trash' ) return
     console.log(e.relatedTarget.closest('.room-post').dataset.bno)
     deleteModalEl.dataset.bno = e.relatedTarget.closest('.room-post').dataset.bno
 })

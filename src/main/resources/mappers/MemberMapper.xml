@@ -4,13 +4,13 @@
 
 <mapper namespace="com.spring.mvc.member.repository.MemberMapper">
 
-<insert id="save">
-INSERT INTO tbl_person
-    (person_id,email, password,nickname,introduction)
+    <insert id="save">
+        INSERT INTO tbl_person
+        (person_id,email, password,nickname,introduction)
 
-    VALUES
-    (#{personId},#{email},#{password},#{nickname},#{introduction})
-</insert>
+        VALUES
+        (#{personId},#{email},#{password},#{nickname},#{introduction})
+    </insert>
 
     <select id="findMember" resultType="Person">
         SELECT
@@ -25,7 +25,7 @@ INSERT INTO tbl_person
         FROM tbl_person
 
         <if test="type == 'personId'">
-        WHERE person_id = #{keyword}
+            WHERE person_id = #{keyword}
         </if>
         <if test="type == 'email'">
             WHERE email = #{keyword}

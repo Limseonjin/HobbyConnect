@@ -83,9 +83,10 @@
     <update id="modify">
         UPDATE tbl_room
         SET main_board_title = #{mainBoardTitle},
-        main_board_content = #{mainBoardContent}
-        WHERE room_id = #{room_id}
+            main_board_content = #{mainBoardContent}
+        WHERE room_id = #{roomId}
     </update>
+
 
     <select id="count" resultType="int">
         SELECT count(*) FROM tbl_room

@@ -17,7 +17,9 @@
         SELECT * FROM tbl_board
         WHERE board_id = #{boardId}
     </select>
-
+    <update id="updateViewCount">
+        UPDATE tbl_board SET view_count = view_count +1 WHERE board_id = #{boardId}
+    </update>
     <update id="modify">
         UPDATE tbl_board
         SET board_title = #{boardTitle},

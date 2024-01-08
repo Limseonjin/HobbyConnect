@@ -26,5 +26,7 @@ public interface BoardMapper {
     //방안에 게시글을 삭제 할 수 있다.
     boolean delete(Long boardId);
 
+    void updateViewCount(Long boardId);
+
 
 }
