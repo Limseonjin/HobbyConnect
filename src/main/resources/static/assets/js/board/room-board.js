@@ -3,6 +3,7 @@
 const $writePost = document.getElementById('create-board')
 const $boardList = document.getElementById('board-list');
 const $delMember = document.querySelectorAll(...['.del-mem']);
+const $exitRoom = document.getElementById('exitRoom');
 
 const URL = '/room';
 const ROOM_ID = document.getElementById('room-title').dataset.room;
@@ -102,6 +103,18 @@ function deleteMember(personId,roomId){
             window.location.href="/room/main?roomId="+roomId;
         })
 }
+function exitMy(personId,roomId) {
+    console.log('비동기 할거유 ')
+    const reqInfo = {
+        method : 'DELETE'
+    }
+    fetch(`${URL}/${personId}/${roomId}`,reqInfo)
+        .then(res => res.json())
+        .then(r =>{
+            console.log(r)
+            window.location.href="/main/main-page";
+        })
+}
 
 //** 개별 board 클릭시 나타는 클릭 이벤트 핸들러 */
 function boardClickHandler(e) {
@@ -128,6 +141,7 @@ $delMember.forEach(m =>m.onclick= (e)=>{
     deleteMember(personId ,ROOM_ID)
 } )
 
+
 // 페이지 클릭 이번테 핸들러 등록 함수
 function makePageButtonClickEvent() {
     const $pageUl = document.querySelector('.pagination');
@@ -140,3 +154,10 @@ function makePageButtonClickEvent() {
         roomPostList(e.target.getAttribute('href'));
     }
 }
+
+
+//모달 안에 방 나가기 클릭 이벤트
+const $LeaveBtn = document.getElementById('confirmLeaveBtn');
+$LeaveBtn.addEventListener('click',()=>{
+    exitMy(document.getElementById('myuser').dataset.id,ROOM_ID)
+})
