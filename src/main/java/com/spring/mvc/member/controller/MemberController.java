@@ -98,7 +98,6 @@ public class MemberController {
         System.out.println("response = " + response);
         System.out.println("request = " + request);
         System.out.println("authentication = " + authentication);
-
         //로그인 상태인지 확인
         if (LoginUtil.isLogin(session)) {
 

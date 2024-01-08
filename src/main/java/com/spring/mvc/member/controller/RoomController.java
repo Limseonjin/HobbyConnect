@@ -43,6 +43,7 @@ public class RoomController {
         boolean in = roomMemberService.isIn(roomId, session);
         if (!in) {
             roomMemberService.newMember(roomId, session);
+            roomService.currUserPlus(roomId,true);
         }
         Room roomByRoomId = roomService.getRoomByRoomId(roomId);
         List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
@@ -89,6 +90,7 @@ public class RoomController {
     @DeleteMapping("/{personId}/{roomId}")
     public ResponseEntity<?> ExitMember(@PathVariable String personId,@PathVariable Long roomId) {
         List<RoomMemberListResponseDTO> delete = roomMemberService.delete(personId, roomId);
+        roomService.currUserPlus(roomId,false);
         return ResponseEntity.ok().body(delete);
     }
 }

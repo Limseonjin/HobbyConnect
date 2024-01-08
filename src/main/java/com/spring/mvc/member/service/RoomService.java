@@ -136,16 +136,13 @@ public class RoomService {
                 .build();
     }
 
-//    //DB에 curr_user 가 증가 해야 됨
-//    public boolean currUser(CurrUserAndMaxUserDTO dto){
-//        Room room = roomMapper.findOne(dto.getRoomId());
-//        if(dto.getCurrUser() >= dto.getMaxUser()){
-//            return false;
-//        }
-//        Integer newCurrUser = dto.UpdateCurrUser(true);//Room 클래스의 UpdateCurrUser의 flag가 true면
-//        roomMapper.updateCurrUser(newCurrUser, dto.getRoomId()); //RoomMapper에 있는 updateCurrUser의 currUser를 증가시킨것을 저장한다.
-//        return true;
-//    }
+    //DB에 curr_user 가 증가 해야 됨
+    public boolean currUserPlus(Long roomId, Boolean flag){
+        Room room = roomMapper.findOne(roomId);
+        Integer newCurrUser = room.UpdateCurrUser(flag);
+        roomMapper.updateCurrUser(newCurrUser,roomId);
+        return true;
+    }
 
     public boolean PassWordJoinRoom(Long roomId, String Pw) {
         Room rooom = roomMapper.findOne(roomId);

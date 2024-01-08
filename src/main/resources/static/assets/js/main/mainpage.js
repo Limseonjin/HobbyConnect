@@ -21,7 +21,7 @@ function postListRender({mainBoards, pageInfo}){
         tag +=`<div class="card room-post" data-bno="${dto.roomId}">
                     <div class="card-header">
                            <h2>`
-        if(dto.roomPw !== ""){
+        if(dto.roomPw !== null){
             tag +=  `<span id="isPw" class="lnr lnr-lock"></span>`
         }
         tag +=`${dto.mainBoardTitle} (${dto.currUser}/${dto.maxUser})
