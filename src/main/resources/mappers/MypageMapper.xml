@@ -9,8 +9,11 @@
     </select>
 
     <select id="findAllMyRoom" resultType="Room">
-        SELECT * FROM tbl_room
-        WHERE person_id = #{personId}
+        SELECT r.*
+        FROM tbl_room r
+        INNER JOIN tbl_roomMember rm ON r.room_id = rm.room_id
+        WHERE rm.person_id = #{personId};
+
     </select>
 
     <select id="findAllMyBoard" resultType="Board">
