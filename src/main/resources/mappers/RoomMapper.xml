@@ -27,11 +27,7 @@
 
     <!-- roomId로 비동기로 띄워줄 정보 조회 -->
     <select id="findBoard" resultType="RoomBoardResponseDTO">
-        SELECT
-        b.board_id,
-        b.view_count,
-        b.board_content,
-        p.nickname,
+        SELECT *,
         COUNT(r.reply_id) AS reply_count
         FROM
         tbl_board b

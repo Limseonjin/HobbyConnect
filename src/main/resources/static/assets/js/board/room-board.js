@@ -19,6 +19,7 @@ function roomPostRender(bList){
             tag += `
     <div class="card room-post" data-bno="${b.boardId}">
                     <div class="card-header">
+                        <h2>${b.boardTitle}</h2>
                         <p class="card-text">작성자:${b.nickname}</p>
                     </div>
                     <div class="card-body">

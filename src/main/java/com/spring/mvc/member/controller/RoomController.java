@@ -91,5 +91,4 @@ public class RoomController {
         List<RoomMemberListResponseDTO> delete = roomMemberService.delete(personId, roomId);
         return ResponseEntity.ok().body(delete);
     }
-
 }
