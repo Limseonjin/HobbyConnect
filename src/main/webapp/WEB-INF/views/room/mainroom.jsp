@@ -13,6 +13,7 @@
     <script src="/assets/js/board/room-board.js" defer></script>
 </head>
 <body>
+<%@include file="exit-modal.jsp"%>
 <%@include file="../common/del-modal.jsp"%>
 <%@include file="room-head.jsp"%>
 <%-- 여기서 부터 코드 입력 --%>
@@ -41,7 +42,8 @@
             </div>
         </div>
         <div class="exit-room">
-            <button id="exitRoom" class="btn btn-dark nagagi">방 나가기</button>
+            <button id="exitRoom" class="btn btn-dark nagagi" data-bs-toggle="modal" data-bs-target="#leaveRoomModal">
+                방 나가기</button>
         </div>
     </div>
     <div id="main-body">
