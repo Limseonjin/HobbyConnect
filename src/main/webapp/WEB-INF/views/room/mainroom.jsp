@@ -37,7 +37,6 @@
                                 <c:if test="${rm.auth ne 'ADMIN'}">
                                     <span class="del-mem lnr lnr-cross"></span>
                                 </c:if>
-
                             </div>
                         </c:forEach>
                     </div>

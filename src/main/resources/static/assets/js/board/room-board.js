@@ -5,12 +5,15 @@ const $boardList = document.getElementById('board-list');
 const $delMember = document.querySelectorAll(...['.del-mem']);
 const $exitRoom = document.getElementById('exitRoom');
 
+const LOGIN_USER = document.getElementById('myuser').dataset.id;
 const URL = '/room';
 const ROOM_ID = document.getElementById('room-title').dataset.room;
 console.log(ROOM_ID);
 (()=>{
     roomPostList()
     makePageButtonClickEvent();
+
+
 })()
 
 /** room 안에 게시글 렌더링 하는 함수  */
@@ -43,6 +46,14 @@ function roomPostRender({boards, pageInfo}){
     $roomBoard.forEach(rm => {rm.addEventListener('click',boardClickHandler)})
     // 페이지 렌더링
     pageNoRender(pageInfo);
+
+    const userWrapElements = document.querySelectorAll('.user-wrap p');
+    console.log(`ADMIN: ${userWrapElements[0].dataset.id}`)
+    if (LOGIN_USER !== userWrapElements[0].dataset.id){
+        $delMember.forEach(m => {
+            m.classList.add('non');
+        })
+    }
 }
 
 /** 페이지 넘버 렌더링 함수  */
