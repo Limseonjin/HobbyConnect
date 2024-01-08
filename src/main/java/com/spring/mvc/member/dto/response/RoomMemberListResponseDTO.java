@@ -12,4 +12,5 @@ import lombok.*;
 public class RoomMemberListResponseDTO {
     private String personId;
     private String nickname;
+    private String auth;
 }

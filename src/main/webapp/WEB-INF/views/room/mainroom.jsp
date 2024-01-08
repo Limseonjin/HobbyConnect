@@ -34,7 +34,10 @@
                         <c:forEach var="rm" items="${rmList}">
                             <div class="user-wrap">
                                 <p class="nav-link ms-3 my-1" data-id="${rm.personId}">${rm.nickname}</p>
-                                <span class="del-mem lnr lnr-cross"></span>
+                                <c:if test="${rm.auth ne 'ADMIN'}">
+                                    <span class="del-mem lnr lnr-cross"></span>
+                                </c:if>
+
                             </div>
                         </c:forEach>
                     </div>
