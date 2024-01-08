@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id="delete-modal" class="modal" data-bno=0 data-rno=0 tabindex="-1" >
+<div id="delete-modal" class="modal" data-bno=0 data-rno=0 data-room=0 tabindex="-1" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

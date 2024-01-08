@@ -2,9 +2,11 @@
 
 const $writePost = document.getElementById('create-board')
 const $boardList = document.getElementById('board-list');
+const $delMember = document.querySelectorAll(...['.del-mem']);
+
 const URL = '/room';
-const roomId = document.getElementById('room-title').dataset.room;
-console.log(roomId);
+const ROOM_ID = document.getElementById('room-title').dataset.room;
+console.log(ROOM_ID);
 (()=>{
     roomPostList(document.getElementById('room-title').dataset.room)
 })()
@@ -40,10 +42,24 @@ function roomPostRender(bList){
 
 /** room 안에 게시글 비동기 조회*/
 function roomPostList(){
-    fetch(`${URL}/${roomId}`)
+    fetch(`${URL}/${ROOM_ID}`)
         .then(res=>res.json())
         .then(bList => {
             roomPostRender(bList)
+        })
+}
+
+/** roomMember 강퇴(삭제) 비동기 처리 */
+function deleteMember(personId,roomId){
+    console.log('비동기 할거유 ')
+    const reqInfo = {
+        method : 'DELETE'
+    }
+    fetch(`${URL}/${personId}/exitRoom/${roomId}`,reqInfo)
+        .then(res => res.json())
+        .then(r =>{
+            console.log(r)
+            // window.location.href="/room/main?roomId="+roomId;
         })
 }
 
@@ -51,15 +67,23 @@ function roomPostList(){
 function boardClickHandler(e) {
     console.log('클릭함')
     const bno = e.target.closest('.room-post').dataset.bno;
-    window.location.href = `/room/board/detail?roomId=${roomId}&boardId=${bno}`;
+    window.location.href = `/room/board/detail?roomId=${ROOM_ID}&boardId=${bno}`;
 }
 
 /** 글 쓰기 버튼 이벤트 핸들러 */
 function writePostClickHandler() {
-    window.location.href = `/room/board/write?roomId=${roomId}`;
+    window.location.href = `/room/board/write?roomId=${ROOM_ID}`;
 }
-
-
 
 //글 쓰기 클릭 이벤트
 $writePost.addEventListener('click',writePostClickHandler)
+
+// 룸 멤버 삭제 클릭 이벤트
+$delMember.forEach(m =>m.onclick= (e)=>{
+    console.log('클릭될듯')
+
+    // 삭제 아이디 가져오고 삭제 비동기 처리 로 이동
+    const personId = e.target.closest('.user-wrap').querySelector('p[data-id]').dataset.id
+    console.log(personId)
+    deleteMember(personId ,ROOM_ID)
+} )

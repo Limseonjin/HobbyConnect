@@ -29,11 +29,14 @@
             <div class="card-body">
                 <nav class="nav nav-pills flex-column">
                     <h2> 멤버목록 </h2>
-                    <nav class="nav nav-pills flex-column">
+                    <div class="nav-pills flex-column">
                         <c:forEach var="rm" items="${rmList}">
-                            <p class="nav-link ms-3 my-1">닉네임 ${rm.nickname}</p>
+                            <div class="user-wrap">
+                                <p class="nav-link ms-3 my-1" data-id="${rm.personId}">${rm.nickname}</p>
+                                <span class="del-mem lnr lnr-cross"></span>
+                            </div>
                         </c:forEach>
-                    </nav>
+                    </div>
                 </nav>
             </div>
         </div>
