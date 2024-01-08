@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
 <%-- js --%>
-<script src="/assets/js/head.js" defer></script>
 <%-- css --%>
 <link rel="stylesheet" href="/assets/css/common.css">
 <link rel="stylesheet" href="/assets/css/head.css">

@@ -32,6 +32,9 @@ public interface RoomMemberMapper {
     // 같은 방에 있는 회원 전체 조회
     List<RoomMemberListResponseDTO> findByRoomId(Long roomId);
 
+    //같은 방에 있는 특정 회원 조회
+    String findByPersonId(String personId, Long roomId);
+
     //회원 삭제
     boolean delete(@Param("personId")String personId, @Param("roomId")Long roomId);
 }
