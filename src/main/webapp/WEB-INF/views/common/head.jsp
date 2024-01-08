@@ -11,7 +11,7 @@
                 <a href="/mypage/room"><button id="mypage" type="button" class="btn btn-light">MY PAGE</button></a>
             </c:if>
             <c:if test="${empty login}">
-                <button id="loginp" type="button" class="btn btn-light"><a href="/login/sign-in">LOGIN</a></button>
+                <a href="/login/sign-in"><button id="loginp" type="button" class="btn btn-light">LOGIN</button></a>
             </c:if>
         </div>
     </div>

@@ -5,15 +5,14 @@
         <div id="room-logo" class="logo">
             <h1 id="room-title" data-room="${r.roomId}">${r.roomName}</h1>
         </div>
-        <div id="head-btn" class="btn btn-wrap">
+        <div id="head-btn" class="btn-wrap">
             <c:if test="${not empty login}">
-                <button id="home" type="button" class="btn btn-light"><a href="/main/main-page">HOME</a></button>
-                <button id="mypage" type="button" class="btn btn-light"><a href="/mypage/board">MY PAGE</a></button>
-                <button id="logout" type="button" class="btn btn-light"><a href="/login/sign-out">LOGOUT</a></button>
-
+                <a href="/main/main-page"><button id="home" type="button" class="btn btn-light">HOME</button></a>
+                <a href="/mypage/board"><button id="mypage" type="button" class="btn btn-light">MY PAGE</button></a>
+                <a href="/login/sign-out"><button id="logout" type="button" class="btn btn-light">LOGOUT</button></a>
             </c:if>
             <c:if test="${empty login}">
-                <button id="loginp" type="button" class="btn btn-light"><a href="/login/sign-in">LOGIN</a></button>
+            <a href="/login/sign-in"><button id="loginp" type="button" class="btn btn-light">LOGIN</button></a>
             </c:if>
         </div>
     </div>
