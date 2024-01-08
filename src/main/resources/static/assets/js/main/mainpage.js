@@ -126,7 +126,7 @@ function updateBoard(bno) {
         },
         body : JSON.stringify(payload)
     }
-    fetch(`${URL}/bno`,requestInfo)
+    fetch(`${URL}/modify`,requestInfo)
         .then(res => res.json())
         .then(boardList => {
 
@@ -210,7 +210,7 @@ updateModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass = e.relatedTarget.getAttribute('class');
     //수정버튼 아니면 돌아가
-    if(targetClass !== 'modify' ) return
+    if(targetClass !== 'icon-btn modify' ) return
     //게시물 넘버 저장
     updateModalEl.dataset.bno = e.relatedTarget.closest('.room-post').dataset.bno
 })

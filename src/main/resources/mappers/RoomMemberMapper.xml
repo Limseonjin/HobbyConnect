@@ -32,7 +32,7 @@
 
     <!-- 멤버 목록에 띄울 회원들 닉네임 조회 -->
     <select id="findByRoomId" resultType="RoomMemberListResponseDTO">
-        SELECT p.nickname
+        SELECT p.nickname, p.person_id
         FROM tbl_roomMember rm
         JOIN tbl_person p ON rm.person_id = p.person_id
         WHERE rm.room_id = #{roomId};
@@ -41,7 +41,7 @@
     <!-- 방에 있는 회원 강퇴 -->
     <delete id="delete">
         DELETE FROM tbl_roommember
-        WHERE person_id = #{personId}
+        WHERE person_id = #{personId} AND room_id= #{roomId}
     </delete>
 
 </mapper>

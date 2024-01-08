@@ -29,6 +29,13 @@
 #room-main-wrapper .member-list .nav-link{
     color : black;
 }
+#room-main-wrapper .member-list .user-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+#room-main-wrapper .member-list .user-wrap .del-mem{
+    padding-top: 10px;
+}
 /* 게시글 목록 */
 #room-main-wrapper #main-body{
     width: 100%;

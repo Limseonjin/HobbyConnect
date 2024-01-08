@@ -7,6 +7,7 @@ const $deleteModal = new bootstrap.Modal(document.getElementById('delete-modal')
 const deleteModalEl = document.getElementById('delete-modal')
 const $boardDelBtn = document.getElementById('board-delete')
 const BOARD_NO = document.querySelector('.form-1').dataset.bno
+const ROOM_ID = document.getElementById('room-title').dataset.room
 const URL = `/room/board/detail`;
 (()=>{
     replyList(BOARD_NO)
@@ -34,6 +35,18 @@ function replyRender({replies}){
     // 댓글 클릭시
     $reply.forEach(r => r.addEventListener('click',
         modifyReplyClickHandler))
+}
+
+/** 게시글 삭제 비동기 처리  */
+function boardDelte(rno,bno){
+    const reqInfo = {
+        method : 'DELETE'
+    }
+    fetch(`${URL}/${rno}/${bno}`,reqInfo)
+        .then(res => res.json())
+        .then(r =>{
+            window.location.href="/room/main?roomId="+rno;
+        })
 }
 
 /** 댓글 조회 비동기 처리 */
@@ -168,32 +181,44 @@ function modifyReplyClickHandler(e) {
 function replyaddClickHandler(e) {
     replyAddList()
     $inputReply.value = ''
-
 }
-
 
 // 댓글 추가 클릭시
 $replyAddBtn.addEventListener('click',
     replyaddClickHandler)
 
 // 게시글 수정 버튼 클릭시
-$modifyBtn.addEventListener('click',function modifyBtnOnClick(){
-    window.location.href = `/room/board/detail/write?boardId=${boardId}`
+$modifyBtn.addEventListener('click',()=>{
+    window.location.href = `/room/board/modify?boardId=${BOARD_NO}`
 })
 
-//삭제 모달창이 뜨고 나서 실행할 코드
+//댓글 삭제 모달창이 뜨고 나서 실행할 코드
 deleteModalEl.addEventListener('shown.bs.modal', function (e) {
     //relatedTarget : 모달을 열기전 클릭한 타켓
     const targetClass =e.relatedTarget.getAttribute('class');
-    if(targetClass !== 'reply-delete btn-comment-delete') return
-    deleteModalEl.dataset.rno = e.relatedTarget.closest('.comment').dataset.rno
+    if(targetClass !== 'reply-delete btn-comment-delete' && targetClass !== 'write-4') return
+    if (targetClass === 'reply-delete btn-comment-delete'){
+        deleteModalEl.dataset.rno = e.relatedTarget.closest('.comment').dataset.rno
+    }else{
+        deleteModalEl.dataset.bno = BOARD_NO
+        deleteModalEl.dataset.room = ROOM_ID
+    }
+
 })
 
 // 댓글 삭제 모달에서 삭제버튼 클릭시
 $replyDelBtn.addEventListener('click', () =>{
     console.log('클릭은 됏슈')
     const rno = deleteModalEl.dataset.rno
+    const bno = deleteModalEl.dataset.bno
+    const room = deleteModalEl.dataset.room
+
     $deleteModal.hide()
-    replyDeleteList(rno)
+    if (rno === 0){
+        replyDeleteList(rno)
+        return 0;
+    }else{
+        boardDelte(room,bno)
+    }
 
 })

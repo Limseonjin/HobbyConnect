@@ -130,7 +130,6 @@
         const isEdit = confirm('수정 하시겠습니까?'); // 사용자에게 확인 메시지 표시
         if (isEdit) {
             // 여기에 실제 수정 처리 로직을 추가
-            alert('수정 완료');
             return true; // true면 submit 진행
         } else {
             return false; // false면 submit 취소

@@ -47,6 +47,7 @@ public class RoomController {
         Room roomByRoomId = roomService.getRoomByRoomId(roomId);
         List<RoomMemberListResponseDTO> byRoomId = roomMemberService.findByRoomId(roomId);
         System.out.println("byRoomId = " + byRoomId);
+        log.debug("roomMember : {} ",byRoomId);
         model.addAttribute("r", roomByRoomId);
         model.addAttribute("rmList", byRoomId);
         return "room/mainroom";
@@ -83,8 +84,10 @@ public class RoomController {
         return "redirect:/main/main-page";
     }
 
-    @DeleteMapping("/{personId}/exitRoom")
-    public ResponseEntity<?> ExitMember(@PathVariable String personId, Long roomId) {
+
+    @ResponseBody
+    @DeleteMapping("/{personId}/exitRoom/{roomId}")
+    public ResponseEntity<?> ExitMember(String personId, Long roomId) {
         List<RoomMemberListResponseDTO> delete = roomMemberService.delete(personId, roomId);
         return ResponseEntity.ok().body(delete);
     }
