@@ -35,6 +35,11 @@ public class BoardService {
         return boardMapper.findAll();
     }
 
+   //방안에 게시글 하나 조회
+    public Board findOneByBoard(Long boardId) {
+       return boardMapper.findOne(boardId);
+    }
+
     //방안에 게시글 수정
     public void modify(Board boardId) {
         boardMapper.modify(boardId);

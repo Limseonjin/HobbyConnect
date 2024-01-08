@@ -30,7 +30,7 @@
         SELECT
         reply_id, person_id, board_id, content
         FROM tbl_reply
-        WHERE reply_no = #{replyNo}
+        WHERE reply_id = #{replyId}
     </select>
 
     <!-- 댓글 전체 조회 -->

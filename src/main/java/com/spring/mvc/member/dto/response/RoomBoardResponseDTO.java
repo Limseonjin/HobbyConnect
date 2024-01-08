@@ -12,6 +12,7 @@ import lombok.*;
 public class RoomBoardResponseDTO {
     private int boardId;
     private int viewCount;
+    private String boardTitle;
     private String boardContent;
     private String nickname;
     private int replyCount;

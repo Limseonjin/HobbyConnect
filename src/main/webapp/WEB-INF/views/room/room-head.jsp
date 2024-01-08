@@ -2,8 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header id="head">
     <div class="logo-wrapper">
-        <div class="logo">
-            <h1 id="room-title" data-room="${r.roomId}">Board Title ${r.roomName}</h1>
+        <div id="room-logo" class="logo">
+            <h1 id="room-title" data-room="${roomId}">${roomName}</h1>
         </div>
         <div id="head-btn" class="btn btn-wrap">
             <c:if test="${not empty login}">
