@@ -33,7 +33,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
         //게시판 인터셉터 설정
         registry.addInterceptor(boardInterceptor) //어떤 인터셉터를 등록 할 것인가 ?
-                .addPathPatterns("/board/room"); //어떤 요청에서 인터셉터를 발동 시킬 것인가 ?
+                .addPathPatterns("/room/**"); //어떤 요청에서 인터셉터를 발동 시킬 것인가 ?
     }
 
 
