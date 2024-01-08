@@ -19,13 +19,13 @@ function roomPostRender({boards, pageInfo}){
     if (boards !== null && boards.length > 0) {
         for (const b of boards) {
             tag += `
-    <div class="card room-post" data-bno="${b.boardId}">
+    <div class="card room-board-post" data-bno="${b.boardId}">
                     <div class="card-header">
                         <h2>${b.boardTitle}</h2>
                         <p class="card-text">작성자:${b.nickname}</p>
                     </div>
                     <div class="card-body">
-                        <p class="contents">content:${b.boardContent}</p>
+                        <p class="contents">${b.boardContent}</p>
                     </div>
                     <div class="card-footer">
                         <p>조회수:${b.viewCount} </p>
@@ -38,7 +38,7 @@ function roomPostRender({boards, pageInfo}){
         tag += "<div id='boardContent' class='card-body'>게시글을 작성해 사람들과 소통하세요</div>";
     }
     $boardList.innerHTML = tag;
-    const $roomBoard = document.querySelectorAll(...['.room-post']);
+    const $roomBoard = document.querySelectorAll(...['.room-board-post']);
     // 룸 안에 게시글마다 클릭 이벤트 걸기
     $roomBoard.forEach(rm => {rm.addEventListener('click',boardClickHandler)})
     // 페이지 렌더링
@@ -119,7 +119,7 @@ function exitMy(personId,roomId) {
 //** 개별 board 클릭시 나타는 클릭 이벤트 핸들러 */
 function boardClickHandler(e) {
     console.log('클릭함')
-    const bno = e.target.closest('.room-post').dataset.bno;
+    const bno = e.target.closest('.room-board-post').dataset.bno;
     window.location.href = `/room/board/detail?roomId=${ROOM_ID}&boardId=${bno}`;
 }
 

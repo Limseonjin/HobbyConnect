@@ -51,7 +51,7 @@
     </div>
     <div id="main-body">
         <div id="room-post-list" class="card">
-            <div id="post-list-body" class="card-body">
+            <div id="post-board-body" class="card-body">
                 <button id="create-board" type="button" class="btn btn-dark">글 쓰기</button>
                 <div id="board-list">
                     <%-- 게시글 조회 비동기 --%>
