@@ -36,6 +36,17 @@
 #room-main-wrapper .member-list .user-wrap .del-mem{
     padding-top: 10px;
 }
+#room-main-wrapper .exit-room{
+    width: 100%;
+    margin-top: 20px;
+}
+#room-main-wrapper .exit-room .nagagi{
+    width: 100%;
+}
+#room-main-wrapper .exit-room .nagagi:hover{
+    background-color: #ff5e5e;
+    border: red;
+}
 /* 게시글 목록 */
 #room-main-wrapper #main-body{
     width: 100%;

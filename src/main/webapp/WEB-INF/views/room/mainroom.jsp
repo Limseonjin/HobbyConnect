@@ -20,7 +20,7 @@
     <div id="members">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title">어서오세요 ${login.nickname}님!</h2>
+                <h2 id="myuser" class="card-title" data-id=${login.personId}>어서오세요 ${login.nickname}님!</h2>
                 <a href="/mypage/board" class="card-link">My Page</a>
                 <a href="/login/sign-out" class="card-link">Logout</a>
             </div>
@@ -39,6 +39,9 @@
                     </div>
                 </nav>
             </div>
+        </div>
+        <div class="exit-room">
+            <button id="exitRoom" class="btn btn-dark nagagi">방 나가기</button>
         </div>
     </div>
     <div id="main-body">
