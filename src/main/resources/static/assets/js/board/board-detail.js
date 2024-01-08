@@ -39,13 +39,15 @@ function replyRender({replies}){
 
 /** 게시글 삭제 비동기 처리  */
 function boardDelte(rno,bno){
+    console.log(`rno:${rno},bno:${bno}`)
     const reqInfo = {
         method : 'DELETE'
     }
     fetch(`${URL}/${rno}/${bno}`,reqInfo)
         .then(res => res.json())
         .then(r =>{
-            window.location.href="/room/main?roomId="+rno;
+            console.log(r)
+            window.location.href="/room/main?roomId="+rno
         })
 }
 

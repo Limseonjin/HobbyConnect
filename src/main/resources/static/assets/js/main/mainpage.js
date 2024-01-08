@@ -187,7 +187,7 @@ roomPwModalEl.addEventListener('show.bs.modal',function (e){
         }
     }
     // 방 암호가 걸려있는지 체크
-    if (!closest){
+    if (!!closest){
         const $pwSubmitBtn = document.getElementById('forward-room-Btn')
         $pwSubmitBtn.addEventListener('click',pwBtnClickHandler)
 
