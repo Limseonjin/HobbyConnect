@@ -1,0 +1,63 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.MypageMapper">
+    <select id="findMember" resultType="Person">
+        SELECT * FROM tbl_person
+        WHERE person_id = #{personId}
+    </select>
+
+    <select id="findAllMyRoom" resultType="Room">
+        SELECT r.*
+        FROM tbl_room r
+        INNER JOIN tbl_roomMember rm ON r.room_id = rm.room_id
+        WHERE rm.person_id = #{personId};
+
+    </select>
+
+    <select id="findAllMyBoard" resultType="Board">
+        SELECT * FROM tbl_board
+        WHERE person_id = #{personId}
+    </select>
+
+    <select id="findAllMyReply" resultType="MypageReplyResponseDTO">
+        SELECT
+        b.board_title,
+        p.nickname,
+        r.content
+        FROM
+        tbl_board b
+        JOIN
+        tbl_person p ON b.person_id = p.person_id
+        LEFT JOIN
+        tbl_reply r ON b.board_id = r.board_id
+        WHERE
+        b.person_id = #{personId};
+    </select>
+
+    <select id="findIntroduction" resultType="Person">
+        SELECT introduction FROM tbl_person
+        WHERE person_id = #{personId}
+    </select>
+
+    <update id="modifyInfo">
+        UPDATE tbl_person
+        SET nickname = #{nickname},
+            email = #{email},
+            introduction = #{introduction}
+        WHERE person_id = #{personId}
+    </update>
+
+    <update id="modifyPassword">
+        UPDATE tbl_person
+        SET password = #{password}
+        WHERE person_id = #{personId}
+    </update>
+
+    <delete id="delMember">
+        DELETE FROM tbl_person
+        WHERE person_id = #{personId}
+    </delete>
+
+</mapper>

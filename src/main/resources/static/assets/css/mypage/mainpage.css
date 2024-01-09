@@ -1,0 +1,135 @@
+/* my page 전체 */
+.page-wrapper{
+    display: flex;
+}
+/*my page 간단정보 박스랑 메뉴박스 wrapper */
+#mypage-side-bar{
+    width: 30%;
+}
+/* 사이드 메뉴 박스 */
+#mypage-side-menu .card-body{
+    padding: 0;
+}
+#mypage-side-menu .card-body .category{
+    padding: 1rem 1rem;
+}
+.page-wrapper #userInfo,
+.page-wrapper #mypage-side-menu{
+    margin: 50px ;
+}
+.page-wrapper #userInfo .card-body{
+    position: relative;
+}
+
+/* 조회 창 */
+.page-wrapper .activities{
+    width: 60%;
+    margin-top: 50px;
+}
+/*조회창 전체 */
+.page-wrapper .activities .active-list-wrapper .card-body{
+    height: 700px;
+    overflow: auto;
+}
+/* mypage 중 board 조회 css */
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board{
+    padding: 10px;
+    padding-left: 50px;
+    height: 150px;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board .board-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board .board-wrapper .title{
+    font-weight: 800;
+    font-size: 1.5em;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-board .board-wrapper .other{
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+/* mypage 중 reply 조회 csss */
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply{
+    padding: 10px;
+    padding-left: 50px;
+    height: 200px;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply .reply-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply .reply-wrapper .title{
+    font-weight: 800;
+    font-size: 1.5em;
+}
+.page-wrapper .activities .active-list-wrapper .card-body .mypage-reply .reply-wrapper .other{
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items:flex-end;
+}
+
+/* mypage 중 room 조회 csss */
+.page-wrapper .activities .active-list-wrapper .room-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: start;
+
+}
+.page-wrapper .activities .active-list-wrapper .room-card .mypage-room{
+    padding: 10px;
+    padding-left: 20px;
+    width: 170px;
+    height: 200px;
+    margin-left: 20px;
+}
+.page-wrapper .activities .active-list-wrapper .room-card .mypage-room .room-wrapper{
+    display: flex;
+    flex-direction: column;
+
+}
+.page-wrapper .activities .active-list-wrapper .room-card .mypage-room .room-wrapper .room-img{
+    width: 100px;
+    height: 100px;
+}
+
+/* 회원 수정, 삭제 조회 창 */
+#form-wrapper {
+    width: 60%;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin : 50px 0;
+}
+#form-wrapper h2{
+    text-align: center;
+    font-size: 1.5em;
+}
+#signUpForm{
+    margin-bottom: 10px;
+}
+
+/* 삭제 경고문 */
+.danger {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 삭제 버튼 */
+#person-del{
+    margin-top: 30px;
+    width: 100%;
+}
+
+#person-del:hover {
+    background-color: red;
+}

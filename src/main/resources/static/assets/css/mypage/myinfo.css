@@ -1,0 +1,25 @@
+
+/* my page 전체 */
+#myinfo-wrapper{
+    display: flex;
+    margin: 50px;
+}
+/*my page 간단정보 박스랑 메뉴박스 wrapper */
+#mypage-side-bar{
+    width: 30%;
+}
+/* 사이드 메뉴 박스 */
+#mypage-side-menu .card-body{
+    padding: 0;
+}
+#mypage-side-menu .card-body .category{
+    padding: 1rem 1rem;
+}
+.page-wrapper #userInfo,
+.page-wrapper #mypage-side-menu{
+    margin: 50px ;
+}
+.page-wrapper #userInfo .card-body{
+    position: relative;
+}
+

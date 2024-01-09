@@ -1,0 +1,69 @@
+
+/* 룸 헤더 */
+.logo-wrapper .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-wrapper .logo h1 {
+    font-size: 2em;
+}
+
+/* 룸 메인 */
+#room-main-wrapper{
+    margin: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+/*나의 정보 css */
+#room-main-wrapper #members{
+    width: 30%;
+}
+#room-main-wrapper #members card{
+    margin-top: 30px;
+}
+/* 멤버 목록 css */
+#room-main-wrapper .member-list{
+    margin-top: 20px;
+}
+#room-main-wrapper .member-list .nav-link{
+    color : black;
+}
+#room-main-wrapper .member-list .user-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+#room-main-wrapper .member-list .user-wrap .del-mem{
+    padding-top: 10px;
+}
+#room-main-wrapper .exit-room{
+    width: 100%;
+    margin-top: 20px;
+}
+#room-main-wrapper .exit-room .nagagi{
+    width: 100%;
+}
+#room-main-wrapper .exit-room .nagagi:hover{
+    background-color: #ff5e5e;
+    border: red;
+}
+/* 게시글 목록 */
+#room-main-wrapper #main-body{
+    width: 100%;
+    margin:0 50px;
+}
+#room-main-wrapper #main-body #post-list-body{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#room-main-wrapper #main-body #post-list-body .card-body{
+    height: 200px;
+
+}
+
+/* 글 쓰기 버튼 css */
+#create-board{
+    width: 80%;
+}

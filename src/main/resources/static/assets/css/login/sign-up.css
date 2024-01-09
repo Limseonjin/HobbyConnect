@@ -1,0 +1,36 @@
+#form-wrapper{
+    background-color: #d0d0d0;
+    padding: 50px;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    margin-left: 20%;
+    width: 60%;
+}
+#form-wrapper h2{
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+#form-wrapper .end{
+    text-align: end;
+    color: red;
+}
+
+.container {
+    text-align: center;
+}
+.container .btn{
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #E0E0F8;
+    color: black;
+    border: 1px solid #E0E0F8;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.p p{
+    text-align: center
+}

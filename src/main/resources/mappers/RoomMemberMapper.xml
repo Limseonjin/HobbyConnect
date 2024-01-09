@@ -1,0 +1,53 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.RoomMemberMapper">
+
+    <!-- 방에 이미 등록되어 있는지 확인 -->
+    <select id="isIn" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_roommember
+        WHERE room_id = #{roomId}
+        AND person_id = #{personId}
+    </select>
+    <!-- 새로운 일반회원 등록 -->
+    <insert id="joinCommonMember">
+        INSERT INTO tbl_roommember
+        (room_id, person_id)
+        VALUES (#{roomId}, #{personId})
+    </insert>
+
+    <!-- Roommember에 방 등록 저장  -->
+    <insert id="save">
+        INSERT INTO tbl_roommember (room_id, person_id, auth)
+        VALUES (#{roomId}, #{personId}, #{auth})
+    </insert>
+
+    <!-- Room에 있는 회원들 조회 -->
+    <select id="findAll" resultType="RoomMember">
+        SELECT * FROM tbl_roommember
+        WHERE room_id = #{roomID}
+    </select>
+
+    <!-- 멤버 목록에 띄울 회원들 닉네임 조회 -->
+    <select id="findByRoomId" resultType="RoomMemberListResponseDTO">
+        SELECT *
+        FROM tbl_roomMember rm
+        JOIN tbl_person p ON rm.person_id = p.person_id
+        WHERE rm.room_id = #{roomId};
+    </select>
+
+    <select id="findByPersonId" resultType="String">
+        SELECT auth
+        FROM tbl_roommember
+        WHERE person_id = #{personId} AND room_id= #{roomId}
+    </select>
+
+    <!-- 방에 있는 회원 강퇴 -->
+    <delete id="delete">
+        DELETE FROM tbl_roommember
+        WHERE person_id = #{personId} AND room_id= #{roomId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,47 @@
+/* board 전체 */
+#write-post-wrapper{
+    height:700px;
+    padding: 50px;
+}
+/* 제목 css */
+#write-post-wrapper h2{
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+#post-wrapper-back{
+    padding: 50px;
+    background-color: #d0d0d0;
+    border-radius: 20px;
+
+}
+/* 게시글 작성 창 */
+#post-wrapper{
+    /*margin: 100px;*/
+}
+/* 게시글 내용 */
+#post-wrapper .create-content{
+    margin-bottom: 40px;
+}
+
+#create-room-form .sub-title{
+    margin: 0;
+}
+
+/*!* 방 만들기 폼 *!*/
+/*#create-room{*/
+/*    margin: 20px; !* Adjusted margin *!*/
+/*    padding: 20px;*/
+/*    background-color: #bbdeff;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+
+/*}*/
+
+/* 방 만들기 - 암호 */
+#roomRockChecked{
+    margin-right: 5px;
+    position: absolute;
+    left: 0;
+}

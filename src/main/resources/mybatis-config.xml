@@ -11,9 +11,24 @@
 
     <!-- entity클래스 별칭 설정하기 -->
     <typeAliases>
+        <typeAlias type="com.spring.mvc.member.entity.Member" alias="Person"/>
+        <typeAlias type="com.spring.mvc.member.entity.Board" alias="Board"/>
+        <typeAlias type="com.spring.mvc.member.entity.Reply" alias="Reply"/>
+        <typeAlias type="com.spring.mvc.member.entity.Room" alias="Room"/>
+        <typeAlias type="com.spring.mvc.member.entity.RoomMember" alias="RoomMember"/>
+        <typeAlias type="com.spring.mvc.member.dto.response.RoomBoardResponseDTO" alias="RoomBoardResponseDTO"/>
+        <typeAlias type="com.spring.mvc.member.dto.response.RoomMemberListResponseDTO" alias="RoomMemberListResponseDTO"/>
+        <typeAlias type="com.spring.mvc.member.dto.response.MypageReplyResponseDTO" alias="MypageReplyResponseDTO"/>
     </typeAliases>
 
     <!--  SQL을 적어둔 XML파일의 위치를 설정  -->
     <mappers>
+        <mapper resource="mappers/MemberMapper.xml"/>
+        <mapper resource="mappers/MypageMapper.xml"/>
+        <mapper resource="mappers/RoomMapper.xml"/>
+        <mapper resource="mappers/RoomMemberMapper.xml"/>
+        <mapper resource="mappers/ReplyMapper.xml"/>
+        <mapper resource="mappers/BoardMapper.xml"/>
+
     </mappers>
 </configuration>

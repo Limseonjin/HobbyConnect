@@ -1,0 +1,96 @@
+
+#board-list {
+    width: 90%;
+}
+/* main-body (게시글 목록들)*/
+#main-body{
+    margin-top: 50px;
+
+}
+
+#main-body .card h1{
+    font-size: 1.5rem;
+}
+#post-list-body {
+    display: grid;
+    justify-content: start;
+    align-items: start;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    height: 900px;
+}
+#post-list{
+    height: 1108px;
+    box-shadow: 0px 0px 5px 1px #c3c3c3;
+}
+
+
+/* 방 목록 개별 게시글 */
+.room-post{
+    margin: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#post-list-body .room-post .card-header,
+#board-list .card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+#post-list-body .room-post .card-header h2,
+#board-list .card-header h2{
+    font-weight: 800;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#post-list-body .room-post .card-header .bi{
+    width: 30px;
+    height: 30px;
+}
+#post-list .room-post .card-body{
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#post-list .room-post .card-body .jcend{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+
+#post-list .room-post .card-body button{
+    width: 100px;
+}
+/* 참여하기 버튼 */
+#post-list-body .foward-room{
+    margin-top: 10px;
+}
+
+/* 페이지 번호 */
+#page-num{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* room css */
+/* board 게시글 전체 창 */
+#room-post-list{
+    height: 800px;
+}
+
+#post-board-body #board-list{
+    margin: 20px;
+}
+
+#post-board-body #board-list .room-board-post{
+    margin: 20px 0;
+}

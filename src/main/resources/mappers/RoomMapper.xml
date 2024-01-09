@@ -1,0 +1,111 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mvc.member.repository.RoomMapper">
+
+    <!-- 방을 만들기 -->
+    <insert id="save" parameterType="Room" useGeneratedKeys="true" keyProperty="roomId">
+        INSERT INTO tbl_room
+        (main_board_title, main_board_content,person_id, room_name, room_pw, max_user, curr_user)
+        VALUES
+        (#{mainBoardTitle},#{mainBoardContent},#{personId}, #{roomName}, #{roomPw}, #{maxUser},1)
+    </insert>
+
+    <!-- 내가 찾고 싶은 방을 방 아이디로 조회 -->
+    <select id="findOne" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE room_id = #{roomId}
+    </select>
+
+    <!-- 모든 방을 조회 -->
+    <select id="pageFindAll" resultType="Room">
+        SELECT * FROM tbl_room
+        ORDER BY reg_date DESC
+        LIMIT #{p.pageStart},#{p.amount}
+    </select>
+
+    <!-- roomId로 비동기로 띄워줄 정보 조회 -->
+    <select id="findBoard" resultType="RoomBoardResponseDTO">
+        SELECT *,
+        COUNT(r.reply_id) AS reply_count
+        FROM
+        tbl_board b
+        JOIN
+        tbl_person p ON b.person_id = p.person_id
+        LEFT JOIN
+        tbl_reply r ON b.board_id = r.board_id
+        WHERE
+        b.room_id = #{roomId}
+        GROUP BY
+        b.board_id, b.view_count, b.board_content, p.nickname
+        ORDER BY b.board_id DESC
+        LIMIT #{p.pageStart},#{p.amount}
+    </select>
+
+    <!-- 방장의 아이디로 특정 방을 조회 -->
+    <select id="findByPersonId" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE person_id = #{personId}
+        ORDER BY reg_date DESC
+        LIMIT #{p.pageStart},#{p.amount}
+    </select>
+
+    <!-- 내가 찾고 싶은 방을 방 제목으로 조회-->
+    <select id="findRoomByTitle" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE main_board_title LIKE CONCAT('%',#{keyword},'%')
+        ORDER BY reg_date DESC
+        LIMIT #{p.pageStart},#{p.amount}
+    </select>
+    <!-- 내가 찾고 싶은 방을 방 내용으로 조회-->
+    <select id="findRoomByContent" resultType="Room">
+        SELECT * FROM tbl_room
+        WHERE main_board_content LIKE CONCAT('%',#{keyword},'%')
+        ORDER BY reg_date DESC
+        LIMIT #{p.pageStart},#{p.amount}
+    </select>
+
+    <!-- 특정 회원이 내 방에 들어오면 currUser가 증가 되거나 감소 해야 함 -->
+    <update id="updateCurrUser">
+        UPDATE tbl_room
+        SET curr_user = #{currUser}
+        WHERE room_id = #{roomId}
+    </update>
+
+    <!-- 방 삭제 -->
+    <delete id="deleteRoom" parameterType="Long">
+        DELETE FROM tbl_room WHERE room_id = #{roomId}
+    </delete>
+
+    <update id="modify">
+        UPDATE tbl_room
+        SET main_board_title = #{mainBoardTitle},
+            main_board_content = #{mainBoardContent}
+        WHERE room_id = #{roomId}
+    </update>
+
+
+    <select id="count" resultType="int">
+        SELECT count(*) FROM tbl_room
+    </select>
+
+    <select id="searchCountPersonId" resultType="int">
+        SELECT count(*) FROM tbl_room
+        WHERE person_id = #{personId}
+    </select>
+
+    <select id="searchCountTitle" resultType="int">
+        SELECT count(*) FROM tbl_room
+        WHERE main_board_title LIKE CONCAT('%',#{keyword},'%')
+    </select>
+    <select id="searchCountContent" resultType="int">
+        SELECT count(*) FROM tbl_room
+        WHERE main_board_content LIKE CONCAT('%',#{keyword},'%')
+    </select>
+
+    <select id="password" resultType="int">
+        SELECT room_pw FROM tbl_room
+        WHERE room_id = #{roomId}
+    </select>
+</mapper>

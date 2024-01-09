@@ -1,0 +1,212 @@
+/*@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');*/
+body {
+    background: #F7F8E0;
+}
+.note{
+    font-family: 'Abril Fatface', cursive;
+    color: #FE642E;
+    text-align: center;
+    font-size: 25px;
+}
+hr {
+    border: none; /* 기본 테두리 제거 */
+    height: 2px; /* 수평선의 두께 */
+    background-color: #333; /* 수평선의 색상 */
+    margin: 20px 0; /* 위아래 여백 조절 */
+}
+
+.form-0 {
+    margin-top: 30px;
+    position: relative;
+}
+
+.board-top {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+hr {
+    width: 100%;
+}
+
+.form-1 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    resize: none;
+    align-items: end;
+}
+
+.write-1,
+.write-2 {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc; /* 네모박스 테두리 추가 */
+    border-radius: 5px; /* 테두리를 둥글게 만듭니다. */
+
+}
+.write-1 {
+    width:100%;
+    font-size: 30px;
+    border: 2px solid #6E6E6E;
+    background-color: #ffffff;
+    outline: none;
+    border-bottom: 2px solid #000;
+    resize: none;
+}
+
+.write-2 {
+    margin-top: 10px;
+    font-size: 20px;
+    border: 2px solid #6E6E6E;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+    height: 300px;
+}
+
+/* 선택 시 포커스 스타일링 */
+.write-2:focus {
+    border-color: #819FF7;
+    box-shadow: 0 0 5px rgba(129, 159, 247, 0.5);
+
+}
+
+.write-3 {
+    margin-top: 10px;
+}
+
+.write-4 {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #819FF7;
+    border: 1px solid #819FF7;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin-bottom: 10px;
+}
+.write-5 {
+    display: inline-block;
+    padding: 30px 35px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #819FF7;
+    border: 1px solid #819FF7;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px 10px; /* 돌아가기 버튼 아래 여백 추가 */
+}
+
+.write-4:hover,
+.write-5:hover {
+    background-color: #F78181;
+}
+textarea {
+    width: 90%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 3px solid #6E6E6E;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 댓글 전체 css */
+#reply-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    resize: none;
+}
+#reply-wrapper h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* 댓글 등록 버튼 */
+#add-reply {
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #949494;
+}
+
+/* 댓글 등록 버튼을 오른쪽으로 정렬 */
+form {
+    text-align: center;
+}
+
+/* 댓글 등록 버튼 스타일 조정 (예시) */
+input[value="댓글 등록"] {
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* 버튼과 상단 간격 조절 */
+}
+.line{
+    margin: 50px 0;
+    border: 1px;
+}
+
+/* 댓글 작성 css */
+#reply-wrapper .reply-write {
+    margin-bottom: 30px;
+}
+/* 기본 스타일 (댓글)*/
+.comments {
+    list-style: none;
+    padding: 0;
+}
+.btn-comment-up{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: auto; /* 버튼을 왼쪽으로 밀어서 오른쪽 정렬 */
+    padding: 12px 20px; /* 크기를 키우려면 원하는 크기로 조절 */
+    font-size: 16px; /* 폰트 크기를 조절 */
+    background-color: #CEE3F6; /* 원하는 색상으로 변경 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.btn-comment-delete {
+    display: inline-block;
+    margin-left: auto; /* 버튼을 왼쪽으로 밀어서 오른쪽 정렬 */
+    padding: 12px 20px; /* 크기를 키우려면 원하는 크기로 조절 */
+    font-size: 16px; /* 폰트 크기를 조절 */
+    background-color: #F78181; /* 원하는 색상으로 변경 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.comments{
+    height: 500px;
+}
+.comment {
+    display: flex;
+    justify-content: space-between;
+    /*border: 1px black solid;*/
+    padding: 10px;
+}
+.comment .reply-wrap {
+    width: 70%;
+}
+.comment .reply-wrap .author{
+    margin-bottom: 10px;
+}
