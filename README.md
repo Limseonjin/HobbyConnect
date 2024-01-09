@@ -24,10 +24,15 @@
 ## 🤞사이트 소개
 
 - 메인페이지 - 방 목록, 검색기능
-- 로그인,회원가입 
-- 방 생성 -홍보용 게시글과 방을 동시에 생성 
+   <img src="https://github.com/Limseonjin/HobbyConnect/blob/main/img/main.png?raw=true" height="400">
+- 마이페이지 - 참여중인 방, 게시한 게시글, 댓글을 볼 수 있음. 회원정보 수정.삭제 가능
+  <img src="https://github.com/Limseonjin/HobbyConnect/blob/main/img/mypage.png?raw=true" height="400">
+- 방 생성 -홍보용 게시글과 방을 동시에 생성, 방 암호 지정 가능
+  <img src="https://github.com/Limseonjin/HobbyConnect/blob/main/img/createRoom.png?raw=true" height="400">
 - 방 내 메인 페이지 - 방 멤버가 게시한 게시글을 볼 수 있음.
+ <img src="https://github.com/Limseonjin/HobbyConnect/blob/main/img/room-main.png?raw=true" height="400">
 - 방 내 게시물에 댓글 달기 - 게시글을 클릭하여 자세히 보고, 댓글을 달 수 있음
+ <img src="https://github.com/Limseonjin/HobbyConnect/blob/main/img/boarddetail.png?raw=true" height="400">
 
 ## 🦋기대 효과 
 모임을 통해 친목을 도모하고 새로운 친구를 사귈 수 있으며, 취미를 더 즐거운 경험으로 만들 수 있습니다. 
