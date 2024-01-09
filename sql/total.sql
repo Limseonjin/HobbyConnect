@@ -1,4 +1,4 @@
-
+-- 테이블 생성 후  person1, person2, person3를 사이트에서 회원가입을 먼저 하세요
 Create Database hobby;
 
 use hobby;
@@ -83,3 +83,35 @@ CREATE TABLE tbl_roomMember
         FOREIGN KEY (room_id)
             REFERENCES tbl_room (room_id) ON DELETE CASCADE
 );
+
+
+INSERT INTO tbl_room (person_id, main_board_title, main_board_content, room_name, room_pw, max_user,curr_user)
+VALUES ('person1', '코딩하실분??', '아무거나 환영', '코딩모임', null, 10,2);
+INSERT INTO tbl_room (person_id, main_board_title, main_board_content, room_name, room_pw, max_user)
+VALUES ('person2', '피아노치실분?', '양손잡이만. 비번 힌트: 음악의 아버지', '월광의 소나타', '바흐', 20);
+INSERT INTO tbl_room (person_id, main_board_title, main_board_content, room_name, room_pw, max_user,curr_user)
+VALUES ('person3', '등산 모임', '등산할 사람 구합니다. 30대 이상만.', '등오름', null, 30,2);
+
+INSERT INTO tbl_roomMember (room_id, person_id, auth)
+VALUES (1, 'person1', 'ADMIN');
+INSERT INTO tbl_roomMember (room_id, person_id, auth)
+VALUES (1, 'person2', 'COMMON');
+INSERT INTO tbl_roomMember (room_id, person_id, auth)
+VALUES (2, 'person2', 'ADMIN');
+INSERT INTO tbl_roomMember (room_id, person_id, auth)
+VALUES (3, 'person3', 'ADMIN');
+INSERT INTO tbl_roomMember (room_id, person_id, auth)
+VALUES (3, 'person1', 'COMMON');
+
+INSERT INTO tbl_board (person_id, board_title, board_content, room_id)
+VALUES ('person1', '저 이거 잘 안돼요,, 도와주세요 ', '.', 1);
+INSERT INTO tbl_board (person_id, board_title, board_content, room_id)
+VALUES ('person2', '님들은 밖에 잘 나가시나요? ', '저만 집에서 맨날 컴퓨터 하는거 아니죠??', 1);
+
+INSERT INTO tbl_reply (person_id, board_id, content)
+VALUES ('person2', 1, '아니 내용을 써야 도와주든 하지 ㅡㅡ');
+INSERT INTO tbl_reply (person_id, board_id, content)
+VALUES ('person1', 2, '전 나가서 산책하는거 좋아해요');
+
+INSERT INTO tbl_board (person_id, board_title, board_content, room_id)
+VALUES ('person2', '피아노 모임에 온 것을 환영합니다', '별명/거주지/나이 댓글에 써주세요', 2);
